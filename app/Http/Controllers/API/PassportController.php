@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\User;
 use App\Models\Role;
+use Auth;
 
 class PassportController extends Controller
 {
@@ -84,10 +85,7 @@ class PassportController extends Controller
 
     public function logout(Request $request)
     {
-
-        $request->user()->token()->revoke();
-        //logs user out of the web too
-        Auth::guard('web')->logout();
-        return response()->json(['message' => 'Successfully logged out'], 200);
+      $request->user()->token()->revoke();
+      return response()->json(['message' => 'Successfully logged out'], 200);
     }
 }
