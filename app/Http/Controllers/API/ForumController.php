@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Forum;
+use App\Models\Post;
+
 use Validator;
 
 
@@ -59,7 +61,7 @@ class ForumController extends Controller
   //view forum
   public function show($id)
   {
-    $forum = Forum::findOrFail($id);
+    $forum = Post::where('forum_id', $id)->get();
 
     if ($forum === null) {
       $statusMsg = 'forum not found!';
