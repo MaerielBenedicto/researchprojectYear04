@@ -17,7 +17,6 @@ class CreatePostsTable extends Migration
           $table->bigIncrements('id');
           $table->string('title');
           $table->text('body');
-          $table->date('date');
           $table->bigInteger('user_id')->unsigned();
           $table->bigInteger('forum_id')->unsigned();
 

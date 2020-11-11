@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\PassportController;
 use App\Http\Controllers\API\ForumController;
+use App\Http\Controllers\API\PostController;
 
 
 /*
@@ -30,4 +31,10 @@ Route::middleware('auth:api')->group(function () {
   Route::put('forums/{forum}', [ForumController::class, 'update']);
   Route::get('forums/{forum}', [ForumController::class, 'show']);
   Route::delete('forums/{forum}', [ForumController::class, 'destroy']);
+
+  Route::get('forums/{forum}/posts', [PostController::class, 'index']);
+  Route::post('forums/{forum}/posts', [PostController::class, 'store']);
+  Route::put('posts/{post}', [PostController::class, 'update']);
+  Route::get('posts/{post}', [PostController::class, 'show']);
+  Route::delete('posts/{post}', [PostController::class, 'destroy']);
 });
