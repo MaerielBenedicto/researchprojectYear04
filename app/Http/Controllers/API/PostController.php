@@ -12,7 +12,8 @@ class PostController extends Controller
   public function index($id)
     {
         // dd($id);
-        $posts = Post::where('forum_id', $id)->get();
+        $posts = Post::where('forum_id', $id)->with('user')->get();
+        
         return $posts;
     }
 

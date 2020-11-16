@@ -16,7 +16,6 @@ class ForumController extends Controller
   public function index()
     {
         $forums = Forum::all();
-
         return $forums;
     }
 
