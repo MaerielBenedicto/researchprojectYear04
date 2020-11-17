@@ -13,7 +13,6 @@ class PostController extends Controller
     {
         // dd($id);
         $posts = Post::where('forum_id', $id)->with('user')->get();
-        
         return $posts;
     }
 
