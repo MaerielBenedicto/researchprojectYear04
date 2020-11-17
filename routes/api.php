@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\PassportController;
 use App\Http\Controllers\API\ForumController;
 use App\Http\Controllers\API\PostController;
+use App\Http\Controllers\API\CommentController;
 
 
 /*
@@ -37,4 +38,11 @@ Route::middleware('auth:api')->group(function () {
   Route::put('posts/{post}', [PostController::class, 'update']);
   Route::get('posts/{post}', [PostController::class, 'show']);
   Route::delete('posts/{post}', [PostController::class, 'destroy']);
+
+  Route::get('posts/{post}/comments', [CommentController::class, 'index']);
+  Route::post('posts/{post}/comments', [CommentController::class, 'store']);
+  Route::put('comments/{comment}', [CommentController::class, 'update']);
+  Route::get('comments/{comment}', [CommentController::class, 'show']);
+  Route::delete('comments/{comment}', [CommentController::class, 'destroy']);
+
 });
