@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 use App\Models\User;
 use App\Models\Forum;
+use App\Models\Post;
 
 use Tests\TestCase;
 // use PHPUnit\Framework\TestCase;
@@ -24,6 +25,9 @@ class ExampleTest extends TestCase
       $postsInForum = $forum->posts;
       $this->assertTrue($forum->id === $postsInForum->first()->forum->id);
 
-      
+      $post = Post::where('id', 2)->first();
+      $comments = $post->comments;
+      $this->assertTrue($post->id === $comments->first()->post->id);
+
     }
 }
