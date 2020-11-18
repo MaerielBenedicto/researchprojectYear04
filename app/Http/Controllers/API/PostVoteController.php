@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use App\Models\PostVote;
 use Validator;
 
@@ -21,8 +22,8 @@ class PostVoteController extends Controller
   //create post_vote
   public function store(Request $request, $id){
     $validator = Validator::make($request->all(), [
-        'upvote' => 'nullable',
-        'downvote' => 'nullable',
+        'upvote' => 'boolean',
+        'downvote' => 'boolean',
         'user_id' => 'required|integer',
         'post_id' => 'required|integer'
     ]);
@@ -55,8 +56,8 @@ class PostVoteController extends Controller
   public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-          'upvote' => 'nullable',
-          'downvote' => 'nullable',
+          'upvote' => 'boolean',
+          'downvote' => 'boolean',
           'user_id' => 'required|integer',
           'post_id' => 'required|integer'
         ]);

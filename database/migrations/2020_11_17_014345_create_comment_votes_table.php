@@ -15,8 +15,8 @@ class CreateCommentVotesTable extends Migration
     {
         Schema::create('comment_votes', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->boolean('upvote')->nullable();
-          $table->boolean('downvote')->nullable();
+          $table->boolean('upvote')->default(0);
+          $table->boolean('downvote')->default(0);
           $table->bigInteger('user_id')->unsigned();
           $table->bigInteger('comment_id')->unsigned();
 

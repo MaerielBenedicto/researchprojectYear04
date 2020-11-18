@@ -7,6 +7,7 @@ use App\Http\Controllers\API\ForumController;
 use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\CommentController;
 use App\Http\Controllers\API\PostVoteController;
+use App\Http\Controllers\API\CommentVoteController;
 
 
 /*
@@ -49,6 +50,9 @@ Route::middleware('auth:api')->group(function () {
   Route::get('posts/vote/{user}', [PostVoteController::class, 'index']);
   Route::post('posts/{post}/vote', [PostVoteController::class, 'store']);
   Route::put('post/{post_vote}/vote', [PostVoteController::class, 'update']);
-  // Route::get('posts/{post}/upvote', [PostVoteController::class, 'show']);
+
+  Route::get('comments/vote/{user}', [CommentVoteController::class, 'index']);
+  Route::post('comments/{comment}/vote', [CommentVoteController::class, 'store']);
+  Route::put('comment/{post_vote}/vote', [CommentVoteController::class, 'update']);
 
 });
