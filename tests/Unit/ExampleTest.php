@@ -23,5 +23,7 @@ class ExampleTest extends TestCase
       $forum = Forum::where('id', 1)->first();
       $postsInForum = $forum->posts;
       $this->assertTrue($forum->id === $postsInForum->first()->forum->id);
+
+      
     }
 }
