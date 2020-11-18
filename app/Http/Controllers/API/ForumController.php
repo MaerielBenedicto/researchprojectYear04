@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Forum;
 use App\Models\Post;
+use App\Models\User;
 
 use Validator;
 
@@ -15,15 +16,16 @@ class ForumController extends Controller
 
   public function index()
     {
-        $forums = Forum::all();
+        $forums = Forum::with('user')->get();
         return $forums;
     }
 
   //create forum
   public function store(Request $request){
     $validator = Validator::make($request->all(), [
-        'name' => 'required|string',
-        'description' => 'nullable|string'
+        'topic' => 'required|string',
+        'description' => 'nullable|string',
+        'user_id' => 'required|integer'
     ]);
 
     if ($validator->fails()) {
@@ -31,8 +33,10 @@ class ForumController extends Controller
     }
 
     $forum = Forum::create([
-        'name' => $request->name,
-        'description' => $request->description
+        'topic' => $request->topic,
+        'description' => $request->description,
+        'user_id' => $request->user_id
+
     ]);
 
     return response()->json(['message' => 'Added to forums', 'data' => $forum], 200);
@@ -41,8 +45,10 @@ class ForumController extends Controller
   public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-          'name' => 'required|string',
-          'description' => 'nullable|string'
+          'topic' => 'required|string',
+          'description' => 'nullable|string',
+          'user_id' => 'required|integer'
+
         ]);
 
         if ($validator->fails()) {
@@ -50,8 +56,9 @@ class ForumController extends Controller
         }
 
         $forum = Forum::find($id);
-        $forum->name = $request->input('name');
+        $forum->topic = $request->input('topic');
         $forum->description = $request->input('description');
+        $forum->user_id = $request->input('user_id');
         $forum->save();
 
         return $forum;
@@ -60,16 +67,16 @@ class ForumController extends Controller
   //view forum
   public function show($id)
   {
-    $forum = Post::where('forum_id', $id)->get();
+    $post = Post::where('forum_id', $id)->get();
 
-    if ($forum === null) {
+    if ($post === null) {
       $statusMsg = 'forum not found!';
       $statusCode = 404;
     }
     else {
       return response()->json(
         [
-            'data' => $forum
+            'data' => $post
         ],
         200);
     }

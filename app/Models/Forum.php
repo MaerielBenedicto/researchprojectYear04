@@ -15,8 +15,12 @@ class Forum extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description'
+        'topic', 'description', 'user_id'
     ];
+
+    public function user(){
+      return $this->belongsTo('App\Models\User');
+    }
 
     public function posts(){
       return $this->hasMany('App\Models\Post');
