@@ -15,15 +15,15 @@ class CreateCommentVotesTable extends Migration
     {
         Schema::create('comment_votes', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->integer('upvote');
-          $table->integer('downvote');
+          $table->boolean('upvote')->nullable();
+          $table->boolean('downvote')->nullable();
           $table->bigInteger('user_id')->unsigned();
-          $table->bigInteger('post_id')->unsigned();
+          $table->bigInteger('comment_id')->unsigned();
 
           $table->timestamps();
 
           $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
-          $table->foreign('post_id')->references('id')->on('posts')->onUpdate('cascade')->onDelete('restrict');
+          $table->foreign('comment_id')->references('id')->on('comments')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 

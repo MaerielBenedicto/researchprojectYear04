@@ -28,5 +28,9 @@ class Comment extends Model
         return $this->belongsTo('App\Models\User');
     }
 
+    public function comment_vote()
+    {
+      return $this->hasMany('App\Models\CommentVote');
+    }
 
 }

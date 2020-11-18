@@ -58,12 +58,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Comment');
     }
 
-    public function votes()
+    public function post_votes()
     {
         return $this->hasMany('App\Models\PostVote');
     }
 
-    public function votes()
+    public function comment_votes()
     {
         return $this->hasMany('App\Models\CommentVote');
     }

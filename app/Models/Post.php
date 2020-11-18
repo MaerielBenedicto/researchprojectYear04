@@ -31,4 +31,9 @@ class Post extends Model
       return $this->hasMany('App\Models\Comment');
     }
 
+    public function post_vote(){
+      return $this->hasMany('App\Models\PostVote');
+    }
+
+
 }

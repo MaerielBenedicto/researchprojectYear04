@@ -15,8 +15,8 @@ class CreatePostVotesTable extends Migration
     {
         Schema::create('post_votes', function (Blueprint $table) {
           $table->bigIncrements('id');
-          $table->integer('upvote');
-          $table->integer('downvote');
+          $table->boolean('upvote')->nullable();
+          $table->boolean('downvote')->nullable();
           $table->bigInteger('user_id')->unsigned();
           $table->bigInteger('post_id')->unsigned();
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\API\PassportController;
 use App\Http\Controllers\API\ForumController;
 use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\CommentController;
+use App\Http\Controllers\API\PostVoteController;
 
 
 /*
@@ -44,5 +45,10 @@ Route::middleware('auth:api')->group(function () {
   Route::put('comments/{comment}', [CommentController::class, 'update']);
   Route::get('comments/{comment}', [CommentController::class, 'show']);
   Route::delete('comments/{comment}', [CommentController::class, 'destroy']);
+
+  Route::get('posts/vote/{user}', [PostVoteController::class, 'index']);
+  Route::post('posts/{post}/vote', [PostVoteController::class, 'store']);
+  Route::put('post/{post_vote}/vote', [PostVoteController::class, 'update']);
+  // Route::get('posts/{post}/upvote', [PostVoteController::class, 'show']);
 
 });
