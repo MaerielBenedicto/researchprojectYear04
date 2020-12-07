@@ -19,6 +19,8 @@ class CreatePostsTable extends Migration
           $table->text('body');
           $table->bigInteger('user_id')->unsigned();
           $table->bigInteger('forum_id')->unsigned();
+          $table->int('s_score');
+          $table->int('s_magnitude');
 
           $table->timestamps();
 
