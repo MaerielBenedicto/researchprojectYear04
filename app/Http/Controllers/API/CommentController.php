@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Comment;
 use App\Models\Post;
-
+use Google\Cloud\Core\ServiceBuilder;
+use Google\Cloud\Language\V1\Document;
+use Google\Cloud\Language\V1\Document\Type;
+use Google\Cloud\Language\V1\LanguageServiceClient;
+use Google\Cloud\Language\V1\Entity\Type as EntityType;
 use Validator;
 
 class CommentController extends Controller
@@ -64,8 +68,8 @@ class CommentController extends Controller
         $comment->body = $request->input('body');
         $comment->user_id = $request->input('user_id');
         $comment->post_id = $request->input('post_id');
-        $comment->s_score => $sentimentValues['score'];
-        $comment->s_magnitude => $sentimentValues['magnitude'];
+        $comment->s_score = $sentimentValues['score'];
+        $comment->s_magnitude = $sentimentValues['magnitude'];
         $comment->save();
 
         return $comment;
