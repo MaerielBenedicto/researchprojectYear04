@@ -135,6 +135,5 @@ class PostController extends Controller
     $sentiment = $annotation->sentiment();
     // dd($sentiment);
     return $sentiment;
-    // echo 'Sentiment Score: ' . $sentiment['score'] . ', Magnitude: ' . $sentiment['magnitude'];
   }
 }
