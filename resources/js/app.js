@@ -12,10 +12,4 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// require('./components/Example');
 require('./views/App');
-// require('./views/Home');
-// require('./components/Signin');
-
-
-// require('./layouts/Navbar');

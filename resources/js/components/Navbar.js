@@ -1,3 +1,4 @@
+import { nodeName } from 'jquery';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/app.css';
@@ -6,6 +7,9 @@ import '../../css/app.css';
 class Navbar extends Component {
   constructor(){
     super();
+    this.state = {
+      displayStyle: 'block'
+    };
     this.logout = this.logout.bind(this);
   }
 
@@ -27,9 +31,6 @@ class Navbar extends Component {
         this.errors = error.response.data.errors;
         } 
     });
-
-    
-
   }
 
   render(){
@@ -52,15 +53,15 @@ class Navbar extends Component {
                         <Link to="/" className="nav-link">Browse</Link>
                       </li>
 
-                      <li className="nav-item">
+                      <li className="nav-item" style={{display: this.props.displayIn}}>
                         <Link to="/" className="nav-link" >Sign Up</Link>
                       </li>
 
-                      <li className="nav-item">
-                        <Link to="/signin" className="last-nav-link" >Sign In</Link>
+                      <li className="nav-item" style={{display: this.props.displayIn}}> 
+                        <Link to="/signin" className="last-nav-link">Sign In</Link>
                       </li>
 
-                      <li className="nav-item">
+                      <li className="nav-item" style={{display: this.props.displayOut}}>
                         <Link to="/" className="last-nav-link" onClick={this.logout}>Sign out</Link>
                       </li>
 

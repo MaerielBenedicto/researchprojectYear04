@@ -32,14 +32,11 @@ class Signin extends Component {
             localStorage.setItem("token", response.data.token);
             console.log("LOG IN SUCCESS");
             this.props.login();
-            console.log("before");
             this.setState({
                 email: response.data.email,
                 password: response.data.password,
                 isLoggedIn: true
             });
-            console.log("after");
-
           })
         .catch(function(error) {
             if(error.response){
@@ -62,7 +59,7 @@ class Signin extends Component {
     render() {
 
         if (this.state.isLoggedIn) {
-            // redirect to home if signed up
+            // redirect to home if logged in
             return <Redirect to='/' />;
           }
 

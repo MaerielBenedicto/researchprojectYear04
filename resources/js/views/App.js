@@ -17,51 +17,46 @@ class App extends Component {
         super();
         this.state = {
             user: {},
-            isLoggedIn: '',
-            errors:  ''
+            isLoggedIn: false,
+            errors:  '',
+            displayOut: 'block',
+            displayIn: 'block'
         }
 
         this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
         this.getUser = this.getUser.bind(this);
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
-
-
+        // this.displayStyle = this.displayStyle.bind(this);
     }
 
     //life cycle method
-  componentDidMount(){
-    this.checkIfLoggedIn();
-  }
-
+    componentDidMount(){
+        this.checkIfLoggedIn();
+    }
 
     checkIfLoggedIn(){
         let token = localStorage.getItem("token");
         console.log("Check if log in");
         if(token) {
         console.log("log in");
-        this.setState({ isLoggedIn: true});          
+        this.setState({ isLoggedIn: true}, () => this.setState({displayIn: 'none', displayOut: 'block'}));          
         //get user data
           this.getUser();
         } else {
-            console.log("not log in");
-          this.setState({ isLoggedIn: false});
+        console.log("not log in");
+          this.setState({ isLoggedIn: false}, () => this.setState({displayIn: 'block', displayOut: 'none'}));  
         }
       }
 
       login(){
-        this.setState({
-            isLoggedIn: true
-        });
-        console.log("is this working");
+        this.setState({isLoggedIn: true}, () => this.setState({displayIn: 'none', displayOut: 'block'}));
         this.getUser();
       }
 
       logout(){
-        this.setState({
-            isLoggedIn: false
-        });      
-    }
+        this.setState({isLoggedIn: false}, () => this.setState({displayIn: 'block', displayOut: 'none'}));
+      }
 
       getUser(){
         let token = localStorage.getItem("token");
@@ -82,11 +77,13 @@ class App extends Component {
         });
         }
 
+        
+
     render () {
         return (
             <div className="App">
                 <Router>
-                    <Navbar signout={this.logout}/>
+                    <Navbar signout={this.logout} displayIn={this.state.displayIn} displayOut={this.state.displayOut}/>
                     <Switch>
                         <Route exact path="/">
                             <Home />

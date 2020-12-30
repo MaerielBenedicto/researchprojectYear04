@@ -1418,6 +1418,14 @@ a.builder-next h5::after {
     float: right;
 }
 
+#link{
+    display: block;
+}
+
+#link .active{
+    display: block;
+}
+
 /********** WELCOME PAGE **********/
 .vertical-center {
     min-height: 100%;
