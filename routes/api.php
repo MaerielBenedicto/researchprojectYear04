@@ -27,7 +27,7 @@ Route::post('register', [PassportController::class, 'register']);
 
 Route::middleware('auth:api')->group(function () {
   Route::get('user', [PassportController::class, 'user']);
-  Route::post('logout', [PassportController::class, 'logout']);
+  Route::get('logout', [PassportController::class, 'logout']);
 
   Route::get('forums', [ForumController::class, 'index']);
   Route::post('forums', [ForumController::class, 'store']);
