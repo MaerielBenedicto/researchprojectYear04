@@ -94,6 +94,7 @@ class App extends Component {
                         <Route path="/register">
                             <Register login={this.login}/>
                         </Route>
+                        
                     </Switch>
             </Router>
             </div>
