@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Posts from '../components/Posts';
 
 class Home extends Component {
     render(){
@@ -7,6 +8,7 @@ class Home extends Component {
             <div className="container">
                 <div>
                     <h1> Home </h1>
+                    <Posts />
                 </div>
             </div>
         )

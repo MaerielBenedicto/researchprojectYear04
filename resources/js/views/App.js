@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar';
 import Forums from '../components/Forums';
 import Posts from '../components/Posts';
 import Signin from '../components/Signin';
+import Register from '../components/Register';
 import Home from './Home';
 
 import '../../css/app.css';
@@ -27,7 +28,6 @@ class App extends Component {
         this.getUser = this.getUser.bind(this);
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
-        // this.displayStyle = this.displayStyle.bind(this);
     }
 
     //life cycle method
@@ -72,7 +72,7 @@ class App extends Component {
         .catch(function(error){
             if(error){
                 console.log(error);
-                // this.errors = error.response.data.errors;
+                this.state.errors = error.response.data.errors;
             } 
         });
         }
@@ -90,6 +90,9 @@ class App extends Component {
                         </Route>
                         <Route path="/signin">
                             <Signin login={this.login} />
+                        </Route>
+                        <Route path="/register">
+                            <Register />
                         </Route>
                     </Switch>
             </Router>

@@ -54,7 +54,7 @@ class Navbar extends Component {
                       </li>
 
                       <li className="nav-item" style={{display: this.props.displayIn}}>
-                        <Link to="/" className="nav-link" >Sign Up</Link>
+                        <Link to="/register" className="nav-link" >Sign Up</Link>
                       </li>
 
                       <li className="nav-item" style={{display: this.props.displayIn}}> 
