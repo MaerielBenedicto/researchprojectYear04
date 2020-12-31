@@ -92,7 +92,7 @@ class App extends Component {
                             <Signin login={this.login} />
                         </Route>
                         <Route path="/register">
-                            <Register />
+                            <Register login={this.login}/>
                         </Route>
                     </Switch>
             </Router>
