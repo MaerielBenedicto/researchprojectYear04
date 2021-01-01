@@ -580,53 +580,29 @@ label.required::after {
     margin: 0px auto;
 }
 
-.forgot-msg{
-    color: #2c8cd6;
-    position: absolute;
-    left: 58%;
-    right: 0%;
-    top: 100%;
-    bottom: 21.69%;
-
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
-    /* identical to box height */
+.form-msg{
+    text-align: center;
 }
 
-.remember-msg{
-    color: #000000;
-    position: absolute;
-    left: 8%;
-    right: 50%;
-    top: 100%;
-    bottom: 21.69%;
-
-    font-family: Poppins;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
+.form-msg span{
+    padding-right: 110px;
 }
+
 
 .signin-btn{
     height: 54px;
     width: 385px;
-    border-radius: 5px;
-
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 55px;
-    bottom: 10%;
-
+    border-radius: 5px;    
     background: #5596E6;
     border: 1px solid #E9E9E9;
     box-sizing: border-box;
     border-radius: 5px;
     color: #FFFFFF;
+    margin: 0px auto;
+}
+
+.form-bttn{
+    text-align: center;
 }
 
 .register-btn{
@@ -654,7 +630,53 @@ label.required::after {
     line-height: 54px;
     letter-spacing: 0em;
     text-align: left;
-    }
+    
+}
+
+.logo-site-footer {
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 54px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-top: 50px;
+}
+
+
+.logo-site-footer a{
+    color: white;
+
+}
+
+.footer-bar{
+    height: 250px;
+    background: #7E7E7E;
+    /* margin-top: 100px !important; */
+}
+
+.footer-brand {
+    /* padding: 0px !important; */
+    padding-top: 50px;
+    margin-right: 30px;
+    
+}
+
+.footer-list-group{
+    font-size: 14px;
+    list-style-type: none;
+    line-height: normal;
+}
+
+.footer-list-group-item {
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.footer-heading{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 .sort-select .custom-select {
     height: 35px;

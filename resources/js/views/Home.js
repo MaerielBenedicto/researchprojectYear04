@@ -13,7 +13,7 @@ class Home extends Component {
         super();
         this.state = {
             forums: [],
-             lastIndex: 0
+            isLoaded: false
         };
     }
 
@@ -21,16 +21,12 @@ class Home extends Component {
         axios.get('/api/forums')
         .then(response => {
             console.log(response);
-            const temptForums = response.data.map(item => {
-                item.forumsId = this.state.lastIndex;
-        
-                this.setState({lastIndex: this.state.lastIndex + 1});
-                return item;
-              })
+             const temptForums = response.data;
         
               //never modify state directly
               this.setState({
-                forums: temptForums
+                forums: temptForums,
+                isLoaded: true
               });
         })
         .catch(function(error){
@@ -42,32 +38,36 @@ class Home extends Component {
     }
 
     render(){
-        return (
-            <div className="body-content">  
-            <div className="container">
-            <div className="row item-list mb-3">
-                {this.state.forums.map(item => (
-                <div className="pet-item col-8 media py-3" key={item.id}>
-                    <div className="pet-info media-body">
-                    <div className="pet-head d-flex">
-                        <Link to={`/forums/${item.id}`} className="forum-title">
-                            {item.topic}
-                        </Link>
-                        {this.props.children}
+        if(this.state.isLoaded){
+            return (
+                <div className="body-content">  
+                <div className="container">
+                <div className="row item-list mb-3">
+                    {this.state.forums.map(item => (
+                    <div className="pet-item col-8 media py-3" key={item.id}>
+                        <div className="pet-info media-body">
+                        <div className="pet-head d-flex">
+                            <Link to={`/forums/${item.id}`} className="forum-title">
+                                {item.topic}
+                            </Link>
+                            {this.props.children}
+                        </div>
+    
+                        <div className="apt-notes">
+                        {item.description}
+                        </div>
+                        </div>
                     </div>
-
-                    <div className="apt-notes">
-                    {item.description}
-                    </div>
-                    </div>
+                    ))}
+               </div>
+    
                 </div>
-                ))}
-           </div>
-
+                    
             </div>
-                
-        </div>
-        )
+            )
+        } else{
+            return null;
+        }
     };
 }
 

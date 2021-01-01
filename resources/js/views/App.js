@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+
 import Forum from '../components/Forum';
 import Post from '../components/Post';
 import Signin from '../components/Signin';
@@ -101,6 +103,7 @@ class App extends Component {
                             <Post />
                         </Route>
                     </Switch>
+                    <Footer />
             </Router>
             </div>
             

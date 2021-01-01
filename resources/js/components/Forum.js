@@ -7,7 +7,8 @@ class Forum extends Component {
         super();
         this.state = {
             posts: [],
-            forum: {}
+            forum: {},
+            isLoaded: false
         };
         
     }
@@ -22,7 +23,8 @@ class Forum extends Component {
               //never modify state directly
               this.setState({
                 posts: tempPosts,
-                forum: tempForum
+                forum: tempForum,
+                isLoaded: true
               });
         })
         .catch(function(error){
@@ -35,37 +37,40 @@ class Forum extends Component {
 
 
     render(){
-        return (
-            <div className="body-content">
-                <div className="container"> 
-                <div className="row">
-                    <div className="col py-3">
-                            <h4>{this.state.forum.topic}</h4>
-                            <p>{this.state.forum.description}</p>
-                   </div>
-                </div>
+        if(this.state.isLoaded){
+            return (
+                <div className="body-content">
+                    <div className="container"> 
                     <div className="row">
-                        <div className="col-8 py-3">
-                        {this.state.posts.map(item => (
-                        <div key={item.id}>
-                            <div className="media-body">
-                            <div >
-                                <Link to={`/posts/${item.id}`} className="pet-name">
-                                {item.title}
-                                </Link>
+                        <div className="col py-3">
+                                <h4>{this.state.forum.topic}</h4>
+                                <p>{this.state.forum.description}</p>
+                       </div>
+                    </div>
+                        <div className="row">
+                            <div className="col-8 py-3">
+                            {this.state.posts.map(item => (
+                            <div key={item.id}>
+                                <div className="media-body">
+                                <div >
+                                    <Link to={`/posts/${item.id}`} className="pet-name">
+                                    {item.title}
+                                    </Link>
+                                </div>
+    
+                                <div className="apt-notes">
+                                {item.body}
+                                </div>
+                                </div>
                             </div>
-
-                            <div className="apt-notes">
-                            {item.body}
+                            ))}
                             </div>
-                            </div>
-                        </div>
-                        ))}
                         </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        } else { return null; }
+        
     };
 }
 

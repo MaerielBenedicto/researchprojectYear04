@@ -7,11 +7,8 @@ class Post extends Component {
     constructor(){
         super();
         this.state = {
-            post: {
-                user: {}
-            },
+            post: {},
             isLoaded: false
-            
         };
     }
 
@@ -23,7 +20,6 @@ class Post extends Component {
             //never modify state directly
             this.setState({
                 post: tempPost, 
-                user: tempPost.user,
                 isLoaded: true
             });
 

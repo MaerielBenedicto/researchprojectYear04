@@ -80,20 +80,17 @@ class Signin extends Component {
                                    
                                 </div>
 
-                                <div className="col-12">
+                                <div className="form-group col-12">
                                     <input id="password" type="password" className="form-control" placeholder="Password" name="password" required 
                                     value={this.state.password}
                                     onChange={this.handleChange} />
                                 </div>
-
-                                <div className="remember-msg col-12">
-                                    <input type="checkbox" value="lsRememberMe" id="rememberMe"/> <label>Remember me</label>
-                                </div>
-                                <div className="forgot-msg col-12">
+                                <div className="form-group col-12 form-msg">
+                                    <span><input type="checkbox" value="lsRememberMe" id="rememberMe"/> <label>Remember me</label></span>
                                     <a href="#">Forgot Password?</a>
                                 </div>
 
-                                <div className="form-button col-12">
+                                <div className="form-bttn col-12">
                                     <button className="signin-btn" type="submit">Sign In</button>
                                 </div>
                             </div>
