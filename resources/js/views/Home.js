@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Posts from '../components/Posts';
+import Post from '../components/Post';
 import Forum from '../components/Forum';
 // import '../../../public/css/app.css';
 import '../../css/app.css';

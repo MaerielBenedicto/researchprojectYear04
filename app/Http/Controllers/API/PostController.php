@@ -85,8 +85,8 @@ class PostController extends Controller
   //view post
   public function show($id)
   {
-    $post = Post::findOrFail($id);
-
+    $post = Post::with('user')->findOrFail($id);
+    
     if ($post === null) {
       $statusMsg = 'post not found!';
       $statusCode = 404;

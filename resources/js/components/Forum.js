@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 class Forum extends Component {
     constructor(){
@@ -13,15 +13,10 @@ class Forum extends Component {
     }
 
     componentDidMount(){
-        this.getPosts();
-    }
-
-    // Get posts in a forum
-    getPosts(){
-        // console.log(this.props.match.params.id)
+        //get posts in a forum
         axios.get('/api/forums/' + this.props.match.params.id)
         .then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             const tempPosts = response.data.data;
             const tempForum = response.data.forum;
               //never modify state directly
@@ -37,6 +32,7 @@ class Forum extends Component {
             } 
         });
     }
+
 
     render(){
         return (
@@ -54,9 +50,9 @@ class Forum extends Component {
                         <div key={item.id}>
                             <div className="media-body">
                             <div >
-                                <h4 className="pet-name">
+                                <Link to={`/posts/${item.id}`} className="pet-name">
                                 {item.title}
-                                </h4>
+                                </Link>
                             </div>
 
                             <div className="apt-notes">

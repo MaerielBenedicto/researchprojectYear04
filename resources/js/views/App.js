@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
 import Forum from '../components/Forum';
-import Posts from '../components/Posts';
+import Post from '../components/Post';
 import Signin from '../components/Signin';
 import Register from '../components/Register';
 import Home from './Home';
@@ -96,6 +96,9 @@ class App extends Component {
                         </Route>
                         <Route path="/forums/:id">
                             <Forum />
+                        </Route>
+                        <Route path="/posts/:id">
+                            <Post />
                         </Route>
                     </Switch>
             </Router>
