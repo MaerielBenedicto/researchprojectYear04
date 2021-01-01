@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 import Navbar from '../components/Navbar';
-import Forums from '../components/Forums';
+import Forum from '../components/Forum';
 import Posts from '../components/Posts';
 import Signin from '../components/Signin';
 import Register from '../components/Register';
@@ -93,6 +93,9 @@ class App extends Component {
                         </Route>
                        <Route path="/register">
                             <Register login={this.login}/>
+                        </Route>
+                        <Route path="/forums/:id">
+                            <Forum />
                         </Route>
                     </Switch>
             </Router>

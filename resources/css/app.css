@@ -629,6 +629,33 @@ label.required::after {
     color: #FFFFFF;
 }
 
+.register-btn{
+    height: 54px;
+    width: 385px;
+    border-radius: 5px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0px;
+    bottom: 0%;
+
+    background: #5596E6;
+    border: 1px solid #E9E9E9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.logo-site{
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 54px;
+    letter-spacing: 0em;
+    text-align: left;
+    }
+
 .sort-select .custom-select {
     height: 35px;
     padding: 3px 8px;

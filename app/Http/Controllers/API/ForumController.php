@@ -67,7 +67,8 @@ class ForumController extends Controller
   //view forum
   public function show($id)
   {
-    $post = Post::where('forum_id', $id)->get();
+    $forum = Forum::where('id', $id)->first();
+    $post = Post::where('forum_id', $id)->with('user','forum')->get(); 
 
     if ($post === null) {
       $statusMsg = 'forum not found!';
@@ -76,7 +77,8 @@ class ForumController extends Controller
     else {
       return response()->json(
         [
-            'data' => $post
+            'data' => $post,
+            'forum' => $forum
         ],
         200);
     }

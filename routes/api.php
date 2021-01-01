@@ -26,6 +26,7 @@ Route::post('register', [PassportController::class, 'register']);
 Route::get('forums', [ForumController::class, 'index']);
 Route::get('forums/{forum}/posts', [PostController::class, 'index']);
 Route::get('posts/{post}/comments', [CommentController::class, 'index']);
+Route::get('forums/{forum}', [ForumController::class, 'show']);
 
 Route::middleware('auth:api')->group(function () {
   Route::get('user', [PassportController::class, 'user']);
@@ -34,7 +35,6 @@ Route::middleware('auth:api')->group(function () {
   
   Route::post('forums', [ForumController::class, 'store']);
   Route::put('forums/{forum}', [ForumController::class, 'update']);
-  Route::get('forums/{forum}', [ForumController::class, 'show']);
   Route::delete('forums/{forum}', [ForumController::class, 'destroy']);
 
   Route::post('forums/{forum}/posts', [PostController::class, 'store']);

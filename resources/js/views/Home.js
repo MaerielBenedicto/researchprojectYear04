@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Posts from '../components/Posts';
-import Forums from '../components/Forums';
+import Forum from '../components/Forum';
 // import '../../../public/css/app.css';
 import '../../css/app.css';
+
+import { Link } from 'react-router-dom';
+
 
 class Home extends Component {
     constructor(){
@@ -44,12 +47,13 @@ class Home extends Component {
             <div className="container">
             <div className="row item-list mb-3">
                 {this.state.forums.map(item => (
-                <div className="pet-item col-8 media py-3" key={item.forumsId}>
+                <div className="pet-item col-8 media py-3" key={item.id}>
                     <div className="pet-info media-body">
                     <div className="pet-head d-flex">
-                        <span className="pet-name">
-                        {item.topic}
-                        </span>
+                        <Link to={`/forums/${item.id}`} className="forum-title">
+                            {item.topic}
+                        </Link>
+                        {this.props.children}
                     </div>
 
                     <div className="apt-notes">

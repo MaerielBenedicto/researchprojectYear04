@@ -40,7 +40,7 @@ class Navbar extends Component {
           <div className="container">         
               <div className="logo-site ml-auto">
                 <Link to="/" className="navbar-brand">
-                      <span> Forum</span>
+                      <span className="logo-site"> LOGO</span>
                   </Link>  
               </div>
 
@@ -48,7 +48,7 @@ class Navbar extends Component {
               <div className="collapse navbar-collapse" id="navbar-links">
                   <ul className="navbar-nav ml-auto">
                       <li className="nav-item">
-                        <Link to="/" className="nav-link">Browse</Link>
+                        <Link to="/" className="nav-link">Forums</Link>
                       </li>
 
                       <li className="nav-item" style={{display: this.props.displayIn}}>
