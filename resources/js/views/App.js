@@ -10,6 +10,7 @@ import Signin from '../components/Signin';
 import Register from '../components/Register';
 import Home from './Home';
 
+// import '../../../public/css/app.css';
 import '../../css/app.css';
 
 class App extends Component {
@@ -77,8 +78,7 @@ class App extends Component {
         });
         }
 
-        
-
+    
     render () {
         return (
             <div className="App">
@@ -91,10 +91,9 @@ class App extends Component {
                         <Route path="/signin">
                             <Signin login={this.login} />
                         </Route>
-                        <Route path="/register">
+                       <Route path="/register">
                             <Register login={this.login}/>
                         </Route>
-                        
                     </Switch>
             </Router>
             </div>

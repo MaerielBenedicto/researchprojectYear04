@@ -1,0 +1,81 @@
+.form-group {
+    margin-bottom: 28px;
+}
+
+.form-control,
+.custom-select,
+.custom-file-label {
+    /* height: 45px;
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    border-radius: 0px;
+    border: 1px solid #eee;
+    -webkit-transition: ease-in-out 0.3s;
+    transition: ease-in-out 0.3s;
+    background-color: transparent; */
+    height: 61px;
+    width: 385px;
+    /* left: 0px; */
+    /* top: 79px; */
+    border-radius: 5px;
+
+    background: #E9E9E9;
+    border: 1px solid #E9E9E9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding-left: 40px;
+}
+
+.form-div input{
+    margin: 0px auto;
+}
+
+.forgot-msg{
+    color: #2c8cd6;
+    position: absolute;
+    left: 58%;
+    right: 0%;
+    top: 100%;
+    bottom: 21.69%;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    /* identical to box height */
+}
+
+.remember-msg{
+    color: #000000;
+    position: absolute;
+    left: 8%;
+    right: 50%;
+    top: 100%;
+    bottom: 21.69%;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.signin-btn{
+    height: 54px;
+    width: 385px;
+    border-radius: 5px;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 55px;
+    bottom: 10%;
+
+    background: #5596E6;
+    border: 1px solid #E9E9E9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #FFFFFF;
+}

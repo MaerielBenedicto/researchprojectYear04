@@ -68,6 +68,7 @@ class Register extends Component {
           }
 
         return (
+            <div className="body-content">
             <div className="row">
                 <div className="col-lg-4 offset-lg-4 col-sm-12">
                     <div className="auth-form-heading">
@@ -75,31 +76,27 @@ class Register extends Component {
                         <p>Already have an account? <Link to="/sign-in">Sign In</Link></p>
                     </div>
 
-                    <form onSubmit={this.handleSubmitForm}>
+                    <form onSubmit={this.handleSubmitForm} className="form-div">
                         <div className="row">
                             <div className="form-group col-12">
-                                <label>Full Name</label>
-                                <input id="name" type="text"  className="form-control" name="name" 
+=                                <input id="name" type="text"  className="form-control" name="name" 
                                 value={this.state.name}
                                 onChange={this.handleChange}/>
                             </div>
 
                             <div className="form-group col-12">
-                                <label >Email Address</label>
                                 <input id="email" type="email"  className="form-control" name="email"
                                 value={this.state.email}
                                 onChange={this.handleChange}  />
                             </div>
 
                             <div className="form-group col-12">
-                                <label >Password</label>
                                 <input id="password" type="password"  className="form-control" name="password" 
                                 value={this.state.password}
                                 onChange={this.handleChange} />
                             </div>
 
                             <div className="form-group col-12">
-                                <label >Confirm password</label>
                                 <input id="password_confirmation"  type="password" className="form-control" name="password_confirmation" 
                                 value={this.state.password_confirmation}
                                 onChange={this.handleChange}/>
@@ -113,6 +110,7 @@ class Register extends Component {
                         </div>
                     </form>
                 </div>
+            </div>
             </div>
         )
     };

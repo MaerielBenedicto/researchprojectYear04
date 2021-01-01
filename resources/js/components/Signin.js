@@ -66,35 +66,35 @@ class Signin extends Component {
         return (
             <div className="body-content">
                 <div className="row">
-                    <div className="col-lg-4 offset-lg-4 col-sm-12">
+                    <div className="col-lg-4 offset-lg-4  offset-md-2  offset-sm-1 col-md-8 col-sm-10">
                         <div className="col-12 auth-form-heading">
-                            <h2>Sign In</h2>
-                            <p>Don't have an account yet? <Link to="/register-account">Sign Up</Link></p>
+                            <h2>SIGN IN</h2>
                         </div>
                         {/* LOG IN FORM */}
-                        <form onSubmit={this.handleSubmitForm}>
+                        <form onSubmit={this.handleSubmitForm} className="form-div"> 
                             <div className="row">
                                 <div className="form-group col-12">
-                                    <label >Email Address</label>
-                                    <input id="email" type="email" className="form-control" name="email" required 
+                                    <input id="email" type="email" className="form-control" placeholder="Email" name="email" required 
                                     value={this.state.email}
                                     onChange={this.handleChange} />
                                    
                                 </div>
 
                                 <div className="col-12">
-                                    <label >Password</label>
-                                    <input id="password" type="password" className="form-control" name="password" required 
+                                    <input id="password" type="password" className="form-control" placeholder="Password" name="password" required 
                                     value={this.state.password}
                                     onChange={this.handleChange} />
                                 </div>
 
-                                <div className="form-msg col-12">
+                                <div className="remember-msg col-12">
+                                    <input type="checkbox" value="lsRememberMe" id="rememberMe"/> <label>Remember me</label>
+                                </div>
+                                <div className="forgot-msg col-12">
                                     <a href="#">Forgot Password?</a>
                                 </div>
 
                                 <div className="form-button col-12">
-                                    <button className="btn btn-primary" type="submit">Sign In</button>
+                                    <button className="signin-btn" type="submit">Sign In</button>
                                 </div>
                             </div>
                         </form>

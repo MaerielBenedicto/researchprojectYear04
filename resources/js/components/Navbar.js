@@ -38,11 +38,9 @@ class Navbar extends Component {
       <div className="navbar-container">
       <nav className="navbar fixed-top navbar-expand-md">
           <div className="container">         
-              <div className="navbar-icons ml-auto">
-              <Link to="/" className="navbar-brand">
-                    {/* <!-- Replace h3 heading with an image of the logo --> */}
-                    <span> Forum</span>
-                    {/* <img src="/images/iwander-logo-lg.png" alt="iWander Logo" /> */}
+              <div className="logo-site ml-auto">
+                <Link to="/" className="navbar-brand">
+                      <span> Forum</span>
                   </Link>  
               </div>
 
@@ -58,7 +56,7 @@ class Navbar extends Component {
                       </li>
 
                       <li className="nav-item" style={{display: this.props.displayIn}}> 
-                        <Link to="/signin" className="last-nav-link">Sign In</Link>
+                        <Link to="/signin" className="nav-link">Sign In</Link>
                       </li>
 
                       <li className="nav-item" style={{display: this.props.displayOut}}>
@@ -67,6 +65,24 @@ class Navbar extends Component {
 
                   </ul>
               </div>
+
+
+
+
+            {/* FIGMA */}
+            {/* <div id="e4_11">
+              <div id="e1_6">
+              </div>
+                <span id="e4_3">LOGO</span>
+                <span id="e4_4">Forums</span>
+                <span id="e4_5">Sign in</span>
+                <span id="e4_6">Register</span>
+                <div id="e4_7"></div>
+                <div id="e4_9">
+                </div>
+                  <span id="e4_14">Search the forum</span>
+             </div> */}
+
           </div>
       </nav>
   </div>
