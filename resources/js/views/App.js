@@ -10,6 +10,10 @@ import Forum from '../components/Forum';
 import Post from '../components/Post';
 import Signin from '../components/Signin';
 import Register from '../components/Register';
+import CreateForum from '../components/Modal/CreateForum';
+
+import PrivateRoute from '../components/PrivateRoute';
+
 import Home from './Home';
 
 // import '../../../public/css/app.css';
@@ -100,8 +104,9 @@ class App extends Component {
                             <Forum />
                         </Route>
                         <Route path="/posts/:id">
-                            <Post />
+                            <Post user={this.state.user}/>
                         </Route>
+                        <PrivateRoute exact path="/forums" loggedIn={this.state.isLoggedIn} component={CreateForum}/>
                     </Switch>
                     <Footer />
             </Router>

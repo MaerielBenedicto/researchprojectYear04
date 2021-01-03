@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
+import AddComment from './AddComment';
 import Comments from './Comments';
 
 class Post extends Component {
@@ -22,8 +23,6 @@ class Post extends Component {
                 post: tempPost, 
                 isLoaded: true
             });
-
-
         })
         .catch(function(error){
             if(error){
@@ -41,14 +40,12 @@ class Post extends Component {
                     <h4>POST COMMENTS</h4>
                    <div className="row">
                         <div className="col py-3">
-                            
                                 <h4>{this.state.post.title}</h4>
                                 <p>{this.state.post.body}</p>
                                 <span> {this.state.post.user.name}</span>
                        </div>
                     </div>
-                        
-                        <Comments postId={this.props.match.params.id} />
+                        <Comments postId={this.props.match.params.id} user={this.props.user} />
                     </div>
                 </div>
             )

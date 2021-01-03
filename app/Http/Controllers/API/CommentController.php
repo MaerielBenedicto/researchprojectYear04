@@ -36,17 +36,21 @@ class CommentController extends Controller
 
     $body = $request->body;
 
-    $sentimentValues = $this->sentiment($body);
+    // $sentimentValues = $this->sentiment($body);
+
 
     $comment = Comment::create([
         'body' => $request->body,
         'user_id' => $request->user_id,
         'post_id' => $id,
-        's_score' => $sentimentValues['score'],
-        's_magnitude' => $sentimentValues['magnitude']
+        // 's_score' => $sentimentValues['score'],
+        // 's_magnitude' => $sentimentValues['magnitude']
+        's_score' => '0',
+        's_magnitude' => '0'
     ]);
 
-    return response()->json(['message' => 'Comment created', 'data' => $comment], 200);
+    $user = $comment->user()->first();
+    return response()->json(['message' => 'Comment created', 'data' => $comment,'user'=> $user], 200);
   }
 
   public function update(Request $request, $id)

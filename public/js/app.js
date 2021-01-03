@@ -6414,7 +6414,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap);", ""]);
 
 // module
-exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n\n/********** TYPOGRAPHY **********/\nbody {\n    font-family: 'Poppins', sans-serif;\n    font-size: 1rem;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    margin-bottom: 0px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n    font-weight: 600;\n}\n\nh5,\nh6 {\n    font-weight: 400;\n}\n\nh1 {\n    font-size: 48px;\n}\n\nh2 {\n    font-size: 36px;\n}\n\nh3 {\n    font-size: 28px;\n}\n\nh4 {\n    font-size: 20px;\n}\n\nh5 {\n    font-size: 18px;\n}\n\nh6,\np {\n    font-size: 16px;\n}\n\np {\n    line-height: 24px;\n    margin-bottom: 0px;\n}\n\np:not(:last-child) {\n    margin-bottom: 12px;\n}\n\nform label {\n    font-size: 15px;\n}\n\n.subheading {\n    color: #444;\n    margin-top: 3px;\n    letter-spacing: 1px;\n    display: inline;\n    font-weight: 300;\n}\n\n.subheading:not(:last-child)::after {\n    content: '\\2022';\n    margin: 0px 5px;\n    color: #444;\n}\n\n.subheading svg {\n    fill: #2c8cd6;\n    width: 18px;\n    height: 18px;\n    line-height: 23px;\n    vertical-align: middle;\n}\n\n.sidenav .user-name {\n    font-weight: 500;\n}\n\n.sidenav .role-text {\n    font-size: 11px;\n    color: #6c6c6c;\n    text-transform: uppercase;\n}\n\n.lg-form-heading span,\n.modal-form-heading span {\n    font-weight: 600;\n    color: #2c8cd6;\n}\n\nh6.column-name {\n    color: #6c6c6c;\n    text-transform: uppercase;\n    font-size: 14px;\n}\n\n.itinerary-info h6 {\n    font-weight: 600;\n    margin-bottom: 10px;\n}\n\n/********** LINKS **********/\na,\n.bottom-section a,\n.list-unstyled a,\n.navbar a,\n.auth-form-heading a,\n.form-msg a,\n.card-c a,\n.footer-col .jam,\n.builder-nav a,\n.filters-block a,\n.add-info a,\n.info-col a,\n.ht-block a {\n    text-decoration: none;\n    transition: ease-in-out 0.3s;\n}\n\n.bottom-section a,\n.list-unstyled a,\n.navbar a,\n.card-c a,\n.filters-block a,\n.add-info a,\n.info-col a,\n.ht-block a {\n    color: #000;\n}\n\n.section-heading a,\n.mobile-only a {\n    text-decoration: none;\n    color: #6c6c6c;\n    text-transform: uppercase;\n}\n\n.section-heading a:hover,\n.mobile-only a:hover,\n.bottom-section a:hover,\n.list-unstyled a:hover,\n.card-c a:hover,\n.builder-nav a:hover,\n.filters-block a:hover,\n.add-info a:hover,\n.info-col a:hover,\n.ht-block a:hover {\n    color: #2c8cd6;\n}\n\n.auth-form-heading a,\n.form-msg a {\n    color: #2c8cd6;\n}\n\n.auth-form-heading a:hover,\n.form-msg a:hover {\n    color: #267abb;\n}\n\n.footer-col svg {\n    width: 16px;\n    height: 16px;\n}\n\n.footer-col .jam:hover {\n    fill: #6c6c6c;\n}\n\n.filters-block a,\n.filters-block a:hover,\n.add-info a,\n.add-info a:hover,\n.info-col a,\n.info-col a:hover,\n.ht-block a,\n.ht-block a:hover {\n    text-decoration: underline;\n}\n\n.add-info h6 {\n    font-weight: 500;\n    margin-bottom: 2px;\n    color: #6c6c6c;\n}\n\n/********** SPACING **********/\n.body-content {\n    padding: 140px 0px 100px;\n}\n\n.create-plan-md {\n    border: 1px solid #eee;\n    padding: 20px;\n}\n\n.section-heading {\n    margin-bottom: 30px;\n}\n\n.section-heading a {\n    text-align: right;\n}\n\n.iwander-section {\n    margin: 38px 0px;\n}\n\n.section-button {\n    /*    margin-top: 50px;*/\n    text-align: center;\n}\n\n.section-button button {\n    margin: 0px auto;\n}\n\n.section-button a:hover {\n    text-decoration: none;\n}\n\nfooter .list-group {\n    margin-top: 15px;\n}\n\n.footer-col {\n    margin-bottom: 40px;\n}\n\n.footer-col .list-inline {\n    margin-top: 15px;\n}\n\n.filters-col h4 {\n    padding-bottom: 20px;\n    border-bottom: 1px solid #eee;\n    font-weight: 400;\n}\n\n.filters-block {\n    padding: 20px 0px;\n    border-bottom: 1px solid #eee;\n}\n\n.filters-block h6 {\n    font-weight: 600;\n}\n\n.filters-block .filter-selection {\n    margin-top: 10px;\n}\n\n.filter-selection .list-group-item:not(:last-child) {\n    margin-bottom: 2px;\n}\n\n.filter-selection label {\n    font-size: 14px;\n    margin-left: 6px;\n    margin-bottom: 0px !important;\n}\n\n.filters-block a {\n    margin-top: 10px;\n    font-size: 14px;\n}\n\n.filters-button {\n    margin-top: 15px;\n}\n\n.filters-button button {\n    margin: 0px auto;\n}\n\n.sorting-col {\n    height: 45px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #eee;\n}\n\n.sort-selection {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.sort-selection h6 {\n    display: inline;\n}\n\n.sort-selection .list-inline {\n    margin-bottom: 0px !important;\n}\n\n.sort-selection .list-inline-item:not(:last-child) {\n    margin-right: 5px;\n}\n\n.events-selection .list-group-item:first-child {\n    padding: 0px !important;\n    margin-bottom: 5px !important;\n}\n\n/* .top-section {\n    padding-top: 50px;\n    border-bottom: 1px solid #ccc;\n    padding-bottom: 20px;\n    margin-bottom: 70px;\n} */\n\n.top-row {\n    margin-top: 50px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.buttons-row {\n    margin-top: 30px;\n}\n\n.pagination-row {\n    margin: 50px 0px;\n}\n\n.pagination-links {\n    margin: 0 auto;\n}\n\n.pagination-links .pagination {\n    margin-bottom: 0px;\n}\n\n.form-heading {\n    padding-top: 20px;\n}\n\n.lg-form-heading {\n    padding: 50px 0px;\n}\n\n.button-col .btn {\n    float: right;\n}\n\n.bottom-section {\n    padding: 50px 0px;\n}\n\n.next-button {\n    text-align: right;\n}\n\n.prev-button .jam {\n    margin-right: 5px;\n}\n\n.next-button .jam {\n    margin-left: 5px;\n}\n\n.lg-form-button {\n    margin: 30px 0px 70px 0px;\n}\n\n.lg-form-heading h3 {\n    margin-bottom: 2px;\n}\n\n.item-title {\n    padding-top: 50px;\n    padding-bottom: 30px;\n}\n\n.item-image img {\n    width: 100%;\n    height: auto;\n}\n\n.item-info {\n    padding-top: 30px;\n    padding-bottom: 70px;\n}\n\n.info-col {\n    margin-bottom: 30px;\n}\n\n.info-col .column-data {\n    margin-bottom: 0px;\n}\n\n.info-col ul {\n    margin-bottom: 0px;\n}\n\n.info-col .list-inline-item:not(:last-child) {\n    margin-right: 0px;\n}\n\n.info-col .list-inline-item:not(:last-child)::after {\n    content: ',';\n}\n\nh6.column-name {\n    margin-bottom: 5px;\n}\n\n.list-unstyled li:not(:last-child) {\n    margin-bottom: 3px;\n}\n\n.list-unstyled .jam {\n    margin-right: 4px;\n}\n\n.auth-form-heading {\n    text-align: center;\n    padding-bottom: 25px;\n    border-bottom: 1px solid #eee;\n    margin-bottom: 32px;\n}\n\n.auth-form-heading h2 {\n    margin-bottom: 8px;\n}\n\n.auth-form-heading img {\n    width: 220px;\n    height: auto;\n    margin-bottom: 10px;\n}\n\n.form-msg {\n    margin-top: 10px;\n    margin-bottom: 28px;\n}\n\n.items-index,\n.date-selection,\n.itinerary-info {\n    margin-top: 40px;\n}\n\n.modal-form-heading {\n    margin-bottom: 30px;\n}\n\n.modal-form-heading h4 {\n    margin-bottom: 2px;\n}\n\n.items-index-button {\n    width: 100%;\n    padding: 50px 0px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.items-index-button a,\n.items-index-button a:hover {\n    color: #fff;\n}\n\n.action-selection {\n    margin-bottom: 30px;\n}\n\n.main-heading {\n    border-bottom: 1px solid #eee;\n    padding-bottom: 12px;\n}\n\n.iwander-desc {\n    padding-top: 30px;\n}\n\n.iwander-desc p:last-child {\n    margin-bottom: 30px;\n}\n\n.add-info {\n    margin-bottom: 30px;\n}\n\n.add-info p {\n    margin-bottom: 0px;\n}\n\n/********** FORMS **********/\n.errors {\n    color: #c95555;\n    font-size: 13px;\n}\n\n.invalid-feedback {\n    display: block;\n    font-size: 12px;\n    color: #c95555;\n}\n\n.invalid-feedback p {\n    margin-top: 5px !important;\n}\n\nlabel {\n    margin-bottom: 5px;\n}\n\nlabel.required::after {\n    content: '*';\n    color: #2c8cd6;\n    margin-left: 4px;\n}\n\n.form-heading h4 {\n    border-bottom: 1px solid #eee;\n    padding-bottom: 12px;\n    margin-bottom: 20px;\n    text-align: center;\n}\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    /* height: 45px;\n    padding: 10px;\n    font-size: 16px;\n    color: #000;\n    border-radius: 0px;\n    border: 1px solid #eee;\n    -webkit-transition: ease-in-out 0.3s;\n    transition: ease-in-out 0.3s;\n    background-color: transparent; */\n    height: 61px;\n    width: 385px;\n    /* left: 0px; */\n    /* top: 79px; */\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 40px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n\n    position: absolute;\n    left: 0%;\n    right: 0%;\n    top: 0px;\n    bottom: 0%;\n\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    \n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n.footer-bar{\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n.sort-select .custom-select {\n    height: 35px;\n    padding: 3px 8px;\n}\n\n.navbar-search .form-control {\n    border: none !important;\n    padding: 0px !important;\n    width: 250px;\n}\n\n.navbar-search .form-control:focus {\n    width: 400px;\n}\n\n.builder-search .form-control {\n    border: none !important;\n    padding: 0px;\n    width: 350px;\n}\n\n.custom-file-label::after {\n    height: 43px;\n    padding: 8px 10px;\n    color: #000;\n    background-color: #eee;\n    border-radius: 0px;\n}\n\n.form-control:focus,\n.custom-select:focus,\n.custom-file-input:focus~.custom-file-label {\n    border-color: #2c8cd6;\n    box-shadow: none;\n}\n\n.custom-file-input {\n    cursor: pointer !important;\n}\n\nselect {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\ntextarea {\n    height: 150px !important;\n    resize: none;\n}\n\n.form-button {\n    margin-top: 20px;\n}\n\n.form-button button {\n    margin: 0px auto;\n}\n\n.profile-info-buttons button {\n    margin: 0px auto;\n    width: 130px;\n}\n\n.profile-info-buttons button:first-child {\n    margin-bottom: 10px;\n}\n\n.profile-info-buttons {\n    margin-top: 30px;\n}\n\n/********** BUTTONS **********/\n.btn {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 18px 32px;\n    font-size: 16px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n}\n\n.btn-primary {\n    color: #fff;\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.btn-primary-xs {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 6px 11px;\n    font-size: 13px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n    color: #fff;\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.btn-primary:hover,\n.btn-primary-xs:hover {\n    color: #fff;\n    background-color: #267abb;\n    border-color: #267abb;\n}\n\n.btn-secondary-xs {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 6px 11px;\n    font-size: 13px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n    color: #6c6c6c;\n    background-color: transparent;\n    border-color: #6c6c6c;\n}\n\n.btn-secondary-sm {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 12px 22px;\n    font-size: 15px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n    color: #6c6c6c;\n    background-color: transparent;\n    border-color: #6c6c6c;\n}\n\n.btn-secondary {\n    color: #6c6c6c;\n    background-color: transparent;\n    border-color: #6c6c6c;\n}\n\n.btn-secondary:hover,\n.btn-secondary-sm:hover,\n.btn-secondary-xs:hover {\n    color: #fff;\n    background-color: #6c6c6c;\n}\n\n.btn-tertiary {\n    color: #000;\n    background-color: #fff;\n    border-color: #fff;\n}\n\n.btn-tertiary:hover {\n    color: #fff;\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.table-selection .btn {\n    padding: 6px 13px;\n    border-radius: 20px;\n}\n\n.sort-selection h6 {\n    line-height: 30px;\n    font-weight: 500;\n}\n\n.sort-selection h6::after {\n    content: '\\2013';\n    margin: 0px 10px;\n}\n\n.sort-selection .list-inline {\n    line-height: 30px;\n}\n\n.sort-selection .btn {\n    padding: 3px 15px;\n    border-radius: 20px;\n}\n\n.sort-selection .sort-selection-link {\n    border: 1px solid #444;\n    color: #444;\n    text-transform: uppercase;\n    font-size: 12px;\n}\n\n.table-selection .table-selection-link {\n    border: 1px solid #2c8cd6;\n    border-radius: 20px;\n    color: #444;\n    text-transform: uppercase;\n    font-size: 12px;\n}\n\n.sort-selection .sort-selection-link:hover {\n    color: #fff;\n    background-color: #444;\n}\n\n.table-selection .table-selection-link:hover {\n    color: #fff;\n    background-color: #2c8cd6;\n}\n\n.action-selection .btn {\n    padding: 10px 15px;\n    border-radius: 0px;\n}\n\n.action-selection .action-selection-link {\n    border: 1px solid #444;\n    color: #444;\n    font-size: 14px;\n    margin-bottom: 15px !important;\n}\n\n.action-selection-link a:hover {\n    text-decoration: none !important;\n}\n\n.action-selection-link .jam {\n    line-height: 33px;\n}\n\n.action-selection .action-selection-link:hover {\n    color: #fff;\n    background-color: #444;\n}\n\n.date-selection .btn {\n    padding: 10px 20px;\n    border-radius: 0px !important;\n}\n\n.date-selection .date-selection-link {\n    border: 1px solid #2c8cd6;\n    color: #444;\n    text-transform: uppercase;\n    font-size: 14px;\n}\n\n.date-selection .date-selection-link:hover {\n    color: #fff;\n    background-color: #2c8cd6;\n}\n\n.btn .jam {\n    margin-right: 10px;\n}\n\n/********** CARDS ******/\n.card-a {\n    border: 1px solid #eee;\n    /*    border-radius: 6px;*/\n    transition: ease-in-out 0.3s;\n    margin-bottom: 30px;\n}\n\n.card-b {\n    position: relative;\n    margin-bottom: 30px;\n}\n\n.card-a:hover {\n    border: 1px solid #2c8cd6;\n}\n\n.card-a a,\n.card-b a {\n    text-decoration: none;\n    color: #000;\n}\n\n.card-a a:hover {\n    color: #2c8cd6;\n}\n\n.card-a-body {\n    padding: 20px 15px 0px 15px;\n    height: 70px;\n}\n\n.card-a-body h5 {\n    font-weight: 500;\n}\n\n.card-a img,\n.card-b img {\n    transition: ease-in-out 0.3s;\n}\n\n.card-a:hover img,\n.card-b:hover img {\n    opacity: 0.8;\n}\n\n.card-b-body {\n    border: 1px solid #eee;\n    padding: 15px 20px 0px 20px;\n    height: 125px;\n}\n\n.card-b-body li.category {\n    margin-bottom: 0px;\n    color: #444;\n    font-size: 12px;\n    display: inline;\n    text-transform: uppercase;\n}\n\n.category:not(:last-child)::after {\n    content: '\\2022';\n    margin: 0px 3px;\n}\n\n.card-buttons {\n    position: absolute;\n    top: 0;\n    right: 0;\n    z-index: 1 !important;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.card-buttons svg {\n    fill: #444;\n    width: 18px;\n    height: 18px;\n}\n\n.card-buttons .card-action {\n    width: 30px;\n    height: 30px;\n    background: #fff;\n    border-radius: 50%;\n    text-align: center;\n    line-height: 30px;\n    vertical-align: middle;\n    display: block;\n    margin-bottom: 5px;\n}\n\n.card-b-body h6 {\n    margin-top: 3px;\n}\n\n.card-c {\n    border: 1px solid #eee;\n    overflow: hidden;\n    height: 200px;\n    margin-bottom: 30px;\n}\n\n.card-a-img {\n    width: 100%;\n    height: 180px;\n}\n\n.card-a-img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.card-b-img {\n    width: 100%;\n    height: 220px;\n}\n\n.card-b-img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.card-c-img {\n    width: 50%;\n    height: 100%;\n    float: left;\n}\n\n.card-c-img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.card-c-body {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 15px 20px;\n    position: relative;\n}\n\n.card-c-body h6 {\n    font-weight: 500;\n}\n\n.card-c-body p.address {\n    margin-top: 2px;\n}\n\n.card-c-button,\n.card-c-button-alt {\n    position: absolute;\n    left: 20px;\n    bottom: 15px;\n}\n\n.card-c-body .event-details {\n    position: absolute;\n    left: 20px;\n    bottom: 15px;\n}\n\n.card-c-button a {\n    display: inline;\n}\n\n.card-c-button p {\n    margin-bottom: 0px !important;\n}\n\n.card-c-button a:not(:last-child) {\n    margin-right: 10px;\n}\n\n.card-c-button a::before {\n    font-weight: 500;\n    font-size: 16px;\n    margin-right: 5px;\n    vertical-align: middle;\n}\n\n.card-c-button a.add::before {\n    content: '+';\n}\n\n.card-c-button a.edit::before {\n    content: '\\270F';\n}\n\n.card-c-button a.delete::before {\n    content: '\\D7';\n}\n\n.card-c-button-alt button {\n    text-align: left;\n    padding: 0;\n    font-size: 14px;\n    display: block;\n    background-color: transparent;\n    border: none !important;\n}\n\n.card-c-button-alt button:hover {\n    text-decoration: underline;\n    color: #2c8cd6;\n}\n\n.card-c-button-alt button:first-child {\n    margin-bottom: 3px;\n}\n\n.card-c-button-alt button svg {\n    width: 16px;\n    height: 16px;\n    fill: #000;\n    margin-right: 3px;\n}\n\n.card-d {\n    margin-bottom: 30px;\n}\n\n.card-d a {\n    text-decoration: none;\n}\n\n.card-d .itinerary-name {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    height: 175px;\n    border: 1px solid #eee;\n    margin-bottom: 10px;\n    transition: ease-in-out 0.3s;\n}\n\n.card-d .itinerary-name:hover {\n    border-color: #2c8cd6;\n}\n\n.card-d .itinerary-name h3 {\n    color: #000;\n}\n\n.card-d p {\n    text-transform: uppercase;\n    color: #444;\n    font-size: 15px;\n}\n\n.card-d p a {\n    color: #000;\n}\n\n.card-d p a:hover {\n    color: #2c8cd6;\n}\n\n.card-d span {\n    font-size: 13px;\n}\n\n/********** LISTS **********/\n.list-group-item {\n    padding: 1px 0px !important;\n    border: none !important;\n    background: none;\n}\n\nfooter .list-group-item a,\nfooter a {\n    text-decoration: none;\n    color: #000;\n}\n\nfooter .list-group-item a:hover,\nfooter a:hover {\n    text-decoration: none;\n    color: #6c6c6c;\n}\n\n.table-selection .list-inline {\n    margin-bottom: 0px !important;\n}\n\n.table-selection .list-inline-item:not(:last-child) {\n    margin-right: 10px;\n}\n\n.date-selection .list-group-item {\n    margin-bottom: 10px !important;\n}\n\n.card-b-body .list-inline {\n    margin-bottom: 1px;\n}\n\n.add-info .list-inline {\n    margin-bottom: 0px;\n}\n\n.add-info .list-inline-item:not(:last-child) {\n    margin-right: 0px;\n}\n\n.add-info .list-inline-item:not(:last-child)::after {\n    content: ',';\n    margin-right: 2px;\n    color: #000;\n}\n\n.add-info .list-inline-item a {\n    cursor: pointer;\n}\n\n/********** FOOTER **********/\nfooter {\n    background-color: #f5f5f5;\n    padding: 60px 0px;\n    margin-top: 70px;\n}\n\nfooter img {\n    width: 160px;\n    height: auto;\n    margin-bottom: 25px;\n}\n\n/********** SIDEBAR **********/\n.sidenav {\n    height: 100%;\n    width: 200px;\n    position: fixed;\n    z-index: 1;\n    top: 0;\n    left: 0;\n    overflow-x: hidden;\n    padding: 50px 25px;\n    background-color: #fafafa;\n}\n\n.sidenav-logo {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #ccc;\n}\n\n.sidenav-logo img {\n    width: 120px;\n    height: auto;\n}\n\n.user-info {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 20px 0px;\n    border-bottom: 1px solid #ccc;\n}\n\n.user-avatar {\n    display: inline-block;\n    margin-right: 15px;\n}\n\n.user-avatar img {\n    width: 35px;\n    height: 35px;\n    border-radius: 50%;\n}\n\n.user-name {\n    display: inline-block;\n}\n\n.sidenav .main-links {\n    margin-top: 25px;\n}\n\n.sidenav .list-group-item {\n    padding: 0px 20px !important;\n    margin-bottom: 8px;\n    border: none;\n    height: 25px;\n    line-height: 25px;\n    white-space: nowrap;\n}\n\n.list-group-item .jam {\n    height: 25px;\n    line-height: 25px;\n    white-space: nowrap;\n}\n\n.sidenav .list-group-item:hover {\n    background-color: transparent;\n    text-decoration: underline;\n}\n\n.sidenav .list-group-item-action {\n    color: #000;\n}\n\n.sidenav .jam {\n    fill: #000;\n}\n\n/*\n.sidenav .list-group-item-action:hover {\n    color: #2c8cd6;\n}\n\n.sidenav .jam:hover {\n    fill: #2c8cd6;\n}\n*/\n\n.sidenav .list-group-item .jam {\n    margin-right: 10px;\n}\n\n/********** TABLES **********/\n.table {\n    margin-top: 40px;\n}\n\n.table th {\n    border-top: none !important;\n    border-bottom: 1px solid #ccc;\n    font-weight: 400;\n    color: #6c6c6c;\n    text-transform: uppercase;\n    padding-bottom: 10px;\n}\n\n.table td {\n    padding: 15px;\n}\n\n.table td a {\n    color: #000;\n    text-decoration: none !important;\n    font-weight: 500;\n}\n\n.table td a:hover,\n.table td .btn:hover {\n    color: #2c8cd6;\n}\n\ntd.actions a:first-child::after {\n    content: '\\2022';\n    color: #000;\n    margin-left: 8px;\n}\n\ntd.actions a:not(:last-child) {\n    margin-right: 4px;\n}\n\ntd.actions .btn {\n    padding: 0px !important;\n    color: #000;\n    text-decoration: none !important;\n    font-weight: 500;\n}\n\n.hours-table {\n    width: 100%;\n}\n\n/********** NAVBAR **********/\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    z-index: 999 !important;\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand {\n    padding: 0px !important;\n    margin-right: 30px;\n}\n\n.navbar-brand img {\n    width: 160px;\n    height: auto;\n}\n\n.navbar .lnr {\n    color: #000;\n    font-weight: 600;\n}\n\n.navbar .lnr-magnifier {\n    font-size: 20px;\n}\n\n.navbar .lnr-menu {\n    font-size: 24px;\n}\n\n.navbar-toggler {\n    padding: 0px !important;\n    line-height: 0 !important;\n    border-radius: 0px !important;\n}\n\n#navbar-links li.nav-item a.nav-link {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n#navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n}\n\n.navbar-search,\n.builder-search {\n    padding: 2px 15px;\n    border-radius: 4px;\n    border: 1px solid #eee;\n}\n\n.navbar-search span,\n.builder-search span {\n    float: left;\n    line-height: 45px;\n}\n\n.navbar-search form,\n.builder-search form {\n    float: left;\n    margin-left: 15px;\n}\n\na.builder-prev h5::before {\n    content: '\\2190';\n    vertical-align: middle;\n    margin-right: 10px;\n}\n\na.builder-next h5::after {\n    content: '\\2192';\n    vertical-align: middle;\n    margin-left: 10px;\n}\n\n.builder-nav {\n    height: 100px;\n}\n\n.dropdown-results {\n    z-index: 999 !important;\n    position: absolute;\n    background-color: white;\n    width: 400px;\n    /* padding: 2px 15px; */\n    /* border-radius: 4px; */\n    /* border: 1px solid #eee; */\n}\n\n/********** WELCOME PAGE **********/\n.vertical-center {\n    min-height: 100%;\n    min-height: 100vh;\n    display: flex;\n    align-items: center;\n}\n\n.welcome-msg {\n    display: flex;\n    justify-content: center;\n    margin: 0 auto;\n}\n\n.welcome-msg h1 {\n    color: #fff;\n    text-align: center;\n}\n\n.welcome-msg .btn {\n    position: absolute;\n    margin-top: 200px;\n}\n\n.lg-banner {\n    height: 100%;\n}\n\n.full-height {\n    height: 100%;\n}\n\n.welcome-col {\n    /* background-image: url('../images/welcome.jpeg'); */\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n\n/********** JUMBOTRON **********/\n.jumbotron {\n    padding: 0px !important;\n    margin-bottom: 40px;\n}\n\n.itinerary-banner {\n    padding: 160px 0px 80px !important;\n    background-color: #f5f5f5;\n}\n\n.itinerary-banner h2 {\n    font-weight: 400;\n    margin-bottom: 6px;\n}\n\n.item-banner {\n    margin-top: 92px;\n    height: 520px;\n    width: 100%;\n}\n\n.item-banner img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.index-banner {\n    background-color: #f5f5f5;\n    margin-top: 92px;\n    height: auto;\n    padding: 80px 0px !important;\n}\n\n.index-banner h2 {\n    font-weight: 400;\n}\n\n/********** MODAL **********/\n.modal-content {\n    padding: 15px 0px;\n    border: 1px solid #eee;\n    border-radius: 4px;\n}\n\n.modal-mask {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, .5);\n    display: table;\n    transition: opacity .3s ease;\n}\n\n.modal-wrapper {\n    display: table-cell;\n    vertical-align: middle;\n}\n\n.modal-container {\n    width: 600px;\n    margin: 0px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    transition: all .3s ease;\n}\n\n/********** TABS **********/\n.sorting-col .nav-link {\n    border: 1px solid #2c8cd6;\n    border-radius: 5px;\n    text-align: center;\n    padding: 4px 12px;\n    color: #2c8cd6;\n    background-color: transparent;\n}\n\n.sorting-col .nav-link:hover {\n    background-color: #2c8cd6;\n    color: #fff;\n}\n\n.sorting-col .nav-link .active {\n    background-color: #2c8cd6;\n    color: #fff;\n}\n\n.ht-blocks {\n    margin-top: 40px;\n}\n\n.ht-block {\n    background: #fff;\n    padding: 0px 0px 50px 0px;\n}\n\n.ht-block:not(:last-child) {\n    margin-bottom: 50px;\n    border-bottom: 2px solid #eee;\n}\n\n.ht-block h5 {\n    font-weight: 500;\n    margin-bottom: 30px;\n}\n\n.ht-block em {\n    font-weight: 600;\n    font-style: normal;\n}\n\n.ht-block p:not(:last-child) {\n    margin-bottom: 20px;\n}\n\n.ht-block li:not(:last-child) {\n    margin-bottom: 15px;\n}\n\n.ht-block ol:not(:last-child),\n.ht-block ul:not(:last-child) {\n    margin-bottom: 20px;\n}\n\n.ht-block ol {\n    padding-left: 30px;\n}\n\n.ht-block ul {\n    list-style-type: none;\n    padding-left: 15px;\n    margin: 0px;\n}\n\n.ht-block ul li::before {\n    content: '\\2014';\n    margin-right: 6px;\n}\n\n.ht-block figure {\n    text-align: center;\n    padding: 20px 0px;\n}\n\n.ht-block img {\n    width: 100%;\n    height: auto;\n    box-shadow: 7px 6px 10px 0px rgba(0, 0, 0, 0.36);\n}\n\n.tab-content {\n    margin-top: 25px;\n}\n\n.tab-content h5 {\n    color: #000;\n}\n\n.tab-content p {\n    font-size: 14px;\n    color: #444;\n    text-transform: uppercase;\n}\n\n.tab-pane button {\n    border-radius: 50%;\n    width: 40px;\n    height: 40px;\n    align-items: center;\n    justify-content: center;\n    background-color: #6c6c6c;\n    border-color: #6c6c6c;\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    right: 0px;\n}\n\n.tab-pane button svg {\n    width: 20px;\n    height: 20px;\n    fill: #fff;\n}\n\n.nav-pills .nav-link {\n    border-radius: 0px !important;\n}\n\n.nav-pills .nav-link.active,\n.nav-pills .show>.nav-link {\n    color: #fff;\n    background-color: #2c8cd6;\n}\n\n/********** PROFILE INFO **********/\n.profile-info {\n    border: 1px solid #eee;\n    padding: 30px;\n    text-align: center;\n}\n\n.profile-info .avatar {\n    margin-bottom: 20px;\n}\n\n.profile-info .avatar img {\n    width: 75px;\n    height: 75px;\n    border-radius: 50%;\n}\n\n.profile-info h5 {\n    font-weight: 500;\n}\n\n.profile-info p {\n    font-size: 14px;\n}\n\n.profile-info-buttons a:hover {\n    text-decoration: none;\n}\n\n/********** PAGINATION **********/\n.page-link {\n    padding: 10px 14px;\n    border: 1px solid #ccc;\n    color: #444;\n}\n\n.page-item.active .page-link {\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.page-link:hover {\n    background-color: #ccc;\n    color: #000;\n    border-color: #ccc;\n}\n\n.page-link:first-child {\n    border-top-left-radius: 0px !important;\n    border-bottom-left-radius: 0px !important;\n}\n\n.page-link:last-child {\n    border-top-right-radius: 0px !important;\n    border-bottom-right-radius: 0px !important;\n}\n\n@media (max-width: 575.98px) {\n    h1 {\n        font-size: 32px;\n    }\n\n    h2 {\n        font-size: 26px;\n    }\n\n    h3 {\n        font-size: 22px;\n    }\n\n    h4 {\n        font-size: 20px;\n    }\n\n    h5 {\n        font-size: 18px;\n    }\n\n    h6 {\n        font-size: 16px;\n    }\n\n    .table-selection .btn {\n        margin-top: 5px;\n        margin-bottom: 5px;\n    }\n\n    /********** NAVBAR **********/\n    .navbar-brand {\n        margin: 0px;\n    }\n\n    .navbar-icons button:not(:last-child) {\n        margin-right: 10px;\n    }\n\n    #navbar-links {\n        margin-top: 15px;\n    }\n\n    #navbar-links a.nav-link {\n        padding: 10px 0px;\n    }\n\n    /********** SPACING **********/\n    .welcome-msg .btn {\n        margin-top: 150px;\n    }\n\n    .iwander-desc {\n        margin-bottom: 30px;\n    }\n\n    /********** CARDS **********/\n    .card-b-body {\n        height: 100px;\n    }\n\n    .card-c-img {\n        width: 100%;\n    }\n\n    .card-c-img img {\n        width: 100%;\n    }\n\n    .card-c-body {\n        width: 100%;\n        height: 150px;\n    }\n\n    .builder-prev h5,\n    .builder-next h5 {\n        margin-bottom: 20px;\n    }\n\n    .builder-search {\n        margin: 0px auto;\n    }\n\n    .builder-search .form-control {\n        width: 250px;\n    }\n\n    .jumbotron {\n        padding-top: 170px;\n    }\n}\n\n@media (min-width: 768px) and (max-width: 991.98px) {}\n", ""]);
+exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n\n/********** TYPOGRAPHY **********/\nbody {\n    font-family: 'Poppins', sans-serif;\n    font-size: 1rem;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    margin-bottom: 0px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n    font-weight: 600;\n}\n\nh5,\nh6 {\n    font-weight: 400;\n}\n\nh1 {\n    font-size: 48px;\n}\n\nh2 {\n    font-size: 36px;\n}\n\nh3 {\n    font-size: 28px;\n}\n\nh4 {\n    font-size: 20px;\n}\n\nh5 {\n    font-size: 18px;\n}\n\nh6,\np {\n    font-size: 16px;\n}\n\np {\n    line-height: 24px;\n    margin-bottom: 0px;\n}\n\np:not(:last-child) {\n    margin-bottom: 12px;\n}\n\nform label {\n    font-size: 15px;\n}\n\n.subheading {\n    color: #444;\n    margin-top: 3px;\n    letter-spacing: 1px;\n    display: inline;\n    font-weight: 300;\n}\n\n.subheading:not(:last-child)::after {\n    content: '\\2022';\n    margin: 0px 5px;\n    color: #444;\n}\n\n.subheading svg {\n    fill: #2c8cd6;\n    width: 18px;\n    height: 18px;\n    line-height: 23px;\n    vertical-align: middle;\n}\n\n.sidenav .user-name {\n    font-weight: 500;\n}\n\n.sidenav .role-text {\n    font-size: 11px;\n    color: #6c6c6c;\n    text-transform: uppercase;\n}\n\n.lg-form-heading span,\n.modal-form-heading span {\n    font-weight: 600;\n    color: #2c8cd6;\n}\n\nh6.column-name {\n    color: #6c6c6c;\n    text-transform: uppercase;\n    font-size: 14px;\n}\n\n.itinerary-info h6 {\n    font-weight: 600;\n    margin-bottom: 10px;\n}\n\n/********** LINKS **********/\na,\n.bottom-section a,\n.list-unstyled a,\n.navbar a,\n.auth-form-heading a,\n.form-msg a,\n.card-c a,\n.footer-col .jam,\n.builder-nav a,\n.filters-block a,\n.add-info a,\n.info-col a,\n.ht-block a {\n    text-decoration: none;\n    transition: ease-in-out 0.3s;\n}\n\n.bottom-section a,\n.list-unstyled a,\n.navbar a,\n.card-c a,\n.filters-block a,\n.add-info a,\n.info-col a,\n.ht-block a {\n    color: #000;\n}\n\n.section-heading a,\n.mobile-only a {\n    text-decoration: none;\n    color: #6c6c6c;\n    text-transform: uppercase;\n}\n\n.section-heading a:hover,\n.mobile-only a:hover,\n.bottom-section a:hover,\n.list-unstyled a:hover,\n.card-c a:hover,\n.builder-nav a:hover,\n.filters-block a:hover,\n.add-info a:hover,\n.info-col a:hover,\n.ht-block a:hover {\n    color: #2c8cd6;\n}\n\n.auth-form-heading a,\n.form-msg a {\n    color: #2c8cd6;\n}\n\n.auth-form-heading a:hover,\n.form-msg a:hover {\n    color: #267abb;\n}\n\n.footer-col svg {\n    width: 16px;\n    height: 16px;\n}\n\n.footer-col .jam:hover {\n    fill: #6c6c6c;\n}\n\n.filters-block a,\n.filters-block a:hover,\n.add-info a,\n.add-info a:hover,\n.info-col a,\n.info-col a:hover,\n.ht-block a,\n.ht-block a:hover {\n    text-decoration: underline;\n}\n\n.add-info h6 {\n    font-weight: 500;\n    margin-bottom: 2px;\n    color: #6c6c6c;\n}\n\n/********** SPACING **********/\n.body-content {\n    padding: 140px 0px 100px;\n}\n\n.create-plan-md {\n    border: 1px solid #eee;\n    padding: 20px;\n}\n\n.section-heading {\n    margin-bottom: 30px;\n}\n\n.section-heading a {\n    text-align: right;\n}\n\n.iwander-section {\n    margin: 38px 0px;\n}\n\n.section-button {\n    /*    margin-top: 50px;*/\n    text-align: center;\n}\n\n.section-button button {\n    margin: 0px auto;\n}\n\n.section-button a:hover {\n    text-decoration: none;\n}\n\nfooter .list-group {\n    margin-top: 15px;\n}\n\n.footer-col {\n    margin-bottom: 40px;\n}\n\n.footer-col .list-inline {\n    margin-top: 15px;\n}\n\n.filters-col h4 {\n    padding-bottom: 20px;\n    border-bottom: 1px solid #eee;\n    font-weight: 400;\n}\n\n.filters-block {\n    padding: 20px 0px;\n    border-bottom: 1px solid #eee;\n}\n\n.filters-block h6 {\n    font-weight: 600;\n}\n\n.filters-block .filter-selection {\n    margin-top: 10px;\n}\n\n.filter-selection .list-group-item:not(:last-child) {\n    margin-bottom: 2px;\n}\n\n.filter-selection label {\n    font-size: 14px;\n    margin-left: 6px;\n    margin-bottom: 0px !important;\n}\n\n.filters-block a {\n    margin-top: 10px;\n    font-size: 14px;\n}\n\n.filters-button {\n    margin-top: 15px;\n}\n\n.filters-button button {\n    margin: 0px auto;\n}\n\n.sorting-col {\n    height: 45px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #eee;\n}\n\n.sort-selection {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.sort-selection h6 {\n    display: inline;\n}\n\n.sort-selection .list-inline {\n    margin-bottom: 0px !important;\n}\n\n.sort-selection .list-inline-item:not(:last-child) {\n    margin-right: 5px;\n}\n\n.events-selection .list-group-item:first-child {\n    padding: 0px !important;\n    margin-bottom: 5px !important;\n}\n\n/* .top-section {\n    padding-top: 50px;\n    border-bottom: 1px solid #ccc;\n    padding-bottom: 20px;\n    margin-bottom: 70px;\n} */\n\n.top-row {\n    margin-top: 50px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.buttons-row {\n    margin-top: 30px;\n}\n\n.pagination-row {\n    margin: 50px 0px;\n}\n\n.pagination-links {\n    margin: 0 auto;\n}\n\n.pagination-links .pagination {\n    margin-bottom: 0px;\n}\n\n.form-heading {\n    padding-top: 20px;\n}\n\n.lg-form-heading {\n    padding: 50px 0px;\n}\n\n.button-col .btn {\n    float: right;\n}\n\n.bottom-section {\n    padding: 50px 0px;\n}\n\n.next-button {\n    text-align: right;\n}\n\n.prev-button .jam {\n    margin-right: 5px;\n}\n\n.next-button .jam {\n    margin-left: 5px;\n}\n\n.lg-form-button {\n    margin: 30px 0px 70px 0px;\n}\n\n.lg-form-heading h3 {\n    margin-bottom: 2px;\n}\n\n.item-title {\n    padding-top: 50px;\n    padding-bottom: 30px;\n}\n\n.item-image img {\n    width: 100%;\n    height: auto;\n}\n\n.item-info {\n    padding-top: 30px;\n    padding-bottom: 70px;\n}\n\n.info-col {\n    margin-bottom: 30px;\n}\n\n.info-col .column-data {\n    margin-bottom: 0px;\n}\n\n.info-col ul {\n    margin-bottom: 0px;\n}\n\n.info-col .list-inline-item:not(:last-child) {\n    margin-right: 0px;\n}\n\n.info-col .list-inline-item:not(:last-child)::after {\n    content: ',';\n}\n\nh6.column-name {\n    margin-bottom: 5px;\n}\n\n.list-unstyled li:not(:last-child) {\n    margin-bottom: 3px;\n}\n\n.list-unstyled .jam {\n    margin-right: 4px;\n}\n\n.auth-form-heading {\n    text-align: center;\n    padding-bottom: 25px;\n    border-bottom: 1px solid #eee;\n    margin-bottom: 32px;\n}\n\n.auth-form-heading h2 {\n    margin-bottom: 8px;\n}\n\n.auth-form-heading img {\n    width: 220px;\n    height: auto;\n    margin-bottom: 10px;\n}\n\n.form-msg {\n    margin-top: 10px;\n    margin-bottom: 28px;\n}\n\n.items-index,\n.date-selection,\n.itinerary-info {\n    margin-top: 40px;\n}\n\n.modal-form-heading {\n    margin-bottom: 30px;\n}\n\n.modal-form-heading h4 {\n    margin-bottom: 2px;\n}\n\n.items-index-button {\n    width: 100%;\n    padding: 50px 0px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.items-index-button a,\n.items-index-button a:hover {\n    color: #fff;\n}\n\n.action-selection {\n    margin-bottom: 30px;\n}\n\n.main-heading {\n    border-bottom: 1px solid #eee;\n    padding-bottom: 12px;\n}\n\n.iwander-desc {\n    padding-top: 30px;\n}\n\n.iwander-desc p:last-child {\n    margin-bottom: 30px;\n}\n\n.add-info {\n    margin-bottom: 30px;\n}\n\n.add-info p {\n    margin-bottom: 0px;\n}\n\n/********** FORMS **********/\n.errors {\n    color: #c95555;\n    font-size: 13px;\n}\n\n.invalid-feedback {\n    display: block;\n    font-size: 12px;\n    color: #c95555;\n}\n\n.invalid-feedback p {\n    margin-top: 5px !important;\n}\n\nlabel {\n    margin-bottom: 5px;\n}\n\nlabel.required::after {\n    content: '*';\n    color: #2c8cd6;\n    margin-left: 4px;\n}\n\n.form-heading h4 {\n    border-bottom: 1px solid #eee;\n    padding-bottom: 12px;\n    margin-bottom: 20px;\n    text-align: center;\n}\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    /* height: 45px;\n    padding: 10px;\n    font-size: 16px;\n    color: #000;\n    border-radius: 0px;\n    border: 1px solid #eee;\n    -webkit-transition: ease-in-out 0.3s;\n    transition: ease-in-out 0.3s;\n    background-color: transparent; */\n    height: 61px;\n    width: 385px;\n    /* left: 0px; */\n    /* top: 79px; */\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 40px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n\n    position: absolute;\n    left: 0%;\n    right: 0%;\n    top: 0px;\n    bottom: 0%;\n\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    \n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n.footer-bar{\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n\n.comment-box{\n    border: #000 1px solid;\n    border-radius: 2px;\n    width: 500px;\n}\n\n.comment-select-button{\n    width: 120px;\n    height: 35px;\n    border: solid 1px black;\n    border-radius: 3px;\n}\n\n\n\n\n\n\n\n\n.sort-select .custom-select {\n    height: 35px;\n    padding: 3px 8px;\n}\n\n.navbar-search .form-control {\n    border: none !important;\n    padding: 0px !important;\n    width: 250px;\n}\n\n.navbar-search .form-control:focus {\n    width: 400px;\n}\n\n.builder-search .form-control {\n    border: none !important;\n    padding: 0px;\n    width: 350px;\n}\n\n.custom-file-label::after {\n    height: 43px;\n    padding: 8px 10px;\n    color: #000;\n    background-color: #eee;\n    border-radius: 0px;\n}\n\n.form-control:focus,\n.custom-select:focus,\n.custom-file-input:focus~.custom-file-label {\n    border-color: #2c8cd6;\n    box-shadow: none;\n}\n\n.custom-file-input {\n    cursor: pointer !important;\n}\n\nselect {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\ntextarea {\n    height: 150px !important;\n    resize: none;\n}\n\n.form-button {\n    margin-top: 20px;\n}\n\n.form-button button {\n    margin: 0px auto;\n}\n\n.profile-info-buttons button {\n    margin: 0px auto;\n    width: 130px;\n}\n\n.profile-info-buttons button:first-child {\n    margin-bottom: 10px;\n}\n\n.profile-info-buttons {\n    margin-top: 30px;\n}\n\n/********** BUTTONS **********/\n.btn {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 18px 32px;\n    font-size: 16px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n}\n\n.btn-primary {\n    color: #fff;\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.btn-primary-xs {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 6px 11px;\n    font-size: 13px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n    color: #fff;\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.btn-primary:hover,\n.btn-primary-xs:hover {\n    color: #fff;\n    background-color: #267abb;\n    border-color: #267abb;\n}\n\n.btn-secondary-xs {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 6px 11px;\n    font-size: 13px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n    color: #6c6c6c;\n    background-color: transparent;\n    border-color: #6c6c6c;\n}\n\n.btn-secondary-sm {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 12px 22px;\n    font-size: 15px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n    color: #6c6c6c;\n    background-color: transparent;\n    border-color: #6c6c6c;\n}\n\n.btn-secondary {\n    color: #6c6c6c;\n    background-color: transparent;\n    border-color: #6c6c6c;\n}\n\n.btn-secondary:hover,\n.btn-secondary-sm:hover,\n.btn-secondary-xs:hover {\n    color: #fff;\n    background-color: #6c6c6c;\n}\n\n.btn-tertiary {\n    color: #000;\n    background-color: #fff;\n    border-color: #fff;\n}\n\n.btn-tertiary:hover {\n    color: #fff;\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.table-selection .btn {\n    padding: 6px 13px;\n    border-radius: 20px;\n}\n\n.sort-selection h6 {\n    line-height: 30px;\n    font-weight: 500;\n}\n\n.sort-selection h6::after {\n    content: '\\2013';\n    margin: 0px 10px;\n}\n\n.sort-selection .list-inline {\n    line-height: 30px;\n}\n\n.sort-selection .btn {\n    padding: 3px 15px;\n    border-radius: 20px;\n}\n\n.sort-selection .sort-selection-link {\n    border: 1px solid #444;\n    color: #444;\n    text-transform: uppercase;\n    font-size: 12px;\n}\n\n.table-selection .table-selection-link {\n    border: 1px solid #2c8cd6;\n    border-radius: 20px;\n    color: #444;\n    text-transform: uppercase;\n    font-size: 12px;\n}\n\n.sort-selection .sort-selection-link:hover {\n    color: #fff;\n    background-color: #444;\n}\n\n.table-selection .table-selection-link:hover {\n    color: #fff;\n    background-color: #2c8cd6;\n}\n\n.action-selection .btn {\n    padding: 10px 15px;\n    border-radius: 0px;\n}\n\n.action-selection .action-selection-link {\n    border: 1px solid #444;\n    color: #444;\n    font-size: 14px;\n    margin-bottom: 15px !important;\n}\n\n.action-selection-link a:hover {\n    text-decoration: none !important;\n}\n\n.action-selection-link .jam {\n    line-height: 33px;\n}\n\n.action-selection .action-selection-link:hover {\n    color: #fff;\n    background-color: #444;\n}\n\n.date-selection .btn {\n    padding: 10px 20px;\n    border-radius: 0px !important;\n}\n\n.date-selection .date-selection-link {\n    border: 1px solid #2c8cd6;\n    color: #444;\n    text-transform: uppercase;\n    font-size: 14px;\n}\n\n.date-selection .date-selection-link:hover {\n    color: #fff;\n    background-color: #2c8cd6;\n}\n\n.btn .jam {\n    margin-right: 10px;\n}\n\n/********** CARDS ******/\n.card-a {\n    border: 1px solid #eee;\n    /*    border-radius: 6px;*/\n    transition: ease-in-out 0.3s;\n    margin-bottom: 30px;\n}\n\n.card-b {\n    position: relative;\n    margin-bottom: 30px;\n}\n\n.card-a:hover {\n    border: 1px solid #2c8cd6;\n}\n\n.card-a a,\n.card-b a {\n    text-decoration: none;\n    color: #000;\n}\n\n.card-a a:hover {\n    color: #2c8cd6;\n}\n\n.card-a-body {\n    padding: 20px 15px 0px 15px;\n    height: 70px;\n}\n\n.card-a-body h5 {\n    font-weight: 500;\n}\n\n.card-a img,\n.card-b img {\n    transition: ease-in-out 0.3s;\n}\n\n.card-a:hover img,\n.card-b:hover img {\n    opacity: 0.8;\n}\n\n.card-b-body {\n    border: 1px solid #eee;\n    padding: 15px 20px 0px 20px;\n    height: 125px;\n}\n\n.card-b-body li.category {\n    margin-bottom: 0px;\n    color: #444;\n    font-size: 12px;\n    display: inline;\n    text-transform: uppercase;\n}\n\n.category:not(:last-child)::after {\n    content: '\\2022';\n    margin: 0px 3px;\n}\n\n.card-buttons {\n    position: absolute;\n    top: 0;\n    right: 0;\n    z-index: 1 !important;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.card-buttons svg {\n    fill: #444;\n    width: 18px;\n    height: 18px;\n}\n\n.card-buttons .card-action {\n    width: 30px;\n    height: 30px;\n    background: #fff;\n    border-radius: 50%;\n    text-align: center;\n    line-height: 30px;\n    vertical-align: middle;\n    display: block;\n    margin-bottom: 5px;\n}\n\n.card-b-body h6 {\n    margin-top: 3px;\n}\n\n.card-c {\n    border: 1px solid #eee;\n    overflow: hidden;\n    height: 200px;\n    margin-bottom: 30px;\n}\n\n.card-a-img {\n    width: 100%;\n    height: 180px;\n}\n\n.card-a-img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.card-b-img {\n    width: 100%;\n    height: 220px;\n}\n\n.card-b-img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.card-c-img {\n    width: 50%;\n    height: 100%;\n    float: left;\n}\n\n.card-c-img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.card-c-body {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 15px 20px;\n    position: relative;\n}\n\n.card-c-body h6 {\n    font-weight: 500;\n}\n\n.card-c-body p.address {\n    margin-top: 2px;\n}\n\n.card-c-button,\n.card-c-button-alt {\n    position: absolute;\n    left: 20px;\n    bottom: 15px;\n}\n\n.card-c-body .event-details {\n    position: absolute;\n    left: 20px;\n    bottom: 15px;\n}\n\n.card-c-button a {\n    display: inline;\n}\n\n.card-c-button p {\n    margin-bottom: 0px !important;\n}\n\n.card-c-button a:not(:last-child) {\n    margin-right: 10px;\n}\n\n.card-c-button a::before {\n    font-weight: 500;\n    font-size: 16px;\n    margin-right: 5px;\n    vertical-align: middle;\n}\n\n.card-c-button a.add::before {\n    content: '+';\n}\n\n.card-c-button a.edit::before {\n    content: '\\270F';\n}\n\n.card-c-button a.delete::before {\n    content: '\\D7';\n}\n\n.card-c-button-alt button {\n    text-align: left;\n    padding: 0;\n    font-size: 14px;\n    display: block;\n    background-color: transparent;\n    border: none !important;\n}\n\n.card-c-button-alt button:hover {\n    text-decoration: underline;\n    color: #2c8cd6;\n}\n\n.card-c-button-alt button:first-child {\n    margin-bottom: 3px;\n}\n\n.card-c-button-alt button svg {\n    width: 16px;\n    height: 16px;\n    fill: #000;\n    margin-right: 3px;\n}\n\n.card-d {\n    margin-bottom: 30px;\n}\n\n.card-d a {\n    text-decoration: none;\n}\n\n.card-d .itinerary-name {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    height: 175px;\n    border: 1px solid #eee;\n    margin-bottom: 10px;\n    transition: ease-in-out 0.3s;\n}\n\n.card-d .itinerary-name:hover {\n    border-color: #2c8cd6;\n}\n\n.card-d .itinerary-name h3 {\n    color: #000;\n}\n\n.card-d p {\n    text-transform: uppercase;\n    color: #444;\n    font-size: 15px;\n}\n\n.card-d p a {\n    color: #000;\n}\n\n.card-d p a:hover {\n    color: #2c8cd6;\n}\n\n.card-d span {\n    font-size: 13px;\n}\n\n/********** LISTS **********/\n.list-group-item {\n    padding: 1px 0px !important;\n    border: none !important;\n    background: none;\n}\n\nfooter .list-group-item a,\nfooter a {\n    text-decoration: none;\n    color: #000;\n}\n\nfooter .list-group-item a:hover,\nfooter a:hover {\n    text-decoration: none;\n    color: #6c6c6c;\n}\n\n.table-selection .list-inline {\n    margin-bottom: 0px !important;\n}\n\n.table-selection .list-inline-item:not(:last-child) {\n    margin-right: 10px;\n}\n\n.date-selection .list-group-item {\n    margin-bottom: 10px !important;\n}\n\n.card-b-body .list-inline {\n    margin-bottom: 1px;\n}\n\n.add-info .list-inline {\n    margin-bottom: 0px;\n}\n\n.add-info .list-inline-item:not(:last-child) {\n    margin-right: 0px;\n}\n\n.add-info .list-inline-item:not(:last-child)::after {\n    content: ',';\n    margin-right: 2px;\n    color: #000;\n}\n\n.add-info .list-inline-item a {\n    cursor: pointer;\n}\n\n/********** FOOTER **********/\nfooter {\n    background-color: #f5f5f5;\n    padding: 60px 0px;\n    margin-top: 70px;\n}\n\nfooter img {\n    width: 160px;\n    height: auto;\n    margin-bottom: 25px;\n}\n\n/********** SIDEBAR **********/\n.sidenav {\n    height: 100%;\n    width: 200px;\n    position: fixed;\n    z-index: 1;\n    top: 0;\n    left: 0;\n    overflow-x: hidden;\n    padding: 50px 25px;\n    background-color: #fafafa;\n}\n\n.sidenav-logo {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #ccc;\n}\n\n.sidenav-logo img {\n    width: 120px;\n    height: auto;\n}\n\n.user-info {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 20px 0px;\n    border-bottom: 1px solid #ccc;\n}\n\n.user-avatar {\n    display: inline-block;\n    margin-right: 15px;\n}\n\n.user-avatar img {\n    width: 35px;\n    height: 35px;\n    border-radius: 50%;\n}\n\n.user-name {\n    display: inline-block;\n}\n\n.sidenav .main-links {\n    margin-top: 25px;\n}\n\n.sidenav .list-group-item {\n    padding: 0px 20px !important;\n    margin-bottom: 8px;\n    border: none;\n    height: 25px;\n    line-height: 25px;\n    white-space: nowrap;\n}\n\n.list-group-item .jam {\n    height: 25px;\n    line-height: 25px;\n    white-space: nowrap;\n}\n\n.sidenav .list-group-item:hover {\n    background-color: transparent;\n    text-decoration: underline;\n}\n\n.sidenav .list-group-item-action {\n    color: #000;\n}\n\n.sidenav .jam {\n    fill: #000;\n}\n\n/*\n.sidenav .list-group-item-action:hover {\n    color: #2c8cd6;\n}\n\n.sidenav .jam:hover {\n    fill: #2c8cd6;\n}\n*/\n\n.sidenav .list-group-item .jam {\n    margin-right: 10px;\n}\n\n/********** TABLES **********/\n.table {\n    margin-top: 40px;\n}\n\n.table th {\n    border-top: none !important;\n    border-bottom: 1px solid #ccc;\n    font-weight: 400;\n    color: #6c6c6c;\n    text-transform: uppercase;\n    padding-bottom: 10px;\n}\n\n.table td {\n    padding: 15px;\n}\n\n.table td a {\n    color: #000;\n    text-decoration: none !important;\n    font-weight: 500;\n}\n\n.table td a:hover,\n.table td .btn:hover {\n    color: #2c8cd6;\n}\n\ntd.actions a:first-child::after {\n    content: '\\2022';\n    color: #000;\n    margin-left: 8px;\n}\n\ntd.actions a:not(:last-child) {\n    margin-right: 4px;\n}\n\ntd.actions .btn {\n    padding: 0px !important;\n    color: #000;\n    text-decoration: none !important;\n    font-weight: 500;\n}\n\n.hours-table {\n    width: 100%;\n}\n\n/********** NAVBAR **********/\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    z-index: 999 !important;\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand {\n    padding: 0px !important;\n    margin-right: 30px;\n}\n\n.navbar-brand img {\n    width: 160px;\n    height: auto;\n}\n\n.navbar .lnr {\n    color: #000;\n    font-weight: 600;\n}\n\n.navbar .lnr-magnifier {\n    font-size: 20px;\n}\n\n.navbar .lnr-menu {\n    font-size: 24px;\n}\n\n.navbar-toggler {\n    padding: 0px !important;\n    line-height: 0 !important;\n    border-radius: 0px !important;\n}\n\n#navbar-links li.nav-item a.nav-link {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n#navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n}\n\n.navbar-search,\n.builder-search {\n    padding: 2px 15px;\n    border-radius: 4px;\n    border: 1px solid #eee;\n}\n\n.navbar-search span,\n.builder-search span {\n    float: left;\n    line-height: 45px;\n}\n\n.navbar-search form,\n.builder-search form {\n    float: left;\n    margin-left: 15px;\n}\n\na.builder-prev h5::before {\n    content: '\\2190';\n    vertical-align: middle;\n    margin-right: 10px;\n}\n\na.builder-next h5::after {\n    content: '\\2192';\n    vertical-align: middle;\n    margin-left: 10px;\n}\n\n.builder-nav {\n    height: 100px;\n}\n\n.dropdown-results {\n    z-index: 999 !important;\n    position: absolute;\n    background-color: white;\n    width: 400px;\n    /* padding: 2px 15px; */\n    /* border-radius: 4px; */\n    /* border: 1px solid #eee; */\n}\n\n/********** WELCOME PAGE **********/\n.vertical-center {\n    min-height: 100%;\n    min-height: 100vh;\n    display: flex;\n    align-items: center;\n}\n\n.welcome-msg {\n    display: flex;\n    justify-content: center;\n    margin: 0 auto;\n}\n\n.welcome-msg h1 {\n    color: #fff;\n    text-align: center;\n}\n\n.welcome-msg .btn {\n    position: absolute;\n    margin-top: 200px;\n}\n\n.lg-banner {\n    height: 100%;\n}\n\n.full-height {\n    height: 100%;\n}\n\n.welcome-col {\n    /* background-image: url('../images/welcome.jpeg'); */\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n\n/********** JUMBOTRON **********/\n.jumbotron {\n    padding: 0px !important;\n    margin-bottom: 40px;\n}\n\n.itinerary-banner {\n    padding: 160px 0px 80px !important;\n    background-color: #f5f5f5;\n}\n\n.itinerary-banner h2 {\n    font-weight: 400;\n    margin-bottom: 6px;\n}\n\n.item-banner {\n    margin-top: 92px;\n    height: 520px;\n    width: 100%;\n}\n\n.item-banner img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.index-banner {\n    background-color: #f5f5f5;\n    margin-top: 92px;\n    height: auto;\n    padding: 80px 0px !important;\n}\n\n.index-banner h2 {\n    font-weight: 400;\n}\n\n/********** MODAL **********/\n.modal-content {\n    padding: 15px 0px;\n    border: 1px solid #eee;\n    border-radius: 4px;\n}\n\n.modal-mask {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, .5);\n    display: table;\n    transition: opacity .3s ease;\n}\n\n.modal-wrapper {\n    display: table-cell;\n    vertical-align: middle;\n}\n\n.modal-container {\n    width: 600px;\n    margin: 0px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    transition: all .3s ease;\n}\n\n/********** TABS **********/\n.sorting-col .nav-link {\n    border: 1px solid #2c8cd6;\n    border-radius: 5px;\n    text-align: center;\n    padding: 4px 12px;\n    color: #2c8cd6;\n    background-color: transparent;\n}\n\n.sorting-col .nav-link:hover {\n    background-color: #2c8cd6;\n    color: #fff;\n}\n\n.sorting-col .nav-link .active {\n    background-color: #2c8cd6;\n    color: #fff;\n}\n\n.ht-blocks {\n    margin-top: 40px;\n}\n\n.ht-block {\n    background: #fff;\n    padding: 0px 0px 50px 0px;\n}\n\n.ht-block:not(:last-child) {\n    margin-bottom: 50px;\n    border-bottom: 2px solid #eee;\n}\n\n.ht-block h5 {\n    font-weight: 500;\n    margin-bottom: 30px;\n}\n\n.ht-block em {\n    font-weight: 600;\n    font-style: normal;\n}\n\n.ht-block p:not(:last-child) {\n    margin-bottom: 20px;\n}\n\n.ht-block li:not(:last-child) {\n    margin-bottom: 15px;\n}\n\n.ht-block ol:not(:last-child),\n.ht-block ul:not(:last-child) {\n    margin-bottom: 20px;\n}\n\n.ht-block ol {\n    padding-left: 30px;\n}\n\n.ht-block ul {\n    list-style-type: none;\n    padding-left: 15px;\n    margin: 0px;\n}\n\n.ht-block ul li::before {\n    content: '\\2014';\n    margin-right: 6px;\n}\n\n.ht-block figure {\n    text-align: center;\n    padding: 20px 0px;\n}\n\n.ht-block img {\n    width: 100%;\n    height: auto;\n    box-shadow: 7px 6px 10px 0px rgba(0, 0, 0, 0.36);\n}\n\n.tab-content {\n    margin-top: 25px;\n}\n\n.tab-content h5 {\n    color: #000;\n}\n\n.tab-content p {\n    font-size: 14px;\n    color: #444;\n    text-transform: uppercase;\n}\n\n.tab-pane button {\n    border-radius: 50%;\n    width: 40px;\n    height: 40px;\n    align-items: center;\n    justify-content: center;\n    background-color: #6c6c6c;\n    border-color: #6c6c6c;\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    right: 0px;\n}\n\n.tab-pane button svg {\n    width: 20px;\n    height: 20px;\n    fill: #fff;\n}\n\n.nav-pills .nav-link {\n    border-radius: 0px !important;\n}\n\n.nav-pills .nav-link.active,\n.nav-pills .show>.nav-link {\n    color: #fff;\n    background-color: #2c8cd6;\n}\n\n/********** PROFILE INFO **********/\n.profile-info {\n    border: 1px solid #eee;\n    padding: 30px;\n    text-align: center;\n}\n\n.profile-info .avatar {\n    margin-bottom: 20px;\n}\n\n.profile-info .avatar img {\n    width: 75px;\n    height: 75px;\n    border-radius: 50%;\n}\n\n.profile-info h5 {\n    font-weight: 500;\n}\n\n.profile-info p {\n    font-size: 14px;\n}\n\n.profile-info-buttons a:hover {\n    text-decoration: none;\n}\n\n/********** PAGINATION **********/\n.page-link {\n    padding: 10px 14px;\n    border: 1px solid #ccc;\n    color: #444;\n}\n\n.page-item.active .page-link {\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.page-link:hover {\n    background-color: #ccc;\n    color: #000;\n    border-color: #ccc;\n}\n\n.page-link:first-child {\n    border-top-left-radius: 0px !important;\n    border-bottom-left-radius: 0px !important;\n}\n\n.page-link:last-child {\n    border-top-right-radius: 0px !important;\n    border-bottom-right-radius: 0px !important;\n}\n\n@media (max-width: 575.98px) {\n    h1 {\n        font-size: 32px;\n    }\n\n    h2 {\n        font-size: 26px;\n    }\n\n    h3 {\n        font-size: 22px;\n    }\n\n    h4 {\n        font-size: 20px;\n    }\n\n    h5 {\n        font-size: 18px;\n    }\n\n    h6 {\n        font-size: 16px;\n    }\n\n    .table-selection .btn {\n        margin-top: 5px;\n        margin-bottom: 5px;\n    }\n\n    /********** NAVBAR **********/\n    .navbar-brand {\n        margin: 0px;\n    }\n\n    .navbar-icons button:not(:last-child) {\n        margin-right: 10px;\n    }\n\n    #navbar-links {\n        margin-top: 15px;\n    }\n\n    #navbar-links a.nav-link {\n        padding: 10px 0px;\n    }\n\n    /********** SPACING **********/\n    .welcome-msg .btn {\n        margin-top: 150px;\n    }\n\n    .iwander-desc {\n        margin-bottom: 30px;\n    }\n\n    /********** CARDS **********/\n    .card-b-body {\n        height: 100px;\n    }\n\n    .card-c-img {\n        width: 100%;\n    }\n\n    .card-c-img img {\n        width: 100%;\n    }\n\n    .card-c-body {\n        width: 100%;\n        height: 150px;\n    }\n\n    .builder-prev h5,\n    .builder-next h5 {\n        margin-bottom: 20px;\n    }\n\n    .builder-search {\n        margin: 0px auto;\n    }\n\n    .builder-search .form-control {\n        width: 250px;\n    }\n\n    .jumbotron {\n        padding-top: 170px;\n    }\n}\n\n@media (min-width: 768px) and (max-width: 991.98px) {}\n", ""]);
 
 // exports
 
@@ -70499,10 +70499,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/components/Comments.js":
-/*!*********************************************!*\
-  !*** ./resources/js/components/Comments.js ***!
-  \*********************************************/
+/***/ "./resources/js/components/AddComment.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/AddComment.js ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -70514,6 +70514,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -70539,6 +70541,151 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+var AddComment = /*#__PURE__*/function (_Component) {
+  _inherits(AddComment, _Component);
+
+  var _super = _createSuper(AddComment);
+
+  function AddComment() {
+    var _this;
+
+    _classCallCheck(this, AddComment);
+
+    _this = _super.call(this);
+    _this.state = {
+      comment: ""
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmitForm = _this.handleSubmitForm.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(AddComment, [{
+    key: "handleSubmitForm",
+    value: function handleSubmitForm(e) {
+      var _this2 = this;
+
+      //prevent from reloading page
+      e.preventDefault();
+      var token = localStorage.getItem("token");
+
+      if (token) {
+        axios.post('/api/posts/' + this.props.postId + '/comments', {
+          body: this.state.comment,
+          post_id: this.props.postId,
+          user_id: this.props.userId
+        }, {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        }).then(function (response) {
+          console.log(response.data);
+          var c = response.data.data;
+          var b = {
+            user: response.data.user
+          };
+          c = _.merge(response.data.data, b);
+
+          _this2.setState({
+            comment: ""
+          });
+
+          _this2.props.addComment(response.data.data);
+        })["catch"](function (error) {
+          console.log(error);
+
+          if (error) {
+            console.log(error);
+          }
+        });
+      } else {
+        this.props.history.push('/signin');
+      }
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      var target = e.target;
+      var value = target.value;
+      var name = target.name;
+      this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "body-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Add comment"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmitForm
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        className: "comment-box form-control",
+        id: "body",
+        placeholder: "Add a comment",
+        name: "comment",
+        value: this.state.comment,
+        onChange: this.handleChange
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-bttn col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "signin-btn",
+        type: "submit"
+      }, "Add")))));
+    }
+  }]);
+
+  return AddComment;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(AddComment));
+
+/***/ }),
+
+/***/ "./resources/js/components/Comments.js":
+/*!*********************************************!*\
+  !*** ./resources/js/components/Comments.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _AddComment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddComment */ "./resources/js/components/AddComment.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
 var Comments = /*#__PURE__*/function (_Component) {
   _inherits(Comments, _Component);
 
@@ -70551,17 +70698,32 @@ var Comments = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this);
     _this.state = {
-      comments: []
+      comments: [],
+      comment: {},
+      comment_value: "",
+      sort: '',
+      edit: false,
+      editId: ''
     };
+    _this.comments = _this.comments.bind(_assertThisInitialized(_this));
+    _this.addComment = _this.addComment.bind(_assertThisInitialized(_this));
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.deleteComment = _this.deleteComment.bind(_assertThisInitialized(_this));
+    _this.editComment = _this.editComment.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Comments, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.comments();
+    }
+  }, {
+    key: "comments",
+    value: function comments() {
       var _this2 = this;
 
-      axios.get('/api/posts/' + +this.props.postId + '/comments').then(function (response) {
+      axios.get('/api/posts/' + this.props.postId + '/comments').then(function (response) {
         // console.log(response.data.data);
         var tempComments = response.data; //never modify state directly
 
@@ -70576,24 +70738,152 @@ var Comments = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "addComment",
+    value: function addComment(comment) {
+      var tempComments = this.state.comments; //push comment in the beginning of the array
+
+      tempComments.unshift(comment);
+      this.setState({
+        comments: tempComments
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      // this.setState({sort: e.target.value});
+      var target = e.target;
+      var value = target.value;
+      var name = target.name;
+      this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: "deleteComment",
+    value: function deleteComment(id) {
+      var _this3 = this;
+
+      console.log("delete");
+      var token = localStorage.getItem("token");
+      axios["delete"]('/api/comments/' + id, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        console.log(response);
+
+        _this3.comments();
+      })["catch"](function (error) {
+        if (error) {
+          console.log(error);
+          this.state.errors = error.response.data.errors;
+        }
+      });
+    }
+  }, {
+    key: "editComment",
+    value: function editComment(id) {
+      var _this4 = this;
+
+      console.log("EDIT");
+      var token = localStorage.getItem("token");
+      axios.put('/api/comments/' + id, {
+        body: this.state.comment_value,
+        post_id: this.state.comment.post_id,
+        user_id: this.state.comment.user_id
+      }, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        console.log(response);
+
+        _this4.comments();
+
+        _this4.setState({
+          edit: false,
+          editId: '',
+          comment_value: '',
+          comment: ''
+        });
+      })["catch"](function (error) {
+        if (error) {
+          console.log(error);
+          this.state.errors = error.response.data.errors;
+        }
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this5 = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "COMMENTS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddComment__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        postId: this.props.postId,
+        userId: this.props.user.id,
+        addComment: this.addComment
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "COMMENTS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col comment-select"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "Sort"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        className: "comment-select-button",
+        value: this.state.sort,
+        onChange: this.handleChange
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        disabled: true,
+        value: ""
+      }, "Sort by:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Popularity"
+      }, "Popularity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "Latest"
+      }, "Latest"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-8 py-3"
       }, this.state.comments.map(function (item) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          key: item.id
+          key: item.id,
+          className: "mb-5"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "media-body"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, item.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, item.user.name), _this5.state.edit == true && _this5.state.editId === item.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+          className: "comment-box form-control",
+          id: "body",
+          placeholder: "Add a comment",
+          name: "comment_value",
+          value: _this5.state.comment_value,
+          onChange: _this5.handleChange
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this5.editComment(item.id);
+          }
+        }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this5.setState({
+              edit: false
+            });
+          }
+        }, "Cancel")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "apt-notes"
-        }, item.body)));
+        }, item.body)), _this5.props.user.id === item.user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "float-right"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this5.deleteComment(item.id);
+          }
+        }, "Delete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this5.setState({
+              edit: true,
+              editId: item.id,
+              comment: item,
+              comment_value: item.body
+            });
+          }
+        }, "Edit")) : '');
       }))));
     }
   }]);
@@ -70870,6 +71160,82 @@ var Forum = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Modal/CreateForum.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/Modal/CreateForum.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var CreateForum = /*#__PURE__*/function (_Component) {
+  _inherits(CreateForum, _Component);
+
+  var _super = _createSuper(CreateForum);
+
+  function CreateForum() {
+    var _this;
+
+    _classCallCheck(this, CreateForum);
+
+    _this = _super.call(this);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(CreateForum, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "body-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "CREATE FORUM")));
+    }
+  }]);
+
+  return CreateForum;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (CreateForum);
+
+/***/ }),
+
 /***/ "./resources/js/components/Navbar.js":
 /*!*******************************************!*\
   !*** ./resources/js/components/Navbar.js ***!
@@ -71030,7 +71396,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _Comments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Comments */ "./resources/js/components/Comments.js");
+/* harmony import */ var _AddComment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddComment */ "./resources/js/components/AddComment.js");
+/* harmony import */ var _Comments__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Comments */ "./resources/js/components/Comments.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71052,6 +71419,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -71108,8 +71476,9 @@ var Post = /*#__PURE__*/function (_Component) {
           className: "row"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col py-3"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.state.post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.post.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.state.post.user.name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Comments__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          postId: this.props.match.params.id
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.state.post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.post.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.state.post.user.name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          postId: this.props.match.params.id,
+          user: this.props.user
         })));
       } else {
         return null;
@@ -71121,6 +71490,79 @@ var Post = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Post));
+
+/***/ }),
+
+/***/ "./resources/js/components/PrivateRoute.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/PrivateRoute.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var PrivateRoute = /*#__PURE__*/function (_Component) {
+  _inherits(PrivateRoute, _Component);
+
+  var _super = _createSuper(PrivateRoute);
+
+  function PrivateRoute() {
+    _classCallCheck(this, PrivateRoute);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(PrivateRoute, [{
+    key: "render",
+    value: function render() {
+      console.log(this.props.loggedIn);
+
+      if (this.props.loggedIn) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.props.component, null);
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+          to: '/signin'
+        });
+      }
+    }
+  }]);
+
+  return PrivateRoute;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (PrivateRoute);
 
 /***/ }),
 
@@ -71506,9 +71948,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Post__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Post */ "./resources/js/components/Post.js");
 /* harmony import */ var _components_Signin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Signin */ "./resources/js/components/Signin.js");
 /* harmony import */ var _components_Register__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Register */ "./resources/js/components/Register.js");
-/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Home */ "./resources/js/views/Home.js");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_css_app_css__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _components_Modal_CreateForum__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Modal/CreateForum */ "./resources/js/components/Modal/CreateForum.js");
+/* harmony import */ var _components_PrivateRoute__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/PrivateRoute */ "./resources/js/components/PrivateRoute.js");
+/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Home */ "./resources/js/views/Home.js");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_css_app_css__WEBPACK_IMPORTED_MODULE_12__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71530,6 +71974,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
 
 
 
@@ -71671,7 +72117,7 @@ var App = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_9__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_11__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/signin"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Signin__WEBPACK_IMPORTED_MODULE_7__["default"], {
         login: this.login
@@ -71683,7 +72129,14 @@ var App = /*#__PURE__*/function (_Component) {
         path: "/forums/:id"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Forum__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/posts/:id"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Post__WEBPACK_IMPORTED_MODULE_6__["default"], null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Post__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        user: this.state.user
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PrivateRoute__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        exact: true,
+        path: "/forums",
+        loggedIn: this.state.isLoggedIn,
+        component: _components_Modal_CreateForum__WEBPACK_IMPORTED_MODULE_9__["default"]
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
     }
   }]);
 
@@ -71767,7 +72220,7 @@ var Home = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       axios.get('/api/forums').then(function (response) {
-        console.log(response);
+        // console.log(response);
         var temptForums = response.data; //never modify state directly
 
         _this2.setState({
@@ -71807,7 +72260,11 @@ var Home = /*#__PURE__*/function (_Component) {
           }, item.topic), _this3.props.children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "apt-notes"
           }, item.description)));
-        }))));
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+          to: '/forums'
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Create a new Forum topic"))))));
       } else {
         return null;
       }

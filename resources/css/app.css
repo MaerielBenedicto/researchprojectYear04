@@ -678,6 +678,27 @@ label.required::after {
     margin-bottom: 20px;
 }
 
+
+.comment-box{
+    border: #000 1px solid;
+    border-radius: 2px;
+    width: 500px;
+}
+
+.comment-select-button{
+    width: 120px;
+    height: 35px;
+    border: solid 1px black;
+    border-radius: 3px;
+}
+
+
+
+
+
+
+
+
 .sort-select .custom-select {
     height: 35px;
     padding: 3px 8px;

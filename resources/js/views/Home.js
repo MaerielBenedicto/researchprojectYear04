@@ -20,7 +20,7 @@ class Home extends Component {
     componentDidMount(){
         axios.get('/api/forums')
         .then(response => {
-            console.log(response);
+            // console.log(response);
              const temptForums = response.data;
         
               //never modify state directly
@@ -59,7 +59,13 @@ class Home extends Component {
                         </div>
                     </div>
                     ))}
+                    <div className="col">
+                        <Link to={'/forums'}>
+                            <button>Create a new Forum topic</button>
+                        </Link>
+                    </div>
                </div>
+               
     
                 </div>
                     
