@@ -6414,7 +6414,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap);", ""]);
 
 // module
-exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n.body-content{\n    padding-top: 150px;\n    padding-bottom: 150px; /* height of the footer*/\n}\n\n#App {\n    position: relative;\n    min-height: 100%;\n}\n\n/****  TYPOGRAPHY ****/\n\nh2{\n    font-size: 34px;\n    font-weight: 800;\n    padding: 20px 0px;\n}\n\nh4{\n    font-size: 18px;\n}\n\n/****  NAVBAR ****/\n\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    z-index: 999 !important;\n\n    border: 1px solid #CCCBCB;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand span {\n    padding: 0px !important;\n    margin-right: 30px;\n    color: black;\n\n}\n\n#navbar-links {\n    margin-top: 15px;\n}\n\n#navbar-links li.nav-item {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n.nav-link{\n    color:#000;\n    font-size: 18px;\n}\n\n/* #navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n} */\n\n\n#navbar-links a.nav-link {\n    padding: 10px 0px;\n}\n\n/*** FORMS ***/\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    height: 61px;\n    width: 385px;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 40px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n/*** SIGN IN ***/\n\n.auth-form-heading{\n    text-align: center;\n}\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n/*** REGISTER ***/\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n/*** FOOTER **/\n\n.footer-bar{\n    position: absolute;\n    width: 100%;\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n/*** FORUM PAGE ****/\n.forum{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n}\n\n.forum-list{\n    padding: 0px;\n}\n\n.forum-title{\n    padding: 10px 0px;\n}\n\n.forum-title a{\n    font-size: 18px;\n    color: black;\n    font-weight: 600;\n}\n\n.forum-title a:hover{\n    text-decoration: none;\n}\n\n.forum-desc{\n    font-size: 14px;\n    color: black;\n    padding-top: 15px;\n    padding-bottom: 20px;\n}\n\n\n.forum-bttn{\n    height: 54px;\n    width: 100%;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 18px;\n    color: #FFFFFF;\n    font-weight: 800;\n}\n\n\n\n/*** FORUM-POST ***/\n.forum-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n} \n\n.title{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n.posts-rows{\n    padding:0px;\n}\n\n.post{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n\n.post-title a{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n.post-title a:hover{\n    text-decoration: none;\n}\n\n.post-body{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n\n.comment-box{\n    border: #000 1px solid;\n    border-radius: 2px;\n    width: 500px;\n}\n\n.comment-select-button{\n    width: 120px;\n    height: 35px;\n    border: solid 1px black;\n    border-radius: 3px;\n}\n\n\n\n", ""]);
+exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n.body-content{\n    padding-top: 150px;\n    padding-bottom: 150px; /* height of the footer*/\n}\n\n#App {\n    position: relative;\n    min-height: 100%;\n}\n\n/****  TYPOGRAPHY ****/\n\nh2{\n    font-size: 34px;\n    font-weight: 800;\n    padding: 20px 0px;\n}\n\nh4{\n    font-size: 18px;\n}\n\n/****  NAVBAR ****/\n\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    z-index: 999 !important;\n\n    border: 1px solid #CCCBCB;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand span {\n    padding: 0px !important;\n    margin-right: 30px;\n    color: black;\n\n}\n\n#navbar-links {\n    margin-top: 15px;\n}\n\n#navbar-links li.nav-item {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n.nav-link{\n    color:#000;\n    font-size: 18px;\n}\n\n/* #navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n} */\n\n\n#navbar-links a.nav-link {\n    padding: 10px 0px;\n}\n\n/*** FORMS ***/\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    height: 61px;\n    width: 385px;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 20px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n/*** SIGN IN ***/\n\n.auth-form-heading{\n    text-align: center;\n}\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n/*** REGISTER ***/\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n/*** FOOTER **/\n\n.footer-bar{\n    position: absolute;\n    width: 100%;\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n/*** FORUM PAGE ****/\n.forum{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n}\n\n.forum-list{\n    padding: 0px;\n}\n\n.forum-title{\n    padding: 10px 0px;\n}\n\n.forum-title a{\n    font-size: 18px;\n    color: black;\n    font-weight: 600;\n}\n\n.forum-title a:hover{\n    text-decoration: none;\n}\n\n.forum-desc{\n    font-size: 14px;\n    color: black;\n    padding-top: 15px;\n    padding-bottom: 20px;\n}\n\n\n.forum-bttn{\n    height: 54px;\n    width: 100%;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 18px;\n    color: #FFFFFF;\n    font-weight: 800;\n}\n\n\n\n/*** FORUM-POST ***/\n.forum-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n} \n\n.title{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n\n.posts-rows{\n    padding:0px;\n}\n\n.post{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n\n.post-title a{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n.post-title a:hover{\n    text-decoration: none;\n}\n\n.post-body{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n/** POST PAGE **/\n.post-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n.post-detail span{\n    padding-left: 20px;\n}\n\n.post-detail h4 {\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n    padding-top: 20px;\n}\n\n.post-detail p{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n.post-detail img{\n    width: 50px;\n    height: 50px;\n}\n\n\n/** COMMENT **/\n\n.comment-box{\n    border: #B8B2B2 1px solid;\n    border-radius: 2px;\n    width: 100%;\n}\n\n.comment-select-button{\n    width: 200px;\n    height: 35px;\n    border: solid 1px #B8B2B2;\n    border-radius: 3px;\n}\n\n.add-comment-bttn{\n    height: 30px;\n    width: 80px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 16px;\n    color: #FFFFFF;\n    font-weight: 800;\n\n    float: right;\n}\n\n.add-comment-div{\n    margin-bottom: 50px;\n}\n\n.each-comment{\n    border-bottom: 1px solid #888888;\n    padding-bottom: 40px;\n    padding-top: 20px;\n}\n\n/** CREATE FORUM **/\n.form-control-forum{\n    height: 30px;\n    width: 100%;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding:20px;\n}\n\n.form-control-forum-body{\n    width: 100%;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding: 20px;\n}\n\n.forum-topic{\n    padding: 20px;\n    margin-bottom: 40px;\n}\n\n.submit-button{\n    height: 30px;\n    width: 80px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 16px;\n    color: #FFFFFF;\n    font-weight: 800;\n\n    float: right;\n}", ""]);
 
 // exports
 
@@ -70622,7 +70622,7 @@ var AddComment = /*#__PURE__*/function (_Component) {
         axios.post('/api/posts/' + this.props.postId + '/comments', {
           body: this.state.comment,
           post_id: this.props.postId,
-          user_id: this.props.userId
+          user_id: this.props.user.id
         }, {
           headers: {
             Authorization: "Bearer " + token
@@ -70663,24 +70663,23 @@ var AddComment = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "body-content"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
+        className: "add-comment-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Add comment"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmitForm
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
-        className: "comment-box form-control",
+        className: "comment-box form-control col-12 mb-3",
+        rows: "5",
         id: "body",
         placeholder: "Add a comment",
         name: "comment",
         value: this.state.comment,
         onChange: this.handleChange
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-bttn col-12"
+        className: "col-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "signin-btn",
+        className: "add-comment-bttn",
         type: "submit"
-      }, "Add")))));
+      }, "Add"))));
     }
   }]);
 
@@ -70866,14 +70865,8 @@ var Comments = /*#__PURE__*/function (_Component) {
       var _this5 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "body-content"
+        className: ""
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddComment__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        postId: this.props.postId,
-        userId: this.props.user.id,
-        addComment: this.addComment
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "COMMENTS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col comment-select"
@@ -70889,13 +70882,17 @@ var Comments = /*#__PURE__*/function (_Component) {
       }, "Popularity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "Latest"
       }, "Latest"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
+        className: "row mt-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-8 py-3"
-      }, this.state.comments.map(function (item) {
+        className: "comment-box col-9 py-3"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AddComment__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        postId: this.props.postId,
+        user: this.props.user,
+        addComment: this.addComment
+      }), this.state.comments.map(function (item) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: item.id,
-          className: "mb-5"
+          className: "each-comment"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "media-body"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, item.user.name), _this5.state.edit == true && _this5.state.editId === item.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
@@ -70909,7 +70906,7 @@ var Comments = /*#__PURE__*/function (_Component) {
           onClick: function onClick() {
             return _this5.editComment(item.id);
           }
-        }, "Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, "Update"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
             return _this5.setState({
               edit: false
@@ -70917,7 +70914,7 @@ var Comments = /*#__PURE__*/function (_Component) {
           }
         }, "Cancel")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "apt-notes"
-        }, item.body)), _this5.props.user.id === item.user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, item.body)), _this5.props.user && _this5.props.user.id === item.user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "float-right"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
@@ -71363,6 +71360,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -71398,72 +71397,98 @@ var CreateForum = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, CreateForum);
 
     _this = _super.call(this);
-    _this.state = {};
+    _this.state = {
+      topic: '',
+      description: '',
+      user_id: ''
+    };
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmitForm = _this.handleSubmitForm.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(CreateForum, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {}
+    key: "handleSubmitForm",
+    value: function handleSubmitForm(e) {
+      var _this2 = this;
+
+      //prevent from reloading page
+      e.preventDefault();
+      var token = localStorage.getItem("token");
+      axios.post('/api/forums', {
+        topic: this.state.topic,
+        description: this.state.description,
+        user_id: this.props.user.id
+      }, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        // console.log(response.data.data);
+        _this2.props.history.push('/forums/' + response.data.data.id);
+      })["catch"](function (error) {
+        console.log(error);
+
+        if (error) {
+          console.log(error);
+        }
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(e) {
+      var target = e.target;
+      var value = target.value;
+      var name = target.name;
+      this.setState(_defineProperty({}, name, value));
+    }
   }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-lg-4 offset-lg-4  offset-md-2  offset-sm-1 col-md-8 col-sm-10"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-12 auth-form-heading"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Create Forum")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmitForm,
-        className: "form-div"
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmitForm
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-12"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "email",
-        type: "email",
-        className: "form-control",
-        placeholder: "Email",
-        name: "email",
+        className: "col-lg-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Create new Forum Topic")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-lg-12 forum-topic"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Topic Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "forum-title",
+        type: "text",
+        className: "form-control-forum",
+        placeholder: "Title",
+        name: "topic",
         required: true,
-        value: this.state.email,
+        value: this.state.topic,
         onChange: this.handleChange
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-12"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "password",
-        type: "password",
-        className: "form-control",
-        placeholder: "Password",
-        name: "password",
-        required: true,
-        value: this.state.password,
+        className: "col-lg-12 forum-description"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Topic Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        className: "form-control-forum-body col-12 mb-3",
+        rows: "9",
+        id: "body",
+        placeholder: "Description",
+        name: "description",
+        value: this.state.description,
         onChange: this.handleChange
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group col-12 form-msg"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "checkbox",
-        value: "lsRememberMe",
-        id: "rememberMe"
-      }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Remember me")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "Forgot Password?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-bttn col-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "signin-btn",
+        className: "submit-button",
         type: "submit"
-      }, "Sign In")))))));
+      }, "Submit"))))));
     }
   }]);
 
   return CreateForum;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (CreateForum);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(CreateForum));
 
 /***/ }),
 
@@ -71618,7 +71643,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
+ // import { CgProfile } from 'react-icons/CgProfile';
 
 var Post = /*#__PURE__*/function (_Component) {
   _inherits(Post, _Component);
@@ -71666,11 +71691,19 @@ var Post = /*#__PURE__*/function (_Component) {
           className: "body-content"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "container"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "POST COMMENTS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col py-3"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.state.post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.post.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.state.post.user.name))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          className: "post-detail col-9 py-3"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-12"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: "https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.state.post.user.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-12"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.state.post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.post.body))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
           postId: this.props.match.params.id,
           user: this.props.user
         })));
@@ -71741,10 +71774,12 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
   _createClass(PrivateRoute, [{
     key: "render",
     value: function render() {
-      console.log(this.props.loggedIn);
+      console.log(this.props.user);
 
-      if (this.props.loggedIn) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.props.component, null);
+      if (this.props.user) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(this.props.component, {
+          user: this.props.user
+        });
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
           to: '/signin'
@@ -72176,7 +72211,8 @@ var App = /*#__PURE__*/function (_Component) {
     _this = _super.call(this);
     _this.state = {
       user: null,
-      isLoggedIn: false
+      isLoggedIn: false // isLoaded: false
+
     }; // this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
 
     _this.getUser = _this.getUser.bind(_assertThisInitialized(_this)); // this.login = this.login.bind(this);
@@ -72194,12 +72230,12 @@ var App = /*#__PURE__*/function (_Component) {
       console.log("Check if log in");
 
       if (token) {
-        console.log("logged in");
-        this.setState({
-          isLoggedIn: true
-        }); //get user data
+        console.log("logged in"); //get user data
 
         this.getUser();
+        this.setState({
+          isLoggedIn: true
+        });
       } else {
         console.log("not log in");
         this.setState({
@@ -72223,8 +72259,7 @@ var App = /*#__PURE__*/function (_Component) {
         localStorage.removeItem('token');
 
         _this2.setState({
-          user: null,
-          isLoggedIn: false
+          user: null
         });
       })["catch"](function (error) {
         if (error) {
@@ -72263,6 +72298,8 @@ var App = /*#__PURE__*/function (_Component) {
         logout: this.logout,
         user: this.state.user
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/forums/:id"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Forum__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_12__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -72282,7 +72319,7 @@ var App = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PrivateRoute__WEBPACK_IMPORTED_MODULE_11__["default"], {
         exact: true,
         path: "/forums",
-        loggedIn: this.state.isLoggedIn,
+        user: this.state.user,
         component: _components_Modal_CreateForum__WEBPACK_IMPORTED_MODULE_9__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/forums/:post/posts"

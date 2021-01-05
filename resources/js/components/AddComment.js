@@ -22,7 +22,7 @@ class AddComment extends Component {
             {
                 body: this.state.comment,
                 post_id: this.props.postId,
-                user_id: this.props.userId
+                user_id: this.props.user.id
             },
             {
                 headers: { Authorization: "Bearer " + token }
@@ -61,24 +61,21 @@ class AddComment extends Component {
       }
 
     render(){
-        return (
-            <div className="body-content">
-                <div className="container"> 
-                <h4>Add comment</h4>
-                <form onSubmit={this.handleSubmitForm}>
-                    <textarea className="comment-box form-control" id="body" placeholder="Add a comment" name="comment"  
-                    value={this.state.comment}
-                    onChange={this.handleChange}>
-
-                    </textarea>
-                    
-                    <div className="form-bttn col-12">
-                        <button className="signin-btn" type="submit">Add</button>
-                    </div>
-                </form>
+            return (
+                <div className="add-comment-div">
+                    <h4>Add comment</h4>
+                        <form onSubmit={this.handleSubmitForm}>
+                            <textarea className="comment-box form-control col-12 mb-3" rows="5" id="body" placeholder="Add a comment" name="comment"  
+                            value={this.state.comment}
+                            onChange={this.handleChange}>
+    
+                            </textarea>
+                            <div className="col-12">
+                                <button className="add-comment-bttn" type="submit">Add</button>
+                            </div>
+                        </form>
                 </div>
-            </div>
-        )
+            )        
     };
 }
 

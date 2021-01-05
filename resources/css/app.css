@@ -98,7 +98,7 @@ nav {
     border: 1px solid #E9E9E9;
     box-sizing: border-box;
     border-radius: 5px;
-    padding-left: 40px;
+    padding-left: 20px;
 }
 
 .form-div input{
@@ -284,6 +284,7 @@ nav {
     color:black;
 }
 
+
 .posts-rows{
     padding:0px;
 }
@@ -317,19 +318,124 @@ nav {
     margin: 20px 0px;
 }
 
+/** POST PAGE **/
+.post-detail{
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #B8B2B2;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+    padding: 20px 20px;
+}
+.post-detail span{
+    padding-left: 20px;
+}
+
+.post-detail h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color:black;
+    padding-top: 20px;
+}
+
+.post-detail p{
+    font-size: 14px;
+    margin: 20px 0px;
+}
+
+.post-detail img{
+    width: 50px;
+    height: 50px;
+}
+
+
+/** COMMENT **/
 
 .comment-box{
-    border: #000 1px solid;
+    border: #B8B2B2 1px solid;
     border-radius: 2px;
-    width: 500px;
+    width: 100%;
 }
 
 .comment-select-button{
-    width: 120px;
+    width: 200px;
     height: 35px;
-    border: solid 1px black;
+    border: solid 1px #B8B2B2;
     border-radius: 3px;
 }
 
+.add-comment-bttn{
+    height: 30px;
+    width: 80px;
+    border-radius: 5px;
+    background: #5596E6;
+    border: 1px solid #E9E9E9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 0px auto;
 
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: 800;
 
+    float: right;
+}
+
+.add-comment-div{
+    margin-bottom: 50px;
+}
+
+.each-comment{
+    border-bottom: 1px solid #888888;
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+/** CREATE FORUM **/
+.form-control-forum{
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+
+    background: #E9E9E9;
+    border: 1px solid #E9E9E9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding:20px;
+}
+
+.form-control-forum-body{
+    width: 100%;
+    border-radius: 5px;
+
+    background: #E9E9E9;
+    border: 1px solid #E9E9E9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.forum-topic{
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.submit-button{
+    height: 30px;
+    width: 80px;
+    border-radius: 5px;
+    background: #5596E6;
+    border: 1px solid #E9E9E9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 0px auto;
+
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: 800;
+
+    float: right;
+}

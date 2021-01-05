@@ -28,6 +28,7 @@ class App extends Component {
         this.state = {
             user: null,
             isLoggedIn: false,
+            // isLoaded: false
         }
 
         // this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
@@ -43,9 +44,9 @@ class App extends Component {
         console.log("Check if log in");
         if(token) {
           console.log("logged in");
-          this.setState({ isLoggedIn: true});          
           //get user data
-            this.getUser();
+          this.getUser();
+          this.setState({ isLoggedIn: true});         
         } else {
         console.log("not log in");
           this.setState({ isLoggedIn: false});  
@@ -63,8 +64,7 @@ class App extends Component {
           console.log("USER LOGGED OUT");
           localStorage.removeItem('token');
           this.setState({
-            user: null,
-            isLoggedIn: false
+            user: null
           });
         })
         .catch(function(error){
@@ -100,6 +100,9 @@ class App extends Component {
                 <Router>
                     <Navbar logout={this.logout} user={this.state.user}/>
                     <Switch>
+                         <Route path="/forums/:id">
+                            <Forum />
+                          </Route>
                         <Route exact path="/">
                             <Home />
                         </Route>
@@ -112,13 +115,12 @@ class App extends Component {
                         <Route path="/forums/:id">
                             <Forum />
                         </Route>
-                        <Route path="/posts/:id">
-                            <Post user={this.state.user}/>
-                        </Route>
-                        
+                          <Route path="/posts/:id">
+                              <Post user={this.state.user}/>
+                          </Route>
                         {/* <PrivateRoute exact path="/forums/:post/posts" loggedIn={this.state.isLoggedIn} component={CreatePost}/> */}
 
-                        <PrivateRoute exact path="/forums" loggedIn={this.state.isLoggedIn} component={CreateForum}/>
+                        <PrivateRoute exact path="/forums" user={this.state.user} component={CreateForum}/>
                         <Route path="/forums/:post/posts">
                             <CreatePost user={this.state.user}/>
                         </Route>
@@ -126,7 +128,6 @@ class App extends Component {
                     <Footer />
             </Router>
             </div>
-            
         )
     }
 }

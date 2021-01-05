@@ -111,15 +111,10 @@ class Comments extends Component {
 
     render(){
         return (
-            <div className="body-content">
-                <div className="container"> 
+            <div className="">
                 {/* <PrivateRoute postId={this.props.postId} userId={this.props.user.id} addComment={this.addComment} component={AddComment}/> */}
-                <AddComment postId={this.props.postId} userId={this.props.user.id} addComment={this.addComment}/>
-                <h4>COMMENTS</h4>
-
-                </div>
                 <div className="row">
-                <div className="col comment-select">
+                     <div className="col comment-select">
                                 <h6>Sort</h6>
                                 <form>
                                     <select className="comment-select-button" value={this.state.sort} onChange={this.handleChange}>
@@ -129,11 +124,13 @@ class Comments extends Component {
                                     </select>
                                 </form>
                             </div>
-                        </div>
-                <div className="row">
-                        <div className="col-8 py-3">
+                    </div>
+                <div className="row mt-5">
+                        <div className="comment-box col-9 py-3">
+                        <AddComment postId={this.props.postId} user={this.props.user} addComment={this.addComment}/>
+
                         {this.state.comments.map(item => (
-                        <div key={item.id} className="mb-5">
+                        <div key={item.id} className="each-comment">
                             <div className="media-body">
                                 <div>
                                     {item.user.name}
@@ -143,7 +140,7 @@ class Comments extends Component {
                                     <textarea className="comment-box form-control" id="body" placeholder="Add a comment" name="comment_value"  
                                         value={this.state.comment_value}
                                         onChange={this.handleChange}></textarea>
-                                        <button onClick={ () => this.editComment(item.id)}>Edit</button>
+                                        <button onClick={ () => this.editComment(item.id)}>Update</button>
                                         <button onClick={ () => this.setState({edit: false})}>Cancel</button>
                                     </div>
                                 ) : <div className="apt-notes">
@@ -151,7 +148,7 @@ class Comments extends Component {
                                     </div>
                                 }                                
                             </div>
-                            {(this.props.user.id === item.user.id) ? (
+                            {(this.props.user && this.props.user.id === item.user.id) ? (
                             <div className="float-right">
                              <button onClick={ () => this.deleteComment(item.id)}>Delete</button>
                              <button onClick={()=> this.setState({edit: true, editId: item.id, comment: item, comment_value: item.body})}>Edit</button>

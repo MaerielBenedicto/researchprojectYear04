@@ -4,6 +4,9 @@ import { withRouter, Link } from "react-router-dom";
 import AddComment from './AddComment';
 import Comments from './Comments';
 
+// import { CgProfile } from 'react-icons/CgProfile';
+
+
 class Post extends Component {
     constructor(){
         super();
@@ -37,12 +40,18 @@ class Post extends Component {
             return (
                 <div className="body-content">
                     <div className="container"> 
-                    <h4>POST COMMENTS</h4>
                    <div className="row">
-                        <div className="col py-3">
-                                <h4>{this.state.post.title}</h4>
-                                <p>{this.state.post.body}</p>
-                                <span> {this.state.post.user.name}</span>
+                        <div className="post-detail col-9 py-3">
+                            <div className="row">
+                                <div className="col-12">
+                                    <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png"/>
+                                    <span> {this.state.post.user.name}</span>
+                                </div>
+                                <div className="col-12">
+                                    <h4>{this.state.post.title}</h4>
+                                    <p>{this.state.post.body}</p>
+                                </div>
+                            </div>
                        </div>
                     </div>
                         <Comments postId={this.props.match.params.id} user={this.props.user} />
