@@ -42,30 +42,44 @@ class Forum extends Component {
                 <div className="body-content">
                     <div className="container"> 
                     <div className="row">
-                        <div className="col py-3">
-                                <h4>{this.state.forum.topic}</h4>
-                                <p>{this.state.forum.description}</p>
+                        <div className="col-9 py-3">
+                            <div className="forum-detail col-12">
+                                <div className="row">
+                                <div className="col-10">
+                                    <h4 className="title">{this.state.forum.topic}</h4>
+                                    <p>{this.state.forum.description}</p>
+                                </div>
+                                <div className="col-2">
+                                    <span>128 Posts</span>
+                                </div>
+                                </div>
+                                
+                                
+                               
+                            </div>
+                            <div className="posts-rows col-12">
+                                {this.state.posts.map(item => (
+                                // <div  clasName="post col-12" key={item.id}>
+                                    <div className="post" key={item.id}>
+                                        <div className="post-title">
+                                            <Link to={`/posts/${item.id}`} >
+                                            {item.title}
+                                            </Link>
+                                        </div>
+            
+                                        <div className="post-body">
+                                        {item.body}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                        </div>
-                    </div>
-                        <div className="row">
-                            <div className="col-8 py-3">
-                            {this.state.posts.map(item => (
-                            <div key={item.id}>
-                                <div className="media-body">
-                                <div >
-                                    <Link to={`/posts/${item.id}`} className="pet-name">
-                                    {item.title}
-                                    </Link>
-                                </div>
-    
-                                <div className="apt-notes">
-                                {item.body}
-                                </div>
-                                </div>
-                            </div>
-                            ))}
-                            </div>
+                       <div className="col-3 py-3">
+                            <Link to={this.props.match.params.id + '/posts'}>
+                                <button className="forum-bttn">Start a new discussion</button>
+                            </Link>
                         </div>
+                    </div>
                     </div>
                 </div>
             )

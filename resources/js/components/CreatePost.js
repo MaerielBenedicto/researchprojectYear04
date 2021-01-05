@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 
-class CreateForum extends Component {
+class CreatePost extends Component {
     constructor(){
         super();
         this.state = {
@@ -19,7 +19,7 @@ class CreateForum extends Component {
             <div className="row">
                 <div className="col-lg-4 offset-lg-4  offset-md-2  offset-sm-1 col-md-8 col-sm-10">
                     <div className="col-12 auth-form-heading">
-                        <h2>Create Forum</h2>
+                        <h2>Create Post</h2>
                     </div>
                     {/* Create Forum */}
                     <form onSubmit={this.handleSubmitForm} className="form-div"> 
@@ -54,4 +54,4 @@ class CreateForum extends Component {
     };
 }
 
-export default CreateForum;
+export default CreatePost;

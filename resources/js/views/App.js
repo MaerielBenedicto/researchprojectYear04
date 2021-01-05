@@ -11,58 +11,67 @@ import Post from '../components/Post';
 import Signin from '../components/Signin';
 import Register from '../components/Register';
 import CreateForum from '../components/Modal/CreateForum';
+import CreatePost from '../components/CreatePost';
 
 import PrivateRoute from '../components/PrivateRoute';
 
 import Home from './Home';
 
-// import '../../../public/css/app.css';
 import '../../css/app.css';
+// import '../../css/style.css';
+
 
 class App extends Component {
 
     constructor(){
         super();
         this.state = {
-            user: {},
+            user: null,
             isLoggedIn: false,
-            errors:  '',
-            displayOut: 'block',
-            displayIn: 'block'
         }
 
-        this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
+        // this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
         this.getUser = this.getUser.bind(this);
-        this.login = this.login.bind(this);
+        // this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
     }
 
     //life cycle method
     componentDidMount(){
-        this.checkIfLoggedIn();
-    }
-
-    checkIfLoggedIn(){
+        // this.checkIfLoggedIn();
         let token = localStorage.getItem("token");
         console.log("Check if log in");
         if(token) {
-        console.log("log in");
-        this.setState({ isLoggedIn: true}, () => this.setState({displayIn: 'none', displayOut: 'block'}));          
-        //get user data
-          this.getUser();
+          console.log("logged in");
+          this.setState({ isLoggedIn: true});          
+          //get user data
+            this.getUser();
         } else {
         console.log("not log in");
-          this.setState({ isLoggedIn: false}, () => this.setState({displayIn: 'block', displayOut: 'none'}));  
+          this.setState({ isLoggedIn: false});  
         }
-      }
-
-      login(){
-        this.setState({isLoggedIn: true}, () => this.setState({displayIn: 'none', displayOut: 'block'}));
-        this.getUser();
-      }
+    }
 
       logout(){
-        this.setState({isLoggedIn: false}, () => this.setState({displayIn: 'block', displayOut: 'none'}));
+        let token = localStorage.getItem('token');
+        axios.get('/api/logout',{
+          headers: {
+            'Authorization': "Bearer " + token,
+            'Accept': 'application/json, text/plain'}
+        })
+        .then((response) => {      
+          console.log("USER LOGGED OUT");
+          localStorage.removeItem('token');
+          this.setState({
+            user: null,
+            isLoggedIn: false
+          });
+        })
+        .catch(function(error){
+          if(error){
+            console.log(error);
+          } 
+        });
       }
 
       getUser(){
@@ -71,7 +80,7 @@ class App extends Component {
           headers: { Authorization: "Bearer " + token }
         })
         .then(response => {
-          console.log('USER DEETS',response);
+          // console.log('USER DEETS',response);
           this.setState({
             user: response.data.user
           });
@@ -89,16 +98,16 @@ class App extends Component {
         return (
             <div className="App">
                 <Router>
-                    <Navbar signout={this.logout} displayIn={this.state.displayIn} displayOut={this.state.displayOut}/>
+                    <Navbar logout={this.logout} user={this.state.user}/>
                     <Switch>
                         <Route exact path="/">
                             <Home />
                         </Route>
                         <Route path="/signin">
-                            <Signin login={this.login} />
+                            <Signin user={this.getUser}/>
                         </Route>
                        <Route path="/register">
-                            <Register login={this.login}/>
+                            <Register user={this.getUser} />
                         </Route>
                         <Route path="/forums/:id">
                             <Forum />
@@ -106,7 +115,13 @@ class App extends Component {
                         <Route path="/posts/:id">
                             <Post user={this.state.user}/>
                         </Route>
+                        
+                        {/* <PrivateRoute exact path="/forums/:post/posts" loggedIn={this.state.isLoggedIn} component={CreatePost}/> */}
+
                         <PrivateRoute exact path="/forums" loggedIn={this.state.isLoggedIn} component={CreateForum}/>
+                        <Route path="/forums/:post/posts">
+                            <CreatePost user={this.state.user}/>
+                        </Route>
                     </Switch>
                     <Footer />
             </Router>

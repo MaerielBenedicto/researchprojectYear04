@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect, withRouter } from 'react-router-dom'
 import '../../css/app.css';
 
 import Home from '../views/Home';
@@ -15,8 +15,7 @@ class Register extends Component {
             email: '',
             password: '',
             password_confirmation: '',
-            errors: '',
-            isLoggedIn: false
+            errors: [],
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -36,17 +35,12 @@ class Register extends Component {
         .then((response) => {
             console.log(response.data);
             localStorage.setItem("token", response.data.token);
-            this.props.login();
-            this.setState({
-                name: response.data.name,
-                email: response.data.email,
-                isLoggedIn: true
-            });
+            this.props.user();
+            this.props.history.push('/');    
           })
-        .catch(function(error) {
+        .catch((error) => {
             if(error.response){
-            console.log(error.response.data.errors);
-            this.state.errors = error.response.data.errors;
+                this.setState({errors: error.response.data.errors });
             } 
         });
       }
@@ -62,11 +56,6 @@ class Register extends Component {
       }
 
     render() {
-        if (this.state.isLoggedIn) {
-            // redirect to home if logged in
-            return <Redirect to='/' />;
-          }
-
         return (
             <div className="body-content">
             <div className="row">
@@ -101,7 +90,7 @@ class Register extends Component {
                                 onChange={this.handleChange}/>
                             </div>
 
-                            <div className="form-button col-12">
+                            <div className="form-bttn col-12">
                                 <button type="submit" className="register-btn">
                                     Register
                                 </button>
@@ -115,4 +104,4 @@ class Register extends Component {
     };
 }
 
-export default Register;
+export default withRouter(Register);

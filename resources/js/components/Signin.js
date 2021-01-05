@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect, useHistory, withRouter } from 'react-router-dom'
 import '../../css/app.css';
-
 import Home from '../views/Home';
 
 class Signin extends Component {
@@ -12,12 +11,11 @@ class Signin extends Component {
         this.state = {
             email: '',
             password: '',
-            isLoggedIn: false
+            errors: []
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
-
     }
 
     handleSubmitForm(e){
@@ -28,20 +26,15 @@ class Signin extends Component {
             password: this.state.password
         })
         .then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             localStorage.setItem("token", response.data.token);
-            console.log("LOG IN SUCCESS");
-            this.props.login();
-            this.setState({
-                email: response.data.email,
-                password: response.data.password,
-                isLoggedIn: true
-            });
+            // console.log("LOG IN SUCCESS");
+            this.props.user();
+            this.props.history.push('/');            
           })
-        .catch(function(error) {
+          .catch((error) => {
             if(error.response){
-            console.log(error.response.data.errors);
-            this.errors = error.response.data.errors;
+                this.setState({errors: error.response.data.errors });
             } 
         });
       }
@@ -57,12 +50,6 @@ class Signin extends Component {
       }
 
     render() {
-
-        if (this.state.isLoggedIn) {
-            // redirect to home if logged in
-            return <Redirect to='/' />;
-          }
-
         return (
             <div className="body-content">
                 <div className="row">
@@ -103,4 +90,4 @@ class Signin extends Component {
     };
 }
 
-export default Signin;
+export default withRouter(Signin);

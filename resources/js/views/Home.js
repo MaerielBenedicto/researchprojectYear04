@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Post from '../components/Post';
 import Forum from '../components/Forum';
-// import '../../../public/css/app.css';
+
 import '../../css/app.css';
+// import '../../css/style.css';
 
 import { Link } from 'react-router-dom';
 
@@ -42,31 +43,34 @@ class Home extends Component {
             return (
                 <div className="body-content">  
                 <div className="container">
-                <div className="row item-list mb-3">
-                    {this.state.forums.map(item => (
-                    <div className="pet-item col-8 media py-3" key={item.id}>
-                        <div className="pet-info media-body">
-                        <div className="pet-head d-flex">
-                            <Link to={`/forums/${item.id}`} className="forum-title">
-                                {item.topic}
+                    <div className="row item-list mb-3">
+                        <div className="forum-list col-9 media py-3">
+                            <div className="col-12">
+                                {this.state.forums.map(item => (
+                                <div className="forum col-12"  key={item.id}>
+                                    <div className="forum-title">
+                                        <Link to={`/forums/${item.id}`} className="forum-title">
+                                            {item.topic}
+                                        </Link>
+                                    </div>
+                
+                                    <div className="forum-desc">
+                                        { item.description}
+                                    </div>
+                                </div>
+                                   ))}                           
+                            </div>
+                          
+                        </div>
+                       
+                        <div className="col-3 py-3">
+                            {/* <div className="col-12"> */}
+                            <Link to={'/forums'}>
+                                <button className="forum-bttn">Create a new Forum topic</button>
                             </Link>
-                            {this.props.children}
+                            {/* </div> */}
                         </div>
-    
-                        <div className="apt-notes">
-                        {item.description}
-                        </div>
-                        </div>
-                    </div>
-                    ))}
-                    <div className="col">
-                        <Link to={'/forums'}>
-                            <button>Create a new Forum topic</button>
-                        </Link>
-                    </div>
-               </div>
-               
-    
+                </div>
                 </div>
                     
             </div>

@@ -6414,7 +6414,26 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap);", ""]);
 
 // module
-exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n\n/********** TYPOGRAPHY **********/\nbody {\n    font-family: 'Poppins', sans-serif;\n    font-size: 1rem;\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n    margin-bottom: 0px;\n}\n\nh1,\nh2,\nh3,\nh4 {\n    font-weight: 600;\n}\n\nh5,\nh6 {\n    font-weight: 400;\n}\n\nh1 {\n    font-size: 48px;\n}\n\nh2 {\n    font-size: 36px;\n}\n\nh3 {\n    font-size: 28px;\n}\n\nh4 {\n    font-size: 20px;\n}\n\nh5 {\n    font-size: 18px;\n}\n\nh6,\np {\n    font-size: 16px;\n}\n\np {\n    line-height: 24px;\n    margin-bottom: 0px;\n}\n\np:not(:last-child) {\n    margin-bottom: 12px;\n}\n\nform label {\n    font-size: 15px;\n}\n\n.subheading {\n    color: #444;\n    margin-top: 3px;\n    letter-spacing: 1px;\n    display: inline;\n    font-weight: 300;\n}\n\n.subheading:not(:last-child)::after {\n    content: '\\2022';\n    margin: 0px 5px;\n    color: #444;\n}\n\n.subheading svg {\n    fill: #2c8cd6;\n    width: 18px;\n    height: 18px;\n    line-height: 23px;\n    vertical-align: middle;\n}\n\n.sidenav .user-name {\n    font-weight: 500;\n}\n\n.sidenav .role-text {\n    font-size: 11px;\n    color: #6c6c6c;\n    text-transform: uppercase;\n}\n\n.lg-form-heading span,\n.modal-form-heading span {\n    font-weight: 600;\n    color: #2c8cd6;\n}\n\nh6.column-name {\n    color: #6c6c6c;\n    text-transform: uppercase;\n    font-size: 14px;\n}\n\n.itinerary-info h6 {\n    font-weight: 600;\n    margin-bottom: 10px;\n}\n\n/********** LINKS **********/\na,\n.bottom-section a,\n.list-unstyled a,\n.navbar a,\n.auth-form-heading a,\n.form-msg a,\n.card-c a,\n.footer-col .jam,\n.builder-nav a,\n.filters-block a,\n.add-info a,\n.info-col a,\n.ht-block a {\n    text-decoration: none;\n    transition: ease-in-out 0.3s;\n}\n\n.bottom-section a,\n.list-unstyled a,\n.navbar a,\n.card-c a,\n.filters-block a,\n.add-info a,\n.info-col a,\n.ht-block a {\n    color: #000;\n}\n\n.section-heading a,\n.mobile-only a {\n    text-decoration: none;\n    color: #6c6c6c;\n    text-transform: uppercase;\n}\n\n.section-heading a:hover,\n.mobile-only a:hover,\n.bottom-section a:hover,\n.list-unstyled a:hover,\n.card-c a:hover,\n.builder-nav a:hover,\n.filters-block a:hover,\n.add-info a:hover,\n.info-col a:hover,\n.ht-block a:hover {\n    color: #2c8cd6;\n}\n\n.auth-form-heading a,\n.form-msg a {\n    color: #2c8cd6;\n}\n\n.auth-form-heading a:hover,\n.form-msg a:hover {\n    color: #267abb;\n}\n\n.footer-col svg {\n    width: 16px;\n    height: 16px;\n}\n\n.footer-col .jam:hover {\n    fill: #6c6c6c;\n}\n\n.filters-block a,\n.filters-block a:hover,\n.add-info a,\n.add-info a:hover,\n.info-col a,\n.info-col a:hover,\n.ht-block a,\n.ht-block a:hover {\n    text-decoration: underline;\n}\n\n.add-info h6 {\n    font-weight: 500;\n    margin-bottom: 2px;\n    color: #6c6c6c;\n}\n\n/********** SPACING **********/\n.body-content {\n    padding: 140px 0px 100px;\n}\n\n.create-plan-md {\n    border: 1px solid #eee;\n    padding: 20px;\n}\n\n.section-heading {\n    margin-bottom: 30px;\n}\n\n.section-heading a {\n    text-align: right;\n}\n\n.iwander-section {\n    margin: 38px 0px;\n}\n\n.section-button {\n    /*    margin-top: 50px;*/\n    text-align: center;\n}\n\n.section-button button {\n    margin: 0px auto;\n}\n\n.section-button a:hover {\n    text-decoration: none;\n}\n\nfooter .list-group {\n    margin-top: 15px;\n}\n\n.footer-col {\n    margin-bottom: 40px;\n}\n\n.footer-col .list-inline {\n    margin-top: 15px;\n}\n\n.filters-col h4 {\n    padding-bottom: 20px;\n    border-bottom: 1px solid #eee;\n    font-weight: 400;\n}\n\n.filters-block {\n    padding: 20px 0px;\n    border-bottom: 1px solid #eee;\n}\n\n.filters-block h6 {\n    font-weight: 600;\n}\n\n.filters-block .filter-selection {\n    margin-top: 10px;\n}\n\n.filter-selection .list-group-item:not(:last-child) {\n    margin-bottom: 2px;\n}\n\n.filter-selection label {\n    font-size: 14px;\n    margin-left: 6px;\n    margin-bottom: 0px !important;\n}\n\n.filters-block a {\n    margin-top: 10px;\n    font-size: 14px;\n}\n\n.filters-button {\n    margin-top: 15px;\n}\n\n.filters-button button {\n    margin: 0px auto;\n}\n\n.sorting-col {\n    height: 45px;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #eee;\n}\n\n.sort-selection {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.sort-selection h6 {\n    display: inline;\n}\n\n.sort-selection .list-inline {\n    margin-bottom: 0px !important;\n}\n\n.sort-selection .list-inline-item:not(:last-child) {\n    margin-right: 5px;\n}\n\n.events-selection .list-group-item:first-child {\n    padding: 0px !important;\n    margin-bottom: 5px !important;\n}\n\n/* .top-section {\n    padding-top: 50px;\n    border-bottom: 1px solid #ccc;\n    padding-bottom: 20px;\n    margin-bottom: 70px;\n} */\n\n.top-row {\n    margin-top: 50px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.buttons-row {\n    margin-top: 30px;\n}\n\n.pagination-row {\n    margin: 50px 0px;\n}\n\n.pagination-links {\n    margin: 0 auto;\n}\n\n.pagination-links .pagination {\n    margin-bottom: 0px;\n}\n\n.form-heading {\n    padding-top: 20px;\n}\n\n.lg-form-heading {\n    padding: 50px 0px;\n}\n\n.button-col .btn {\n    float: right;\n}\n\n.bottom-section {\n    padding: 50px 0px;\n}\n\n.next-button {\n    text-align: right;\n}\n\n.prev-button .jam {\n    margin-right: 5px;\n}\n\n.next-button .jam {\n    margin-left: 5px;\n}\n\n.lg-form-button {\n    margin: 30px 0px 70px 0px;\n}\n\n.lg-form-heading h3 {\n    margin-bottom: 2px;\n}\n\n.item-title {\n    padding-top: 50px;\n    padding-bottom: 30px;\n}\n\n.item-image img {\n    width: 100%;\n    height: auto;\n}\n\n.item-info {\n    padding-top: 30px;\n    padding-bottom: 70px;\n}\n\n.info-col {\n    margin-bottom: 30px;\n}\n\n.info-col .column-data {\n    margin-bottom: 0px;\n}\n\n.info-col ul {\n    margin-bottom: 0px;\n}\n\n.info-col .list-inline-item:not(:last-child) {\n    margin-right: 0px;\n}\n\n.info-col .list-inline-item:not(:last-child)::after {\n    content: ',';\n}\n\nh6.column-name {\n    margin-bottom: 5px;\n}\n\n.list-unstyled li:not(:last-child) {\n    margin-bottom: 3px;\n}\n\n.list-unstyled .jam {\n    margin-right: 4px;\n}\n\n.auth-form-heading {\n    text-align: center;\n    padding-bottom: 25px;\n    border-bottom: 1px solid #eee;\n    margin-bottom: 32px;\n}\n\n.auth-form-heading h2 {\n    margin-bottom: 8px;\n}\n\n.auth-form-heading img {\n    width: 220px;\n    height: auto;\n    margin-bottom: 10px;\n}\n\n.form-msg {\n    margin-top: 10px;\n    margin-bottom: 28px;\n}\n\n.items-index,\n.date-selection,\n.itinerary-info {\n    margin-top: 40px;\n}\n\n.modal-form-heading {\n    margin-bottom: 30px;\n}\n\n.modal-form-heading h4 {\n    margin-bottom: 2px;\n}\n\n.items-index-button {\n    width: 100%;\n    padding: 50px 0px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.items-index-button a,\n.items-index-button a:hover {\n    color: #fff;\n}\n\n.action-selection {\n    margin-bottom: 30px;\n}\n\n.main-heading {\n    border-bottom: 1px solid #eee;\n    padding-bottom: 12px;\n}\n\n.iwander-desc {\n    padding-top: 30px;\n}\n\n.iwander-desc p:last-child {\n    margin-bottom: 30px;\n}\n\n.add-info {\n    margin-bottom: 30px;\n}\n\n.add-info p {\n    margin-bottom: 0px;\n}\n\n/********** FORMS **********/\n.errors {\n    color: #c95555;\n    font-size: 13px;\n}\n\n.invalid-feedback {\n    display: block;\n    font-size: 12px;\n    color: #c95555;\n}\n\n.invalid-feedback p {\n    margin-top: 5px !important;\n}\n\nlabel {\n    margin-bottom: 5px;\n}\n\nlabel.required::after {\n    content: '*';\n    color: #2c8cd6;\n    margin-left: 4px;\n}\n\n.form-heading h4 {\n    border-bottom: 1px solid #eee;\n    padding-bottom: 12px;\n    margin-bottom: 20px;\n    text-align: center;\n}\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    /* height: 45px;\n    padding: 10px;\n    font-size: 16px;\n    color: #000;\n    border-radius: 0px;\n    border: 1px solid #eee;\n    -webkit-transition: ease-in-out 0.3s;\n    transition: ease-in-out 0.3s;\n    background-color: transparent; */\n    height: 61px;\n    width: 385px;\n    /* left: 0px; */\n    /* top: 79px; */\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 40px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n\n    position: absolute;\n    left: 0%;\n    right: 0%;\n    top: 0px;\n    bottom: 0%;\n\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    \n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n.footer-bar{\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n\n.comment-box{\n    border: #000 1px solid;\n    border-radius: 2px;\n    width: 500px;\n}\n\n.comment-select-button{\n    width: 120px;\n    height: 35px;\n    border: solid 1px black;\n    border-radius: 3px;\n}\n\n\n\n\n\n\n\n\n.sort-select .custom-select {\n    height: 35px;\n    padding: 3px 8px;\n}\n\n.navbar-search .form-control {\n    border: none !important;\n    padding: 0px !important;\n    width: 250px;\n}\n\n.navbar-search .form-control:focus {\n    width: 400px;\n}\n\n.builder-search .form-control {\n    border: none !important;\n    padding: 0px;\n    width: 350px;\n}\n\n.custom-file-label::after {\n    height: 43px;\n    padding: 8px 10px;\n    color: #000;\n    background-color: #eee;\n    border-radius: 0px;\n}\n\n.form-control:focus,\n.custom-select:focus,\n.custom-file-input:focus~.custom-file-label {\n    border-color: #2c8cd6;\n    box-shadow: none;\n}\n\n.custom-file-input {\n    cursor: pointer !important;\n}\n\nselect {\n    -webkit-appearance: none;\n    -moz-appearance: none;\n    appearance: none;\n}\n\ntextarea {\n    height: 150px !important;\n    resize: none;\n}\n\n.form-button {\n    margin-top: 20px;\n}\n\n.form-button button {\n    margin: 0px auto;\n}\n\n.profile-info-buttons button {\n    margin: 0px auto;\n    width: 130px;\n}\n\n.profile-info-buttons button:first-child {\n    margin-bottom: 10px;\n}\n\n.profile-info-buttons {\n    margin-top: 30px;\n}\n\n/********** BUTTONS **********/\n.btn {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 18px 32px;\n    font-size: 16px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n}\n\n.btn-primary {\n    color: #fff;\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.btn-primary-xs {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 6px 11px;\n    font-size: 13px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n    color: #fff;\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.btn-primary:hover,\n.btn-primary-xs:hover {\n    color: #fff;\n    background-color: #267abb;\n    border-color: #267abb;\n}\n\n.btn-secondary-xs {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 6px 11px;\n    font-size: 13px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n    color: #6c6c6c;\n    background-color: transparent;\n    border-color: #6c6c6c;\n}\n\n.btn-secondary-sm {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-weight: 400;\n    padding: 12px 22px;\n    font-size: 15px;\n    border-radius: 30px;\n    transition: ease-in-out 0.3s;\n    color: #6c6c6c;\n    background-color: transparent;\n    border-color: #6c6c6c;\n}\n\n.btn-secondary {\n    color: #6c6c6c;\n    background-color: transparent;\n    border-color: #6c6c6c;\n}\n\n.btn-secondary:hover,\n.btn-secondary-sm:hover,\n.btn-secondary-xs:hover {\n    color: #fff;\n    background-color: #6c6c6c;\n}\n\n.btn-tertiary {\n    color: #000;\n    background-color: #fff;\n    border-color: #fff;\n}\n\n.btn-tertiary:hover {\n    color: #fff;\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.table-selection .btn {\n    padding: 6px 13px;\n    border-radius: 20px;\n}\n\n.sort-selection h6 {\n    line-height: 30px;\n    font-weight: 500;\n}\n\n.sort-selection h6::after {\n    content: '\\2013';\n    margin: 0px 10px;\n}\n\n.sort-selection .list-inline {\n    line-height: 30px;\n}\n\n.sort-selection .btn {\n    padding: 3px 15px;\n    border-radius: 20px;\n}\n\n.sort-selection .sort-selection-link {\n    border: 1px solid #444;\n    color: #444;\n    text-transform: uppercase;\n    font-size: 12px;\n}\n\n.table-selection .table-selection-link {\n    border: 1px solid #2c8cd6;\n    border-radius: 20px;\n    color: #444;\n    text-transform: uppercase;\n    font-size: 12px;\n}\n\n.sort-selection .sort-selection-link:hover {\n    color: #fff;\n    background-color: #444;\n}\n\n.table-selection .table-selection-link:hover {\n    color: #fff;\n    background-color: #2c8cd6;\n}\n\n.action-selection .btn {\n    padding: 10px 15px;\n    border-radius: 0px;\n}\n\n.action-selection .action-selection-link {\n    border: 1px solid #444;\n    color: #444;\n    font-size: 14px;\n    margin-bottom: 15px !important;\n}\n\n.action-selection-link a:hover {\n    text-decoration: none !important;\n}\n\n.action-selection-link .jam {\n    line-height: 33px;\n}\n\n.action-selection .action-selection-link:hover {\n    color: #fff;\n    background-color: #444;\n}\n\n.date-selection .btn {\n    padding: 10px 20px;\n    border-radius: 0px !important;\n}\n\n.date-selection .date-selection-link {\n    border: 1px solid #2c8cd6;\n    color: #444;\n    text-transform: uppercase;\n    font-size: 14px;\n}\n\n.date-selection .date-selection-link:hover {\n    color: #fff;\n    background-color: #2c8cd6;\n}\n\n.btn .jam {\n    margin-right: 10px;\n}\n\n/********** CARDS ******/\n.card-a {\n    border: 1px solid #eee;\n    /*    border-radius: 6px;*/\n    transition: ease-in-out 0.3s;\n    margin-bottom: 30px;\n}\n\n.card-b {\n    position: relative;\n    margin-bottom: 30px;\n}\n\n.card-a:hover {\n    border: 1px solid #2c8cd6;\n}\n\n.card-a a,\n.card-b a {\n    text-decoration: none;\n    color: #000;\n}\n\n.card-a a:hover {\n    color: #2c8cd6;\n}\n\n.card-a-body {\n    padding: 20px 15px 0px 15px;\n    height: 70px;\n}\n\n.card-a-body h5 {\n    font-weight: 500;\n}\n\n.card-a img,\n.card-b img {\n    transition: ease-in-out 0.3s;\n}\n\n.card-a:hover img,\n.card-b:hover img {\n    opacity: 0.8;\n}\n\n.card-b-body {\n    border: 1px solid #eee;\n    padding: 15px 20px 0px 20px;\n    height: 125px;\n}\n\n.card-b-body li.category {\n    margin-bottom: 0px;\n    color: #444;\n    font-size: 12px;\n    display: inline;\n    text-transform: uppercase;\n}\n\n.category:not(:last-child)::after {\n    content: '\\2022';\n    margin: 0px 3px;\n}\n\n.card-buttons {\n    position: absolute;\n    top: 0;\n    right: 0;\n    z-index: 1 !important;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.card-buttons svg {\n    fill: #444;\n    width: 18px;\n    height: 18px;\n}\n\n.card-buttons .card-action {\n    width: 30px;\n    height: 30px;\n    background: #fff;\n    border-radius: 50%;\n    text-align: center;\n    line-height: 30px;\n    vertical-align: middle;\n    display: block;\n    margin-bottom: 5px;\n}\n\n.card-b-body h6 {\n    margin-top: 3px;\n}\n\n.card-c {\n    border: 1px solid #eee;\n    overflow: hidden;\n    height: 200px;\n    margin-bottom: 30px;\n}\n\n.card-a-img {\n    width: 100%;\n    height: 180px;\n}\n\n.card-a-img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.card-b-img {\n    width: 100%;\n    height: 220px;\n}\n\n.card-b-img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.card-c-img {\n    width: 50%;\n    height: 100%;\n    float: left;\n}\n\n.card-c-img img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.card-c-body {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 15px 20px;\n    position: relative;\n}\n\n.card-c-body h6 {\n    font-weight: 500;\n}\n\n.card-c-body p.address {\n    margin-top: 2px;\n}\n\n.card-c-button,\n.card-c-button-alt {\n    position: absolute;\n    left: 20px;\n    bottom: 15px;\n}\n\n.card-c-body .event-details {\n    position: absolute;\n    left: 20px;\n    bottom: 15px;\n}\n\n.card-c-button a {\n    display: inline;\n}\n\n.card-c-button p {\n    margin-bottom: 0px !important;\n}\n\n.card-c-button a:not(:last-child) {\n    margin-right: 10px;\n}\n\n.card-c-button a::before {\n    font-weight: 500;\n    font-size: 16px;\n    margin-right: 5px;\n    vertical-align: middle;\n}\n\n.card-c-button a.add::before {\n    content: '+';\n}\n\n.card-c-button a.edit::before {\n    content: '\\270F';\n}\n\n.card-c-button a.delete::before {\n    content: '\\D7';\n}\n\n.card-c-button-alt button {\n    text-align: left;\n    padding: 0;\n    font-size: 14px;\n    display: block;\n    background-color: transparent;\n    border: none !important;\n}\n\n.card-c-button-alt button:hover {\n    text-decoration: underline;\n    color: #2c8cd6;\n}\n\n.card-c-button-alt button:first-child {\n    margin-bottom: 3px;\n}\n\n.card-c-button-alt button svg {\n    width: 16px;\n    height: 16px;\n    fill: #000;\n    margin-right: 3px;\n}\n\n.card-d {\n    margin-bottom: 30px;\n}\n\n.card-d a {\n    text-decoration: none;\n}\n\n.card-d .itinerary-name {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    height: 175px;\n    border: 1px solid #eee;\n    margin-bottom: 10px;\n    transition: ease-in-out 0.3s;\n}\n\n.card-d .itinerary-name:hover {\n    border-color: #2c8cd6;\n}\n\n.card-d .itinerary-name h3 {\n    color: #000;\n}\n\n.card-d p {\n    text-transform: uppercase;\n    color: #444;\n    font-size: 15px;\n}\n\n.card-d p a {\n    color: #000;\n}\n\n.card-d p a:hover {\n    color: #2c8cd6;\n}\n\n.card-d span {\n    font-size: 13px;\n}\n\n/********** LISTS **********/\n.list-group-item {\n    padding: 1px 0px !important;\n    border: none !important;\n    background: none;\n}\n\nfooter .list-group-item a,\nfooter a {\n    text-decoration: none;\n    color: #000;\n}\n\nfooter .list-group-item a:hover,\nfooter a:hover {\n    text-decoration: none;\n    color: #6c6c6c;\n}\n\n.table-selection .list-inline {\n    margin-bottom: 0px !important;\n}\n\n.table-selection .list-inline-item:not(:last-child) {\n    margin-right: 10px;\n}\n\n.date-selection .list-group-item {\n    margin-bottom: 10px !important;\n}\n\n.card-b-body .list-inline {\n    margin-bottom: 1px;\n}\n\n.add-info .list-inline {\n    margin-bottom: 0px;\n}\n\n.add-info .list-inline-item:not(:last-child) {\n    margin-right: 0px;\n}\n\n.add-info .list-inline-item:not(:last-child)::after {\n    content: ',';\n    margin-right: 2px;\n    color: #000;\n}\n\n.add-info .list-inline-item a {\n    cursor: pointer;\n}\n\n/********** FOOTER **********/\nfooter {\n    background-color: #f5f5f5;\n    padding: 60px 0px;\n    margin-top: 70px;\n}\n\nfooter img {\n    width: 160px;\n    height: auto;\n    margin-bottom: 25px;\n}\n\n/********** SIDEBAR **********/\n.sidenav {\n    height: 100%;\n    width: 200px;\n    position: fixed;\n    z-index: 1;\n    top: 0;\n    left: 0;\n    overflow-x: hidden;\n    padding: 50px 25px;\n    background-color: #fafafa;\n}\n\n.sidenav-logo {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding-bottom: 20px;\n    border-bottom: 1px solid #ccc;\n}\n\n.sidenav-logo img {\n    width: 120px;\n    height: auto;\n}\n\n.user-info {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 20px 0px;\n    border-bottom: 1px solid #ccc;\n}\n\n.user-avatar {\n    display: inline-block;\n    margin-right: 15px;\n}\n\n.user-avatar img {\n    width: 35px;\n    height: 35px;\n    border-radius: 50%;\n}\n\n.user-name {\n    display: inline-block;\n}\n\n.sidenav .main-links {\n    margin-top: 25px;\n}\n\n.sidenav .list-group-item {\n    padding: 0px 20px !important;\n    margin-bottom: 8px;\n    border: none;\n    height: 25px;\n    line-height: 25px;\n    white-space: nowrap;\n}\n\n.list-group-item .jam {\n    height: 25px;\n    line-height: 25px;\n    white-space: nowrap;\n}\n\n.sidenav .list-group-item:hover {\n    background-color: transparent;\n    text-decoration: underline;\n}\n\n.sidenav .list-group-item-action {\n    color: #000;\n}\n\n.sidenav .jam {\n    fill: #000;\n}\n\n/*\n.sidenav .list-group-item-action:hover {\n    color: #2c8cd6;\n}\n\n.sidenav .jam:hover {\n    fill: #2c8cd6;\n}\n*/\n\n.sidenav .list-group-item .jam {\n    margin-right: 10px;\n}\n\n/********** TABLES **********/\n.table {\n    margin-top: 40px;\n}\n\n.table th {\n    border-top: none !important;\n    border-bottom: 1px solid #ccc;\n    font-weight: 400;\n    color: #6c6c6c;\n    text-transform: uppercase;\n    padding-bottom: 10px;\n}\n\n.table td {\n    padding: 15px;\n}\n\n.table td a {\n    color: #000;\n    text-decoration: none !important;\n    font-weight: 500;\n}\n\n.table td a:hover,\n.table td .btn:hover {\n    color: #2c8cd6;\n}\n\ntd.actions a:first-child::after {\n    content: '\\2022';\n    color: #000;\n    margin-left: 8px;\n}\n\ntd.actions a:not(:last-child) {\n    margin-right: 4px;\n}\n\ntd.actions .btn {\n    padding: 0px !important;\n    color: #000;\n    text-decoration: none !important;\n    font-weight: 500;\n}\n\n.hours-table {\n    width: 100%;\n}\n\n/********** NAVBAR **********/\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    z-index: 999 !important;\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand {\n    padding: 0px !important;\n    margin-right: 30px;\n}\n\n.navbar-brand img {\n    width: 160px;\n    height: auto;\n}\n\n.navbar .lnr {\n    color: #000;\n    font-weight: 600;\n}\n\n.navbar .lnr-magnifier {\n    font-size: 20px;\n}\n\n.navbar .lnr-menu {\n    font-size: 24px;\n}\n\n.navbar-toggler {\n    padding: 0px !important;\n    line-height: 0 !important;\n    border-radius: 0px !important;\n}\n\n#navbar-links li.nav-item a.nav-link {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n#navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n}\n\n.navbar-search,\n.builder-search {\n    padding: 2px 15px;\n    border-radius: 4px;\n    border: 1px solid #eee;\n}\n\n.navbar-search span,\n.builder-search span {\n    float: left;\n    line-height: 45px;\n}\n\n.navbar-search form,\n.builder-search form {\n    float: left;\n    margin-left: 15px;\n}\n\na.builder-prev h5::before {\n    content: '\\2190';\n    vertical-align: middle;\n    margin-right: 10px;\n}\n\na.builder-next h5::after {\n    content: '\\2192';\n    vertical-align: middle;\n    margin-left: 10px;\n}\n\n.builder-nav {\n    height: 100px;\n}\n\n.dropdown-results {\n    z-index: 999 !important;\n    position: absolute;\n    background-color: white;\n    width: 400px;\n    /* padding: 2px 15px; */\n    /* border-radius: 4px; */\n    /* border: 1px solid #eee; */\n}\n\n/********** WELCOME PAGE **********/\n.vertical-center {\n    min-height: 100%;\n    min-height: 100vh;\n    display: flex;\n    align-items: center;\n}\n\n.welcome-msg {\n    display: flex;\n    justify-content: center;\n    margin: 0 auto;\n}\n\n.welcome-msg h1 {\n    color: #fff;\n    text-align: center;\n}\n\n.welcome-msg .btn {\n    position: absolute;\n    margin-top: 200px;\n}\n\n.lg-banner {\n    height: 100%;\n}\n\n.full-height {\n    height: 100%;\n}\n\n.welcome-col {\n    /* background-image: url('../images/welcome.jpeg'); */\n    background-position: center;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n\n/********** JUMBOTRON **********/\n.jumbotron {\n    padding: 0px !important;\n    margin-bottom: 40px;\n}\n\n.itinerary-banner {\n    padding: 160px 0px 80px !important;\n    background-color: #f5f5f5;\n}\n\n.itinerary-banner h2 {\n    font-weight: 400;\n    margin-bottom: 6px;\n}\n\n.item-banner {\n    margin-top: 92px;\n    height: 520px;\n    width: 100%;\n}\n\n.item-banner img {\n    width: 100%;\n    height: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n}\n\n.index-banner {\n    background-color: #f5f5f5;\n    margin-top: 92px;\n    height: auto;\n    padding: 80px 0px !important;\n}\n\n.index-banner h2 {\n    font-weight: 400;\n}\n\n/********** MODAL **********/\n.modal-content {\n    padding: 15px 0px;\n    border: 1px solid #eee;\n    border-radius: 4px;\n}\n\n.modal-mask {\n    position: fixed;\n    z-index: 9998;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: rgba(0, 0, 0, .5);\n    display: table;\n    transition: opacity .3s ease;\n}\n\n.modal-wrapper {\n    display: table-cell;\n    vertical-align: middle;\n}\n\n.modal-container {\n    width: 600px;\n    margin: 0px auto;\n    padding: 20px 30px;\n    background-color: #fff;\n    border-radius: 2px;\n    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);\n    transition: all .3s ease;\n}\n\n/********** TABS **********/\n.sorting-col .nav-link {\n    border: 1px solid #2c8cd6;\n    border-radius: 5px;\n    text-align: center;\n    padding: 4px 12px;\n    color: #2c8cd6;\n    background-color: transparent;\n}\n\n.sorting-col .nav-link:hover {\n    background-color: #2c8cd6;\n    color: #fff;\n}\n\n.sorting-col .nav-link .active {\n    background-color: #2c8cd6;\n    color: #fff;\n}\n\n.ht-blocks {\n    margin-top: 40px;\n}\n\n.ht-block {\n    background: #fff;\n    padding: 0px 0px 50px 0px;\n}\n\n.ht-block:not(:last-child) {\n    margin-bottom: 50px;\n    border-bottom: 2px solid #eee;\n}\n\n.ht-block h5 {\n    font-weight: 500;\n    margin-bottom: 30px;\n}\n\n.ht-block em {\n    font-weight: 600;\n    font-style: normal;\n}\n\n.ht-block p:not(:last-child) {\n    margin-bottom: 20px;\n}\n\n.ht-block li:not(:last-child) {\n    margin-bottom: 15px;\n}\n\n.ht-block ol:not(:last-child),\n.ht-block ul:not(:last-child) {\n    margin-bottom: 20px;\n}\n\n.ht-block ol {\n    padding-left: 30px;\n}\n\n.ht-block ul {\n    list-style-type: none;\n    padding-left: 15px;\n    margin: 0px;\n}\n\n.ht-block ul li::before {\n    content: '\\2014';\n    margin-right: 6px;\n}\n\n.ht-block figure {\n    text-align: center;\n    padding: 20px 0px;\n}\n\n.ht-block img {\n    width: 100%;\n    height: auto;\n    box-shadow: 7px 6px 10px 0px rgba(0, 0, 0, 0.36);\n}\n\n.tab-content {\n    margin-top: 25px;\n}\n\n.tab-content h5 {\n    color: #000;\n}\n\n.tab-content p {\n    font-size: 14px;\n    color: #444;\n    text-transform: uppercase;\n}\n\n.tab-pane button {\n    border-radius: 50%;\n    width: 40px;\n    height: 40px;\n    align-items: center;\n    justify-content: center;\n    background-color: #6c6c6c;\n    border-color: #6c6c6c;\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    right: 0px;\n}\n\n.tab-pane button svg {\n    width: 20px;\n    height: 20px;\n    fill: #fff;\n}\n\n.nav-pills .nav-link {\n    border-radius: 0px !important;\n}\n\n.nav-pills .nav-link.active,\n.nav-pills .show>.nav-link {\n    color: #fff;\n    background-color: #2c8cd6;\n}\n\n/********** PROFILE INFO **********/\n.profile-info {\n    border: 1px solid #eee;\n    padding: 30px;\n    text-align: center;\n}\n\n.profile-info .avatar {\n    margin-bottom: 20px;\n}\n\n.profile-info .avatar img {\n    width: 75px;\n    height: 75px;\n    border-radius: 50%;\n}\n\n.profile-info h5 {\n    font-weight: 500;\n}\n\n.profile-info p {\n    font-size: 14px;\n}\n\n.profile-info-buttons a:hover {\n    text-decoration: none;\n}\n\n/********** PAGINATION **********/\n.page-link {\n    padding: 10px 14px;\n    border: 1px solid #ccc;\n    color: #444;\n}\n\n.page-item.active .page-link {\n    background-color: #2c8cd6;\n    border-color: #2c8cd6;\n}\n\n.page-link:hover {\n    background-color: #ccc;\n    color: #000;\n    border-color: #ccc;\n}\n\n.page-link:first-child {\n    border-top-left-radius: 0px !important;\n    border-bottom-left-radius: 0px !important;\n}\n\n.page-link:last-child {\n    border-top-right-radius: 0px !important;\n    border-bottom-right-radius: 0px !important;\n}\n\n@media (max-width: 575.98px) {\n    h1 {\n        font-size: 32px;\n    }\n\n    h2 {\n        font-size: 26px;\n    }\n\n    h3 {\n        font-size: 22px;\n    }\n\n    h4 {\n        font-size: 20px;\n    }\n\n    h5 {\n        font-size: 18px;\n    }\n\n    h6 {\n        font-size: 16px;\n    }\n\n    .table-selection .btn {\n        margin-top: 5px;\n        margin-bottom: 5px;\n    }\n\n    /********** NAVBAR **********/\n    .navbar-brand {\n        margin: 0px;\n    }\n\n    .navbar-icons button:not(:last-child) {\n        margin-right: 10px;\n    }\n\n    #navbar-links {\n        margin-top: 15px;\n    }\n\n    #navbar-links a.nav-link {\n        padding: 10px 0px;\n    }\n\n    /********** SPACING **********/\n    .welcome-msg .btn {\n        margin-top: 150px;\n    }\n\n    .iwander-desc {\n        margin-bottom: 30px;\n    }\n\n    /********** CARDS **********/\n    .card-b-body {\n        height: 100px;\n    }\n\n    .card-c-img {\n        width: 100%;\n    }\n\n    .card-c-img img {\n        width: 100%;\n    }\n\n    .card-c-body {\n        width: 100%;\n        height: 150px;\n    }\n\n    .builder-prev h5,\n    .builder-next h5 {\n        margin-bottom: 20px;\n    }\n\n    .builder-search {\n        margin: 0px auto;\n    }\n\n    .builder-search .form-control {\n        width: 250px;\n    }\n\n    .jumbotron {\n        padding-top: 170px;\n    }\n}\n\n@media (min-width: 768px) and (max-width: 991.98px) {}\n", ""]);
+exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n.body-content{\n    padding-top: 150px;\n    padding-bottom: 150px; /* height of the footer*/\n}\n\n#App {\n    position: relative;\n    min-height: 100%;\n}\n\n/****  TYPOGRAPHY ****/\n\nh2{\n    font-size: 34px;\n    font-weight: 800;\n    padding: 20px 0px;\n}\n\nh4{\n    font-size: 18px;\n}\n\n/****  NAVBAR ****/\n\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    z-index: 999 !important;\n\n    border: 1px solid #CCCBCB;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand span {\n    padding: 0px !important;\n    margin-right: 30px;\n    color: black;\n\n}\n\n#navbar-links {\n    margin-top: 15px;\n}\n\n#navbar-links li.nav-item {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n.nav-link{\n    color:#000;\n    font-size: 18px;\n}\n\n/* #navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n} */\n\n\n#navbar-links a.nav-link {\n    padding: 10px 0px;\n}\n\n/*** FORMS ***/\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    height: 61px;\n    width: 385px;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 40px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n/*** SIGN IN ***/\n\n.auth-form-heading{\n    text-align: center;\n}\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n/*** REGISTER ***/\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n/*** FOOTER **/\n\n.footer-bar{\n    position: absolute;\n    width: 100%;\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n/*** FORUM PAGE ****/\n.forum{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n}\n\n.forum-list{\n    padding: 0px;\n}\n\n.forum-title{\n    padding: 10px 0px;\n}\n\n.forum-title a{\n    font-size: 18px;\n    color: black;\n    font-weight: 600;\n}\n\n.forum-title a:hover{\n    text-decoration: none;\n}\n\n.forum-desc{\n    font-size: 14px;\n    color: black;\n    padding-top: 15px;\n    padding-bottom: 20px;\n}\n\n\n.forum-bttn{\n    height: 54px;\n    width: 100%;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 18px;\n    color: #FFFFFF;\n    font-weight: 800;\n}\n\n\n\n/*** FORUM-POST ***/\n.forum-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n} \n\n.title{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n.posts-rows{\n    padding:0px;\n}\n\n.post{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n\n.post-title a{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n.post-title a:hover{\n    text-decoration: none;\n}\n\n.post-body{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n\n.comment-box{\n    border: #000 1px solid;\n    border-radius: 2px;\n    width: 500px;\n}\n\n.comment-select-button{\n    width: 120px;\n    height: 35px;\n    border: solid 1px black;\n    border-radius: 3px;\n}\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/style.css":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./resources/css/style.css ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap);", ""]);
+
+// module
+exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n\n\n\n/****  NAVBAR ****/\n\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    z-index: 999 !important;\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand {\n    padding: 0px !important;\n    margin-right: 30px;\n}\n\n#navbar-links {\n    margin-top: 15px;\n}\n\n#navbar-links li.nav-item {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n/* #navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n} */\n\n\n#navbar-links a.nav-link {\n    padding: 10px 0px;\n}\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    /* height: 45px;\n    padding: 10px;\n    font-size: 16px;\n    color: #000;\n    border-radius: 0px;\n    border: 1px solid #eee;\n    -webkit-transition: ease-in-out 0.3s;\n    transition: ease-in-out 0.3s;\n    background-color: transparent; */\n    height: 61px;\n    width: 385px;\n    /* left: 0px; */\n    /* top: 79px; */\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 40px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n\n    position: absolute;\n    left: 0%;\n    right: 0%;\n    top: 0px;\n    bottom: 0%;\n\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    \n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n.footer-bar{\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n\n.comment-box{\n    border: #000 1px solid;\n    border-radius: 2px;\n    width: 500px;\n}\n\n.comment-select-button{\n    width: 120px;\n    height: 35px;\n    border: solid 1px black;\n    border-radius: 3px;\n}\n\n\n\n", ""]);
 
 // exports
 
@@ -70430,6 +70449,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./resources/css/style.css":
+/*!*********************************!*\
+  !*** ./resources/css/style.css ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader??ref--6-1!../../node_modules/postcss-loader/src??ref--6-2!./style.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./resources/css/style.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -70895,6 +70944,126 @@ var Comments = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/CreatePost.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/CreatePost.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var CreatePost = /*#__PURE__*/function (_Component) {
+  _inherits(CreatePost, _Component);
+
+  var _super = _createSuper(CreatePost);
+
+  function CreatePost() {
+    var _this;
+
+    _classCallCheck(this, CreatePost);
+
+    _this = _super.call(this);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(CreatePost, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "body-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-lg-4 offset-lg-4  offset-md-2  offset-sm-1 col-md-8 col-sm-10"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 auth-form-heading"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Create Post")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmitForm,
+        className: "form-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "email",
+        type: "email",
+        className: "form-control",
+        placeholder: "Email",
+        name: "email",
+        required: true,
+        value: this.state.email,
+        onChange: this.handleChange
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "password",
+        type: "password",
+        className: "form-control",
+        placeholder: "Password",
+        name: "password",
+        required: true,
+        value: this.state.password,
+        onChange: this.handleChange
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-12 form-msg"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        value: "lsRememberMe",
+        id: "rememberMe"
+      }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Remember me")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Forgot Password?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-bttn col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "signin-btn",
+        type: "submit"
+      }, "Sign In")))))));
+    }
+  }]);
+
+  return CreatePost;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (CreatePost);
+
+/***/ }),
+
 /***/ "./resources/js/components/Footer.js":
 /*!*******************************************!*\
   !*** ./resources/js/components/Footer.js ***!
@@ -71130,23 +71299,41 @@ var Forum = /*#__PURE__*/function (_Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col py-3"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.state.forum.topic), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.forum.description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-9 py-3"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "forum-detail col-12"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-8 py-3"
+          className: "col-10"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+          className: "title"
+        }, this.state.forum.topic), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.forum.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-2"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "128 Posts")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "posts-rows col-12"
         }, this.state.posts.map(function (item) {
-          return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            key: item.id
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "media-body"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-            to: "/posts/".concat(item.id),
-            className: "pet-name"
-          }, item.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "apt-notes"
-          }, item.body)));
-        })))));
+          return (
+            /*#__PURE__*/
+            // <div  clasName="post col-12" key={item.id}>
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              className: "post",
+              key: item.id
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              className: "post-title"
+            }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+              to: "/posts/".concat(item.id)
+            }, item.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              className: "post-body"
+            }, item.body))
+          );
+        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-3 py-3"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: this.props.match.params.id + '/posts'
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "forum-bttn"
+        }, "Start a new discussion"))))));
       } else {
         return null;
       }
@@ -71224,8 +71411,52 @@ var CreateForum = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "CREATE FORUM")));
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-lg-4 offset-lg-4  offset-md-2  offset-sm-1 col-md-8 col-sm-10"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-12 auth-form-heading"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Create Forum")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmitForm,
+        className: "form-div"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "email",
+        type: "email",
+        className: "form-control",
+        placeholder: "Email",
+        name: "email",
+        required: true,
+        value: this.state.email,
+        onChange: this.handleChange
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        id: "password",
+        type: "password",
+        className: "form-control",
+        placeholder: "Password",
+        name: "password",
+        required: true,
+        value: this.state.password,
+        onChange: this.handleChange
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group col-12 form-msg"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "checkbox",
+        value: "lsRememberMe",
+        id: "rememberMe"
+      }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Remember me")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#"
+      }, "Forgot Password?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-bttn col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "signin-btn",
+        type: "submit"
+      }, "Sign In")))))));
     }
   }]);
 
@@ -71250,8 +71481,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_css_app_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../css/style.css */ "./resources/css/style.css");
+/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_css_style_css__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71276,8 +71507,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+ // import '../../css/app.css';
 
- // resources/css/app.css
+
 
 var Navbar = /*#__PURE__*/function (_Component) {
   _inherits(Navbar, _Component);
@@ -71285,44 +71517,15 @@ var Navbar = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(Navbar);
 
   function Navbar() {
-    var _this;
-
     _classCallCheck(this, Navbar);
 
-    _this = _super.call(this);
-    _this.state = {
-      displayStyle: 'block'
-    };
-    _this.logout = _this.logout.bind(_assertThisInitialized(_this));
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(Navbar, [{
-    key: "logout",
-    value: function logout() {
-      var _this2 = this;
-
-      var token = localStorage.getItem('token');
-      axios.get('/api/logout', {
-        headers: {
-          'Authorization': "Bearer " + token,
-          'Accept': 'application/json, text/plain'
-        }
-      }).then(function (response) {
-        console.log("USER LOGGED OUT");
-        localStorage.removeItem('token');
-
-        _this2.props.signout();
-      })["catch"](function (error) {
-        if (error.response) {
-          console.log(error.response.data.errors);
-          this.errors = error.response.data.errors;
-        }
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
+      var user = this.props.user;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "navbar-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("nav", {
@@ -71330,7 +71533,7 @@ var Navbar = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "logo-site ml-auto"
+        className: "ml-auto"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/",
         className: "navbar-brand"
@@ -71346,31 +71549,22 @@ var Navbar = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/",
         className: "nav-link"
-      }, "Forums")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
-        className: "nav-item",
-        style: {
-          display: this.props.displayIn
-        }
+      }, "Forums")), !user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+        className: "nav-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/register",
         className: "nav-link"
-      }, "Sign Up")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
-        className: "nav-item",
-        style: {
-          display: this.props.displayIn
-        }
+      }, "Sign Up")), !user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+        className: "nav-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/signin",
         className: "nav-link"
-      }, "Sign In")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
-        className: "nav-item",
-        style: {
-          display: this.props.displayOut
-        }
+      }, "Sign In")), user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+        className: "nav-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/",
-        className: "last-nav-link",
-        onClick: this.logout
+        className: "nav-link",
+        onClick: this.props.logout
       }, "Sign out")))))));
     }
   }]);
@@ -71629,8 +71823,7 @@ var Register = /*#__PURE__*/function (_Component) {
       email: '',
       password: '',
       password_confirmation: '',
-      errors: '',
-      isLoggedIn: false
+      errors: []
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmitForm = _this.handleSubmitForm.bind(_assertThisInitialized(_this));
@@ -71653,17 +71846,14 @@ var Register = /*#__PURE__*/function (_Component) {
         console.log(response.data);
         localStorage.setItem("token", response.data.token);
 
-        _this2.props.login();
+        _this2.props.user();
 
-        _this2.setState({
-          name: response.data.name,
-          email: response.data.email,
-          isLoggedIn: true
-        });
+        _this2.props.history.push('/');
       })["catch"](function (error) {
         if (error.response) {
-          console.log(error.response.data.errors);
-          this.state.errors = error.response.data.errors;
+          _this2.setState({
+            errors: error.response.data.errors
+          });
         }
       });
     }
@@ -71678,13 +71868,6 @@ var Register = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.state.isLoggedIn) {
-        // redirect to home if logged in
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-          to: "/"
-        });
-      }
-
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -71739,7 +71922,7 @@ var Register = /*#__PURE__*/function (_Component) {
         value: this.state.password_confirmation,
         onChange: this.handleChange
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-button col-12"
+        className: "form-bttn col-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "register-btn"
@@ -71750,7 +71933,7 @@ var Register = /*#__PURE__*/function (_Component) {
   return Register;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Register);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Register));
 
 /***/ }),
 
@@ -71815,7 +71998,7 @@ var Signin = /*#__PURE__*/function (_Component) {
     _this.state = {
       email: '',
       password: '',
-      isLoggedIn: false
+      errors: []
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmitForm = _this.handleSubmitForm.bind(_assertThisInitialized(_this));
@@ -71833,21 +72016,17 @@ var Signin = /*#__PURE__*/function (_Component) {
         email: this.state.email,
         password: this.state.password
       }).then(function (response) {
-        console.log(response.data);
-        localStorage.setItem("token", response.data.token);
-        console.log("LOG IN SUCCESS");
+        // console.log(response.data);
+        localStorage.setItem("token", response.data.token); // console.log("LOG IN SUCCESS");
 
-        _this2.props.login();
+        _this2.props.user();
 
-        _this2.setState({
-          email: response.data.email,
-          password: response.data.password,
-          isLoggedIn: true
-        });
+        _this2.props.history.push('/');
       })["catch"](function (error) {
         if (error.response) {
-          console.log(error.response.data.errors);
-          this.errors = error.response.data.errors;
+          _this2.setState({
+            errors: error.response.data.errors
+          });
         }
       });
     }
@@ -71862,13 +72041,6 @@ var Signin = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      if (this.state.isLoggedIn) {
-        // redirect to home if logged in
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-          to: "/"
-        });
-      }
-
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -71924,7 +72096,7 @@ var Signin = /*#__PURE__*/function (_Component) {
   return Signin;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Signin);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Signin));
 
 /***/ }),
 
@@ -71949,10 +72121,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Signin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Signin */ "./resources/js/components/Signin.js");
 /* harmony import */ var _components_Register__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Register */ "./resources/js/components/Register.js");
 /* harmony import */ var _components_Modal_CreateForum__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Modal/CreateForum */ "./resources/js/components/Modal/CreateForum.js");
-/* harmony import */ var _components_PrivateRoute__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/PrivateRoute */ "./resources/js/components/PrivateRoute.js");
-/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Home */ "./resources/js/views/Home.js");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_css_app_css__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _components_CreatePost__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/CreatePost */ "./resources/js/components/CreatePost.js");
+/* harmony import */ var _components_PrivateRoute__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/PrivateRoute */ "./resources/js/components/PrivateRoute.js");
+/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Home */ "./resources/js/views/Home.js");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_css_app_css__WEBPACK_IMPORTED_MODULE_13__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -71986,9 +72159,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
- // import '../../../public/css/app.css';
 
 
+ // import '../../css/style.css';
 
 var App = /*#__PURE__*/function (_Component) {
   _inherits(App, _Component);
@@ -72002,15 +72175,12 @@ var App = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this);
     _this.state = {
-      user: {},
-      isLoggedIn: false,
-      errors: '',
-      displayOut: 'block',
-      displayIn: 'block'
-    };
-    _this.checkIfLoggedIn = _this.checkIfLoggedIn.bind(_assertThisInitialized(_this));
-    _this.getUser = _this.getUser.bind(_assertThisInitialized(_this));
-    _this.login = _this.login.bind(_assertThisInitialized(_this));
+      user: null,
+      isLoggedIn: false
+    }; // this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
+
+    _this.getUser = _this.getUser.bind(_assertThisInitialized(_this)); // this.login = this.login.bind(this);
+
     _this.logout = _this.logout.bind(_assertThisInitialized(_this));
     return _this;
   } //life cycle method
@@ -72019,25 +72189,14 @@ var App = /*#__PURE__*/function (_Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.checkIfLoggedIn();
-    }
-  }, {
-    key: "checkIfLoggedIn",
-    value: function checkIfLoggedIn() {
-      var _this2 = this;
-
+      // this.checkIfLoggedIn();
       var token = localStorage.getItem("token");
       console.log("Check if log in");
 
       if (token) {
-        console.log("log in");
+        console.log("logged in");
         this.setState({
           isLoggedIn: true
-        }, function () {
-          return _this2.setState({
-            displayIn: 'none',
-            displayOut: 'block'
-          });
         }); //get user data
 
         this.getUser();
@@ -72045,47 +72204,38 @@ var App = /*#__PURE__*/function (_Component) {
         console.log("not log in");
         this.setState({
           isLoggedIn: false
-        }, function () {
-          return _this2.setState({
-            displayIn: 'block',
-            displayOut: 'none'
-          });
         });
       }
     }
   }, {
-    key: "login",
-    value: function login() {
-      var _this3 = this;
-
-      this.setState({
-        isLoggedIn: true
-      }, function () {
-        return _this3.setState({
-          displayIn: 'none',
-          displayOut: 'block'
-        });
-      });
-      this.getUser();
-    }
-  }, {
     key: "logout",
     value: function logout() {
-      var _this4 = this;
+      var _this2 = this;
 
-      this.setState({
-        isLoggedIn: false
-      }, function () {
-        return _this4.setState({
-          displayIn: 'block',
-          displayOut: 'none'
+      var token = localStorage.getItem('token');
+      axios.get('/api/logout', {
+        headers: {
+          'Authorization': "Bearer " + token,
+          'Accept': 'application/json, text/plain'
+        }
+      }).then(function (response) {
+        console.log("USER LOGGED OUT");
+        localStorage.removeItem('token');
+
+        _this2.setState({
+          user: null,
+          isLoggedIn: false
         });
+      })["catch"](function (error) {
+        if (error) {
+          console.log(error);
+        }
       });
     }
   }, {
     key: "getUser",
     value: function getUser() {
-      var _this5 = this;
+      var _this3 = this;
 
       var token = localStorage.getItem("token");
       axios.get('/api/user', {
@@ -72093,9 +72243,8 @@ var App = /*#__PURE__*/function (_Component) {
           Authorization: "Bearer " + token
         }
       }).then(function (response) {
-        console.log('USER DEETS', response);
-
-        _this5.setState({
+        // console.log('USER DEETS',response);
+        _this3.setState({
           user: response.data.user
         });
       })["catch"](function (error) {
@@ -72111,32 +72260,35 @@ var App = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "App"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        signout: this.logout,
-        displayIn: this.state.displayIn,
-        displayOut: this.state.displayOut
+        logout: this.logout,
+        user: this.state.user
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_11__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_12__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/signin"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Signin__WEBPACK_IMPORTED_MODULE_7__["default"], {
-        login: this.login
+        user: this.getUser
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/register"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Register__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        login: this.login
+        user: this.getUser
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/forums/:id"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Forum__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/posts/:id"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Post__WEBPACK_IMPORTED_MODULE_6__["default"], {
         user: this.state.user
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PrivateRoute__WEBPACK_IMPORTED_MODULE_10__["default"], {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PrivateRoute__WEBPACK_IMPORTED_MODULE_11__["default"], {
         exact: true,
         path: "/forums",
         loggedIn: this.state.isLoggedIn,
         component: _components_Modal_CreateForum__WEBPACK_IMPORTED_MODULE_9__["default"]
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/forums/:post/posts"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_CreatePost__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        user: this.state.user
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
     }
   }]);
 
@@ -72191,8 +72343,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
- // import '../../../public/css/app.css';
 
+ // import '../../css/style.css';
 
 
 
@@ -72237,8 +72389,6 @@ var Home = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
-
       if (this.state.isLoaded) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "body-content"
@@ -72246,25 +72396,29 @@ var Home = /*#__PURE__*/function (_Component) {
           className: "container"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row item-list mb-3"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "forum-list col-9 media py-3"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-12"
         }, this.state.forums.map(function (item) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "pet-item col-8 media py-3",
+            className: "forum col-12",
             key: item.id
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "pet-info media-body"
-          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "pet-head d-flex"
+            className: "forum-title"
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
             to: "/forums/".concat(item.id),
             className: "forum-title"
-          }, item.topic), _this3.props.children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "apt-notes"
-          }, item.description)));
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col"
+          }, item.topic)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "forum-desc"
+          }, item.description));
+        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-3 py-3"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
           to: '/forums'
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Create a new Forum topic"))))));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "forum-bttn"
+        }, "Create a new Forum topic"))))));
       } else {
         return null;
       }
