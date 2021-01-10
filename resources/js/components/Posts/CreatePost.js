@@ -6,10 +6,10 @@ class CreatePost extends Component {
     constructor(props){
         super(props);
         this.state = {
-            postId: props.location.state.postId,
-            title: props.location.state.title,
-            body: props.location.state.body,
-            mode: props.location.state.mode
+            postId: props.location.state.postId || '',
+            title: props.location.state.title || '',
+            body: props.location.state.body || '',
+            mode: props.location.state.mode || 'create'
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
@@ -26,7 +26,7 @@ class CreatePost extends Component {
                 title: this.state.title,
                 body: this.state.body,
                 user_id: this.props.user.id,
-                forum_id: this.props.location.state.id 
+                forum_id: this.props.location.state.forumId 
             },
             {
                 headers: { Authorization: "Bearer " + token }

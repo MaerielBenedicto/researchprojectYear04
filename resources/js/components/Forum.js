@@ -16,7 +16,7 @@ class Forum extends Component {
 
     componentDidMount(){
         //get posts in a forum
-        axios.get('/api/forums/' + this.props.match.params.id)
+        axios.get('/api/forums/' + this.props.match.params.forumId)
         .then(response => {
             // console.log(response.data);
             const tempPosts = response.data.data;
@@ -79,9 +79,9 @@ class Forum extends Component {
                                         {item.body}
                                         </div>
                                         <Link to={{
-                                        pathname: '/submit-post/' + this.props.match.params.id,
+                                        pathname: '/submit-post/' + this.props.match.params.forumId,
                                         state: {
-                                            forumId: this.props.match.params.id,
+                                            forumId: this.props.match.params.forumId,
                                             postId: item.id,
                                             title: item.title,
                                             body: item.body,
@@ -97,9 +97,9 @@ class Forum extends Component {
                        </div>
                        <div className="col-3 py-3"> 
                            <Link to={{
-                                pathname: '/submit-post/' + this.props.match.params.id,
+                                pathname: '/submit-post/' + this.props.match.params.forumId,
                                 state: {
-                                    id: this.props.match.params.id
+                                    forumId: this.props.match.params.forumId
                                 }}} >
                                 <button className="forum-bttn">Start a new discussion</button>
                               </Link>

@@ -14,6 +14,8 @@ class Post extends Component {
             post: {},
             isLoaded: false
         };
+
+        this.delete = this.delete.bind(this);
     }
 
     componentDidMount(){
@@ -26,6 +28,26 @@ class Post extends Component {
                 post: tempPost, 
                 isLoaded: true
             });
+        })
+        .catch(function(error){
+            if(error){
+                console.log(error);
+                this.state.errors = error.response.data.errors;
+            } 
+        });
+    }
+
+    delete() {
+        console.log("DELETE");
+        let token = localStorage.getItem("token");
+        axios.delete('/api/posts/' + this.props.match.params.id,
+        {
+            headers: { Authorization: "Bearer " + token }
+        })
+        .then(response => {
+            console.log(response);
+            this.props.history.push('/forums/'+ this.state.post.forum_id);   
+
         })
         .catch(function(error){
             if(error){
@@ -57,6 +79,7 @@ class Post extends Component {
                                         }}} >
                                             <button className="bttn float-right">Edit</button>
                                         </Link> 
+                                        <button className="bttn float-right" onClick={this.delete}>Delete</button>
                                 </div>
                                 <div className="col-12">
                                     <h4>{this.state.post.title}</h4>

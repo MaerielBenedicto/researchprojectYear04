@@ -105,10 +105,19 @@ class PostController extends Controller
   //delete post
   public function destroy($id){
     $post = Post::findOrFail($id);
+    //delete comments from the post
+    $post->comments()->delete();
+    //delete post
     $post->delete();
 
     return response()->json(['message' => 'Post deleted!'], 200);
   }
+
+
+
+
+
+
 
   public function sentiment($body){
     //create an instance of the serviceBuilder /**

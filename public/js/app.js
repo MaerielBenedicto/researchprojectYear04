@@ -71149,7 +71149,7 @@ var Forum = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       //get posts in a forum
-      axios.get('/api/forums/' + this.props.match.params.id).then(function (response) {
+      axios.get('/api/forums/' + this.props.match.params.forumId).then(function (response) {
         // console.log(response.data);
         var tempPosts = response.data.data;
         var tempForum = response.data.forum; //never modify state directly
@@ -71215,9 +71215,9 @@ var Forum = /*#__PURE__*/function (_Component) {
             className: "post-body"
           }, item.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
             to: {
-              pathname: '/submit-post/' + _this3.props.match.params.id,
+              pathname: '/submit-post/' + _this3.props.match.params.forumId,
               state: {
-                forumId: _this3.props.match.params.id,
+                forumId: _this3.props.match.params.forumId,
                 postId: item.id,
                 title: item.title,
                 body: item.body,
@@ -71231,9 +71231,9 @@ var Forum = /*#__PURE__*/function (_Component) {
           className: "col-3 py-3"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: {
-            pathname: '/submit-post/' + this.props.match.params.id,
+            pathname: '/submit-post/' + this.props.match.params.forumId,
             state: {
-              id: this.props.match.params.id
+              forumId: this.props.match.params.forumId
             }
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -71563,10 +71563,10 @@ var CreatePost = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      postId: props.location.state.postId,
-      title: props.location.state.title,
-      body: props.location.state.body,
-      mode: props.location.state.mode
+      postId: props.location.state.postId || '',
+      title: props.location.state.title || '',
+      body: props.location.state.body || '',
+      mode: props.location.state.mode || 'create'
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmitForm = _this.handleSubmitForm.bind(_assertThisInitialized(_this));
@@ -71587,7 +71587,7 @@ var CreatePost = /*#__PURE__*/function (_Component) {
           title: this.state.title,
           body: this.state.body,
           user_id: this.props.user.id,
-          forum_id: this.props.location.state.id
+          forum_id: this.props.location.state.forumId
         }, {
           headers: {
             Authorization: "Bearer " + token
@@ -71743,6 +71743,7 @@ var Post = /*#__PURE__*/function (_Component) {
       post: {},
       isLoaded: false
     };
+    _this["delete"] = _this["delete"].bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -71759,6 +71760,28 @@ var Post = /*#__PURE__*/function (_Component) {
           post: tempPost,
           isLoaded: true
         });
+      })["catch"](function (error) {
+        if (error) {
+          console.log(error);
+          this.state.errors = error.response.data.errors;
+        }
+      });
+    }
+  }, {
+    key: "delete",
+    value: function _delete() {
+      var _this3 = this;
+
+      console.log("DELETE");
+      var token = localStorage.getItem("token");
+      axios["delete"]('/api/posts/' + this.props.match.params.id, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        console.log(response);
+
+        _this3.props.history.push('/forums/' + _this3.state.post.forum_id);
       })["catch"](function (error) {
         if (error) {
           console.log(error);
@@ -71797,7 +71820,10 @@ var Post = /*#__PURE__*/function (_Component) {
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "bttn float-right"
-        }, "Edit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "bttn float-right",
+          onClick: this["delete"]
+        }, "Delete")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.state.post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.post.body))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
           postId: this.props.match.params.id,
@@ -72405,7 +72431,7 @@ var App = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Register__WEBPACK_IMPORTED_MODULE_8__["default"], {
         user: this.getUser
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        path: "/forums/:id"
+        path: "/forums/:forumId"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Forum__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/posts/:id"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Posts_Post__WEBPACK_IMPORTED_MODULE_6__["default"], {

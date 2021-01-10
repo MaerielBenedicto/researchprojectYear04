@@ -108,7 +108,7 @@ class App extends Component {
                        <Route path="/register">
                             <Register user={this.getUser} />
                         </Route>
-                        <Route path="/forums/:id">
+                        <Route path="/forums/:forumId">
                             <Forum />
                         </Route>
                           <Route path="/posts/:id">
