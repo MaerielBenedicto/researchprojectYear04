@@ -71217,7 +71217,7 @@ var Forum = /*#__PURE__*/function (_Component) {
             to: {
               pathname: '/submit-post/' + _this3.props.match.params.id,
               state: {
-                id: _this3.props.match.params.id,
+                forumId: _this3.props.match.params.id,
                 postId: item.id,
                 title: item.title,
                 body: item.body,
@@ -71580,11 +71580,10 @@ var CreatePost = /*#__PURE__*/function (_Component) {
 
       //prevent from reloading page
       e.preventDefault();
-      console.log(this.props.location.state.id);
       var token = localStorage.getItem("token");
 
       if (this.state.mode === 'create') {
-        axios.post('/api/forums/' + this.props.location.state.id + '/posts', {
+        axios.post('/api/forums/' + this.props.location.state.forumId + '/posts', {
           title: this.state.title,
           body: this.state.body,
           user_id: this.props.user.id,
@@ -71609,7 +71608,7 @@ var CreatePost = /*#__PURE__*/function (_Component) {
           title: this.state.title,
           body: this.state.body,
           user_id: this.props.user.id,
-          forum_id: this.props.location.state.id
+          forum_id: this.props.location.state.forumId
         }, {
           headers: {
             Authorization: "Bearer " + token
@@ -71785,7 +71784,20 @@ var Post = /*#__PURE__*/function (_Component) {
           className: "col-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: "https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.state.post.user.name)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.state.post.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: {
+            pathname: '/submit-post/' + this.props.match.params.id,
+            state: {
+              forumId: this.state.post.forum_id,
+              postId: this.props.match.params.id,
+              title: this.state.post.title,
+              body: this.state.post.body,
+              mode: 'edit'
+            }
+          }
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "bttn float-right"
+        }, "Edit"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.state.post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.post.body))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
           postId: this.props.match.params.id,

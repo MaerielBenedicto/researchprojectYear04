@@ -81,7 +81,7 @@ class Forum extends Component {
                                         <Link to={{
                                         pathname: '/submit-post/' + this.props.match.params.id,
                                         state: {
-                                            id: this.props.match.params.id,
+                                            forumId: this.props.match.params.id,
                                             postId: item.id,
                                             title: item.title,
                                             body: item.body,

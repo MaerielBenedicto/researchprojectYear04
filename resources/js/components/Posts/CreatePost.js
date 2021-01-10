@@ -18,10 +18,10 @@ class CreatePost extends Component {
     handleSubmitForm(e){
         //prevent from reloading page
         e.preventDefault();
-        console.log(this.props.location.state.id);
+
         let token = localStorage.getItem("token");
         if(this.state.mode === 'create'){
-            axios.post('/api/forums/' + this.props.location.state.id + '/posts', 
+            axios.post('/api/forums/' + this.props.location.state.forumId + '/posts', 
             {
                 title: this.state.title,
                 body: this.state.body,
@@ -47,7 +47,7 @@ class CreatePost extends Component {
                 title: this.state.title,
                 body: this.state.body,
                 user_id: this.props.user.id,
-                forum_id: this.props.location.state.id 
+                forum_id: this.props.location.state.forumId 
             },
             {
                 headers: { Authorization: "Bearer " + token }

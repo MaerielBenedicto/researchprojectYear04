@@ -46,6 +46,17 @@ class Post extends Component {
                                 <div className="col-12">
                                     <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png"/>
                                     <span> {this.state.post.user.name}</span>
+                                    <Link to={{
+                                        pathname: '/submit-post/' + this.props.match.params.id,
+                                        state: {
+                                            forumId: this.state.post.forum_id,
+                                            postId: this.props.match.params.id,
+                                            title: this.state.post.title,
+                                            body: this.state.post.body,
+                                            mode: 'edit'
+                                        }}} >
+                                            <button className="bttn float-right">Edit</button>
+                                        </Link> 
                                 </div>
                                 <div className="col-12">
                                     <h4>{this.state.post.title}</h4>
