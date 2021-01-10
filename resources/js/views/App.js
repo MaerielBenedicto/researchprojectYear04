@@ -7,18 +7,17 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 import Forum from '../components/Forum';
-import Post from '../components/Post';
+import Post from '../components/Posts/Post';
 import Signin from '../components/Signin';
 import Register from '../components/Register';
 import CreateForum from '../components/Modal/CreateForum';
-import CreatePost from '../components/CreatePost';
+import CreatePost from '../components/Posts/CreatePost';
 
 import PrivateRoute from '../components/PrivateRoute';
 
 import Home from './Home';
 
 import '../../css/app.css';
-// import '../../css/style.css';
 
 
 class App extends Component {
@@ -100,9 +99,6 @@ class App extends Component {
                 <Router>
                     <Navbar logout={this.logout} user={this.state.user}/>
                     <Switch>
-                         <Route path="/forums/:id">
-                            <Forum />
-                          </Route>
                         <Route exact path="/">
                             <Home />
                         </Route>
@@ -118,12 +114,8 @@ class App extends Component {
                           <Route path="/posts/:id">
                               <Post user={this.state.user}/>
                           </Route>
-                        {/* <PrivateRoute exact path="/forums/:post/posts" loggedIn={this.state.isLoggedIn} component={CreatePost}/> */}
-
                         <PrivateRoute exact path="/forums" user={this.state.user} component={CreateForum}/>
-                        <Route path="/forums/:post/posts">
-                            <CreatePost user={this.state.user}/>
-                        </Route>
+                        <PrivateRoute path="/submit-post/:id" user={this.state.user} component={CreatePost}/>
                     </Switch>
                     <Footer />
             </Router>

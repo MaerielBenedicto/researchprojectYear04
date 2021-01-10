@@ -21,13 +21,20 @@ use App\Http\Controllers\API\CommentVoteController;
 |
 */
 
-Route::post('login', [PassportController::class, 'login']);
-Route::post('register', [PassportController::class, 'register']);
-Route::get('forums', [ForumController::class, 'index']);
-Route::get('forums/{forum}/posts', [PostController::class, 'index']);
-Route::get('posts/{post}/comments', [CommentController::class, 'index']);
-Route::get('forums/{forum}', [ForumController::class, 'show']);
-Route::get('posts/{post}', [PostController::class, 'show']);
+Route::group(['middleware' => 'guest:api'], function() {
+
+  Route::post('login', [PassportController::class, 'login']);
+  Route::post('register', [PassportController::class, 'register']);
+
+  Route::get('forums', [ForumController::class, 'index']);
+  Route::get('forums/{forum}', [ForumController::class, 'show']);
+
+  Route::get('forums/{forum}/posts', [PostController::class, 'index']);
+  Route::get('posts/{post}', [PostController::class, 'show']);
+
+  Route::get('posts/{post}/comments', [CommentController::class, 'index']);
+
+});
 
 Route::middleware('auth:api')->group(function () {
   Route::get('user', [PassportController::class, 'user']);

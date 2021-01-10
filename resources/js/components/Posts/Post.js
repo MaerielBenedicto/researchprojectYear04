@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
-import AddComment from './AddComment';
-import Comments from './Comments';
+import AddComment from '../AddComment';
+import Comments from '../Comments';
 
 // import { CgProfile } from 'react-icons/CgProfile';
 

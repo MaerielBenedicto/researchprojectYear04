@@ -68,7 +68,6 @@ class AddComment extends Component {
                             <textarea className="comment-box form-control col-12 mb-3" rows="5" id="body" placeholder="Add a comment" name="comment"  
                             value={this.state.comment}
                             onChange={this.handleChange}>
-    
                             </textarea>
                             <div className="col-12">
                                 <button className="add-comment-bttn" type="submit">Add</button>

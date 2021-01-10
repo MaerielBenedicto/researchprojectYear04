@@ -37,7 +37,7 @@ class PostController extends Controller
 
     $body = $request->body;
 
-    $sentimentValues = $this->sentiment($body);
+    // $sentimentValues = $this->sentiment($body);
 
     // dd($sentimentValues);
 
@@ -46,8 +46,10 @@ class PostController extends Controller
         'body' => $request->body,
         'user_id' => $request->user_id,
         'forum_id' => $id,
-        's_score' => $sentimentValues['score'],
-        's_magnitude' => $sentimentValues['magnitude']
+        // 's_score' => $sentimentValues['score'],
+        // 's_magnitude' => $sentimentValues['magnitude']
+        's_score' => '0',
+        's_magnitude' => '0'
     ]);
 
     return response()->json(['message' => 'Post created', 'data' => $post], 200);

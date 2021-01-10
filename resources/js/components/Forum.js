@@ -8,7 +8,8 @@ class Forum extends Component {
         this.state = {
             posts: [],
             forum: {},
-            isLoaded: false
+            isLoaded: false,
+            sort: ''
         };
         
     }
@@ -53,13 +54,20 @@ class Forum extends Component {
                                     <span>128 Posts</span>
                                 </div>
                                 </div>
-                                
-                                
-                               
                             </div>
+                                <div className="col-12 comment-select mb-3 ">
+                                            <h6>Sort</h6>
+                                            <form>
+                                                <select className="comment-select-button">
+                                                    <option disabled value="">Sort by:</option>
+                                                    <option value="Popularity">Popularity</option>
+                                                    <option value="Latest">Latest</option>
+                                                </select>
+                                            </form>
+                                        </div>
+
                             <div className="posts-rows col-12">
                                 {this.state.posts.map(item => (
-                                // <div  clasName="post col-12" key={item.id}>
                                     <div className="post" key={item.id}>
                                         <div className="post-title">
                                             <Link to={`/posts/${item.id}`} >
@@ -70,14 +78,31 @@ class Forum extends Component {
                                         <div className="post-body">
                                         {item.body}
                                         </div>
+                                        <Link to={{
+                                        pathname: '/submit-post/' + this.props.match.params.id,
+                                        state: {
+                                            id: this.props.match.params.id,
+                                            postId: item.id,
+                                            title: item.title,
+                                            body: item.body,
+                                            mode: 'edit'
+
+                                        }}} >
+                                            <button className="bttn">Edit</button>
+                                        </Link>
                                     </div>
+                                    
                                 ))}
                             </div>
                        </div>
-                       <div className="col-3 py-3">
-                            <Link to={this.props.match.params.id + '/posts'}>
+                       <div className="col-3 py-3"> 
+                           <Link to={{
+                                pathname: '/submit-post/' + this.props.match.params.id,
+                                state: {
+                                    id: this.props.match.params.id
+                                }}} >
                                 <button className="forum-bttn">Start a new discussion</button>
-                            </Link>
+                              </Link>
                         </div>
                     </div>
                     </div>
