@@ -41,9 +41,17 @@ class Navbar extends Component {
 
                       { user && (
                         <li className="nav-item">
+                          <Link to="/my-profile" className="nav-link">My Profile</Link>
+                      </li>
+                      )}
+
+                      { user && (
+                        <li className="nav-item">
                           <Link to="/" className="nav-link" onClick={this.props.logout}>Sign out</Link>
                       </li>
                       )}
+
+
                   </ul>
               </div> 
           </div>

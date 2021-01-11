@@ -16,6 +16,7 @@ import CreatePost from '../components/Posts/CreatePost';
 import PrivateRoute from '../components/PrivateRoute';
 
 import Home from './Home';
+import Profile from './Profile';
 
 import '../../css/app.css';
 
@@ -30,9 +31,7 @@ class App extends Component {
             // isLoaded: false
         }
 
-        // this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
         this.getUser = this.getUser.bind(this);
-        // this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
     }
 
@@ -100,7 +99,7 @@ class App extends Component {
                     <Navbar logout={this.logout} user={this.state.user}/>
                     <Switch>
                         <Route exact path="/">
-                            <Home />
+                            <Home user={this.state.user}/>
                         </Route>
                         <Route path="/signin">
                             <Signin user={this.getUser}/>
@@ -110,6 +109,9 @@ class App extends Component {
                         </Route>
                         <Route path="/forums/:forumId">
                             <Forum />
+                        </Route>
+                        <Route path="/my-profile">
+                            <Profile user={this.state.user}/>
                         </Route>
                           <Route path="/posts/:id">
                               <Post user={this.state.user}/>

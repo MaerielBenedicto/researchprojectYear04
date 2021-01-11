@@ -70809,7 +70809,6 @@ var Comments = /*#__PURE__*/function (_Component) {
     value: function deleteComment(id) {
       var _this3 = this;
 
-      console.log("delete");
       var token = localStorage.getItem("token");
       axios["delete"]('/api/comments/' + id, {
         headers: {
@@ -71299,16 +71298,16 @@ var CreateForum = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(CreateForum);
 
-  function CreateForum() {
+  function CreateForum(props) {
     var _this;
 
     _classCallCheck(this, CreateForum);
 
-    _this = _super.call(this);
+    _this = _super.call(this, props);
     _this.state = {
-      topic: '',
-      description: '',
-      user_id: ''
+      topic: props.location.state.topic || '',
+      description: props.location.state.description || '',
+      mode: props.location.state.mode || 'create'
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmitForm = _this.handleSubmitForm.bind(_assertThisInitialized(_this));
@@ -71323,24 +71322,46 @@ var CreateForum = /*#__PURE__*/function (_Component) {
       //prevent from reloading page
       e.preventDefault();
       var token = localStorage.getItem("token");
-      axios.post('/api/forums', {
-        topic: this.state.topic,
-        description: this.state.description,
-        user_id: this.props.user.id
-      }, {
-        headers: {
-          Authorization: "Bearer " + token
-        }
-      }).then(function (response) {
-        // console.log(response.data.data);
-        _this2.props.history.push('/forums/' + response.data.data.id);
-      })["catch"](function (error) {
-        console.log(error);
 
-        if (error) {
+      if (this.state.mode === 'create') {
+        axios.post('/api/forums', {
+          topic: this.state.topic,
+          description: this.state.description,
+          user_id: this.props.user.id
+        }, {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        }).then(function (response) {
+          // console.log(response.data.data);
+          _this2.props.history.push('/forums/' + response.data.data.id);
+        })["catch"](function (error) {
           console.log(error);
-        }
-      });
+
+          if (error) {
+            console.log(error);
+          }
+        });
+      } else if (this.state.mode === 'edit') {
+        axios.put('/api/forums/' + this.props.location.state.forumId, {
+          topic: this.state.topic,
+          description: this.state.description,
+          user_id: this.props.user.id
+        }, {
+          headers: {
+            Authorization: "Bearer " + token
+          }
+        }).then(function (response) {
+          // console.log(response.data);
+          _this2.props.history.push('/forums/' + response.data.id);
+        })["catch"](function (error) {
+          console.log(error);
+
+          if (error) {
+            console.log(error);
+          }
+        });
+      }
     }
   }, {
     key: "handleChange",
@@ -71379,7 +71400,7 @@ var CreateForum = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Topic Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "form-control-forum-body col-12 mb-3",
         rows: "9",
-        id: "body",
+        id: "description",
         placeholder: "Description",
         name: "description",
         value: this.state.description,
@@ -71493,6 +71514,11 @@ var Navbar = /*#__PURE__*/function (_Component) {
         to: "/signin",
         className: "nav-link"
       }, "Sign In")), user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+        className: "nav-item"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/my-profile",
+        className: "nav-link"
+      }, "My Profile")), user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
         className: "nav-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: "/",
@@ -72281,8 +72307,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Posts_CreatePost__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Posts/CreatePost */ "./resources/js/components/Posts/CreatePost.js");
 /* harmony import */ var _components_PrivateRoute__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/PrivateRoute */ "./resources/js/components/PrivateRoute.js");
 /* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Home */ "./resources/js/views/Home.js");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_css_app_css__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _Profile__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Profile */ "./resources/js/views/Profile.js");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_css_app_css__WEBPACK_IMPORTED_MODULE_14__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -72320,6 +72347,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var App = /*#__PURE__*/function (_Component) {
   _inherits(App, _Component);
 
@@ -72335,10 +72363,8 @@ var App = /*#__PURE__*/function (_Component) {
       user: null,
       isLoggedIn: false // isLoaded: false
 
-    }; // this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
-
-    _this.getUser = _this.getUser.bind(_assertThisInitialized(_this)); // this.login = this.login.bind(this);
-
+    };
+    _this.getUser = _this.getUser.bind(_assertThisInitialized(_this));
     _this.logout = _this.logout.bind(_assertThisInitialized(_this));
     return _this;
   } //life cycle method
@@ -72422,7 +72448,9 @@ var App = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_12__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_12__["default"], {
+        user: this.state.user
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/signin"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Signin__WEBPACK_IMPORTED_MODULE_7__["default"], {
         user: this.getUser
@@ -72433,6 +72461,10 @@ var App = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/forums/:forumId"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Forum__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/my-profile"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Profile__WEBPACK_IMPORTED_MODULE_13__["default"], {
+        user: this.state.user
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/posts/:id"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Posts_Post__WEBPACK_IMPORTED_MODULE_6__["default"], {
         user: this.state.user
@@ -72520,12 +72552,19 @@ var Home = /*#__PURE__*/function (_Component) {
       forums: [],
       isLoaded: false
     };
+    _this.forums = _this.forums.bind(_assertThisInitialized(_this));
+    _this["delete"] = _this["delete"].bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Home, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.forums();
+    }
+  }, {
+    key: "forums",
+    value: function forums() {
       var _this2 = this;
 
       axios.get('/api/forums').then(function (response) {
@@ -72544,8 +72583,32 @@ var Home = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "delete",
+    value: function _delete(id) {
+      var _this3 = this;
+
+      console.log("DELETE");
+      var token = localStorage.getItem("token");
+      axios["delete"]('/api/forums/' + id, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        console.log(response);
+
+        _this3.forums();
+      })["catch"](function (error) {
+        if (error) {
+          console.log(error);
+          this.state.errors = error.response.data.errors;
+        }
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this4 = this;
+
       if (this.state.isLoaded) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "body-content"
@@ -72566,13 +72629,34 @@ var Home = /*#__PURE__*/function (_Component) {
           }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
             to: "/forums/".concat(item.id),
             className: "forum-title"
-          }, item.topic)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, item.topic)), _this4.props.user && _this4.props.user.id === item.user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+            to: {
+              pathname: '/forums',
+              state: {
+                forumId: item.id,
+                topic: item.topic,
+                description: item.description,
+                mode: 'edit'
+              }
+            }
+          }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "float-right bttn"
+          }, " Edit ")) : '', _this4.props.user && _this4.props.user.id === item.user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            className: "bttn float-right",
+            onClick: function onClick() {
+              return _this4["delete"](item.id);
+            }
+          }, "Delete") : '', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "forum-desc"
           }, item.description));
         }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-3 py-3"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
-          to: '/forums'
+          to: {
+            pathname: '/forums',
+            state: {// forumId: this.props.match.params.forumId
+            }
+          }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "forum-bttn"
         }, "Create a new Forum topic"))))));
@@ -72586,6 +72670,84 @@ var Home = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
+
+/***/ }),
+
+/***/ "./resources/js/views/Profile.js":
+/*!***************************************!*\
+  !*** ./resources/js/views/Profile.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var Profile = /*#__PURE__*/function (_Component) {
+  _inherits(Profile, _Component);
+
+  var _super = _createSuper(Profile);
+
+  function Profile(props) {
+    var _this;
+
+    _classCallCheck(this, Profile);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      user: props.user
+    };
+    return _this;
+  }
+
+  _createClass(Profile, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "body-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "MY PROFILE")));
+    }
+  }]);
+
+  return Profile;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Profile);
 
 /***/ }),
 

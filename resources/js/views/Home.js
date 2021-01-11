@@ -16,9 +16,16 @@ class Home extends Component {
             forums: [],
             isLoaded: false
         };
+
+        this.forums = this.forums.bind(this);
+        this.delete = this.delete.bind(this);
     }
 
     componentDidMount(){
+        this.forums();
+    }
+
+    forums(){
         axios.get('/api/forums')
         .then(response => {
             // console.log(response);
@@ -29,6 +36,25 @@ class Home extends Component {
                 forums: temptForums,
                 isLoaded: true
               });
+        })
+        .catch(function(error){
+            if(error){
+                console.log(error);
+                this.state.errors = error.response.data.errors;
+            } 
+        });
+    }
+
+    delete(id) {
+        console.log("DELETE");
+        let token = localStorage.getItem("token");
+        axios.delete('/api/forums/' + id,
+        {
+            headers: { Authorization: "Bearer " + token }
+        })
+        .then(response => {
+            console.log(response);
+            this.forums();
         })
         .catch(function(error){
             if(error){
@@ -53,10 +79,28 @@ class Home extends Component {
                                             {item.topic}
                                         </Link>
                                     </div>
-                
+
+                                    {(this.props.user && this.props.user.id === item.user.id) ? ( 
+                                    <Link to={{
+                                        pathname: '/forums',
+                                        state: {
+                                            forumId: item.id,
+                                            topic: item.topic,
+                                            description: item.description,
+                                            mode: 'edit'
+                                        }}}>
+                                      <div className="float-right bttn"> Edit </div>
+                                    </Link>
+                                    ) : ''}
+
+                                    {(this.props.user && this.props.user.id === item.user.id) ? ( 
+                                        <button className="bttn float-right" onClick={ () => this.delete(item.id)}>Delete</button>
+                                    ) : ''}
+
                                     <div className="forum-desc">
                                         { item.description}
                                     </div>
+                                    
                                 </div>
                                    ))}                           
                             </div>
@@ -65,7 +109,12 @@ class Home extends Component {
                        
                         <div className="col-3 py-3">
                             {/* <div className="col-12"> */}
-                            <Link to={'/forums'}>
+                            <Link to={{
+                                pathname: '/forums',
+                                state: {
+                                    // forumId: this.props.match.params.forumId
+                                }}} 
+                            >
                                 <button className="forum-bttn">Create a new Forum topic</button>
                             </Link>
                             {/* </div> */}

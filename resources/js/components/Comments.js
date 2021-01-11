@@ -65,7 +65,6 @@ class Comments extends Component {
       }
 
       deleteComment(id){
-        console.log("delete");
         let token = localStorage.getItem("token");
         axios.delete('/api/comments/' + id,
         {

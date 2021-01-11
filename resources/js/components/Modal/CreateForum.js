@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 
 class CreateForum extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            topic: '',
-            description: '',
-            user_id: ''
+            topic: props.location.state.topic || '',
+            description: props.location.state.description || '',
+            mode: props.location.state.mode || 'create'
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
@@ -18,6 +18,7 @@ class CreateForum extends Component {
         //prevent from reloading page
         e.preventDefault();
         let token = localStorage.getItem("token");
+        if(this.state.mode === 'create'){
             axios.post('/api/forums', 
             {
                 topic: this.state.topic,
@@ -36,7 +37,28 @@ class CreateForum extends Component {
                 if(error){
                     console.log(error);
                 } 
-            });       
+            });   
+        } else if(this.state.mode === 'edit') {
+            axios.put('/api/forums/' + this.props.location.state.forumId, 
+            {
+                topic: this.state.topic,
+                description: this.state.description,
+                user_id: this.props.user.id
+            },
+            {
+                headers: { Authorization: "Bearer " + token }
+            })
+            .then((response) => {
+                // console.log(response.data);
+                this.props.history.push('/forums/'+ response.data.id); 
+              })
+            .catch((error) => {
+                console.log(error);
+                if(error){
+                    console.log(error);
+                } 
+            }); 
+        }
       }
 
     handleChange(e){
@@ -67,7 +89,7 @@ class CreateForum extends Component {
                         </div>
                         <div className="col-lg-12 forum-description">
                             <h3>Topic Description</h3>
-                            <textarea className="form-control-forum-body col-12 mb-3" rows="9" id="body" placeholder="Description" name="description"  
+                            <textarea className="form-control-forum-body col-12 mb-3" rows="9" id="description" placeholder="Description" name="description"  
                             value={this.state.description}
                             onChange={this.handleChange}>
                             </textarea>
