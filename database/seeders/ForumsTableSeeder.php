@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Forum;;
+use App\Models\Forum;
+use App\Models\User;
 
 class ForumsTableSeeder extends Seeder
 {
@@ -25,5 +26,18 @@ class ForumsTableSeeder extends Seeder
       $forum->description = "What happened in 2020";
       $forum->user_id = 3;
       $forum->save();
+
+      $this->amntOfUsers = User::all()->count();
+
+      Forum::factory()
+              ->count(100)
+              ->create([
+                //assign random integer to doctor_id (amount of doctors)
+                'user_id' => function(){
+                  return mt_rand(1, $this->amntOfUsers);
+                },
+              ]);
+
+
     }
 }
