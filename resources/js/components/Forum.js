@@ -78,18 +78,21 @@ class Forum extends Component {
                                         <div className="post-body">
                                         {item.body}
                                         </div>
-                                        <Link to={{
-                                        pathname: '/submit-post/' + this.props.match.params.forumId,
-                                        state: {
-                                            forumId: this.props.match.params.forumId,
-                                            postId: item.id,
-                                            title: item.title,
-                                            body: item.body,
-                                            mode: 'edit'
 
-                                        }}} >
-                                            <button className="bttn">Edit</button>
-                                        </Link>
+                                        {(this.props.user && this.props.user.id === item.user.id) ? ( 
+                                            <Link to={{
+                                            pathname: '/submit-post/' + this.props.match.params.forumId,
+                                            state: {
+                                                forumId: this.props.match.params.forumId,
+                                                postId: item.id,
+                                                title: item.title,
+                                                body: item.body,
+                                                mode: 'edit'
+
+                                            }}} >
+                                                <button className="bttn">Edit</button>
+                                            </Link>
+                                        ) : ''}
                                     </div>
                                     
                                 ))}

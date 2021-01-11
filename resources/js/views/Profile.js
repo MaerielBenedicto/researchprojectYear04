@@ -18,8 +18,9 @@ class Profile extends Component {
         return (
             <div className="body-content">
                 <div className="container"> 
-                <h4>MY PROFILE</h4>
-
+                <h2>MY PROFILE</h2>
+                <h4>{this.props.user.name}</h4>
+                <h4>{this.props.user.email}</h4>
                 </div>
                 
             </div>
