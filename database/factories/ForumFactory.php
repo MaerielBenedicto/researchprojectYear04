@@ -24,7 +24,7 @@ class ForumFactory extends Factory
     {
         return [
             'topic' => $this->faker->sentence,
-            'description' => $this->faker->paragraph($nbSentences = 3, $variableNbSentences = true, $maxNbChars = 255)
+            'description' => $this->faker->paragraph($nbSentences = 2, $variableNbSentences = true, $maxNbChars = 255)
         ];
     }
 }

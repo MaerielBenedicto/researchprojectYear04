@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Comment;
+use App\Models\User;
+use App\Models\Post;
+
 
 class CommentsTableSeeder extends Seeder
 {
@@ -29,5 +32,22 @@ class CommentsTableSeeder extends Seeder
       $comment->s_score = 1;
       $comment->s_magnitude = 1;
       $comment->save();
+
+
+      $this->amntOfUsers = User::all()->count();
+      $this->amntOfPosts = Post::all()->count();
+
+      Comment::factory()
+              ->count(500)
+              ->create([
+                //assign random integer to user_id (amount of users)
+                'user_id' => function(){
+                  return mt_rand(1, $this->amntOfUsers);
+                },
+                //assign random integer to post_id (amount of posts)
+                'post_id' => function(){
+                  return mt_rand(1, $this->amntOfPosts);
+                }
+              ]);
     }
 }

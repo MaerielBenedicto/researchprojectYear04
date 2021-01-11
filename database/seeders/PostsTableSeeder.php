@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Post;
+use App\Models\User;
+use App\Models\Forum;
 
 class PostsTableSeeder extends Seeder
 {
@@ -31,6 +33,22 @@ class PostsTableSeeder extends Seeder
       $post->s_score = 1;
       $post->s_magnitude = 1;
       $post->save();
+
+      $this->amntOfUsers = User::all()->count();
+      $this->amntOfForums = Forum::all()->count();
+
+      Post::factory()
+              ->count(200)
+              ->create([
+                //assign random integer to user_id (amount of users)
+                'user_id' => function(){
+                  return mt_rand(1, $this->amntOfUsers);
+                },
+                //assign random integer to forum_id (amount of forums)
+                'forum_id' => function(){
+                  return mt_rand(1, $this->amntOfForums);
+                }
+              ]);
 
     }
 }
