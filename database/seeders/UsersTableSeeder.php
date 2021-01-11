@@ -15,7 +15,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $role_admin = Role::where('name','admin')->first();
+
+      $role_admin = Role::where('name','admin')->first();
         $role_user = Role::where('name','user')->first();
 
           /*** ADMIN  ***/
@@ -45,5 +46,11 @@ class UsersTableSeeder extends Seeder
         $admin->roles()->attach($role_user);
 
 
+        User::factory()
+              ->count(50)
+              ->create()
+              ->each(function($user){
+                $user->roles()->attach(Role::where('name','user')->first());
+              });
     }
 }
