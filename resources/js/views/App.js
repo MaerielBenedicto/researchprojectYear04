@@ -28,6 +28,7 @@ class App extends Component {
         this.state = {
             user: null,
             isLoggedIn: false,
+            
             // isLoaded: false
         }
 
@@ -86,7 +87,7 @@ class App extends Component {
         .catch(function(error){
             if(error){
                 console.log(error);
-                this.state.errors = error.response.data.errors;
+                this.setState({errors: error.response.data.errors});
             } 
         });
         }

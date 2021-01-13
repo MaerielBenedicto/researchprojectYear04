@@ -18,8 +18,19 @@ class PostController extends Controller
   public function index($id)
     {
         // dd($id);
-        $posts = Post::where('forum_id', $id)->with('user')->get();
-        return $posts;
+        $post = Post::where('forum_id', $id)->with('user')->get();
+
+        $countUpvote = $post->post_vote()->where('upvote', true)->count();
+        $countDownvote = $post->post_vote()->where('downvote', true)->count();
+
+        $post['upvote'] = $countUpvote;
+        $post['downvote'] = $countDownvote;
+
+        return response()->json(
+          [
+              'data' => $post
+          ],
+          200);
     }
 
   //create post
@@ -88,6 +99,11 @@ class PostController extends Controller
   public function show($id)
   {
     $post = Post::with('user')->findOrFail($id);
+    $countUpvote = $post->post_vote()->where('upvote', true)->count();
+    $countDownvote = $post->post_vote()->where('downvote', true)->count();
+
+    $post['upvote'] = $countUpvote;
+    $post['downvote'] = $countDownvote;
     
     if ($post === null) {
       $statusMsg = 'post not found!';
@@ -96,7 +112,7 @@ class PostController extends Controller
     else {
       return response()->json(
         [
-            'data' => $post
+            'data' => $post, 'upvote' => $countUpvote, 'downvote' => $countDownvote
         ],
         200);
     }

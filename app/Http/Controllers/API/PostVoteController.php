@@ -76,4 +76,14 @@ class PostVoteController extends Controller
         return $vote;
     }
 
+    public function count($id){
+      //get post
+      $post = Post::where('id', $id)->first();
+      $countUpvote = $post->post_vote()->where('upvote', true)->count();
+      $countDownvote = $post->post_vote()->where('downvote', true)->count();
+
+      return response()->json(['message' => 'Vote counted', 'upvote' => $countUpvote, 'downvote' => $countDownvote], 200);
+    }
+
+
 }

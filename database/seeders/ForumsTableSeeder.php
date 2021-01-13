@@ -32,7 +32,7 @@ class ForumsTableSeeder extends Seeder
       Forum::factory()
               ->count(100)
               ->create([
-                //assign random integer to doctor_id (amount of doctors)
+                //assign random integer to user_id (amount of users)
                 'user_id' => function(){
                   return mt_rand(1, $this->amntOfUsers);
                 },

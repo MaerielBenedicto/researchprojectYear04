@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Post from '../components/Posts/Post';
 import Forum from '../components/Forum';
+import Filter from '../components/Filter';
 
 import '../../css/app.css';
 // import '../../css/style.css';
@@ -14,11 +15,14 @@ class Home extends Component {
         super();
         this.state = {
             forums: [],
-            isLoaded: false
+            isLoaded: false,
+            sortby: 'Latest'
         };
 
         this.forums = this.forums.bind(this);
         this.delete = this.delete.bind(this);
+        this.changeSortby = this.changeSortby.bind(this);
+
     }
 
     componentDidMount(){
@@ -64,12 +68,24 @@ class Home extends Component {
         });
     }
 
+    changeSortby(sort){
+        this.setState({sortby: sort});
+    }
+
     render(){
         if(this.state.isLoaded){
             return (
-                <div className="body-content">  
+                <div>
+                  <div className="col-12">
+                      {/* <div> */}
+                        <Filter sortby={this.state.sortby} changeSortby={this.changeSortby}/>      
+                      {/* </div> */}
+                    
+                </div>      
+                <div className="body-content forum-list-div">  
                 <div className="container">
                     <div className="row item-list mb-3">
+
                         <div className="forum-list col-9 media py-3">
                             <div className="col-12">
                                 {this.state.forums.map(item => (
@@ -122,6 +138,7 @@ class Home extends Component {
                 </div>
                 </div>
                     
+            </div>
             </div>
             )
         } else{

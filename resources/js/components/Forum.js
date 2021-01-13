@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
+import Filter from './Filter';
+import Vote from './Vote';
+
+
 
 class Forum extends Component {
     constructor(){
@@ -11,6 +15,8 @@ class Forum extends Component {
             isLoaded: false,
             sort: ''
         };
+
+        this.counted = this.counted.bind(this);
         
     }
 
@@ -18,13 +24,12 @@ class Forum extends Component {
         //get posts in a forum
         axios.get('/api/forums/' + this.props.match.params.forumId)
         .then(response => {
-            // console.log(response.data);
-            const tempPosts = response.data.data;
-            const tempForum = response.data.forum;
+            console.log("THIS",response);
+            
               //never modify state directly
               this.setState({
-                posts: tempPosts,
-                forum: tempForum,
+                posts: response.data.data,
+                forum: response.data.forum,
                 isLoaded: true
               });
         })
@@ -36,11 +41,22 @@ class Forum extends Component {
         });
     }
 
+    counted(post){
+        
+    }
+
 
     render(){
         if(this.state.isLoaded){
             return (
-                <div className="body-content">
+                <div>
+                    <div className="col-12">
+                      {/* <div> */}
+                        <Filter sortby={this.state.sortby} changeSortby={this.changeSortby}/>      
+                      {/* </div> */}
+                    
+                </div>   
+                <div className="body-content forum-post-div">
                     <div className="container"> 
                     <div className="row">
                         <div className="col-9 py-3">
@@ -78,6 +94,8 @@ class Forum extends Component {
                                         <div className="post-body">
                                         {item.body}
                                         </div>
+                                        <div> Upvote {item.upvote} </div>
+                                        <div> Downvote {item.downvote} </div>
 
                                         {(this.props.user && this.props.user.id === item.user.id) ? ( 
                                             <Link to={{
@@ -93,6 +111,7 @@ class Forum extends Component {
                                                 <button className="bttn">Edit</button>
                                             </Link>
                                         ) : ''}
+                                        <Vote postId={item.id} user={this.props.user} counted={this.counted}/>
                                     </div>
                                     
                                 ))}
@@ -110,6 +129,8 @@ class Forum extends Component {
                     </div>
                     </div>
                 </div>
+                </div>
+
             )
         } else { return null; }
         

@@ -18,7 +18,17 @@ class CommentController extends Controller
   public function index($id)
     {
         $post = Post::where('id', $id)->first();
-        $comments = $post->comments()->with('user')->get();
+        $tempComments = $post->comments()->with('user')->get();
+
+        $comments = array();
+        foreach ($tempComments as $comment) {
+          $countUpvote = $comment->comment_vote()->where('upvote', true)->count();
+          $countDownvote = $comment->comment_vote()->where('downvote', true)->count();
+          $comment['upvote'] = $countUpvote;
+          $comment['downvote'] = $countDownvote;
+          
+          $comments[] = $comment;
+        }
         return $comments;
     }
 

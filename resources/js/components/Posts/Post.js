@@ -22,10 +22,9 @@ class Post extends Component {
         axios.get('/api/posts/' + this.props.match.params.id)
         .then(response => {
             // console.log(response.data.data);
-            const tempPost = response.data.data;
-            //never modify state directly
+        
             this.setState({
-                post: tempPost, 
+                post: response.data.data,
                 isLoaded: true
             });
         })
@@ -84,6 +83,8 @@ class Post extends Component {
                                 <div className="col-12">
                                     <h4>{this.state.post.title}</h4>
                                     <p>{this.state.post.body}</p>
+                                    <div> Upvote {this.state.post.upvote} </div>
+                                    <div> Downvote {this.state.post.downvote} </div>
                                 </div>
                             </div>
                        </div>

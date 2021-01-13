@@ -68,16 +68,27 @@ class ForumController extends Controller
   public function show($id)
   {
     $forum = Forum::where('id', $id)->first();
-    $post = Post::where('forum_id', $id)->with('user','forum')->get(); 
+    $tempPosts = Post::where('forum_id', $id)->with('user','forum')->get(); 
 
-    if ($post === null) {
+    $posts = array();
+    foreach ($tempPosts as $post) {
+      $countUpvote = $post->post_vote()->where('upvote', true)->count();
+      $countDownvote = $post->post_vote()->where('downvote', true)->count();
+      $post['upvote'] = $countUpvote;
+      $post['downvote'] = $countDownvote;
+      
+      $posts[] = $post;
+    }
+
+
+    if ($forum === null) {
       $statusMsg = 'forum not found!';
       $statusCode = 404;
     }
     else {
       return response()->json(
         [
-            'data' => $post,
+            'data' => $posts,
             'forum' => $forum
         ],
         200);

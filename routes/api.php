@@ -34,6 +34,10 @@ Route::group(['middleware' => 'guest:api'], function() {
 
   Route::get('posts/{post}/comments', [CommentController::class, 'index']);
 
+  Route::get('posts/vote/{user}', [PostVoteController::class, 'index']);
+  Route::get('comments/vote/{user}', [CommentVoteController::class, 'index']);
+
+  Route::get('post/{post_vote}', [PostVoteController::class, 'count']);
 });
 
 Route::middleware('auth:api')->group(function () {
@@ -54,11 +58,9 @@ Route::middleware('auth:api')->group(function () {
   Route::get('comments/{comment}', [CommentController::class, 'show']);
   Route::delete('comments/{comment}', [CommentController::class, 'destroy']);
 
-  Route::get('posts/vote/{user}', [PostVoteController::class, 'index']);
   Route::post('posts/{post}/vote', [PostVoteController::class, 'store']);
   Route::put('post/{post_vote}/vote', [PostVoteController::class, 'update']);
 
-  Route::get('comments/vote/{user}', [CommentVoteController::class, 'index']);
   Route::post('comments/{comment}/vote', [CommentVoteController::class, 'store']);
   Route::put('comment/{post_vote}/vote', [CommentVoteController::class, 'update']);
 

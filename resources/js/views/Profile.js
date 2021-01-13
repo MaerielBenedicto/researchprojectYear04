@@ -22,7 +22,6 @@ class Profile extends Component {
                 <h4>{this.props.user.name}</h4>
                 <h4>{this.props.user.email}</h4>
                 </div>
-                
             </div>
         )
     };
