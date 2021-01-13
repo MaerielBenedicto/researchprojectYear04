@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 import Filter from './Filter';
-import Vote from './Vote';
+import PostVote from './PostVote';
 
 
 
@@ -14,13 +14,16 @@ class Forum extends Component {
             forum: {},
             isLoaded: false,
             sort: ''
-        };
+        };        
 
-        this.counted = this.counted.bind(this);
-        
+        this.getPost = this.getPost.bind(this);
     }
 
     componentDidMount(){
+        this.getPost();
+    }
+
+    getPost(){
         //get posts in a forum
         axios.get('/api/forums/' + this.props.match.params.forumId)
         .then(response => {
@@ -40,11 +43,6 @@ class Forum extends Component {
             } 
         });
     }
-
-    counted(post){
-        
-    }
-
 
     render(){
         if(this.state.isLoaded){
@@ -111,7 +109,7 @@ class Forum extends Component {
                                                 <button className="bttn">Edit</button>
                                             </Link>
                                         ) : ''}
-                                        <Vote postId={item.id} user={this.props.user} counted={this.counted}/>
+                                        <PostVote postId={item.id} user={this.props.user} voted={this.getPost}/>
                                     </div>
                                     
                                 ))}

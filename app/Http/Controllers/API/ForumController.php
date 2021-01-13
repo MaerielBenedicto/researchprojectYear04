@@ -72,8 +72,8 @@ class ForumController extends Controller
 
     $posts = array();
     foreach ($tempPosts as $post) {
-      $countUpvote = $post->post_vote()->where('upvote', true)->count();
-      $countDownvote = $post->post_vote()->where('downvote', true)->count();
+      $countUpvote = $post->post_vote()->where('vote', '1')->count();
+      $countDownvote = $post->post_vote()->where('vote', '-1')->count();
       $post['upvote'] = $countUpvote;
       $post['downvote'] = $countDownvote;
       

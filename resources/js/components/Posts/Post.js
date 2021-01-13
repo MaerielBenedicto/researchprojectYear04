@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 import AddComment from '../AddComment';
 import Comments from '../Comments';
+import PostVote from '../PostVote';
 
 // import { CgProfile } from 'react-icons/CgProfile';
 
@@ -16,9 +17,15 @@ class Post extends Component {
         };
 
         this.delete = this.delete.bind(this);
+        this.getPost = this.getPost.bind(this);
+
     }
 
     componentDidMount(){
+        this.getPost();
+    }
+
+    getPost(){
         axios.get('/api/posts/' + this.props.match.params.id)
         .then(response => {
             // console.log(response.data.data);
@@ -86,6 +93,7 @@ class Post extends Component {
                                     <div> Upvote {this.state.post.upvote} </div>
                                     <div> Downvote {this.state.post.downvote} </div>
                                 </div>
+                                <PostVote postId={this.state.post.id} user={this.props.user} voted={this.getPost}/>
                             </div>
                        </div>
                     </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 import AddComment from './AddComment';
+import CommentVote from './CommentVote';
 
 class Comments extends Component {
     constructor(){
@@ -28,8 +29,9 @@ class Comments extends Component {
     comments(){
         axios.get('/api/posts/' + this.props.postId + '/comments')
         .then(response => {
-            // console.log(response.data.data);
-            const tempComments = response.data;
+            console.log(response);
+            const tempComments = response.data.data;
+            console.log(response.data.data);
             //never modify state directly
             this.setState({
                 comments: tempComments
@@ -37,7 +39,7 @@ class Comments extends Component {
         })
         .catch(function(error){
             if(error){
-                console.log(error);
+                console.log(error.response);
                 this.state.errors = error.response.data.errors;
             } 
         });
@@ -107,6 +109,8 @@ class Comments extends Component {
         });
       }
 
+     
+
 
     render(){
         return (
@@ -145,14 +149,20 @@ class Comments extends Component {
                                 ) : <div className="apt-notes">
                                         {item.body}
                                     </div>
+                                    
                                 }                                
                             </div>
+                                <div> Upvote {item.upvote} </div>
+                                <div> Downvote {item.downvote} </div>
                             {(this.props.user && this.props.user.id === item.user.id) ? (
                             <div className="float-right">
                              <button onClick={ () => this.deleteComment(item.id)}>Delete</button>
                              <button onClick={()=> this.setState({edit: true, editId: item.id, comment: item, comment_value: item.body})}>Edit</button>
                             </div>
                             ) : ''}
+
+                            <CommentVote commentId={item.id} user={this.props.user} voted={this.comments}/>
+
                         </div>
                         
                         ))}

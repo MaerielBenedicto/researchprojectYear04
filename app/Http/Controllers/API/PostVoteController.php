@@ -15,15 +15,14 @@ class PostVoteController extends Controller
     {
         //get all upvoted posts
         $user = User::where('id', $id)->first();
-        $posts = $user->post_votes()->where('upvote', true)->with('post')->get();
+        $posts = $user->post_votes()->where('vote', '1')->with('post')->get();
         return $posts;
     }
 
   //create post_vote
   public function store(Request $request, $id){
     $validator = Validator::make($request->all(), [
-        'upvote' => 'boolean',
-        'downvote' => 'boolean',
+        'vote' => 'required|integer',
         'user_id' => 'required|integer',
         'post_id' => 'required|integer'
     ]);
@@ -33,22 +32,30 @@ class PostVoteController extends Controller
     }
 
     //checks if user have voted or not
-    $vote = PostVote::where('user_id', $request->user_id)
+    $pVote = PostVote::where('user_id', $request->user_id)
                       ->where('post_id', $request->post_id)->first();
 
+    
 
-    if($vote === null){
+    if($pVote === null){
       $post = PostVote::create([
-          'upvote' => $request->upvote,
-          'downvote' => $request->downvote,
+          'vote' => $request->vote,
           'user_id' => $request->user_id,
           'post_id' => $id
       ]);
 
-      return response()->json(['message' => 'Post created', 'data' => $post], 200);
+      return response()->json(['message' => 'Vote created', 'data' => $post], 200);
+      
 
     } else {
-      return response()->json(['message' => 'User have already voted'], 422);
+      //if user have voted already, update vote
+      if($pVote['vote'] !== '0'){
+        //call update function -- passing the request datas and post_vote id
+        return $this->update($request, $pVote['id']);
+      }
+
+      
+      // return response()->json(['message' => 'User have already voted'], 422);
     }
 
   }
@@ -56,8 +63,7 @@ class PostVoteController extends Controller
   public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-          'upvote' => 'boolean',
-          'downvote' => 'boolean',
+          'vote' => 'required|integer',
           'user_id' => 'required|integer',
           'post_id' => 'required|integer'
         ]);
@@ -67,8 +73,7 @@ class PostVoteController extends Controller
         }
 
         $vote = PostVote::find($id);
-        $vote->upvote = $request->input('upvote');
-        $vote->downvote = $request->input('downvote');
+        $vote->vote = $request->input('vote');
         $vote->user_id = $request->input('user_id');
         $vote->post_id = $request->input('post_id');
         $vote->save();

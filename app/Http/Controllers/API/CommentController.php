@@ -22,14 +22,14 @@ class CommentController extends Controller
 
         $comments = array();
         foreach ($tempComments as $comment) {
-          $countUpvote = $comment->comment_vote()->where('upvote', true)->count();
-          $countDownvote = $comment->comment_vote()->where('downvote', true)->count();
+          $countUpvote = $comment->comment_vote()->where('vote', '1')->count();
+          $countDownvote = $comment->comment_vote()->where('vote', '-1')->count();
           $comment['upvote'] = $countUpvote;
           $comment['downvote'] = $countDownvote;
           
           $comments[] = $comment;
         }
-        return $comments;
+        return response()->json(['message' => 'Comment created', 'data' => $comments], 200);
     }
 
   //create post
@@ -93,6 +93,11 @@ class CommentController extends Controller
   public function show($id)
   {
     $comment = Comment::findOrFail($id);
+    $countUpvote = $comment->comment_vote()->where('vote', '1')->count();
+    $countDownvote = $comment->comment_vote()->where('vote', '-1')->count();
+
+    $comment['upvote'] = $countUpvote;
+    $comment['downvote'] = $countDownvote;
 
     if ($comment === null) {
       $statusMsg = 'comment not found!';

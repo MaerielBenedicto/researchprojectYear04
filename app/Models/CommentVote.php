@@ -14,7 +14,7 @@ class CommentVote extends Model
      * @var array
      */
     protected $fillable = [
-        'upvote', 'downvote', 'user_id', 'comment_id'
+        'vote', 'user_id', 'comment_id'
     ];
 
 

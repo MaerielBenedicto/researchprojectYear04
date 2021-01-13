@@ -15,7 +15,7 @@ class PostVote extends Model
      * @var array
      */
     protected $fillable = [
-        'upvote', 'downvote', 'user_id', 'post_id'
+        'vote', 'user_id', 'post_id'
     ];
 
     public function user()

@@ -20,8 +20,8 @@ class PostController extends Controller
         // dd($id);
         $post = Post::where('forum_id', $id)->with('user')->get();
 
-        $countUpvote = $post->post_vote()->where('upvote', true)->count();
-        $countDownvote = $post->post_vote()->where('downvote', true)->count();
+        $countUpvote = $post->post_vote()->where('vote', '1')->count();
+        $countDownvote = $post->post_vote()->where('vote', '-1')->count();
 
         $post['upvote'] = $countUpvote;
         $post['downvote'] = $countDownvote;
@@ -99,12 +99,12 @@ class PostController extends Controller
   public function show($id)
   {
     $post = Post::with('user')->findOrFail($id);
-    $countUpvote = $post->post_vote()->where('upvote', true)->count();
-    $countDownvote = $post->post_vote()->where('downvote', true)->count();
+    $countUpvote = $post->post_vote()->where('vote', '1')->count();
+    $countDownvote = $post->post_vote()->where('vote', '-1')->count();
 
     $post['upvote'] = $countUpvote;
     $post['downvote'] = $countDownvote;
-    
+
     if ($post === null) {
       $statusMsg = 'post not found!';
       $statusCode = 404;

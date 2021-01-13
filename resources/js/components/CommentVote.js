@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 
-class Vote extends Component {
+class CommentVote extends Component {
     constructor(){
         super();
         this.state = {
@@ -14,42 +14,27 @@ class Vote extends Component {
         this.downvote = this.downvote.bind(this);
     }
 
-    componentDidMount(){
-        axios.get('/api/post/' + this.props.postId)
-            .then((response) => {
-                console.log(response);
-                // this.setState({upvote: true});
-                this.props.counted(response.data);
-              })
-            .catch(function(error) {
-                console.log(error);
-                if(error){
-                    console.log(error);
-                } 
-            });
-    }
-
+    
     upvote(){
         console.log("upvote");
-        // posts/{post}/vote
         let token = localStorage.getItem("token");
         if(token){
-            axios.post('/api/posts/' + this.props.postId + '/vote', 
+            axios.post('/api/comments/' + this.props.commentId + '/vote', 
             {
-                upvote: true,
-                downvote: false,
+                vote: '1',
                 user_id: this.props.user.id,
-                post_id: this.props.postId
+                comment_id: this.props.commentId
             },
             {
                 headers: { Authorization: "Bearer " + token }
             })
             .then((response) => {
                 console.log(response.data);
+                this.props.voted();
                 this.setState({upvote: true});
               })
             .catch(function(error) {
-                console.log(error);
+                console.log(error.response);
                 if(error){
                     console.log(error);
                 } 
@@ -59,6 +44,29 @@ class Vote extends Component {
 
     downvote(){
         console.log("downvote");
+        let token = localStorage.getItem("token");
+        if(token){
+            axios.post('/api/comments/' + this.props.commentId + '/vote', 
+            {
+                vote: '-1',
+                user_id: this.props.user.id,
+                comment_id: this.props.commentId
+            },
+            {
+                headers: { Authorization: "Bearer " + token }
+            })
+            .then((response) => {
+                console.log(response.data);
+                this.props.voted();
+                this.setState({downvote: true});
+              })
+            .catch(function(error) {
+                console.log(error.response);
+                if(error){
+                    console.log(error);
+                } 
+            });
+        }
     }
 
 
@@ -72,4 +80,4 @@ class Vote extends Component {
     };
 }
 
-export default Vote;
+export default CommentVote;

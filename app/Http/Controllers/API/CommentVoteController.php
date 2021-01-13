@@ -22,8 +22,7 @@ class CommentVoteController extends Controller
   //create post_vote
   public function store(Request $request, $id){
     $validator = Validator::make($request->all(), [
-        'upvote' => 'boolean',
-        'downvote' => 'boolean',
+        'vote' => 'required|integer',
         'user_id' => 'required|integer',
         'comment_id' => 'required|integer'
     ]);
@@ -39,8 +38,7 @@ class CommentVoteController extends Controller
 
     if($vote === null){
       $comment = CommentVote::create([
-          'upvote' => $request->upvote,
-          'downvote' => $request->downvote,
+          'vote' => $request->vote,
           'user_id' => $request->user_id,
           'comment_id' => $id
       ]);
@@ -48,7 +46,12 @@ class CommentVoteController extends Controller
       return response()->json(['message' => 'Comment created', 'data' => $comment], 200);
 
     } else {
-      return response()->json(['message' => 'User have already voted'], 422);
+      if($vote['vote'] !== '0'){
+        //call update function -- passing the request datas and comment_vote id
+        return $this->update($request, $vote['id']);
+      }
+
+      // return response()->json(['message' => 'User have already voted'], 422);
     }
 
   }
@@ -56,8 +59,7 @@ class CommentVoteController extends Controller
   public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-          'upvote' => 'boolean',
-          'downvote' => 'boolean',
+          'vote' => 'required|integer',
           'user_id' => 'required|integer',
           'comment_id' => 'required|integer'
         ]);
@@ -67,8 +69,7 @@ class CommentVoteController extends Controller
         }
 
         $vote = CommentVote::find($id);
-        $vote->upvote = $request->input('upvote');
-        $vote->downvote = $request->input('downvote');
+        $vote->vote = $request->input('vote');
         $vote->user_id = $request->input('user_id');
         $vote->comment_id = $request->input('comment_id');
         $vote->save();
