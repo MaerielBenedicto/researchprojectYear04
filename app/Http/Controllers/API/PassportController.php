@@ -68,6 +68,7 @@ class PassportController extends Controller
             $token = $user->createToken('CC')->accessToken;
 
             return response()->json([
+                'id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,
                 'token' => $token

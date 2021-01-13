@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
+import UserForums from '../components/UserForums';
 
 class Profile extends Component {
     constructor(props){
@@ -22,6 +23,7 @@ class Profile extends Component {
                 <h4>{this.props.user.name}</h4>
                 <h4>{this.props.user.email}</h4>
                 </div>
+                <UserForums user={this.props.user}/>
             </div>
         )
     };

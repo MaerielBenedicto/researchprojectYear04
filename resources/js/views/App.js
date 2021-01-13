@@ -28,7 +28,7 @@ class App extends Component {
         this.state = {
             user: null,
             isLoggedIn: false,
-            
+
             // isLoaded: false
         }
 
@@ -44,8 +44,8 @@ class App extends Component {
         if(token) {
           console.log("logged in");
           //get user data
-          this.getUser();
-          this.setState({ isLoggedIn: true});         
+          let userData = JSON.parse(localStorage.getItem('user'));
+          this.setState({ user: userData, isLoggedIn: true});         
         } else {
         console.log("not log in");
           this.setState({ isLoggedIn: false});  
@@ -62,6 +62,7 @@ class App extends Component {
         .then((response) => {      
           console.log("USER LOGGED OUT");
           localStorage.removeItem('token');
+          localStorage.removeItem('user');
           this.setState({
             user: null
           });
@@ -94,13 +95,15 @@ class App extends Component {
 
     
     render () {
+      const user = JSON.parse(localStorage.getItem('user'));
+
         return (
             <div className="App">
                 <Router>
                     <Navbar logout={this.logout} user={this.state.user}/>
                     <Switch>
                         <Route exact path="/">
-                            <Home user={this.state.user}/>
+                            <Home user={user}/>
                         </Route>
                         <Route path="/signin">
                             <Signin user={this.getUser}/>
@@ -109,16 +112,16 @@ class App extends Component {
                             <Register user={this.getUser} />
                         </Route>
                         <Route path="/forums/:forumId">
-                            <Forum user={this.state.user}/>
+                            <Forum user={user}/>
                         </Route>
                         <Route path="/my-profile">
-                            <Profile user={this.state.user}/>
+                            <Profile user={user}/>
                         </Route>
                           <Route path="/posts/:id">
-                              <Post user={this.state.user}/>
+                              <Post user={user}/>
                           </Route>
-                        <PrivateRoute exact path="/forums" user={this.state.user} component={CreateForum}/>
-                        <PrivateRoute path="/submit-post/:id" user={this.state.user} component={CreatePost}/>
+                        <PrivateRoute exact path="/forums" user={user} component={CreateForum}/>
+                        <PrivateRoute path="/submit-post/:id" user={user} component={CreatePost}/>
                     </Switch>
                     <Footer />
             </Router>

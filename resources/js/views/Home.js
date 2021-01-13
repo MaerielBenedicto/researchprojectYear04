@@ -74,6 +74,17 @@ class Home extends Component {
 
     render(){
         if(this.state.isLoaded){
+            const forums = this.state.forums;
+
+            var filteredForums = [];
+            if(this.state.sortby === 'Latest'){
+                filteredForums = forums.slice().sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
+            } else if(this.state.sortby === 'Oldest'){
+                filteredForums = forums.slice().sort((a,b) => new Date(a.created_at) - new Date(b.created_at));
+            } else if(this.state.sortby === 'Popular'){
+                filteredForums = forums.slice().sort((a,b) => b.postsCount - a.postsCount);
+            }
+
             return (
                 <div>
                   <div className="col-12">
@@ -88,7 +99,7 @@ class Home extends Component {
 
                         <div className="forum-list col-9 media py-3">
                             <div className="col-12">
-                                {this.state.forums.map(item => (
+                                {filteredForums.map(item => (
                                 <div className="forum col-12"  key={item.id}>
                                     <div className="forum-title">
                                         <Link to={`/forums/${item.id}`} className="forum-title">
@@ -115,6 +126,9 @@ class Home extends Component {
 
                                     <div className="forum-desc">
                                         { item.description}
+                                    </div>
+                                    <div className="forum-desc">
+                                        { item.postsCount} posts
                                     </div>
                                     
                                 </div>

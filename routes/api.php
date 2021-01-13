@@ -48,6 +48,9 @@ Route::middleware('auth:api')->group(function () {
   Route::post('forums', [ForumController::class, 'store']);
   Route::put('forums/{forum}', [ForumController::class, 'update']);
   Route::delete('forums/{forum}', [ForumController::class, 'destroy']);
+  //List of user's created forums
+  Route::get('profile/{user_id}/forums', [ForumController::class, 'user_forums']);
+
 
   Route::post('forums/{forum}/posts', [PostController::class, 'store']);
   Route::put('posts/{post}', [PostController::class, 'update']);

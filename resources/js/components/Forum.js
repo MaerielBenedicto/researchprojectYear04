@@ -13,10 +13,11 @@ class Forum extends Component {
             posts: [],
             forum: {},
             isLoaded: false,
-            sort: ''
+            sortby: 'Latest'
         };        
 
         this.getPost = this.getPost.bind(this);
+        this.changeSortby = this.changeSortby.bind(this);
     }
 
     componentDidMount(){
@@ -38,14 +39,29 @@ class Forum extends Component {
         })
         .catch(function(error){
             if(error){
-                console.log(error);
+                console.log(error.response);
                 this.state.errors = error.response.data.errors;
             } 
         });
     }
 
+    changeSortby(sort){
+        this.setState({sortby: sort});
+    }
+
     render(){
         if(this.state.isLoaded){
+            const posts = this.state.posts;
+
+            var filteredPosts = [];
+            if(this.state.sortby === 'Latest'){
+                filteredPosts = posts.slice().sort((a,b) => new Date(b.created_at) - new Date(a.created_at));
+            } else if(this.state.sortby === 'Oldest'){
+                filteredPosts = posts.slice().sort((a,b) => new Date(a.created_at) - new Date(b.created_at));
+            } else if(this.state.sortby === 'Popular'){
+                filteredPosts = posts.slice().sort((a,b) => b.upvote - a.upvote);
+            }
+
             return (
                 <div>
                     <div className="col-12">
@@ -65,23 +81,13 @@ class Forum extends Component {
                                     <p>{this.state.forum.description}</p>
                                 </div>
                                 <div className="col-2">
-                                    <span>128 Posts</span>
+                                    <span>{this.state.forum.postsCount} posts</span>
                                 </div>
                                 </div>
                             </div>
-                                <div className="col-12 comment-select mb-3 ">
-                                            <h6>Sort</h6>
-                                            <form>
-                                                <select className="comment-select-button">
-                                                    <option disabled value="">Sort by:</option>
-                                                    <option value="Popularity">Popularity</option>
-                                                    <option value="Latest">Latest</option>
-                                                </select>
-                                            </form>
-                                        </div>
 
                             <div className="posts-rows col-12">
-                                {this.state.posts.map(item => (
+                                {filteredPosts.map(item => (
                                     <div className="post" key={item.id}>
                                         <div className="post-title">
                                             <Link to={`/posts/${item.id}`} >

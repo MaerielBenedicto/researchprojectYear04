@@ -6414,7 +6414,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap);", ""]);
 
 // module
-exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n.body-content{\n    padding-top: 150px;\n    padding-bottom: 150px; /* height of the footer*/\n}\n\n#App {\n    position: relative;\n    min-height: 100%;\n}\n\n/****  TYPOGRAPHY ****/\n\nh2{\n    font-size: 34px;\n    font-weight: 800;\n    padding: 20px 0px;\n}\n\nh4{\n    font-size: 18px;\n}\n\n/****  NAVBAR ****/\n\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    z-index: 999 !important;\n\n    border: 1px solid #CCCBCB;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand span {\n    padding: 0px !important;\n    margin-right: 30px;\n    color: black;\n\n}\n\n#navbar-links {\n    margin-top: 15px;\n}\n\n#navbar-links li.nav-item {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n.nav-link{\n    color:#000;\n    font-size: 18px;\n}\n\n/* #navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n} */\n\n\n#navbar-links a.nav-link {\n    padding: 10px 0px;\n}\n\n/*** FORMS ***/\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    height: 61px;\n    width: 385px;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 20px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n/*** SIGN IN ***/\n\n.auth-form-heading{\n    text-align: center;\n}\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n/*** REGISTER ***/\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n/*** FOOTER **/\n\n.footer-bar{\n    position: absolute;\n    width: 100%;\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n/*** FORUM PAGE ****/\n.forum{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n}\n\n.forum-list{\n    padding: 0px;\n}\n\n.forum-title{\n    padding: 10px 0px;\n}\n\n.forum-title a{\n    font-size: 18px;\n    color: black;\n    font-weight: 600;\n}\n\n.forum-title a:hover{\n    text-decoration: none;\n}\n\n.forum-desc{\n    font-size: 14px;\n    color: black;\n    padding-top: 15px;\n    padding-bottom: 20px;\n}\n\n\n.forum-bttn{\n    height: 54px;\n    width: 100%;\n    border-radius: 5px;\n    background: #3d70b2;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 18px;\n    color: #FFFFFF;\n    font-weight: 800;\n}\n\n\n\n/*** FORUM-POST ***/\n.forum-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n} \n\n.title{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n\n.posts-rows{\n    padding:0px;\n}\n\n.post{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n\n.post-title a{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n.post-title a:hover{\n    text-decoration: none;\n}\n\n.post-body{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n/** POST PAGE **/\n.post-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n.post-detail span{\n    padding-left: 20px;\n}\n\n.post-detail h4 {\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n    padding-top: 20px;\n}\n\n.post-detail p{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n.post-detail img{\n    width: 50px;\n    height: 50px;\n}\n\n\n/** COMMENT **/\n\n.comment-box{\n    border: #B8B2B2 1px solid;\n    border-radius: 2px;\n    width: 100%;\n}\n\n.comment-select-button{\n    width: 200px;\n    height: 35px;\n    border: solid 1px #B8B2B2;\n    border-radius: 3px;\n}\n\n.add-comment-bttn{\n    height: 30px;\n    width: 80px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 16px;\n    color: #FFFFFF;\n    font-weight: 800;\n\n    float: right;\n}\n\n.add-comment-div{\n    margin-bottom: 50px;\n}\n\n.each-comment{\n    border-bottom: 1px solid #888888;\n    padding-bottom: 40px;\n    padding-top: 20px;\n}\n\n/** CREATE FORUM **/\n.form-control-forum{\n    height: 30px;\n    width: 100%;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding:20px;\n}\n\n.form-control-forum-body{\n    width: 100%;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding: 20px;\n}\n\n.forum-topic{\n    padding: 20px;\n    margin-bottom: 40px;\n}\n\n.submit-button{\n    height: 30px;\n    width: 80px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 16px;\n    color: #FFFFFF;\n    font-weight: 800;\n\n    float: right;\n}\n\n/** FILTER ***/\n.filter-bar {\n    margin-top: 100px;\n    background-color: #5596e6;\n    height: 80px;\n    margin-bottom: 50px;\n}\n\n.sort-list{\n    list-style-type: none;\n    overflow: hidden;\n    margin-top: 10px;\n    padding: 0;\n\n    display: inline-block;\n    vertical-align: middle;\n    \n}\n\n.sort-list li {\n   float: left;\n}\n\n.sort-list-a{\n    display: block;\n    font-size: 18px;\n    color: white;\n    font-weight: 700;\n    text-align: center;\n    padding: 16px;\n    text-decoration: none;\n\n}\n\n.sort-list li a:hover{\n    color: black;\n    text-decoration: none;\n}\n.sort-list li a:active{\n    color: black;\n}\n\n.forum-list-div,\n.forum-post-div\n{\n    margin-top: 60px;\n}\n\n", ""]);
+exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n.body-content{\n    padding-top: 150px;\n    padding-bottom: 150px; /* height of the footer*/\n}\n\n#App {\n    position: relative;\n    min-height: 100%;\n}\n\n/****  TYPOGRAPHY ****/\n\nh2{\n    font-size: 34px;\n    font-weight: 800;\n    padding: 20px 0px;\n}\n\nh4{\n    font-size: 18px;\n}\n\n/****  NAVBAR ****/\n\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    z-index: 999 !important;\n\n    border: 1px solid #CCCBCB;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand span {\n    padding: 0px !important;\n    margin-right: 30px;\n    color: black;\n\n}\n\n#navbar-links {\n    margin-top: 15px;\n}\n\n#navbar-links li.nav-item {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n.nav-link{\n    color:#000;\n    font-size: 18px;\n}\n\n/* #navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n} */\n\n\n#navbar-links a.nav-link {\n    padding: 10px 0px;\n}\n\n/*** FORMS ***/\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    height: 61px;\n    width: 385px;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 20px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n/*** SIGN IN ***/\n\n.auth-form-heading{\n    text-align: center;\n}\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n/*** REGISTER ***/\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n/*** FOOTER **/\n\n.footer-bar{\n    position: absolute;\n    width: 100%;\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n/*** FORUM PAGE ****/\n.forum{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n}\n\n.forum-list{\n    padding: 0px;\n}\n\n.forum-title{\n    padding: 10px 0px;\n}\n\n.forum-title a{\n    font-size: 18px;\n    color: black;\n    font-weight: 600;\n}\n\n.forum-title a:hover{\n    text-decoration: none;\n}\n\n.forum-desc{\n    font-size: 14px;\n    color: black;\n    padding-top: 15px;\n    padding-bottom: 20px;\n}\n\n\n.forum-bttn{\n    height: 54px;\n    width: 100%;\n    border-radius: 5px;\n    background: #3d70b2;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 18px;\n    color: #FFFFFF;\n    font-weight: 800;\n}\n\n\n\n/*** FORUM-POST ***/\n.forum-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n    background-color: aliceblue;\n} \n\n.title{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n\n.posts-rows{\n    padding:0px;\n}\n\n.post{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n\n.post-title a{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n.post-title a:hover{\n    text-decoration: none;\n}\n\n.post-body{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n/** POST PAGE **/\n.post-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n.post-detail span{\n    padding-left: 20px;\n}\n\n.post-detail h4 {\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n    padding-top: 20px;\n}\n\n.post-detail p{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n.post-detail img{\n    width: 50px;\n    height: 50px;\n}\n\n\n/** COMMENT **/\n\n.comment-box{\n    border: #B8B2B2 1px solid;\n    border-radius: 2px;\n    width: 100%;\n}\n\n.comment-select-button{\n    width: 200px;\n    height: 35px;\n    border: solid 1px #B8B2B2;\n    border-radius: 3px;\n}\n\n.add-comment-bttn{\n    height: 30px;\n    width: 80px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 16px;\n    color: #FFFFFF;\n    font-weight: 800;\n\n    float: right;\n}\n\n.add-comment-div{\n    margin-bottom: 50px;\n}\n\n.each-comment{\n    border-bottom: 1px solid #888888;\n    padding-bottom: 40px;\n    padding-top: 20px;\n}\n\n/** CREATE FORUM **/\n.form-control-forum{\n    height: 30px;\n    width: 100%;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding:20px;\n}\n\n.form-control-forum-body{\n    width: 100%;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding: 20px;\n}\n\n.forum-topic{\n    padding: 20px;\n    margin-bottom: 40px;\n}\n\n.submit-button{\n    height: 30px;\n    width: 80px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 16px;\n    color: #FFFFFF;\n    font-weight: 800;\n\n    float: right;\n}\n\n/** FILTER ***/\n.filter-bar {\n    margin-top: 100px;\n    background-color: #5596e6;\n    height: 80px;\n    margin-bottom: 50px;\n}\n\n.sort-list{\n    list-style-type: none;\n    overflow: hidden;\n    margin-top: 10px;\n    padding: 0;\n\n    display: inline-block;\n    vertical-align: middle;\n    \n}\n\n.sort-list li {\n   float: left;\n}\n\n.sort-list-a{\n    display: block;\n    font-size: 18px;\n    color: white;\n    font-weight: 700;\n    text-align: center;\n    padding: 16px;\n    text-decoration: none;\n\n}\n\n.sort-list li a:hover{\n    color: black;\n    text-decoration: none;\n}\n.sort-list li a:active{\n    color: black;\n}\n\n.forum-list-div,\n.forum-post-div\n{\n    margin-top: 60px;\n}\n\n", ""]);
 
 // exports
 
@@ -71158,11 +71158,6 @@ var Filter = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "sort-list-a",
         onClick: function onClick(e) {
-          return _this.props.changeSortby('Trending');
-        }
-      }, "Trending")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        className: "sort-list-a",
-        onClick: function onClick(e) {
           return _this.props.changeSortby('Popular');
         }
       }, " Popular")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -71387,9 +71382,10 @@ var Forum = /*#__PURE__*/function (_Component) {
       posts: [],
       forum: {},
       isLoaded: false,
-      sort: ''
+      sortby: 'Latest'
     };
     _this.getPost = _this.getPost.bind(_assertThisInitialized(_this));
+    _this.changeSortby = _this.changeSortby.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -71414,9 +71410,16 @@ var Forum = /*#__PURE__*/function (_Component) {
         });
       })["catch"](function (error) {
         if (error) {
-          console.log(error);
+          console.log(error.response);
           this.state.errors = error.response.data.errors;
         }
+      });
+    }
+  }, {
+    key: "changeSortby",
+    value: function changeSortby(sort) {
+      this.setState({
+        sortby: sort
       });
     }
   }, {
@@ -71425,6 +71428,23 @@ var Forum = /*#__PURE__*/function (_Component) {
       var _this3 = this;
 
       if (this.state.isLoaded) {
+        var posts = this.state.posts;
+        var filteredPosts = [];
+
+        if (this.state.sortby === 'Latest') {
+          filteredPosts = posts.slice().sort(function (a, b) {
+            return new Date(b.created_at) - new Date(a.created_at);
+          });
+        } else if (this.state.sortby === 'Oldest') {
+          filteredPosts = posts.slice().sort(function (a, b) {
+            return new Date(a.created_at) - new Date(b.created_at);
+          });
+        } else if (this.state.sortby === 'Popular') {
+          filteredPosts = posts.slice().sort(function (a, b) {
+            return b.upvote - a.upvote;
+          });
+        }
+
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Filter__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -71448,20 +71468,9 @@ var Forum = /*#__PURE__*/function (_Component) {
           className: "title"
         }, this.state.forum.topic), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.forum.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-2"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "128 Posts")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-12 comment-select mb-3 "
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "Sort"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-          className: "comment-select-button"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          disabled: true,
-          value: ""
-        }, "Sort by:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "Popularity"
-        }, "Popularity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          value: "Latest"
-        }, "Latest")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.forum.postsCount, " posts")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "posts-rows col-12"
-        }, this.state.posts.map(function (item) {
+        }, filteredPosts.map(function (item) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "post",
             key: item.id
@@ -72181,7 +72190,8 @@ var Post = /*#__PURE__*/function (_Component) {
     _this = _super.call(this);
     _this.state = {
       post: {},
-      isLoaded: false
+      isLoaded: false,
+      sortby: 'Latest'
     };
     _this["delete"] = _this["delete"].bind(_assertThisInitialized(_this));
     _this.getPost = _this.getPost.bind(_assertThisInitialized(_this));
@@ -72199,7 +72209,6 @@ var Post = /*#__PURE__*/function (_Component) {
       var _this2 = this;
 
       axios.get('/api/posts/' + this.props.match.params.id).then(function (response) {
-        // console.log(response.data.data);
         _this2.setState({
           post: response.data.data,
           isLoaded: true
@@ -72216,7 +72225,6 @@ var Post = /*#__PURE__*/function (_Component) {
     value: function _delete() {
       var _this3 = this;
 
-      console.log("DELETE");
       var token = localStorage.getItem("token");
       axios["delete"]('/api/posts/' + this.props.match.params.id, {
         headers: {
@@ -72621,9 +72629,9 @@ var Signin = /*#__PURE__*/function (_Component) {
         email: this.state.email,
         password: this.state.password
       }).then(function (response) {
-        // console.log(response.data);
+        console.log(response.data);
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("user", response.data.name); // console.log("LOG IN SUCCESS");
+        localStorage.setItem("user", JSON.stringify(response.data)); // console.log("LOG IN SUCCESS");
 
         _this2.props.user();
 
@@ -72703,6 +72711,165 @@ var Signin = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Signin));
+
+/***/ }),
+
+/***/ "./resources/js/components/UserForums.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/UserForums.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var UserForums = /*#__PURE__*/function (_Component) {
+  _inherits(UserForums, _Component);
+
+  var _super = _createSuper(UserForums);
+
+  function UserForums() {
+    var _this;
+
+    _classCallCheck(this, UserForums);
+
+    _this = _super.call(this);
+    _this.state = {
+      forums: []
+    };
+    _this["delete"] = _this["delete"].bind(_assertThisInitialized(_this));
+    _this.forums = _this.forums.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(UserForums, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.forums();
+    }
+  }, {
+    key: "forums",
+    value: function forums() {
+      var _this2 = this;
+
+      //get user forums
+      var token = localStorage.getItem("token");
+      axios.get('/api/profile/' + this.props.user.id + '/forums', {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        _this2.setState({
+          forums: response.data
+        });
+      })["catch"](function (error) {
+        if (error) {
+          console.log(error.response);
+          this.state.errors = error.response.data.errors;
+        }
+      });
+    }
+  }, {
+    key: "delete",
+    value: function _delete(id) {
+      var _this3 = this;
+
+      console.log("DELETE");
+      var token = localStorage.getItem("token");
+      axios["delete"]('/api/forums/' + id, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        console.log(response);
+
+        _this3.forums();
+      })["catch"](function (error) {
+        if (error) {
+          console.log(error);
+          this.state.errors = error.response.data.errors;
+        }
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "body-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "FORUMS"), this.state.forums.map(function (item) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "forum col-12",
+          key: item.id
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "forum-title"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/forums/".concat(item.id),
+          className: "forum-title"
+        }, item.topic)), _this4.props.user && _this4.props.user.id === item.user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: {
+            pathname: '/forums',
+            state: {
+              forumId: item.id,
+              topic: item.topic,
+              description: item.description,
+              mode: 'edit'
+            }
+          }
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "float-right bttn"
+        }, " Edit ")) : '', _this4.props.user && _this4.props.user.id === item.user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "bttn float-right",
+          onClick: function onClick() {
+            return _this4["delete"](item.id);
+          }
+        }, "Delete") : '', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "forum-desc"
+        }, item.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "forum-desc"
+        }, item.postsCount, " posts"));
+      })));
+    }
+  }]);
+
+  return UserForums;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (UserForums);
 
 /***/ }),
 
@@ -72803,8 +72970,9 @@ var App = /*#__PURE__*/function (_Component) {
       if (token) {
         console.log("logged in"); //get user data
 
-        this.getUser();
+        var userData = JSON.parse(localStorage.getItem('user'));
         this.setState({
+          user: userData,
           isLoggedIn: true
         });
       } else {
@@ -72828,6 +72996,7 @@ var App = /*#__PURE__*/function (_Component) {
       }).then(function (response) {
         console.log("USER LOGGED OUT");
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
 
         _this2.setState({
           user: null
@@ -72865,6 +73034,7 @@ var App = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var user = JSON.parse(localStorage.getItem('user'));
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "App"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -72874,7 +73044,7 @@ var App = /*#__PURE__*/function (_Component) {
         exact: true,
         path: "/"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        user: this.state.user
+        user: user
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/signin"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Signin__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -72886,23 +73056,23 @@ var App = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/forums/:forumId"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Forum__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        user: this.state.user
+        user: user
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/my-profile"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Profile__WEBPACK_IMPORTED_MODULE_13__["default"], {
-        user: this.state.user
+        user: user
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/posts/:id"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Posts_Post__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        user: this.state.user
+        user: user
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PrivateRoute__WEBPACK_IMPORTED_MODULE_11__["default"], {
         exact: true,
         path: "/forums",
-        user: this.state.user,
+        user: user,
         component: _components_Modal_CreateForum__WEBPACK_IMPORTED_MODULE_9__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PrivateRoute__WEBPACK_IMPORTED_MODULE_11__["default"], {
         path: "/submit-post/:id",
-        user: this.state.user,
+        user: user,
         component: _components_Posts_CreatePost__WEBPACK_IMPORTED_MODULE_10__["default"]
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
     }
@@ -73048,6 +73218,23 @@ var Home = /*#__PURE__*/function (_Component) {
       var _this4 = this;
 
       if (this.state.isLoaded) {
+        var forums = this.state.forums;
+        var filteredForums = [];
+
+        if (this.state.sortby === 'Latest') {
+          filteredForums = forums.slice().sort(function (a, b) {
+            return new Date(b.created_at) - new Date(a.created_at);
+          });
+        } else if (this.state.sortby === 'Oldest') {
+          filteredForums = forums.slice().sort(function (a, b) {
+            return new Date(a.created_at) - new Date(b.created_at);
+          });
+        } else if (this.state.sortby === 'Popular') {
+          filteredForums = forums.slice().sort(function (a, b) {
+            return b.postsCount - a.postsCount;
+          });
+        }
+
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Filter__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -73063,7 +73250,7 @@ var Home = /*#__PURE__*/function (_Component) {
           className: "forum-list col-9 media py-3"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-12"
-        }, this.state.forums.map(function (item) {
+        }, filteredForums.map(function (item) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "forum col-12",
             key: item.id
@@ -73091,7 +73278,9 @@ var Home = /*#__PURE__*/function (_Component) {
             }
           }, "Delete") : '', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "forum-desc"
-          }, item.description));
+          }, item.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "forum-desc"
+          }, item.postsCount, " posts"));
         }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-3 py-3"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"], {
@@ -73130,6 +73319,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _components_UserForums__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/UserForums */ "./resources/js/components/UserForums.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73151,6 +73341,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -73183,7 +73374,9 @@ var Profile = /*#__PURE__*/function (_Component) {
         className: "body-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "MY PROFILE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.props.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.props.user.email)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "MY PROFILE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.props.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.props.user.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UserForums__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        user: this.props.user
+      }));
     }
   }]);
 

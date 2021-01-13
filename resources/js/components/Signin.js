@@ -26,9 +26,9 @@ class Signin extends Component {
             password: this.state.password
         })
         .then((response) => {
-            // console.log(response.data);
+            console.log(response.data);
             localStorage.setItem("token", response.data.token);
-            localStorage.setItem("user", response.data.name);
+            localStorage.setItem("user", JSON.stringify(response.data));
 
             // console.log("LOG IN SUCCESS");
             this.props.user();

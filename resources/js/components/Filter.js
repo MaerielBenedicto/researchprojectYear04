@@ -8,7 +8,6 @@ class Filter extends Component {
             <div className="filter-bar row fixed-top">
                 <div className="container">
                   <ul className="sort-list">
-                      <li><a className="sort-list-a" onClick={e => this.props.changeSortby('Trending')}>Trending</a></li>
                       <li><a className="sort-list-a" onClick={e => this.props.changeSortby('Popular')}> Popular</a></li>
                       <li><a className="sort-list-a" onClick={e => this.props.changeSortby('Latest')}> Latest</a></li>
                       <li><a className="sort-list-a" onClick={e => this.props.changeSortby('Oldest')}> Oldest</a></li>

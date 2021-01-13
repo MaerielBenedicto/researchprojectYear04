@@ -13,23 +13,23 @@ class Post extends Component {
         super();
         this.state = {
             post: {},
-            isLoaded: false
+            isLoaded: false,
+            sortby: 'Latest'
         };
 
         this.delete = this.delete.bind(this);
         this.getPost = this.getPost.bind(this);
-
     }
 
     componentDidMount(){
         this.getPost();
     }
 
+
+
     getPost(){
         axios.get('/api/posts/' + this.props.match.params.id)
-        .then(response => {
-            // console.log(response.data.data);
-        
+        .then(response => {        
             this.setState({
                 post: response.data.data,
                 isLoaded: true
@@ -44,7 +44,6 @@ class Post extends Component {
     }
 
     delete() {
-        console.log("DELETE");
         let token = localStorage.getItem("token");
         axios.delete('/api/posts/' + this.props.match.params.id,
         {

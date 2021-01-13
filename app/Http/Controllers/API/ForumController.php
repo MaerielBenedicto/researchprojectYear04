@@ -16,7 +16,14 @@ class ForumController extends Controller
 
   public function index()
     {
-        $forums = Forum::with('user')->get();
+        $tempForums = Forum::with('user')->get();
+        $forums = array();
+        foreach ($tempForums as $forum) {
+          $postCount = $forum->posts()->count();
+          $forum['postsCount'] = $postCount;
+  
+          $forums[] = $forum;
+        }
         return $forums;
     }
 
@@ -68,17 +75,20 @@ class ForumController extends Controller
   public function show($id)
   {
     $forum = Forum::where('id', $id)->first();
-    $tempPosts = Post::where('forum_id', $id)->with('user','forum')->get(); 
+    $tempPosts = Post::where('forum_id', $id)->with('user')->get(); 
 
     $posts = array();
     foreach ($tempPosts as $post) {
       $countUpvote = $post->post_vote()->where('vote', '1')->count();
-      $countDownvote = $post->post_vote()->where('vote', '-1')->count();
+      $countDownvote = $post->post_vote()->where('vote', '-1')->count();      
       $post['upvote'] = $countUpvote;
       $post['downvote'] = $countDownvote;
       
       $posts[] = $post;
     }
+
+    $postCount = $forum->posts()->count();      
+    $forum['postsCount'] = $postCount;
 
 
     if ($forum === null) {
@@ -102,4 +112,17 @@ class ForumController extends Controller
 
     return response()->json(['message' => 'Forum deleted!'], 200);
   }
+
+  public function user_forums($id)
+    {
+        $tempForums = Forum::where('user_id', $id)->with('user')->get();
+        $forums = array();
+        foreach ($tempForums as $forum) {
+          $postCount = $forum->posts()->count();
+          $forum['postsCount'] = $postCount;
+  
+          $forums[] = $forum;
+        }
+        return $forums;
+    }
 }
