@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import '../../css/app.css';
 
 class Footer extends Component {
 
   render(){
+
+    if (this.props.location.pathname.match('dashboard')){
+        return null;
+      } else{
     return (
       <div className="container-fluid footer-bar">
           <div className="container">    
@@ -74,7 +78,8 @@ class Footer extends Component {
               </div>
       </div>
     )   
+      }
   }
 }
 
-  export default Footer;
+  export default withRouter(Footer);

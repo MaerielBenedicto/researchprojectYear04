@@ -58,7 +58,7 @@ class UserForums extends Component {
 
     render(){
         return (
-            <div className="body-content">
+            <div className="mt-4">
                 <div className="container"> 
                     <h4>FORUMS</h4>
                     {this.state.forums.map(item => (
@@ -69,7 +69,6 @@ class UserForums extends Component {
                             </Link>
                         </div>
 
-                        {(this.props.user && this.props.user.id === item.user.id) ? ( 
                         <Link to={{
                             pathname: '/forums',
                             state: {
@@ -80,11 +79,8 @@ class UserForums extends Component {
                             }}}>
                           <div className="float-right bttn"> Edit </div>
                         </Link>
-                        ) : ''}
 
-                        {(this.props.user && this.props.user.id === item.user.id) ? ( 
                             <button className="bttn float-right" onClick={ () => this.delete(item.id)}>Delete</button>
-                        ) : ''}
 
                         <div className="forum-desc">
                             { item.description}

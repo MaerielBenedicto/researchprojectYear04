@@ -12,6 +12,9 @@ import Signin from '../components/Signin';
 import Register from '../components/Register';
 import CreateForum from '../components/Modal/CreateForum';
 import CreatePost from '../components/Posts/CreatePost';
+//admin pages
+import Dashboard from '../components/Dashboard/Dashboard';
+
 
 import PrivateRoute from '../components/PrivateRoute';
 
@@ -100,7 +103,9 @@ class App extends Component {
         return (
             <div className="App">
                 <Router>
+                  {/* { user.role === 'user' && (    */}
                     <Navbar logout={this.logout} user={this.state.user}/>
+                  {/* )} */}
                     <Switch>
                         <Route exact path="/">
                             <Home user={user}/>
@@ -122,9 +127,15 @@ class App extends Component {
                           </Route>
                         <PrivateRoute exact path="/forums" user={user} component={CreateForum}/>
                         <PrivateRoute path="/submit-post/:id" user={user} component={CreatePost}/>
+                        <Route path="/dashboard">
+                          <Dashboard user={user}/>
+                        </Route>
                     </Switch>
+
                     <Footer />
-            </Router>
+                    
+                </Router>
+                
             </div>
         )
     }

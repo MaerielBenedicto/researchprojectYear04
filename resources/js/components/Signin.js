@@ -29,10 +29,17 @@ class Signin extends Component {
             console.log(response.data);
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("user", JSON.stringify(response.data));
-
+            const user = response.data;
             // console.log("LOG IN SUCCESS");
+            
             this.props.user();
-            this.props.history.push('/');            
+            if(user.role === 'admin'){
+                this.props.history.push('/dashboard');            
+
+            } else {
+                this.props.history.push('/');          
+            }
+              
           })
           .catch((error) => {
             if(error.response){

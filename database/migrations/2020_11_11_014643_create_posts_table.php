@@ -21,6 +21,10 @@ class CreatePostsTable extends Migration
           $table->bigInteger('forum_id')->unsigned();
           $table->double('s_score');
           $table->double('s_magnitude');
+          $table->set('status', ['approved', 'denied', 'null']);
+          $table->set('type', ['high', 'mid', 'normal']);
+          $table->set('action', ['under review', 'reviewed', 'null']);
+
 
           $table->timestamps();
 

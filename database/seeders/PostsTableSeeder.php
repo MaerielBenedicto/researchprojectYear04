@@ -23,6 +23,9 @@ class PostsTableSeeder extends Seeder
       $post->forum_id = 1;
       $post->s_score = 1;
       $post->s_magnitude = 1;
+      $post->status = 'null';
+      $post->type = 'high';
+      $post->action = 'under review';
       $post->save();
 
       $post = new Post();
@@ -32,6 +35,9 @@ class PostsTableSeeder extends Seeder
       $post->forum_id = 1;
       $post->s_score = 1;
       $post->s_magnitude = 1;
+      $post->status = 'null';
+      $post->type = 'high';
+      $post->action = 'under review';
       $post->save();
 
       $this->amntOfUsers = User::all()->count();

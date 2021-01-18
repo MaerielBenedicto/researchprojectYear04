@@ -66,12 +66,13 @@ class PassportController extends Controller
         if (auth()->attempt($credentials)) {
             $user = auth()->user();
             $token = $user->createToken('CC')->accessToken;
-
+            $role = $user->roles()->first()->name;
             return response()->json([
                 'id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,
-                'token' => $token
+                'token' => $token,
+                'role' => $role
             ], 200);
         }
         else {

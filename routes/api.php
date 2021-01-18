@@ -9,6 +9,7 @@ use App\Http\Controllers\API\CommentController;
 use App\Http\Controllers\API\PostVoteController;
 use App\Http\Controllers\API\CommentVoteController;
 
+use App\Http\Controllers\API\Admin\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,10 @@ Route::group(['middleware' => 'guest:api'], function() {
   Route::get('posts/vote/{user}', [PostVoteController::class, 'index']);
   Route::get('comments/vote/{user}', [CommentVoteController::class, 'index']);
 
-  Route::get('post/{post_vote}', [PostVoteController::class, 'count']);
+  // Route::get('post/{post_vote}', [PostVoteController::class, 'count']);
+  // Route::get('posts', [AdminController::class, 'posts']);
+
+
 });
 
 Route::middleware('auth:api')->group(function () {
@@ -55,6 +59,7 @@ Route::middleware('auth:api')->group(function () {
   Route::post('forums/{forum}/posts', [PostController::class, 'store']);
   Route::put('posts/{post}', [PostController::class, 'update']);
   Route::delete('posts/{post}', [PostController::class, 'destroy']);
+  Route::get('profile/{user_id}/posts', [PostController::class, 'user_posts']);
 
   Route::post('posts/{post}/comments', [CommentController::class, 'store']);
   Route::put('comments/{comment}', [CommentController::class, 'update']);
@@ -66,5 +71,9 @@ Route::middleware('auth:api')->group(function () {
 
   Route::post('comments/{comment}/vote', [CommentVoteController::class, 'store']);
   Route::put('comment/{post_vote}/vote', [CommentVoteController::class, 'update']);
+
+
+  //ADMIN 
+  Route::get('posts', [AdminController::class, 'posts']);
 
 });

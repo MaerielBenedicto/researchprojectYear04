@@ -14,7 +14,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'body','forum_id', 'user_id', 's_score', 's_magnitude'
+        'title', 'body','forum_id', 'user_id', 's_score', 's_magnitude', 'status', 'type', 'action'
     ];
 
     public function forum()

@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
         $user->password = bcrypt('secret');
         $user->save();
 
-        $admin->roles()->attach($role_user);
+        $user->roles()->attach($role_user);
 
 
         User::factory()

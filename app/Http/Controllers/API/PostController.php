@@ -17,7 +17,6 @@ class PostController extends Controller
 {
   public function index($id)
     {
-        // dd($id);
         $post = Post::where('forum_id', $id)->with('user')->get();
 
         $countUpvote = $post->post_vote()->where('vote', '1')->count();
@@ -39,7 +38,10 @@ class PostController extends Controller
         'title' => 'required|string',
         'body' => 'required',
         'user_id' => 'required|integer',
-        'forum_id' => 'required|integer'
+        'forum_id' => 'required|integer',
+        'status' => 'required|string',
+        'type' => 'required|string',
+        'action' => 'required|string'
     ]);
 
     if ($validator->fails()) {
@@ -47,11 +49,24 @@ class PostController extends Controller
     }
 
     $body = $request->body;
-
     // $sentimentValues = $this->sentiment($body);
 
-    // dd($sentimentValues);
 
+    //if s_score < - 0.6 
+    // set flagged: true
+    //     action: under review
+    //     type: high
+    //     status: null
+
+    //if s_score > 0 
+    // set flagged: false
+    //     action: null
+    //     type: normal
+    //     status: null
+
+    // $status = 'null';
+    // $type = 'high';
+    // $action = 'under review';
     $post = Post::create([
         'title' => $request->title,
         'body' => $request->body,
@@ -60,7 +75,10 @@ class PostController extends Controller
         // 's_score' => $sentimentValues['score'],
         // 's_magnitude' => $sentimentValues['magnitude']
         's_score' => '0',
-        's_magnitude' => '0'
+        's_magnitude' => '0',
+        'status' => $request->status,
+        'type' => $request->type,
+        'action' =>  $request->action
     ]);
 
     return response()->json(['message' => 'Post created', 'data' => $post], 200);
@@ -131,6 +149,12 @@ class PostController extends Controller
     return response()->json(['message' => 'Post deleted!'], 200);
   }
 
+
+  public function user_posts($id)
+    {
+        $posts = Post::where('user_id', $id)->with('user')->get();
+        return $posts;
+    }
 
 
 

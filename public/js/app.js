@@ -6414,7 +6414,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap);", ""]);
 
 // module
-exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n.body-content{\n    padding-top: 150px;\n    padding-bottom: 150px; /* height of the footer*/\n}\n\n#App {\n    position: relative;\n    min-height: 100%;\n}\n\n/****  TYPOGRAPHY ****/\n\nh2{\n    font-size: 34px;\n    font-weight: 800;\n    padding: 20px 0px;\n}\n\nh4{\n    font-size: 18px;\n}\n\n/****  NAVBAR ****/\n\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    z-index: 999 !important;\n\n    border: 1px solid #CCCBCB;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand span {\n    padding: 0px !important;\n    margin-right: 30px;\n    color: black;\n\n}\n\n#navbar-links {\n    margin-top: 15px;\n}\n\n#navbar-links li.nav-item {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n.nav-link{\n    color:#000;\n    font-size: 18px;\n}\n\n/* #navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n} */\n\n\n#navbar-links a.nav-link {\n    padding: 10px 0px;\n}\n\n/*** FORMS ***/\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    height: 61px;\n    width: 385px;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 20px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n/*** SIGN IN ***/\n\n.auth-form-heading{\n    text-align: center;\n}\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n/*** REGISTER ***/\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n/*** FOOTER **/\n\n.footer-bar{\n    position: absolute;\n    width: 100%;\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n/*** FORUM PAGE ****/\n.forum{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n}\n\n.forum-list{\n    padding: 0px;\n}\n\n.forum-title{\n    padding: 10px 0px;\n}\n\n.forum-title a{\n    font-size: 18px;\n    color: black;\n    font-weight: 600;\n}\n\n.forum-title a:hover{\n    text-decoration: none;\n}\n\n.forum-desc{\n    font-size: 14px;\n    color: black;\n    padding-top: 15px;\n    padding-bottom: 20px;\n}\n\n\n.forum-bttn{\n    height: 54px;\n    width: 100%;\n    border-radius: 5px;\n    background: #3d70b2;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 18px;\n    color: #FFFFFF;\n    font-weight: 800;\n}\n\n\n\n/*** FORUM-POST ***/\n.forum-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n    background-color: aliceblue;\n} \n\n.title{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n\n.posts-rows{\n    padding:0px;\n}\n\n.post{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n\n.post-title a{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n.post-title a:hover{\n    text-decoration: none;\n}\n\n.post-body{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n/** POST PAGE **/\n.post-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n.post-detail span{\n    padding-left: 20px;\n}\n\n.post-detail h4 {\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n    padding-top: 20px;\n}\n\n.post-detail p{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n.post-detail img{\n    width: 50px;\n    height: 50px;\n}\n\n\n/** COMMENT **/\n\n.comment-box{\n    border: #B8B2B2 1px solid;\n    border-radius: 2px;\n    width: 100%;\n}\n\n.comment-select-button{\n    width: 200px;\n    height: 35px;\n    border: solid 1px #B8B2B2;\n    border-radius: 3px;\n}\n\n.add-comment-bttn{\n    height: 30px;\n    width: 80px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 16px;\n    color: #FFFFFF;\n    font-weight: 800;\n\n    float: right;\n}\n\n.add-comment-div{\n    margin-bottom: 50px;\n}\n\n.each-comment{\n    border-bottom: 1px solid #888888;\n    padding-bottom: 40px;\n    padding-top: 20px;\n}\n\n/** CREATE FORUM **/\n.form-control-forum{\n    height: 30px;\n    width: 100%;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding:20px;\n}\n\n.form-control-forum-body{\n    width: 100%;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding: 20px;\n}\n\n.forum-topic{\n    padding: 20px;\n    margin-bottom: 40px;\n}\n\n.submit-button{\n    height: 30px;\n    width: 80px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 16px;\n    color: #FFFFFF;\n    font-weight: 800;\n\n    float: right;\n}\n\n/** FILTER ***/\n.filter-bar {\n    margin-top: 100px;\n    background-color: #5596e6;\n    height: 80px;\n    margin-bottom: 50px;\n}\n\n.sort-list{\n    list-style-type: none;\n    overflow: hidden;\n    margin-top: 10px;\n    padding: 0;\n\n    display: inline-block;\n    vertical-align: middle;\n    \n}\n\n.sort-list li {\n   float: left;\n}\n\n.sort-list-a{\n    display: block;\n    font-size: 18px;\n    color: white;\n    font-weight: 700;\n    text-align: center;\n    padding: 16px;\n    text-decoration: none;\n\n}\n\n.sort-list li a:hover{\n    color: black;\n    text-decoration: none;\n}\n.sort-list li a:active{\n    color: black;\n}\n\n.forum-list-div,\n.forum-post-div\n{\n    margin-top: 60px;\n}\n\n", ""]);
+exports.push([module.i, "html,\nbody {\n    height: 100%;\n}\n\nbody {\n    background-color: #fff;\n}\n\n.body-content{\n    padding-top: 150px;\n    padding-bottom: 150px; /* height of the footer*/\n}\n\n#App {\n    position: relative;\n    min-height: 100%;\n}\n\n/****  TYPOGRAPHY ****/\n\nh2{\n    font-size: 34px;\n    font-weight: 800;\n    padding: 20px 0px;\n}\n\nh4{\n    font-size: 18px;\n}\n\n/****  NAVBAR ****/\n\nnav {\n    border-bottom: 1px solid #eee;\n    background: #fff;\n    /* z-index: 999 !important; */\n\n    border: 1px solid #CCCBCB;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n}\n\n.navbar {\n    padding-top: 20px;\n    padding-bottom: 20px;\n}\n\n.navbar-brand span {\n    padding: 0px !important;\n    margin-right: 30px;\n    color: rgb(48, 20, 20);\n\n}\n\n#navbar-links {\n    margin-top: 15px;\n}\n\n#navbar-links li.nav-item {\n    padding: 0px 15px;\n}\n\n#navbar-links li.nav-item a:hover {\n    color: #2c8cd6;\n}\n\n.nav-link{\n    color:#000;\n    font-size: 18px;\n}\n\n/* #navbar-links li.nav-item a.last-nav-link {\n    padding-left: 10px;\n    padding-right: 0px;\n} */\n\n\n#navbar-links a.nav-link {\n    padding: 10px 0px;\n}\n\n/*** FORMS ***/\n\n.form-group {\n    margin-bottom: 28px;\n}\n\n.form-control,\n.custom-select,\n.custom-file-label {\n    height: 61px;\n    width: 385px;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding-left: 20px;\n}\n\n.form-div input{\n    margin: 0px auto;\n}\n\n.form-msg{\n    text-align: center;\n}\n\n.form-msg span{\n    padding-right: 110px;\n}\n\n\n/*** SIGN IN ***/\n\n.auth-form-heading{\n    text-align: center;\n}\n\n.signin-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;    \n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.form-bttn{\n    text-align: center;\n}\n\n/*** REGISTER ***/\n\n.register-btn{\n    height: 54px;\n    width: 385px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    color: #FFFFFF;\n    margin: 0px auto;\n}\n\n.logo-site{\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n}\n\n.logo-site-footer {\n    font-size: 36px;\n    font-style: normal;\n    font-weight: 400;\n    line-height: 54px;\n    letter-spacing: 0em;\n    text-align: left;\n    padding-top: 50px;\n}\n\n\n.logo-site-footer a{\n    color: white;\n\n}\n\n/*** FOOTER **/\n\n.footer-bar{\n    position: absolute;\n    width: 100%;\n    height: 250px;\n    background: #7E7E7E;\n    /* margin-top: 100px !important; */\n}\n\n.footer-brand {\n    /* padding: 0px !important; */\n    padding-top: 50px;\n    margin-right: 30px;\n    \n}\n\n.footer-list-group{\n    font-size: 14px;\n    list-style-type: none;\n    line-height: normal;\n}\n\n.footer-list-group-item {\n    text-decoration: none;\n    margin-bottom: 5px;\n}\n\n.footer-heading{\n    margin-top: 20px;\n    margin-bottom: 20px;\n}\n\n/*** FORUM PAGE ****/\n.forum{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n}\n\n.forum-list{\n    padding: 0px;\n}\n\n.forum-title{\n    padding: 10px 0px;\n}\n\n.forum-title a{\n    font-size: 18px;\n    color: black;\n    font-weight: 600;\n}\n\n.forum-title a:hover{\n    text-decoration: none;\n}\n\n.forum-desc{\n    font-size: 14px;\n    color: black;\n    padding-top: 15px;\n    padding-bottom: 20px;\n}\n\n\n.forum-bttn{\n    height: 54px;\n    width: 100%;\n    border-radius: 5px;\n    background: #3d70b2;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 18px;\n    color: #FFFFFF;\n    font-weight: 800;\n}\n\n\n\n/*** FORUM-POST ***/\n.forum-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n    background-color: aliceblue;\n} \n\n.title{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n\n.posts-rows{\n    padding:0px;\n}\n\n.post{\n    width: 100%;\n    height: 100%;\n\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n\n.post-title a{\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n}\n\n.post-title a:hover{\n    text-decoration: none;\n}\n\n.post-body{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n/** POST PAGE **/\n.post-detail{\n    width: 100%;\n    background: #FFFFFF;\n    border: 1px solid #B8B2B2;\n    box-sizing: border-box;\n    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);\n    border-radius: 5px;\n\n    margin-bottom: 20px;\n    padding: 20px 20px;\n}\n.post-detail span{\n    padding-left: 20px;\n}\n\n.post-detail h4 {\n    font-size: 18px;\n    font-weight: 700;\n    color:black;\n    padding-top: 20px;\n}\n\n.post-detail p{\n    font-size: 14px;\n    margin: 20px 0px;\n}\n\n.post-detail img{\n    width: 50px;\n    height: 50px;\n}\n\n\n/** COMMENT **/\n\n.comment-box{\n    border: #B8B2B2 1px solid;\n    border-radius: 2px;\n    width: 100%;\n}\n\n.comment-select-button{\n    width: 200px;\n    height: 35px;\n    border: solid 1px #B8B2B2;\n    border-radius: 3px;\n}\n\n.add-comment-bttn{\n    height: 30px;\n    width: 80px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 16px;\n    color: #FFFFFF;\n    font-weight: 800;\n\n    float: right;\n}\n\n.add-comment-div{\n    margin-bottom: 50px;\n}\n\n.each-comment{\n    border-bottom: 1px solid #888888;\n    padding-bottom: 40px;\n    padding-top: 20px;\n}\n\n/** CREATE FORUM **/\n.form-control-forum{\n    height: 30px;\n    width: 100%;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding:20px;\n}\n\n.form-control-forum-body{\n    width: 100%;\n    border-radius: 5px;\n\n    background: #E9E9E9;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    padding: 20px;\n}\n\n.forum-topic{\n    padding: 20px;\n    margin-bottom: 40px;\n}\n\n.submit-button{\n    height: 30px;\n    width: 80px;\n    border-radius: 5px;\n    background: #5596E6;\n    border: 1px solid #E9E9E9;\n    box-sizing: border-box;\n    border-radius: 5px;\n    margin: 0px auto;\n\n    font-size: 16px;\n    color: #FFFFFF;\n    font-weight: 800;\n\n    float: right;\n}\n\n/** FILTER ***/\n.filter-bar {\n    margin-top: 100px;\n    background-color: #5596e6;\n    height: 80px;\n    margin-bottom: 50px;\n}\n\n.sort-list{\n    list-style-type: none;\n    overflow: hidden;\n    margin-top: 10px;\n    padding: 0;\n\n    display: inline-block;\n    vertical-align: middle;\n    \n}\n\n.sort-list li {\n   float: left;\n}\n\n.sort-list-a{\n    display: block;\n    font-size: 18px;\n    color: white;\n    font-weight: 700;\n    text-align: center;\n    padding: 16px;\n    text-decoration: none;\n\n}\n\n.sort-list li a:hover{\n    color: black;\n    text-decoration: none;\n}\n.sort-list li a:active{\n    color: black;\n}\n\n.forum-list-div,\n.forum-post-div\n{\n    margin-top: 60px;\n}\n\n.profile-div{\n    border-bottom: 2px solid  #888888;\n    margin-bottom: 20px;\n    padding-bottom: 30px;\n}\n\n\n\n\n\n/*** DASHBOARD ****/\n\n.sidebar{\n    background-color: #DDDBDB;\n    padding: 20px 40px;\n    height: 100vh;\n}\n\n.dashboard{\n    display:flex; \n    flex-direction:row;\n}\n\n.dash{\n    background-color: #F3F5F5;\n    height: 100%;\n}\n\n.sidebar-links ul{\n    padding: 20px 0px;\n}\n.sidebar-links ul li {\n    /* padding-left: 20px; */\n    padding-bottom: 20px;\n    text-decoration: none;\n    list-style-type: none;\n}\n\n.side-link a{\n    font-size: 16px;\n}\n\n.topbar{\n    height: 80px;\n    background-color: #FCFCFC;\n}\n\n.topbar-div {\n    padding: 30px 30px;\n}\n\n.posts-lists{\n    padding: 50px 20px;\n}", ""]);
 
 // exports
 
@@ -71093,6 +71093,383 @@ var Comments = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./resources/js/components/Dashboard/Dashboard.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/Dashboard/Dashboard.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Sidebar */ "./resources/js/components/Dashboard/Sidebar.js");
+/* harmony import */ var _PostsList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PostsList */ "./resources/js/components/Dashboard/PostsList.js");
+/* harmony import */ var _ReviewPost__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ReviewPost */ "./resources/js/components/Dashboard/ReviewPost.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+
+
+var Dashboard = /*#__PURE__*/function (_Component) {
+  _inherits(Dashboard, _Component);
+
+  var _super = _createSuper(Dashboard);
+
+  function Dashboard() {
+    var _this;
+
+    _classCallCheck(this, Dashboard);
+
+    _this = _super.call(this);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Dashboard, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "App dashboard"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/dashboard"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostsList__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/dashboard/review"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReviewPost__WEBPACK_IMPORTED_MODULE_5__["default"], null)))));
+    }
+  }]);
+
+  return Dashboard;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Dashboard);
+
+/***/ }),
+
+/***/ "./resources/js/components/Dashboard/PostsList.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/Dashboard/PostsList.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var PostsList = /*#__PURE__*/function (_Component) {
+  _inherits(PostsList, _Component);
+
+  var _super = _createSuper(PostsList);
+
+  function PostsList() {
+    var _this;
+
+    _classCallCheck(this, PostsList);
+
+    _this = _super.call(this);
+    _this.state = {
+      posts: []
+    };
+    return _this;
+  }
+
+  _createClass(PostsList, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      var token = localStorage.getItem('token');
+      axios.get('/api/posts', {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        console.log(response);
+        var posts = response.data;
+
+        _this2.setState({
+          posts: posts
+        });
+      })["catch"](function (error) {
+        console.log(error);
+
+        if (error) {
+          console.log(error);
+        }
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-10 dash"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "topbar row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "topbar-div col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Posts"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "posts-lists col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "LISTS OF UNDER REVIEWS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        "class": "table"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Date"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Sentiment Score"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Sentiment Magnitude"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+        scope: "col"
+      }, "Action"))), this.state.posts.map(function (item) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+          key: item.id
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, item.created_at), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, item.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, item.s_score), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, item.s_magnitude), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Review"))));
+      })))));
+    }
+  }]);
+
+  return PostsList;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (PostsList);
+
+/***/ }),
+
+/***/ "./resources/js/components/Dashboard/ReviewPost.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/Dashboard/ReviewPost.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var ReviewPost = /*#__PURE__*/function (_Component) {
+  _inherits(ReviewPost, _Component);
+
+  var _super = _createSuper(ReviewPost);
+
+  function ReviewPost() {
+    var _this;
+
+    _classCallCheck(this, ReviewPost);
+
+    _this = _super.call(this);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(ReviewPost, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-10 dash"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "topbar row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "topbar-div col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Posts"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "posts-lists col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "REVIEWED")));
+    }
+  }]);
+
+  return ReviewPost;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (ReviewPost);
+
+/***/ }),
+
+/***/ "./resources/js/components/Dashboard/Sidebar.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/Dashboard/Sidebar.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var Sidebar = /*#__PURE__*/function (_Component) {
+  _inherits(Sidebar, _Component);
+
+  var _super = _createSuper(Sidebar);
+
+  function Sidebar() {
+    var _this;
+
+    _classCallCheck(this, Sidebar);
+
+    _this = _super.call(this);
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Sidebar, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sidebar col-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: ""
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/",
+        className: "navbar-brand"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "logo-site"
+      }, " LOGO")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sidebar-links"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "side-link"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/dashboard"
+      }, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        className: "side-link"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        to: "/dashboard/review"
+      }, "review posts"))))));
+    }
+  }]);
+
+  return Sidebar;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Sidebar);
+
+/***/ }),
+
 /***/ "./resources/js/components/Filter.js":
 /*!*******************************************!*\
   !*** ./resources/js/components/Filter.js ***!
@@ -71235,91 +71612,95 @@ var Footer = /*#__PURE__*/function (_Component) {
   _createClass(Footer, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container-fluid footer-bar"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row ml-auto"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-12"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row logo-site-footer"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-lg-2 col-sm-12 col-md-3"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/",
-        className: "footer-brand"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: ""
-      }, " LOGO"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-lg-2 col-sm-12 col-md-3"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "footer-list-group"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item footer-heading"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "Get Started")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "Register")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-lg-2 col-sm-12 col-md-3"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "footer-list-group"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item footer-heading"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "LOGO")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "About")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "Careers")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "Blog")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-lg-2 col-sm-12 col-md-3"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "footer-list-group"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item footer-heading"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "Support")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "FAQ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "Advertise")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "Content Policy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-        className: "footer-list-group-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "#"
-      }, "Privacy Policy")))))))));
+      if (this.props.location.pathname.match('dashboard')) {
+        return null;
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container-fluid footer-bar"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row ml-auto"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-12"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "row logo-site-footer"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-lg-2 col-sm-12 col-md-3"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/",
+          className: "footer-brand"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: ""
+        }, " LOGO"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-lg-2 col-sm-12 col-md-3"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "footer-list-group"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item footer-heading"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "Get Started")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "Register")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-lg-2 col-sm-12 col-md-3"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "footer-list-group"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item footer-heading"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "LOGO")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "About")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "Careers")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "Blog")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-lg-2 col-sm-12 col-md-3"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+          className: "footer-list-group"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item footer-heading"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "Support")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "FAQ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "Advertise")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "Content Policy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "footer-list-group-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "#"
+        }, "Privacy Policy")))))))));
+      }
     }
   }]);
 
   return Footer;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Footer);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Footer));
 
 /***/ }),
 
@@ -71752,58 +72133,63 @@ var Navbar = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       var user = this.props.user;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "navbar-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("nav", {
-        className: "navbar fixed-top navbar-expand-md"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "ml-auto"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/",
-        className: "navbar-brand"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-        className: "logo-site"
-      }, " LOGO"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "collapse navbar-collapse",
-        id: "navbar-links"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("ul", {
-        className: "navbar-nav ml-auto"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
-        className: "nav-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/",
-        className: "nav-link"
-      }, "Forums")), !user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
-        className: "nav-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/register",
-        className: "nav-link"
-      }, "Sign Up")), !user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
-        className: "nav-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/signin",
-        className: "nav-link"
-      }, "Sign In")), user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
-        className: "nav-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/my-profile",
-        className: "nav-link"
-      }, "My Profile")), user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
-        className: "nav-item"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/",
-        className: "nav-link",
-        onClick: this.props.logout
-      }, "Sign out")))))));
+
+      if (this.props.location.pathname.match('dashboard')) {
+        return null;
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "navbar-container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("nav", {
+          className: "navbar fixed-top navbar-expand-md"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "container"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "ml-auto"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/",
+          className: "navbar-brand"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+          className: "logo-site"
+        }, " LOGO"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          className: "collapse navbar-collapse",
+          id: "navbar-links"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("ul", {
+          className: "navbar-nav ml-auto"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+          className: "nav-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/",
+          className: "nav-link"
+        }, "Forums")), !user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+          className: "nav-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/register",
+          className: "nav-link"
+        }, "Sign Up")), !user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+          className: "nav-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/signin",
+          className: "nav-link"
+        }, "Sign In")), user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+          className: "nav-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/my-profile",
+          className: "nav-link"
+        }, "My Profile")), user && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+          className: "nav-item"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/",
+          className: "nav-link",
+          onClick: this.props.logout
+        }, "Sign out")))))));
+      }
     }
   }]);
 
   return Navbar;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Navbar);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Navbar));
 
 /***/ }),
 
@@ -72631,11 +73017,16 @@ var Signin = /*#__PURE__*/function (_Component) {
       }).then(function (response) {
         console.log(response.data);
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("user", JSON.stringify(response.data)); // console.log("LOG IN SUCCESS");
+        localStorage.setItem("user", JSON.stringify(response.data));
+        var user = response.data; // console.log("LOG IN SUCCESS");
 
         _this2.props.user();
 
-        _this2.props.history.push('/');
+        if (user.role === 'admin') {
+          _this2.props.history.push('/dashboard');
+        } else {
+          _this2.props.history.push('/');
+        }
       })["catch"](function (error) {
         if (error.response) {
           _this2.setState({
@@ -72828,7 +73219,7 @@ var UserForums = /*#__PURE__*/function (_Component) {
       var _this4 = this;
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "body-content"
+        className: "mt-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "FORUMS"), this.state.forums.map(function (item) {
@@ -72840,7 +73231,7 @@ var UserForums = /*#__PURE__*/function (_Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/forums/".concat(item.id),
           className: "forum-title"
-        }, item.topic)), _this4.props.user && _this4.props.user.id === item.user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        }, item.topic)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: {
             pathname: '/forums',
             state: {
@@ -72852,12 +73243,12 @@ var UserForums = /*#__PURE__*/function (_Component) {
           }
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "float-right bttn"
-        }, " Edit ")) : '', _this4.props.user && _this4.props.user.id === item.user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, " Edit ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "bttn float-right",
           onClick: function onClick() {
             return _this4["delete"](item.id);
           }
-        }, "Delete") : '', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "Delete"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "forum-desc"
         }, item.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "forum-desc"
@@ -72870,6 +73261,166 @@ var UserForums = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (UserForums);
+
+/***/ }),
+
+/***/ "./resources/js/components/UserPosts.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/UserPosts.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var UserPosts = /*#__PURE__*/function (_Component) {
+  _inherits(UserPosts, _Component);
+
+  var _super = _createSuper(UserPosts);
+
+  function UserPosts() {
+    var _this;
+
+    _classCallCheck(this, UserPosts);
+
+    _this = _super.call(this);
+    _this.state = {
+      posts: []
+    };
+    _this["delete"] = _this["delete"].bind(_assertThisInitialized(_this));
+    _this.posts = _this.posts.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(UserPosts, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.posts();
+    }
+  }, {
+    key: "posts",
+    value: function posts() {
+      var _this2 = this;
+
+      console.log(this.props.user.id); //get user forums
+
+      var token = localStorage.getItem("token");
+      console.log(this.props.user.id);
+      axios.get('/api/profile/' + this.props.user.id + '/posts', {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        _this2.setState({
+          posts: response.data,
+          isLoaded: true
+        });
+      })["catch"](function (error) {
+        if (error) {
+          console.log(error);
+          this.state.errors = error.response.data.errors;
+        }
+      });
+    }
+  }, {
+    key: "delete",
+    value: function _delete(id) {
+      var _this3 = this;
+
+      var token = localStorage.getItem("token");
+      axios["delete"]('/api/posts/' + id, {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        console.log(response);
+
+        _this3.posts(); // this.props.history.push('/forums/'+ this.state.post.forum_id);   
+
+      })["catch"](function (error) {
+        if (error) {
+          console.log(error);
+          this.state.errors = error.response.data.errors;
+        }
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "mt-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "POSTS"), this.state.posts.map(function (item) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "post",
+          key: item.id
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "post-title"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/posts/".concat(item.id)
+        }, item.title)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "post-body"
+        }, item.body), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: {
+            pathname: '/submit-post/' + item.forum_id,
+            state: {
+              forumId: item.forum_id,
+              postId: item.id,
+              title: item.title,
+              body: item.body,
+              mode: 'edit'
+            }
+          }
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "bttn"
+        }, "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "bttn float-right",
+          onClick: function onClick() {
+            return _this4["delete"](item.id);
+          }
+        }, "Delete"));
+      })));
+    }
+  }]);
+
+  return UserPosts;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (UserPosts);
 
 /***/ }),
 
@@ -72895,11 +73446,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Register__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Register */ "./resources/js/components/Register.js");
 /* harmony import */ var _components_Modal_CreateForum__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Modal/CreateForum */ "./resources/js/components/Modal/CreateForum.js");
 /* harmony import */ var _components_Posts_CreatePost__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Posts/CreatePost */ "./resources/js/components/Posts/CreatePost.js");
-/* harmony import */ var _components_PrivateRoute__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/PrivateRoute */ "./resources/js/components/PrivateRoute.js");
-/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Home */ "./resources/js/views/Home.js");
-/* harmony import */ var _Profile__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Profile */ "./resources/js/views/Profile.js");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
-/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_css_app_css__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _components_Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/Dashboard/Dashboard */ "./resources/js/components/Dashboard/Dashboard.js");
+/* harmony import */ var _components_PrivateRoute__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../components/PrivateRoute */ "./resources/js/components/PrivateRoute.js");
+/* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Home */ "./resources/js/views/Home.js");
+/* harmony import */ var _Profile__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Profile */ "./resources/js/views/Profile.js");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../css/app.css */ "./resources/css/app.css");
+/* harmony import */ var _css_app_css__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_css_app_css__WEBPACK_IMPORTED_MODULE_15__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -72931,6 +73483,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+ //admin pages
 
 
 
@@ -73043,7 +73597,7 @@ var App = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_13__["default"], {
         user: user
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/signin"
@@ -73059,22 +73613,26 @@ var App = /*#__PURE__*/function (_Component) {
         user: user
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/my-profile"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Profile__WEBPACK_IMPORTED_MODULE_13__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Profile__WEBPACK_IMPORTED_MODULE_14__["default"], {
         user: user
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/posts/:id"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Posts_Post__WEBPACK_IMPORTED_MODULE_6__["default"], {
         user: user
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PrivateRoute__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PrivateRoute__WEBPACK_IMPORTED_MODULE_12__["default"], {
         exact: true,
         path: "/forums",
         user: user,
         component: _components_Modal_CreateForum__WEBPACK_IMPORTED_MODULE_9__["default"]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PrivateRoute__WEBPACK_IMPORTED_MODULE_11__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_PrivateRoute__WEBPACK_IMPORTED_MODULE_12__["default"], {
         path: "/submit-post/:id",
         user: user,
         component: _components_Posts_CreatePost__WEBPACK_IMPORTED_MODULE_10__["default"]
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/dashboard"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_11__["default"], {
+        user: user
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], null)));
     }
   }]);
 
@@ -73320,6 +73878,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _components_UserForums__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/UserForums */ "./resources/js/components/UserForums.js");
+/* harmony import */ var _components_UserPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/UserPosts */ "./resources/js/components/UserPosts.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -73341,6 +73900,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -73373,8 +73933,10 @@ var Profile = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "body-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container"
+        className: "container profile-div"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "MY PROFILE"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.props.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, this.props.user.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UserForums__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        user: this.props.user
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_UserPosts__WEBPACK_IMPORTED_MODULE_4__["default"], {
         user: this.props.user
       }));
     }

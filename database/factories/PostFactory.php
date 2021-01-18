@@ -22,11 +22,26 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->sentence;
+        $body = $this->faker->paragraph($nbSentences = 5, $variableNbSentences = true);
+        $s_score = $this->faker->randomFloat($nbMaxDecimals = 1, $min = -1.0, $max = 1.0);
+        $s_magnitude = $this->faker->randomFloat($nbMaxDecimals = 1, $min = 1, $max = 20);
+        $type = $this->faker->randomElement($array = array ('high','mid','normal'));
+        if($type === 'high' || $type === 'mid'){
+            $action = 'under review';
+            $status = $this->faker->randomElement($array = array ('approved','denied','null'));
+        } else {
+            $action = 'null';
+            $status = $this->faker->randomElement($array = array ('approved','denied','null'));
+        }
         return [
-            'title' => $this->faker->sentence,
-            'body' => $this->faker->paragraph($nbSentences = 5, $variableNbSentences = true),
-            's_score' => $this->faker->randomFloat($nbMaxDecimals = 1, $min = -1.0, $max = 1.0),
-            's_magnitude' => $this->faker->randomFloat($nbMaxDecimals = 1, $min = 1, $max = 20)
+            'title' => $title,
+            'body' => $body,
+            's_score' => $s_score,
+            's_magnitude' => $s_magnitude,
+            'type' => $type,
+            'action' => $action,
+            'status' => $status
         ];
     }
 }
