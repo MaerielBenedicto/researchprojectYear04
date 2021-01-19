@@ -38,20 +38,16 @@ Route::group(['middleware' => 'guest:api'], function() {
   Route::get('posts/vote/{user}', [PostVoteController::class, 'index']);
   Route::get('comments/vote/{user}', [CommentVoteController::class, 'index']);
 
-  // Route::get('post/{post_vote}', [PostVoteController::class, 'count']);
-  // Route::get('posts', [AdminController::class, 'posts']);
-
-
 });
 
 Route::middleware('auth:api')->group(function () {
   Route::get('user', [PassportController::class, 'user']);
   Route::get('logout', [PassportController::class, 'logout']);
 
-  
   Route::post('forums', [ForumController::class, 'store']);
   Route::put('forums/{forum}', [ForumController::class, 'update']);
   Route::delete('forums/{forum}', [ForumController::class, 'destroy']);
+
   //List of user's created forums
   Route::get('profile/{user_id}/forums', [ForumController::class, 'user_forums']);
 

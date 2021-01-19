@@ -21,10 +21,9 @@ class PostsTableSeeder extends Seeder
       $post->body = "https://www.newsweek.com/joe-biden-donald-trump-popular-vote-election-2020-1546565";
       $post->user_id = 1;
       $post->forum_id = 1;
-      $post->s_score = 1;
-      $post->s_magnitude = 1;
-      $post->status = 'null';
-      $post->type = 'high';
+      $post->s_score = -.7;
+      $post->s_magnitude = 5;
+      $post->status = 'pending';
       $post->action = 'under review';
       $post->save();
 
@@ -35,9 +34,8 @@ class PostsTableSeeder extends Seeder
       $post->forum_id = 1;
       $post->s_score = 1;
       $post->s_magnitude = 1;
-      $post->status = 'null';
-      $post->type = 'high';
-      $post->action = 'under review';
+      $post->status = 'approved';
+      $post->action = 'null';
       $post->save();
 
       $this->amntOfUsers = User::all()->count();
