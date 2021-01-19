@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Moment from 'react-moment';
+
 import { withRouter, Link } from "react-router-dom";
 
 class PostsList extends Component {
@@ -41,12 +43,11 @@ class PostsList extends Component {
                 </div>
 
                 <div className="posts-lists col-12">
-                    <div>
+                    <div className="post-heading">
                         LISTS OF UNDER REVIEWS
                     </div>
-                    <div>
-                    
-                        <table class="table">
+                    <div className="posts-table">
+                        <table className="table">
                         <thead>
                           <tr>
                             <th scope="col">Date</th>
@@ -57,13 +58,13 @@ class PostsList extends Component {
                           </tr>
                         </thead>
                         {this.state.posts.map(item => (
-                        <tbody>
-                          <tr key={item.id}>
-                            <td>{item.created_at}</td>
+                        <tbody key={item.id}>
+                          <tr>
+                            <td ><Moment format="DD/MM/YYYY">{item.created_at}</Moment></td>
                             <td>{item.title}</td>
                             <td>{item.s_score}</td>
                             <td>{item.s_magnitude}</td>
-                            <td><button>Review</button></td>
+                            <td><button><Link to={"/dashboard/post/" + item.id}>Review</Link></button></td>
                           </tr>
                         </tbody>
                          ))}

@@ -26,7 +26,14 @@ class PostFactory extends Factory
         $body = $this->faker->paragraph($nbSentences = 5, $variableNbSentences = true);
         $s_score = $this->faker->randomFloat($nbMaxDecimals = 1, $min = -1.0, $max = 1.0);
         $s_magnitude = $this->faker->randomFloat($nbMaxDecimals = 1, $min = 1, $max = 20);
-        $type = $this->faker->randomElement($array = array ('high','mid','normal'));
+        if($s_score < - 0.6) {
+            $type = 'high';
+        } else if($s_score < - 0.1){
+            $type = 'mid';
+        } else {
+            $type = 'normal';
+        }
+        
         if($type === 'high' || $type === 'mid'){
             $action = 'under review';
             $status = $this->faker->randomElement($array = array ('approved','denied','null'));

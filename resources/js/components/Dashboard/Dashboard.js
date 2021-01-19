@@ -26,7 +26,7 @@ class Dashboard extends Component {
                         <Route exact path="/dashboard">
                             <PostsList />
                         </Route>
-                        <Route exact path="/dashboard/review">
+                        <Route exact path="/dashboard/post/:id">
                             <ReviewPost />
                         </Route>
                     </Switch>
