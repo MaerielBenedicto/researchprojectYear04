@@ -75,5 +75,6 @@ Route::middleware('auth:api')->group(function () {
 
   //ADMIN 
   Route::get('posts', [AdminController::class, 'posts']);
+  Route::put('review/{post}', [AdminController::class, 'review_post']);
 
 });

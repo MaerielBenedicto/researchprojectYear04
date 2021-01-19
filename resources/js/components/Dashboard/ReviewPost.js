@@ -8,6 +8,8 @@ class ReviewPost extends Component {
         this.state = {
             post: {}
         };
+
+        this.changeStatus = this.changeStatus.bind(this);
     }
 
     componentDidMount(){
@@ -26,6 +28,27 @@ class ReviewPost extends Component {
         });
     }
 
+    changeStatus(status){
+        let token = localStorage.getItem('token');
+        axios.put('/api/review/' + this.state.post.id, 
+        {
+            status: status
+        },
+        {
+            headers: { Authorization: "Bearer " + token }
+        })
+        .then((response) => {
+            console.log(response.data);
+            // this.props.history.push('/posts/'+ response.data.id);   
+          })
+        .catch((error) => {
+            console.log(error);
+            if(error){
+                console.log(error);
+            } 
+        });  
+    }
+
     render(){
         const post = this.state.post;
         return (
@@ -38,19 +61,28 @@ class ReviewPost extends Component {
 
                 <div className="posts-lists col-12">
                     <h2>Under review</h2>
-                    <div>
-                        <p>Posted on: 18/01/2021</p>
-                        <p>User: Allyssa Daniel</p>
-                        <p>Email: allyssa@gmail.com</p>
+                    <div className="row">
+                        <div className="user-data col-6">
+                            <p>Posted on: 18/01/2021</p>
+                            <p>User: Allyssa Daniel</p>
+                            <p>Email: allyssa@gmail.com</p>
+                        </div>
+
+                        <div className="user-data col-5">
+                            <p>Sentiment score: {post.s_score}</p>
+                            <p>Magnitude score: {post.s_magnitude}</p>
+                            <p>Sentiment: Negative </p>
+                        </div>
                     </div>
+                    
                     <div>
                         <p>Title: {post.title}</p>
                         <p>Body: {post.body}</p>
                     </div>
                     <div>
                         <p>Action</p>
-                        <button>Approve</button>
-                        <button>Deny</button>
+                        <button onClick={() => this.changeStatus('approved')}>Approve</button>
+                        <button onClick={()=>this.changeStatus('denied')}>Deny</button>
                     </div>
                 </div>
             </div>

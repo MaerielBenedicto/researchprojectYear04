@@ -25,8 +25,6 @@ class Post extends Component {
         this.getPost();
     }
 
-
-
     getPost(){
         axios.get('/api/posts/' + this.props.match.params.id)
         .then(response => {        

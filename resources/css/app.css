@@ -541,5 +541,13 @@ nav {
 }
 
 .posts-lists{
-    padding: 50px 20px;
+    /* padding: 50px 20px; */
+    padding: 0px;
+}
+
+.user-data{
+    background-color: #FCFCFC;
+    padding: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
 }

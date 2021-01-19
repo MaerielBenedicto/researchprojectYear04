@@ -17,7 +17,9 @@ class PostController extends Controller
 {
   public function index($id)
     {
-        $post = Post::where('forum_id', $id)->with('user')->get();
+         $post = Post::where('forum_id', $id)
+                      // ->where('action', 'null')
+                      ->with('user')->get();
 
         $countUpvote = $post->post_vote()->where('vote', '1')->count();
         $countDownvote = $post->post_vote()->where('vote', '-1')->count();
@@ -38,10 +40,7 @@ class PostController extends Controller
         'title' => 'required|string',
         'body' => 'required',
         'user_id' => 'required|integer',
-        'forum_id' => 'required|integer',
-        'status' => 'required|string',
-        'type' => 'required|string',
-        'action' => 'required|string'
+        'forum_id' => 'required|integer'
     ]);
 
     if ($validator->fails()) {
@@ -51,22 +50,19 @@ class PostController extends Controller
     $body = $request->body;
     // $sentimentValues = $this->sentiment($body);
 
+    $s_score = -1;
+    $s_magnitude = 10;
 
-    //if s_score < - 0.6 
-    // set flagged: true
-    //     action: under review
-    //     type: high
-    //     status: null
+    if($s_score <= -0.6){
+      $type = 'high';
+      $action = 'under review';
+      $status = 'null';
+    } else{
+      $type = 'normal';
+      $action = 'null';
+      $status = 'null';
+    } 
 
-    //if s_score > 0 
-    // set flagged: false
-    //     action: null
-    //     type: normal
-    //     status: null
-
-    // $status = 'null';
-    // $type = 'high';
-    // $action = 'under review';
     $post = Post::create([
         'title' => $request->title,
         'body' => $request->body,
@@ -74,11 +70,11 @@ class PostController extends Controller
         'forum_id' => $id,
         // 's_score' => $sentimentValues['score'],
         // 's_magnitude' => $sentimentValues['magnitude']
-        's_score' => '0',
-        's_magnitude' => '0',
-        'status' => $request->status,
-        'type' => $request->type,
-        'action' =>  $request->action
+        's_score' => $s_score,
+        's_magnitude' =>  $s_magnitude,
+        'status' => $status,
+        'type' => $type,
+        'action' =>  $action
     ]);
 
     return response()->json(['message' => 'Post created', 'data' => $post], 200);
@@ -99,15 +95,32 @@ class PostController extends Controller
 
         $body = $request->input('body');
 
-        $sentimentValues = $this->sentiment($body);
+        // $sentimentValues = $this->sentiment($body);
+        $s_score = 0.7;
+        $s_magnitude = 10;
+    
+        if($s_score <= -0.6){
+          $type = 'high';
+          $action = 'under review';
+          $status = 'null';
+        } else {
+          $type = 'normal';
+          $action = 'null';
+          $status = 'null';
+        } 
 
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->user_id = $request->input('user_id');
         $post->forum_id = $request->input('forum_id');
-        $post->s_score = $sentimentValues['score'];
-        $post->s_magnitude = $sentimentValues['magnitude'];
+        // $post->s_score = $sentimentValues['score'];
+        // $post->s_magnitude = $sentimentValues['magnitude'];
+        $post->s_score = $s_score;
+        $post->s_magnitude = $s_magnitude;
+        $post->type = $s_score;
+        $post->status = $s_magnitude;
+        $post->action = $s_score;
         $post->save();
 
         return $post;

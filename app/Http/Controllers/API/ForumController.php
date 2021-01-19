@@ -19,7 +19,7 @@ class ForumController extends Controller
         $tempForums = Forum::with('user')->get();
         $forums = array();
         foreach ($tempForums as $forum) {
-          $postCount = $forum->posts()->count();
+          $postCount = $forum->posts()->where('action', 'null')->count();
           $forum['postsCount'] = $postCount;
   
           $forums[] = $forum;
@@ -75,7 +75,7 @@ class ForumController extends Controller
   public function show($id)
   {
     $forum = Forum::where('id', $id)->first();
-    $tempPosts = Post::where('forum_id', $id)->with('user')->get(); 
+    $tempPosts = Post::where('forum_id', $id)->where('action', 'null')->with('user')->get(); 
 
     $posts = array();
     foreach ($tempPosts as $post) {
@@ -87,7 +87,7 @@ class ForumController extends Controller
       $posts[] = $post;
     }
 
-    $postCount = $forum->posts()->count();      
+    $postCount = $forum->posts()->where('action', 'null')->count();      
     $forum['postsCount'] = $postCount;
 
 

@@ -21,5 +21,25 @@ class AdminController extends Controller
          return $posts;
     }
 
+    public function review_post(Request $request, $id)
+    {
+
+        $action = 'reviewed';
+        $post = Post::find($id);
+        $post->title = $post->title;
+        $post->body = $post->body;
+        $post->user_id = $post->user_id;
+        $post->forum_id = $post->forum_id;
+        $post->s_score = $post->s_score;
+        $post->s_magnitude = $post->s_magnitude;
+        $post->type = $post->type;
+        $post->status =  $request->input('status');
+        $post->action = $action;
+        $post->save();
+
+        return $post;
+    }
+
+
   
 }
