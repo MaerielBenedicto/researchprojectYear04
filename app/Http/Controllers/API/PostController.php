@@ -50,18 +50,18 @@ class PostController extends Controller
     $body = $request->body;
     // $sentimentValues = $this->sentiment($body);
 
-    $s_score = -1;
-    $s_magnitude = 10;
+    //generate random values
+    $s_score = mt_rand(-1.0, 1.0);
+    $s_magnitude = mt_rand(1, 10);
 
-    if($s_score <= -0.6){
-      $type = 'high';
+    //negative sentiment
+    if($s_score <= -0.25 && $s_magnitude > .5) {
       $action = 'under review';
-      $status = 'null';
-    } else{
-      $type = 'normal';
-      $action = 'null';
-      $status = 'null';
-    } 
+      $status = 'pending';
+    } else {
+        $action = 'null';
+        $status = 'approved'; 
+    }
 
     $post = Post::create([
         'title' => $request->title,
@@ -73,7 +73,6 @@ class PostController extends Controller
         's_score' => $s_score,
         's_magnitude' =>  $s_magnitude,
         'status' => $status,
-        'type' => $type,
         'action' =>  $action
     ]);
 
@@ -94,20 +93,20 @@ class PostController extends Controller
         }
 
         $body = $request->input('body');
-
         // $sentimentValues = $this->sentiment($body);
-        $s_score = 0.7;
-        $s_magnitude = 10;
+
+        //generate random values
+        $s_score = mt_rand(-1.0, 1.0);
+        $s_magnitude = mt_rand(1, 10);
     
-        if($s_score <= -0.6){
-          $type = 'high';
+        //negative sentiment
+        if($s_score <= -0.25 && $s_magnitude > .5) {
           $action = 'under review';
-          $status = 'null';
+          $status = 'pending';
         } else {
-          $type = 'normal';
-          $action = 'null';
-          $status = 'null';
-        } 
+            $action = 'null';
+            $status = 'approved'; 
+        }
 
         $post = Post::find($id);
         $post->title = $request->input('title');
@@ -118,7 +117,6 @@ class PostController extends Controller
         // $post->s_magnitude = $sentimentValues['magnitude'];
         $post->s_score = $s_score;
         $post->s_magnitude = $s_magnitude;
-        $post->type = $s_score;
         $post->status = $s_magnitude;
         $post->action = $s_score;
         $post->save();
@@ -143,7 +141,7 @@ class PostController extends Controller
     else {
       return response()->json(
         [
-            'data' => $post, 'upvote' => $countUpvote, 'downvote' => $countDownvote
+            'data' => $post
         ],
         200);
     }
