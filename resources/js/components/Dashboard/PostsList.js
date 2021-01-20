@@ -34,17 +34,19 @@ class PostsList extends Component {
     }
 
     render(){
+        const awaitingApproval = this.state.posts.length;
         return (
             <div className="col-10 dash">
                 <div className="topbar row">
                     <div className="topbar-div col-12">
                         <h4>Posts</h4>
+                        <p className="float-right pb-4">Number of Posts awaiting approval: {awaitingApproval} </p> 
                     </div>
                 </div>
 
                 <div className="posts-lists col-12">
-                    <div className="post-heading">
-                        LISTS OF UNDER REVIEWS
+                    <div className="post-heading pt-5">
+                        Under Review Queue
                     </div>
                     <div className="posts-table">
                         <table className="table">

@@ -27,7 +27,12 @@ class Post extends Component {
 
     getPost(){
         axios.get('/api/posts/' + this.props.match.params.id)
-        .then(response => {        
+        .then(response => {    
+            if(response.data.data.action === "under review"){
+                this.setState({
+                    hide: true
+                });
+            }
             this.setState({
                 post: response.data.data,
                 isLoaded: true
@@ -48,7 +53,7 @@ class Post extends Component {
             headers: { Authorization: "Bearer " + token }
         })
         .then(response => {
-            console.log(response);
+            // console.log(response);
             this.props.history.push('/forums/'+ this.state.post.forum_id);   
 
         })
@@ -61,16 +66,19 @@ class Post extends Component {
     }
 
     render(){
+        const addClass = this.state.hide ? 'hide-post' : '';
+        const hideClass = this.state.hide ? '' : 'removeWarning';
         if(this.state.isLoaded){
             return (
                 <div className="body-content">
                     <div className="container"> 
                    <div className="row">
-                        <div className="post-detail col-9 py-3">
+                        <div className={'post-detail col-9 py-3 ' + addClass}>
                             <div className="row">
                                 <div className="col-12">
                                     <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png"/>
                                     <span> {this.state.post.user.name}</span>
+                                    <span>{ this.state.hide ? '' : "what" }</span>
                                     <Link to={{
                                         pathname: '/submit-post/' + this.props.match.params.id,
                                         state: {
@@ -93,6 +101,14 @@ class Post extends Component {
                                 <PostVote postId={this.state.post.id} user={this.props.user} voted={this.getPost}/>
                             </div>
                        </div>
+                       <div className={"row " + hideClass}>
+                                <div className={'col-6 warning-div'}>
+                                    <p className="warning-text">This  post is currently under review as it may contain abusive language.  
+                                        You are the only one that can view this post.  Edit this post or wait for the approval. </p>
+                                        <button onClick={()=> this.setState({hide: false})}>Close</button>
+                                </div>
+                                
+                            </div>
                     </div>
                         <Comments postId={this.props.match.params.id} user={this.props.user} />
                     </div>

@@ -23,10 +23,7 @@ class Sidebar extends Component {
                     <div className="sidebar-links">
                         <ul>
                             <li className="side-link">
-                            <Link to="/dashboard">Home</Link>
-                            </li>
-                            <li  className="side-link"> 
-                            <Link to="/dashboard/review">review posts</Link>
+                                <Link to="/dashboard">Home</Link>
                             </li>
                         </ul>    
                     </div>  

@@ -352,7 +352,30 @@ nav {
     height: 50px;
 }
 
+.hide-post{
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);    
+    background-color: #ccc;
+}
 
+
+.warning-div{
+    position: absolute;
+    top: 230px;
+    left: 230px;
+}
+
+.warning-text{
+    color: black; 
+    padding: auto;
+    text-align: center;
+}
+
+.removeWarning{
+    display: none;
+}
 /** COMMENT **/
 
 .comment-box{
@@ -496,7 +519,9 @@ nav {
 }
 
 
-
+.approval-list {
+    padding: 50px;
+}
 
 
 /*** DASHBOARD ****/
@@ -550,4 +575,19 @@ nav {
     padding: 10px;
     margin-right: 20px;
     margin-left: 20px;
+}
+
+.approve-bttn{
+    background-color: #5596E6;
+    margin-right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+
+}
+
+.denied-bttn{
+    background-color: #df6f6f;
+    padding: 10px 20px;
+    border-radius: 5px;
+
 }

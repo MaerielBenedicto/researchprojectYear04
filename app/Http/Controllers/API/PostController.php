@@ -117,8 +117,8 @@ class PostController extends Controller
         // $post->s_magnitude = $sentimentValues['magnitude'];
         $post->s_score = $s_score;
         $post->s_magnitude = $s_magnitude;
-        $post->status = $s_magnitude;
-        $post->action = $s_score;
+        $post->status = $status;
+        $post->action = $action;
         $post->save();
 
         return $post;

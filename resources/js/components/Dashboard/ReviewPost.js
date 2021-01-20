@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
+import Moment from 'react-moment';
 
 class ReviewPost extends Component {
     constructor(){
@@ -28,7 +29,8 @@ class ReviewPost extends Component {
         });
     }
 
-    changeStatus(status){
+    changeStatus(e){
+        const status = e.target.value;
         let token = localStorage.getItem('token');
         axios.put('/api/review/' + this.state.post.id, 
         {
@@ -51,42 +53,50 @@ class ReviewPost extends Component {
 
     render(){
         const post = this.state.post;
-        return (
-            <div className="col-10 dash">
-                <div className="topbar row">
-                    <div className="topbar-div col-12">
-                        <h4>Post # {this.props.match.params.id}</h4>
-                    </div>
-                </div>
-
-                <div className="posts-lists col-12">
-                    <h2>Under review</h2>
-                    <div className="row">
-                        <div className="user-data col-6">
-                            <p>Posted on: 18/01/2021</p>
-                            <p>User: Allyssa Daniel</p>
-                            <p>Email: allyssa@gmail.com</p>
-                        </div>
-
-                        <div className="user-data col-5">
-                            <p>Sentiment score: {post.s_score}</p>
-                            <p>Magnitude score: {post.s_magnitude}</p>
-                            <p>Sentiment: Negative </p>
+        if(this.state.isLoaded){
+            return (
+                <div className="col-10 dash">
+                    <div className="topbar row">
+                        <div className="topbar-div col-12">
+                            <h4>Post # {this.props.match.params.id}</h4>
                         </div>
                     </div>
-                    
-                    <div>
-                        <p>Title: {post.title}</p>
-                        <p>Body: {post.body}</p>
-                    </div>
-                    <div>
-                        <p>Action</p>
-                        <button onClick={() => this.changeStatus('approved')}>Approve</button>
-                        <button onClick={()=>this.changeStatus('denied')}>Deny</button>
+    
+                    <div className="posts-lists col-12">
+                        <h2>Under review</h2>
+                        <div className="row">
+                            <div className="user-data col-6">
+                                <p>Posted on: <Moment format="DD/MM/YYYY">{post.created_at}</Moment></p>
+                                <p>User: {post.user.name}</p>
+                                <p>Email: {post.user.email}</p>
+                            </div>
+    
+                            <div className="user-data col-5">
+                                <p>Sentiment score: {post.s_score}</p>
+                                <p>Magnitude score: {post.s_magnitude}</p>
+                                <p>Sentiment: Negative </p>
+                            </div>
+                        </div>
+                        
+                        <div className="row mt-3">
+                            <div className="user-data col-11">
+                                <p>Title: {post.title}</p>
+                                <p>Body: {post.body}</p>
+                            </div>
+                        </div>
+                        <div className="row mt-3 ml-2">
+                            <div className="col-5">
+                                <p>Action</p>
+                                <button value="approved" onClick={this.changeStatus} className="approve-bttn">Approve</button>
+                                <button value="denied" onClick={this.changeStatus}  className="denied-bttn">Deny</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return null;
+        }
     };
 }
 

@@ -73,7 +73,7 @@ class Comments extends Component {
             headers: { Authorization: "Bearer " + token }
         })
         .then(response => {
-            console.log(response);
+            // console.log(response);
             this.comments();
         })
         .catch(function(error){
@@ -97,7 +97,7 @@ class Comments extends Component {
             headers: { Authorization: "Bearer " + token }
         })
         .then(response => {
-            console.log(response);
+            // console.log(response);
             this.comments();
             this.setState({edit:false, editId:'', comment_value:'', comment: ''});
         })

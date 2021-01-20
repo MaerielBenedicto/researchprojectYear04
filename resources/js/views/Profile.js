@@ -19,14 +19,25 @@ class Profile extends Component {
     render(){
         return (
             <div className="body-content">
-                <div className="container profile-div"> 
-                    <h2>MY PROFILE</h2>
-                    <h4>{this.props.user.name}</h4>
-                    <h4>{this.props.user.email}</h4>
+                <div className="container"> 
+                <div className="row">
+
+                <div className="profile-div col-5">
+                        <h2>MY PROFILE</h2>
+                        <h4>{this.props.user.name}</h4>
+                        <h4>{this.props.user.email}</h4>
+                    </div>
+                    <div className="approval-list col-6">
+                        <h4> Waiting for Approval</h4>
+                        <h4> 2 Posts</h4>
+                    </div>
                 </div>
+                    
+                </div>
+
                 
-                <UserForums user={this.props.user}/>
-                <UserPosts user={this.props.user}/>
+                {/* <UserForums user={this.props.user}/> */}
+                {/* <UserPosts user={this.props.user}/> */}
 
             </div>
         )
