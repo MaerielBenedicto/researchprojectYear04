@@ -25,6 +25,12 @@ class Sidebar extends Component {
                             <li className="side-link">
                                 <Link to="/dashboard">Home</Link>
                             </li>
+                            <li className="side-link">
+                                <Link to="/dashboard/posts">Posts</Link>
+                            </li>
+                            <li className="side-link">
+                                <Link to="/dashboard/comments">Comments</Link>
+                            </li>
                         </ul>    
                     </div>  
                     

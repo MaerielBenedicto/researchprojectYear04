@@ -92,7 +92,7 @@ class CommentController extends Controller
   //view comment
   public function show($id)
   {
-    $comment = Comment::findOrFail($id);
+    $comment = Comment::with('user')->findOrFail($id);
     $countUpvote = $comment->comment_vote()->where('vote', '1')->count();
     $countDownvote = $comment->comment_vote()->where('vote', '-1')->count();
 

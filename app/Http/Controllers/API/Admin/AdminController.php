@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Comment;
+
 use Validator;
 
 class AdminController extends Controller
@@ -27,6 +29,26 @@ class AdminController extends Controller
 
         $nextPost = Post::with('user')->where('action', 'under review')->where('id', '>', $id)->get()->first();
         return $nextPost;
+    }
+
+    public function comments()
+    {
+         $comments = Comment::with('user')->where('action', 'under review')->get();
+         return $comments;
+    }
+
+    public function review_comment(Request $request, $id)
+    {
+        //set comment as reviewed
+        $action = 'reviewed';
+
+        $comment = Post::find($id);
+        $comment->status =  $request->input('status');
+        $comment->action = $action;
+        $comment->save();
+
+        $nextComment = Comment::with('user')->where('action', 'under review')->where('id', '>', $id)->get()->first();
+        return $nextComment;
     }
 
 

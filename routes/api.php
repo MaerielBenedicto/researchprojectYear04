@@ -71,6 +71,10 @@ Route::middleware('auth:api')->group(function () {
 
   //ADMIN 
   Route::get('posts', [AdminController::class, 'posts']);
-  Route::put('review/{post}', [AdminController::class, 'review_post']);
+  Route::put('review/post/{post}', [AdminController::class, 'review_post']);
+
+  Route::get('comments', [AdminController::class, 'comments']);
+  Route::put('review/comment/{comment}', [AdminController::class, 'review_comment']);
+
 
 });

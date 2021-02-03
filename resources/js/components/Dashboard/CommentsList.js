@@ -8,7 +8,7 @@ class CommentsList extends Component {
     constructor(){
         super();
         this.state = {
-            posts: []
+            comments: []
         };
     }
 
@@ -20,9 +20,9 @@ class CommentsList extends Component {
         })
         .then(response => {
             console.log(response);
-            const posts = response.data;
+            const comments = response.data;
             this.setState({
-                posts: posts
+                comments: comments
             });
           })
         .catch(function(error) {
@@ -34,7 +34,7 @@ class CommentsList extends Component {
     }
 
     render(){
-        const awaitingApproval = this.state.posts.length;
+        const awaitingApproval = this.state.comments.length;
         return (
             <div className="col-10 dash">
                 <div className="topbar row">
@@ -59,14 +59,14 @@ class CommentsList extends Component {
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
-                        {this.state.posts.map(item => (
+                        {this.state.comments.map(item => (
                         <tbody key={item.id}>
                           <tr>
                             <td ><Moment format="DD/MM/YYYY">{item.created_at}</Moment></td>
-                            <td>{item.title}</td>
+                            <td>{item.body}</td>
                             <td>{item.s_score}</td>
                             <td>{item.s_magnitude}</td>
-                            <td><button><Link to={"/dashboard/post/" + item.id}>Review</Link></button></td>
+                            <td><button><Link to={"/dashboard/comment/" + item.id}>Review</Link></button></td>
                           </tr>
                         </tbody>
                          ))}

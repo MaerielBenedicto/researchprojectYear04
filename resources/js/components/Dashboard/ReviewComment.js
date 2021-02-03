@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 import Moment from 'react-moment';
 
-class ReviewPost extends Component {
+class ReviewComment extends Component {
     constructor(){
         super();
         this.state = {
-            post: {},
+            comment: {},
             alert: null
         };
 
@@ -15,10 +15,15 @@ class ReviewPost extends Component {
     }
 
     componentDidMount(){
-        axios.get('/api/posts/' + this.props.match.params.id)
-        .then(response => {        
+        let token = localStorage.getItem('token');
+        axios.get('/api/comments/' + this.props.match.params.id,
+        {
+            headers: { Authorization: "Bearer " + token }
+        })
+        .then(response => {     
+            console.log('comment', response);   
             this.setState({
-                post: response.data.data,
+                comment: response.data.data,
                 isLoaded: true
             });
         })
@@ -33,7 +38,7 @@ class ReviewPost extends Component {
     changeStatus(e){
         const status = e.target.value;
         let token = localStorage.getItem('token');
-        axios.put('/api/review/post/' + this.state.post.id, 
+        axios.put('/api/review/comment/' + this.state.comment.id, 
         {
             status: status
         },
@@ -42,10 +47,10 @@ class ReviewPost extends Component {
         })
         .then((response) => {
             console.log(response.data);
-            const alert = this.state.post.title + " successfully " + status + "!";
+            const alert = "Comment #" + this.state.comment.id + " successfully " + status + "!";
 
             this.setState({
-                post: response.data,
+                comment: response.data,
                 alert: alert
             });
             // this.props.history.push('/posts/'+ response.data.id);   
@@ -59,13 +64,13 @@ class ReviewPost extends Component {
     }
 
     render(){
-        const post = this.state.post;
+        const comment = this.state.comment;
         if(this.state.isLoaded){
             return (
                 <div className="col-10 dash">
                     <div className="topbar row">
                         <div className="topbar-div col-12">
-                            <h4>Post # {post.id}</h4>
+                            <h4>Comment # {comment.id}</h4>
                         </div>
                     </div>
                     { this.state.alert && (
@@ -79,22 +84,21 @@ class ReviewPost extends Component {
                         <h2>Under review</h2>
                         <div className="row">
                             <div className="user-data col-6">
-                                <p>Posted on: <Moment format="DD/MM/YYYY">{post.created_at}</Moment></p>
-                                <p>User: {post.user.name}</p>
-                                <p>Email: {post.user.email}</p>
+                                <p>Posted on: <Moment format="DD/MM/YYYY">{comment.created_at}</Moment></p>
+                                <p>User: {comment.user.name}</p>
+                                <p>Email: {comment.user.email}</p>
                             </div>
     
                             <div className="user-data col-5">
-                                <p>Sentiment score: {post.s_score}</p>
-                                <p>Magnitude score: {post.s_magnitude}</p>
+                                <p>Sentiment score: {comment.s_score}</p>
+                                <p>Magnitude score: {comment.s_magnitude}</p>
                                 <p>Sentiment: Negative </p>
                             </div>
                         </div>
                         
                         <div className="row mt-3">
                             <div className="user-data col-11">
-                                <p>Title: {post.title}</p>
-                                <p>Body: {post.body}</p>
+                                <p>Body: {comment.body}</p>
                             </div>
                         </div>
                         <div className="row mt-3 ml-2">
@@ -113,4 +117,4 @@ class ReviewPost extends Component {
     };
 }
 
-export default withRouter(ReviewPost);
+export default withRouter(ReviewComment);
