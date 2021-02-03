@@ -22,10 +22,24 @@ class CommentFactory extends Factory
      */
     public function definition()
     {
+        $body = $this->faker->paragraph($nbSentences = 5, $variableNbSentences = true);
+        $s_score = $this->faker->randomFloat($nbMaxDecimals = 2, $min = -1.00, $max = 1.00);
+        $s_magnitude = $this->faker->randomFloat($nbMaxDecimals = 1, $min = 1, $max = 10);
+        //negative sentiment
+        if($s_score <= -0.25 && $s_magnitude > .5) {
+            $action = 'under review';
+            $status = 'pending';
+        } else {
+            $action = 'null';
+            $status = 'approved'; 
+        }
+
         return [
-            'body' => $this->faker->paragraph($nbSentences = 5, $variableNbSentences = true),
-            's_score' => $this->faker->randomFloat($nbMaxDecimals = 1, $min = -1.0, $max = 1.0),
-            's_magnitude' => $this->faker->randomFloat($nbMaxDecimals = 1, $min = 1, $max = 20)
+            'body' => $body,
+            's_score' => $s_score,
+            's_magnitude' => $s_magnitude,
+            'action' => $action,
+            'status' => $status
         ];
     }
 }
