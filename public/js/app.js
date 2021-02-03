@@ -108474,21 +108474,6 @@ var Comments = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: ""
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col comment-select"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "Sort"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-        className: "comment-select-button",
-        value: this.state.sort,
-        onChange: this.handleChange
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        disabled: true,
-        value: ""
-      }, "Sort by:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Popularity"
-      }, "Popularity"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: "Latest"
-      }, "Latest"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row mt-5"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment-box col-9 py-3"
@@ -108827,7 +108812,8 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this);
     _this.state = {
-      post: {}
+      post: {},
+      alert: null
     };
     _this.changeStatus = _this.changeStatus.bind(_assertThisInitialized(_this));
     return _this;
@@ -108853,6 +108839,8 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
   }, {
     key: "changeStatus",
     value: function changeStatus(e) {
+      var _this3 = this;
+
       var status = e.target.value;
       var token = localStorage.getItem('token');
       axios.put('/api/review/' + this.state.post.id, {
@@ -108862,7 +108850,14 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
           Authorization: "Bearer " + token
         }
       }).then(function (response) {
-        console.log(response.data); // this.props.history.push('/posts/'+ response.data.id);   
+        console.log(response.data);
+        var alert = _this3.state.post.title + " successfully " + status + "!";
+
+        _this3.setState({
+          post: response.data,
+          alert: alert
+        }); // this.props.history.push('/posts/'+ response.data.id);   
+
       })["catch"](function (error) {
         console.log(error);
 
@@ -108883,7 +108878,9 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
           className: "topbar row"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "topbar-div col-12"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Post # ", this.props.match.params.id))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Post # ", post.id))), this.state.alert && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "alert alert-info"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.alert)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "posts-lists col-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Under review"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
@@ -110195,7 +110192,7 @@ var Post = /*#__PURE__*/function (_Component) {
           className: "col-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: "https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.state.post.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.hide ? '' : "what"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, " ", this.state.post.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: {
             pathname: '/submit-post/' + this.props.match.params.id,
             state: {
@@ -110223,13 +110220,13 @@ var Post = /*#__PURE__*/function (_Component) {
           className: 'col-6 warning-div'
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "warning-text"
-        }, "This  post is currently under review as it may contain abusive language. You are the only one that can view this post.  Edit this post or wait for the approval. "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, "This  post is currently under review as it may contain abusive language. You are the only one that can view this post.  Edit this post or wait for admin approval. "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: function onClick() {
             return _this4.setState({
               hide: false
             });
           }
-        }, "Close")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }, "Close")))), !this.state.post.action == 'under review' && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
           postId: this.props.match.params.id,
           user: this.props.user
         })));
@@ -111067,8 +111064,7 @@ var App = /*#__PURE__*/function (_Component) {
     _this = _super.call(this);
     _this.state = {
       user: null,
-      isLoggedIn: false // isLoaded: false
-
+      isLoggedIn: false
     };
     _this.getUser = _this.getUser.bind(_assertThisInitialized(_this));
     _this.logout = _this.logout.bind(_assertThisInitialized(_this));

@@ -7,7 +7,8 @@ class ReviewPost extends Component {
     constructor(){
         super();
         this.state = {
-            post: {}
+            post: {},
+            alert: null
         };
 
         this.changeStatus = this.changeStatus.bind(this);
@@ -41,6 +42,12 @@ class ReviewPost extends Component {
         })
         .then((response) => {
             console.log(response.data);
+            const alert = this.state.post.title + " successfully " + status + "!";
+
+            this.setState({
+                post: response.data,
+                alert: alert
+            });
             // this.props.history.push('/posts/'+ response.data.id);   
           })
         .catch((error) => {
@@ -58,9 +65,15 @@ class ReviewPost extends Component {
                 <div className="col-10 dash">
                     <div className="topbar row">
                         <div className="topbar-div col-12">
-                            <h4>Post # {this.props.match.params.id}</h4>
+                            <h4>Post # {post.id}</h4>
                         </div>
                     </div>
+                    { this.state.alert && (
+                          <div className="alert alert-info">
+                          <span>{this.state.alert}</span>
+                     </div>
+                    )}
+                  
     
                     <div className="posts-lists col-12">
                         <h2>Under review</h2>

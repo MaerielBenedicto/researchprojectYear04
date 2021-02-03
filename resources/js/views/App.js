@@ -31,8 +31,6 @@ class App extends Component {
         this.state = {
             user: null,
             isLoggedIn: false,
-
-            // isLoaded: false
         }
 
         this.getUser = this.getUser.bind(this);

@@ -9,7 +9,7 @@ use Validator;
 
 class AdminController extends Controller
 {
-  public function posts()
+    public function posts()
     {
          $posts = Post::with('user')->where('action', 'under review')->get();
          return $posts;
@@ -21,17 +21,12 @@ class AdminController extends Controller
         $action = 'reviewed';
 
         $post = Post::find($id);
-        $post->title = $post->title;
-        $post->body = $post->body;
-        $post->user_id = $post->user_id;
-        $post->forum_id = $post->forum_id;
-        $post->s_score = $post->s_score;
-        $post->s_magnitude = $post->s_magnitude;
         $post->status =  $request->input('status');
         $post->action = $action;
         $post->save();
 
-        return $post;
+        $nextPost = Post::with('user')->where('action', 'under review')->where('id', '>', $id)->get()->first();
+        return $nextPost;
     }
 
 

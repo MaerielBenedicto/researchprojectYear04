@@ -11,9 +11,7 @@ class PrivateRoute extends Component {
         } else{
             return <Redirect to={'/signin'} />
         }
-        
     };
-
 
 }
 

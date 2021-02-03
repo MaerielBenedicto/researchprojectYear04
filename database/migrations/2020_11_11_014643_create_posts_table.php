@@ -24,7 +24,6 @@ class CreatePostsTable extends Migration
           $table->set('status', ['approved', 'denied', 'pending']);
           $table->set('action', ['under review', 'reviewed', 'null']);
 
-
           $table->timestamps();
 
           $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');

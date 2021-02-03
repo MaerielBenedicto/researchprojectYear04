@@ -55,7 +55,6 @@ class Post extends Component {
         .then(response => {
             // console.log(response);
             this.props.history.push('/forums/'+ this.state.post.forum_id);   
-
         })
         .catch(function(error){
             if(error){
@@ -78,7 +77,6 @@ class Post extends Component {
                                 <div className="col-12">
                                     <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png"/>
                                     <span> {this.state.post.user.name}</span>
-                                    <span>{ this.state.hide ? '' : "what" }</span>
                                     <Link to={{
                                         pathname: '/submit-post/' + this.props.match.params.id,
                                         state: {
@@ -104,13 +102,15 @@ class Post extends Component {
                        <div className={"row " + hideClass}>
                                 <div className={'col-6 warning-div'}>
                                     <p className="warning-text">This  post is currently under review as it may contain abusive language.  
-                                        You are the only one that can view this post.  Edit this post or wait for the approval. </p>
+                                        You are the only one that can view this post.  Edit this post or wait for admin approval. </p>
                                         <button onClick={()=> this.setState({hide: false})}>Close</button>
                                 </div>
-                                
                             </div>
                     </div>
+                    { !this.state.post.action == 'under review' && (
                         <Comments postId={this.props.match.params.id} user={this.props.user} />
+                    )}  
+                        
                     </div>
                 </div>
             )
