@@ -5,36 +5,11 @@ import Moment from 'react-moment';
 import { withRouter, Link } from "react-router-dom";
 
 class CommentsList extends Component {
-    constructor(){
-        super();
-        this.state = {
-            comments: []
-        };
-    }
-
-    componentDidMount(){
-        let token = localStorage.getItem('token');
-        axios.get('/api/comments', 
-        {
-            headers: { Authorization: "Bearer " + token }
-        })
-        .then(response => {
-            console.log(response);
-            const comments = response.data;
-            this.setState({
-                comments: comments
-            });
-          })
-        .catch(function(error) {
-            console.log(error);
-            if(error){
-                console.log(error);
-            } 
-        });
-    }
 
     render(){
-        const awaitingApproval = this.state.comments.length;
+        const comments = this.props.comments;
+        const awaitingApproval = comments.length;
+
         return (
             <div className="col-10 dash">
                 <div className="topbar row">
@@ -59,7 +34,7 @@ class CommentsList extends Component {
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
-                        {this.state.comments.map(item => (
+                        {comments.map(item => (
                         <tbody key={item.id}>
                           <tr>
                             <td ><Moment format="DD/MM/YYYY">{item.created_at}</Moment></td>

@@ -53,7 +53,6 @@ class ReviewComment extends Component {
                 comment: response.data,
                 alert: alert
             });
-            // this.props.history.push('/posts/'+ response.data.id);   
           })
         .catch((error) => {
             console.log(error);

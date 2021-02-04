@@ -5,36 +5,10 @@ import Moment from 'react-moment';
 import { withRouter, Link } from "react-router-dom";
 
 class PostsList extends Component {
-    constructor(){
-        super();
-        this.state = {
-            posts: []
-        };
-    }
-
-    componentDidMount(){
-        let token = localStorage.getItem('token');
-        axios.get('/api/posts', 
-        {
-            headers: { Authorization: "Bearer " + token }
-        })
-        .then(response => {
-            console.log(response);
-            const posts = response.data;
-            this.setState({
-                posts: posts
-            });
-          })
-        .catch(function(error) {
-            console.log(error);
-            if(error){
-                console.log(error);
-            } 
-        });
-    }
-
     render(){
-        const awaitingApproval = this.state.posts.length;
+        const posts = this.props.posts;
+        const awaitingApproval = posts.length;
+
         return (
             <div className="col-10 dash">
                 <div className="topbar row">
@@ -59,7 +33,7 @@ class PostsList extends Component {
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
-                        {this.state.posts.map(item => (
+                        {posts.map(item => (
                         <tbody key={item.id}>
                           <tr>
                             <td ><Moment format="DD/MM/YYYY">{item.created_at}</Moment></td>

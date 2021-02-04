@@ -14,11 +14,60 @@ class Dashboard extends Component {
     constructor(){
         super();
         this.state = {
+            posts: [],
+            comments: []
         };
+
+        this.posts = this.posts.bind(this);
+        this.comments = this.comments.bind(this);
+
     }
 
     componentDidMount(){
-       
+       this.posts();
+       this.comments();
+    }
+
+    posts(){
+        let token = localStorage.getItem('token');
+        axios.get('/api/posts', 
+        {
+            headers: { Authorization: "Bearer " + token }
+        })
+        .then(response => {
+            console.log(response);
+            const posts = response.data;
+            this.setState({
+                posts: posts
+            });
+          })
+        .catch(function(error) {
+            console.log(error);
+            if(error){
+                console.log(error);
+            } 
+        });
+    }
+
+    comments(){
+        let token = localStorage.getItem('token');
+        axios.get('/api/comments', 
+        {
+            headers: { Authorization: "Bearer " + token }
+        })
+        .then(response => {
+            console.log(response);
+            const comments = response.data;
+            this.setState({
+                comments: comments
+            });
+          })
+        .catch(function(error) {
+            console.log(error);
+            if(error){
+                console.log(error);
+            } 
+        });
     }
 
     render(){
@@ -31,10 +80,10 @@ class Dashboard extends Component {
                             <Home />
                         </Route>
                         <Route exact path="/dashboard/posts">
-                            <PostsList />
+                            <PostsList posts={this.state.posts}/>
                         </Route>
                         <Route exact path="/dashboard/comments">
-                            <CommentsList />
+                            <CommentsList comments={this.state.comments}/>
                         </Route>
                         <Route exact path="/dashboard/post/:id">
                             <ReviewPost />

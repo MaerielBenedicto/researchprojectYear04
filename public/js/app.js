@@ -108586,46 +108586,16 @@ var CommentsList = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(CommentsList);
 
   function CommentsList() {
-    var _this;
-
     _classCallCheck(this, CommentsList);
 
-    _this = _super.call(this);
-    _this.state = {
-      comments: []
-    };
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(CommentsList, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var token = localStorage.getItem('token');
-      axios.get('/api/comments', {
-        headers: {
-          Authorization: "Bearer " + token
-        }
-      }).then(function (response) {
-        console.log(response);
-        var comments = response.data;
-
-        _this2.setState({
-          comments: comments
-        });
-      })["catch"](function (error) {
-        console.log(error);
-
-        if (error) {
-          console.log(error);
-        }
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      var awaitingApproval = this.state.comments.length;
+      var comments = this.props.comments;
+      var awaitingApproval = comments.length;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-10 dash"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -108652,7 +108622,7 @@ var CommentsList = /*#__PURE__*/function (_Component) {
         scope: "col"
       }, "Sentiment Magnitude"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         scope: "col"
-      }, "Action"))), this.state.comments.map(function (item) {
+      }, "Action"))), comments.map(function (item) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
           key: item.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_moment__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -108734,13 +108704,71 @@ var Dashboard = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, Dashboard);
 
     _this = _super.call(this);
-    _this.state = {};
+    _this.state = {
+      posts: [],
+      comments: []
+    };
+    _this.posts = _this.posts.bind(_assertThisInitialized(_this));
+    _this.comments = _this.comments.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Dashboard, [{
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      this.posts();
+      this.comments();
+    }
+  }, {
+    key: "posts",
+    value: function posts() {
+      var _this2 = this;
+
+      var token = localStorage.getItem('token');
+      axios.get('/api/posts', {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        console.log(response);
+        var posts = response.data;
+
+        _this2.setState({
+          posts: posts
+        });
+      })["catch"](function (error) {
+        console.log(error);
+
+        if (error) {
+          console.log(error);
+        }
+      });
+    }
+  }, {
+    key: "comments",
+    value: function comments() {
+      var _this3 = this;
+
+      var token = localStorage.getItem('token');
+      axios.get('/api/comments', {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      }).then(function (response) {
+        console.log(response);
+        var comments = response.data;
+
+        _this3.setState({
+          comments: comments
+        });
+      })["catch"](function (error) {
+        console.log(error);
+
+        if (error) {
+          console.log(error);
+        }
+      });
+    }
   }, {
     key: "render",
     value: function render() {
@@ -108752,10 +108780,14 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/dashboard/posts"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostsList__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostsList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        posts: this.state.posts
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/dashboard/comments"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CommentsList__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CommentsList__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        comments: this.state.comments
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/dashboard/post/:id"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReviewPost__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
@@ -108893,46 +108925,16 @@ var PostsList = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(PostsList);
 
   function PostsList() {
-    var _this;
-
     _classCallCheck(this, PostsList);
 
-    _this = _super.call(this);
-    _this.state = {
-      posts: []
-    };
-    return _this;
+    return _super.apply(this, arguments);
   }
 
   _createClass(PostsList, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var token = localStorage.getItem('token');
-      axios.get('/api/posts', {
-        headers: {
-          Authorization: "Bearer " + token
-        }
-      }).then(function (response) {
-        console.log(response);
-        var posts = response.data;
-
-        _this2.setState({
-          posts: posts
-        });
-      })["catch"](function (error) {
-        console.log(error);
-
-        if (error) {
-          console.log(error);
-        }
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      var awaitingApproval = this.state.posts.length;
+      var posts = this.props.posts;
+      var awaitingApproval = posts.length;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-10 dash"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -108959,7 +108961,7 @@ var PostsList = /*#__PURE__*/function (_Component) {
         scope: "col"
       }, "Sentiment Magnitude"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         scope: "col"
-      }, "Action"))), this.state.posts.map(function (item) {
+      }, "Action"))), posts.map(function (item) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
           key: item.id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_moment__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -109084,8 +109086,7 @@ var ReviewComment = /*#__PURE__*/function (_Component) {
         _this3.setState({
           comment: response.data,
           alert: alert
-        }); // this.props.history.push('/posts/'+ response.data.id);   
-
+        });
       })["catch"](function (error) {
         console.log(error);
 
