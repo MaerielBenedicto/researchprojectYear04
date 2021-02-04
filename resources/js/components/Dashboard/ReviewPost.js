@@ -15,25 +15,25 @@ class ReviewPost extends Component {
     }
 
     componentDidMount(){
-        axios.get('/api/posts/' + this.props.match.params.id)
-        .then(response => {        
-            this.setState({
-                post: response.data.data,
-                isLoaded: true
-            });
-        })
-        .catch(function(error){
-            if(error){
-                console.log(error);
-                this.state.errors = error.response.data.errors;
-            } 
-        });
+        // axios.get('/api/posts/' + this.props.match.params.id)
+        // .then(response => {        
+        //     this.setState({
+        //         post: response.data.data,
+        //         isLoaded: true
+        //     });
+        // })
+        // .catch(function(error){
+        //     if(error){
+        //         console.log(error);
+        //         this.state.errors = error.response.data.errors;
+        //     } 
+        // });
     }
 
     changeStatus(e){
         const status = e.target.value;
         let token = localStorage.getItem('token');
-        axios.put('/api/review/post/' + this.state.post.id, 
+        axios.put('/api/review/post/' + this.props.match.params.id, 
         {
             status: status
         },
@@ -48,7 +48,6 @@ class ReviewPost extends Component {
                 post: response.data,
                 alert: alert
             });
-            // this.props.history.push('/posts/'+ response.data.id);   
           })
         .catch((error) => {
             console.log(error);
@@ -59,8 +58,11 @@ class ReviewPost extends Component {
     }
 
     render(){
-        const post = this.state.post;
-        if(this.state.isLoaded){
+
+        const posts = this.props.posts;
+        const post_id = parseInt(this.props.match.params.id);
+        const post = posts.find(post => post.id === post_id);
+
             return (
                 <div className="col-10 dash">
                     <div className="topbar row">
@@ -107,9 +109,6 @@ class ReviewPost extends Component {
                     </div>
                 </div>
             )
-        } else {
-            return null;
-        }
     };
 }
 

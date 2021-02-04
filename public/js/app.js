@@ -108708,60 +108708,38 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       posts: [],
       comments: []
     };
-    _this.posts = _this.posts.bind(_assertThisInitialized(_this));
-    _this.comments = _this.comments.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Dashboard, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.posts();
-      this.comments();
-    }
-  }, {
-    key: "posts",
-    value: function posts() {
       var _this2 = this;
 
       var token = localStorage.getItem('token');
-      axios.get('/api/posts', {
+      axios.all([axios.get('/api/posts', {
         headers: {
           Authorization: "Bearer " + token
         }
-      }).then(function (response) {
-        console.log(response);
-        var posts = response.data;
+      }), axios.get('/api/comments', {
+        headers: {
+          Authorization: "Bearer " + token
+        }
+      })]).then(axios.spread(function (posts, comments) {
+        console.log('posts', posts);
+        var postsData = posts.data;
 
         _this2.setState({
-          posts: posts
+          posts: postsData
         });
-      })["catch"](function (error) {
-        console.log(error);
 
-        if (error) {
-          console.log(error);
-        }
-      });
-    }
-  }, {
-    key: "comments",
-    value: function comments() {
-      var _this3 = this;
+        console.log('comments', comments);
+        var commentsData = comments.data;
 
-      var token = localStorage.getItem('token');
-      axios.get('/api/comments', {
-        headers: {
-          Authorization: "Bearer " + token
-        }
-      }).then(function (response) {
-        console.log(response);
-        var comments = response.data;
-
-        _this3.setState({
-          comments: comments
+        _this2.setState({
+          comments: commentsData
         });
-      })["catch"](function (error) {
+      }))["catch"](function (error) {
         console.log(error);
 
         if (error) {
@@ -108790,10 +108768,14 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/dashboard/post/:id"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReviewPost__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReviewPost__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        posts: this.state.posts
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/dashboard/comment/:id"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReviewComment__WEBPACK_IMPORTED_MODULE_8__["default"], null)))));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReviewComment__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        comments: this.state.comments
+      })))));
     }
   }]);
 
@@ -109043,37 +109025,13 @@ var ReviewComment = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(ReviewComment, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var token = localStorage.getItem('token');
-      axios.get('/api/comments/' + this.props.match.params.id, {
-        headers: {
-          Authorization: "Bearer " + token
-        }
-      }).then(function (response) {
-        console.log('comment', response);
-
-        _this2.setState({
-          comment: response.data.data,
-          isLoaded: true
-        });
-      })["catch"](function (error) {
-        if (error) {
-          console.log(error);
-          this.state.errors = error.response.data.errors;
-        }
-      });
-    }
-  }, {
     key: "changeStatus",
     value: function changeStatus(e) {
-      var _this3 = this;
+      var _this2 = this;
 
       var status = e.target.value;
       var token = localStorage.getItem('token');
-      axios.put('/api/review/comment/' + this.state.comment.id, {
+      axios.put('/api/review/comment/' + this.props.match.params.id, {
         status: status
       }, {
         headers: {
@@ -109081,9 +109039,9 @@ var ReviewComment = /*#__PURE__*/function (_Component) {
         }
       }).then(function (response) {
         console.log(response.data);
-        var alert = "Comment #" + _this3.state.comment.id + " successfully " + status + "!";
+        var alert = "Comment #" + _this2.state.comment.id + " successfully " + status + "!";
 
-        _this3.setState({
+        _this2.setState({
           comment: response.data,
           alert: alert
         });
@@ -109098,47 +109056,46 @@ var ReviewComment = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var comment = this.state.comment;
-
-      if (this.state.isLoaded) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-10 dash"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "topbar row"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "topbar-div col-12"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Comment # ", comment.id))), this.state.alert && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "alert alert-info"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.alert)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "posts-lists col-12"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Under review"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "user-data col-6"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Posted on: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_moment__WEBPACK_IMPORTED_MODULE_3___default.a, {
-          format: "DD/MM/YYYY"
-        }, comment.created_at)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "User: ", comment.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Email: ", comment.user.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "user-data col-5"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sentiment score: ", comment.s_score), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Magnitude score: ", comment.s_magnitude), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sentiment: Negative "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row mt-3"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "user-data col-11"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Body: ", comment.body))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row mt-3 ml-2"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-5"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Action"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          value: "approved",
-          onClick: this.changeStatus,
-          className: "approve-bttn"
-        }, "Approve"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          value: "denied",
-          onClick: this.changeStatus,
-          className: "denied-bttn"
-        }, "Deny")))));
-      } else {
-        return null;
-      }
+      var comments = this.props.comments;
+      var comment_id = parseInt(this.props.match.params.id);
+      var comment = comments.find(function (comment) {
+        return comment.id === comment_id;
+      });
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-10 dash"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "topbar row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "topbar-div col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Comment # ", comment.id))), this.state.alert && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alert alert-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.alert)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "posts-lists col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Under review"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-data col-6"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Posted on: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_moment__WEBPACK_IMPORTED_MODULE_3___default.a, {
+        format: "DD/MM/YYYY"
+      }, comment.created_at)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "User: ", comment.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Email: ", comment.user.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-data col-5"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sentiment score: ", comment.s_score), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Magnitude score: ", comment.s_magnitude), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sentiment: Negative "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-3"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-data col-11"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Body: ", comment.body))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-3 ml-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-5"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Action"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        value: "approved",
+        onClick: this.changeStatus,
+        className: "approve-bttn"
+      }, "Approve"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        value: "denied",
+        onClick: this.changeStatus,
+        className: "denied-bttn"
+      }, "Deny")))));
     }
   }]);
 
@@ -109213,29 +109170,28 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
 
   _createClass(ReviewPost, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      axios.get('/api/posts/' + this.props.match.params.id).then(function (response) {
-        _this2.setState({
-          post: response.data.data,
-          isLoaded: true
-        });
-      })["catch"](function (error) {
-        if (error) {
-          console.log(error);
-          this.state.errors = error.response.data.errors;
-        }
-      });
+    value: function componentDidMount() {// axios.get('/api/posts/' + this.props.match.params.id)
+      // .then(response => {        
+      //     this.setState({
+      //         post: response.data.data,
+      //         isLoaded: true
+      //     });
+      // })
+      // .catch(function(error){
+      //     if(error){
+      //         console.log(error);
+      //         this.state.errors = error.response.data.errors;
+      //     } 
+      // });
     }
   }, {
     key: "changeStatus",
     value: function changeStatus(e) {
-      var _this3 = this;
+      var _this2 = this;
 
       var status = e.target.value;
       var token = localStorage.getItem('token');
-      axios.put('/api/review/post/' + this.state.post.id, {
+      axios.put('/api/review/post/' + this.props.match.params.id, {
         status: status
       }, {
         headers: {
@@ -109243,13 +109199,12 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
         }
       }).then(function (response) {
         console.log(response.data);
-        var alert = _this3.state.post.title + " successfully " + status + "!";
+        var alert = _this2.state.post.title + " successfully " + status + "!";
 
-        _this3.setState({
+        _this2.setState({
           post: response.data,
           alert: alert
-        }); // this.props.history.push('/posts/'+ response.data.id);   
-
+        });
       })["catch"](function (error) {
         console.log(error);
 
@@ -109261,47 +109216,46 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var post = this.state.post;
-
-      if (this.state.isLoaded) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-10 dash"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "topbar row"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "topbar-div col-12"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Post # ", post.id))), this.state.alert && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "alert alert-info"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.alert)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "posts-lists col-12"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Under review"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "user-data col-6"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Posted on: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_moment__WEBPACK_IMPORTED_MODULE_3___default.a, {
-          format: "DD/MM/YYYY"
-        }, post.created_at)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "User: ", post.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Email: ", post.user.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "user-data col-5"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sentiment score: ", post.s_score), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Magnitude score: ", post.s_magnitude), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sentiment: Negative "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row mt-3"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "user-data col-11"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Title: ", post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Body: ", post.body))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "row mt-3 ml-2"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "col-5"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Action"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          value: "approved",
-          onClick: this.changeStatus,
-          className: "approve-bttn"
-        }, "Approve"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          value: "denied",
-          onClick: this.changeStatus,
-          className: "denied-bttn"
-        }, "Deny")))));
-      } else {
-        return null;
-      }
+      var posts = this.props.posts;
+      var post_id = parseInt(this.props.match.params.id);
+      var post = posts.find(function (post) {
+        return post.id === post_id;
+      });
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-10 dash"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "topbar row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "topbar-div col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Post # ", post.id))), this.state.alert && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "alert alert-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.state.alert)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "posts-lists col-12"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Under review"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-data col-6"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Posted on: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_moment__WEBPACK_IMPORTED_MODULE_3___default.a, {
+        format: "DD/MM/YYYY"
+      }, post.created_at)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "User: ", post.user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Email: ", post.user.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-data col-5"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sentiment score: ", post.s_score), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Magnitude score: ", post.s_magnitude), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Sentiment: Negative "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-3"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-data col-11"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Title: ", post.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Body: ", post.body))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-3 ml-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-5"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Action"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        value: "approved",
+        onClick: this.changeStatus,
+        className: "approve-bttn"
+      }, "Approve"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        value: "denied",
+        onClick: this.changeStatus,
+        className: "denied-bttn"
+      }, "Deny")))));
     }
   }]);
 

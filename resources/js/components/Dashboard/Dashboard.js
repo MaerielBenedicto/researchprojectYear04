@@ -11,85 +11,64 @@ import ReviewComment from './ReviewComment';
 
 
 class Dashboard extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             posts: [],
             comments: []
         };
-
-        this.posts = this.posts.bind(this);
-        this.comments = this.comments.bind(this);
-
     }
 
-    componentDidMount(){
-       this.posts();
-       this.comments();
-    }
-
-    posts(){
+    componentDidMount() {
         let token = localStorage.getItem('token');
-        axios.get('/api/posts', 
-        {
-            headers: { Authorization: "Bearer " + token }
-        })
-        .then(response => {
-            console.log(response);
-            const posts = response.data;
-            this.setState({
-                posts: posts
-            });
-          })
-        .catch(function(error) {
-            console.log(error);
-            if(error){
+
+        axios.all([
+            axios.get('/api/posts',
+                { headers: { Authorization: "Bearer " + token } }),
+            axios.get('/api/comments',
+                { headers: { Authorization: "Bearer " + token } })
+        ])
+            .then(axios.spread((posts, comments) => {
+                console.log('posts', posts);
+                const postsData = posts.data;
+                this.setState({
+                    posts: postsData
+                });
+
+                console.log('comments', comments);
+                const commentsData = comments.data;
+                this.setState({
+                    comments: commentsData
+                });
+            }))
+            .catch(function (error) {
                 console.log(error);
-            } 
-        });
+                if (error) {
+                    console.log(error);
+                }
+            });
     }
 
-    comments(){
-        let token = localStorage.getItem('token');
-        axios.get('/api/comments', 
-        {
-            headers: { Authorization: "Bearer " + token }
-        })
-        .then(response => {
-            console.log(response);
-            const comments = response.data;
-            this.setState({
-                comments: comments
-            });
-          })
-        .catch(function(error) {
-            console.log(error);
-            if(error){
-                console.log(error);
-            } 
-        });
-    }
-
-    render(){
+    render() {
         return (
             <div className="App dashboard">
                 <Router>
                     <Sidebar />
                     <Switch>
-                    <Route exact path="/dashboard">
+                        <Route exact path="/dashboard">
                             <Home />
                         </Route>
                         <Route exact path="/dashboard/posts">
-                            <PostsList posts={this.state.posts}/>
+                            <PostsList posts={this.state.posts} />
                         </Route>
                         <Route exact path="/dashboard/comments">
-                            <CommentsList comments={this.state.comments}/>
+                            <CommentsList comments={this.state.comments} />
                         </Route>
                         <Route exact path="/dashboard/post/:id">
-                            <ReviewPost />
+                            <ReviewPost posts={this.state.posts} />
                         </Route>
                         <Route exact path="/dashboard/comment/:id">
-                            <ReviewComment />
+                            <ReviewComment comments={this.state.comments} />
                         </Route>
                     </Switch>
                 </Router>
