@@ -15,8 +15,11 @@ class Dashboard extends Component {
         super();
         this.state = {
             posts: [],
-            comments: []
+            comments: [],
+            isLoaded: false
         };
+        this.changePostStatusSuccess = this.changePostStatusSuccess.bind(this);
+        this.changeCommentStatusSuccess = this.changeCommentStatusSuccess.bind(this);
     }
 
     componentDidMount() {
@@ -30,15 +33,13 @@ class Dashboard extends Component {
         ])
             .then(axios.spread((posts, comments) => {
                 console.log('posts', posts);
-                const postsData = posts.data;
-                this.setState({
-                    posts: postsData
-                });
-
                 console.log('comments', comments);
+                const postsData = posts.data;
                 const commentsData = comments.data;
                 this.setState({
-                    comments: commentsData
+                    posts: postsData,
+                    comments: commentsData,
+                    isLoaded: true
                 });
             }))
             .catch(function (error) {
@@ -49,31 +50,70 @@ class Dashboard extends Component {
             });
     }
 
+    changePostStatusSuccess(data) {
+        console.log('data', data);
+        //if post is approved, remove post from list
+        if(data.status === 'approved'){
+            let tempPosts = this.state.posts;
+            //get rid of old post
+            tempPosts.splice(tempPosts.findIndex(post => post.id == data.id), 1);
+            this.setState({
+                posts: tempPosts
+            });
+        }
+    }
+
+    changeCommentStatusSuccess(data) {
+        console.log('data', data);
+        //if post is approved, remove post from list
+        if(data.status === 'approved'){
+            let tempComments = this.state.comments;
+            //get rid of old post
+            tempComments.splice(tempComments.findIndex(comment => comment.id == data.id), 1);
+            this.setState({
+                comments: tempComments
+            });
+        }
+    }
+
+
     render() {
-        return (
-            <div className="App dashboard">
-                <Router>
-                    <Sidebar />
-                    <Switch>
-                        <Route exact path="/dashboard">
-                            <Home />
-                        </Route>
-                        <Route exact path="/dashboard/posts">
-                            <PostsList posts={this.state.posts} />
-                        </Route>
-                        <Route exact path="/dashboard/comments">
-                            <CommentsList comments={this.state.comments} />
-                        </Route>
-                        <Route exact path="/dashboard/post/:id">
-                            <ReviewPost posts={this.state.posts} />
-                        </Route>
-                        <Route exact path="/dashboard/comment/:id">
-                            <ReviewComment comments={this.state.comments} />
-                        </Route>
-                    </Switch>
-                </Router>
-            </div>
-        )
+        if (this.state.isLoaded) {
+            return (
+                <div className="App dashboard">
+                    <Router>
+                        <Sidebar />
+                        <Switch>
+                            <Route exact path="/dashboard">
+                                <Home />
+                            </Route>
+                            <Route exact path="/dashboard/posts">
+                                <PostsList posts={this.state.posts} />
+                            </Route>
+                            <Route exact path="/dashboard/comments">
+                                <CommentsList comments={this.state.comments} />
+                            </Route>
+                            <Route exact path="/dashboard/post/:id">
+                                <ReviewPost
+                                    posts={this.state.posts}
+                                    changeStatusSuccess={this.changePostStatusSuccess}
+                                />
+                            </Route>
+                            <Route exact path="/dashboard/comment/:id">
+                                <ReviewComment 
+                                    comments={this.state.comments} 
+                                    changeStatusSuccess={this.changeCommentStatusSuccess}    
+                                />
+                            </Route>
+                        </Switch>
+                    </Router>
+                </div>
+            )
+        }
+        else {
+            return <div> <Router><Sidebar /></Router></div>;
+        }
+
     };
 }
 

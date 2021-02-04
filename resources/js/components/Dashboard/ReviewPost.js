@@ -4,36 +4,25 @@ import { withRouter, Link } from "react-router-dom";
 import Moment from 'react-moment';
 
 class ReviewPost extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+        const posts = props.posts;
+        const post_id = parseInt(props.match.params.id);
+        const post = posts.find(post => post.id === post_id);
+
         this.state = {
-            post: {},
+            post: post,
             alert: null
         };
 
         this.changeStatus = this.changeStatus.bind(this);
     }
 
-    componentDidMount(){
-        // axios.get('/api/posts/' + this.props.match.params.id)
-        // .then(response => {        
-        //     this.setState({
-        //         post: response.data.data,
-        //         isLoaded: true
-        //     });
-        // })
-        // .catch(function(error){
-        //     if(error){
-        //         console.log(error);
-        //         this.state.errors = error.response.data.errors;
-        //     } 
-        // });
-    }
 
     changeStatus(e){
         const status = e.target.value;
         let token = localStorage.getItem('token');
-        axios.put('/api/review/post/' + this.props.match.params.id, 
+        axios.put('/api/review/post/' + this.state.post.id, 
         {
             status: status
         },
@@ -42,12 +31,14 @@ class ReviewPost extends Component {
         })
         .then((response) => {
             console.log(response.data);
-            const alert = this.state.post.title + " successfully " + status + "!";
-
+            const alert = "Post #"+ this.state.post.id + " successfully " + status + "!";
+            
             this.setState({
-                post: response.data,
+                post: response.data.nextPost,
                 alert: alert
             });
+            this.props.changeStatusSuccess(response.data.post);
+            this.props.history.push(''+ this.state.post.id);
           })
         .catch((error) => {
             console.log(error);
@@ -58,11 +49,7 @@ class ReviewPost extends Component {
     }
 
     render(){
-
-        const posts = this.props.posts;
-        const post_id = parseInt(this.props.match.params.id);
-        const post = posts.find(post => post.id === post_id);
-
+            const post = this.state.post;
             return (
                 <div className="col-10 dash">
                     <div className="topbar row">

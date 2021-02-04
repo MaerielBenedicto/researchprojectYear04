@@ -4,10 +4,13 @@ import { withRouter, Link } from "react-router-dom";
 import Moment from 'react-moment';
 
 class ReviewComment extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        const comments = props.comments;
+        const comment_id = parseInt(props.match.params.id);
+        const comment = comments.find(comment => comment.id === comment_id);
         this.state = {
-            comment: {},
+            comment: comment,
             alert: null
         };
 
@@ -17,7 +20,7 @@ class ReviewComment extends Component {
     changeStatus(e) {
         const status = e.target.value;
         let token = localStorage.getItem('token');
-        axios.put('/api/review/comment/' + this.props.match.params.id,
+        axios.put('/api/review/comment/' + this.state.comment.id,
             {
                 status: status
             },
@@ -29,9 +32,11 @@ class ReviewComment extends Component {
                 const alert = "Comment #" + this.state.comment.id + " successfully " + status + "!";
 
                 this.setState({
-                    comment: response.data,
+                    comment: response.data.nextComment,
                     alert: alert
                 });
+                this.props.changeStatusSuccess(response.data.comment);
+                this.props.history.push(''+ this.state.comment.id);
             })
             .catch((error) => {
                 console.log(error);
@@ -42,9 +47,7 @@ class ReviewComment extends Component {
     }
 
     render() {
-        const comments = this.props.comments;
-        const comment_id = parseInt(this.props.match.params.id);
-        const comment = comments.find(comment => comment.id === comment_id);
+        const comment = this.state.comment;
 
         return (
             <div className="col-10 dash">

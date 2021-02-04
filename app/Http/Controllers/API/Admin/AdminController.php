@@ -28,7 +28,14 @@ class AdminController extends Controller
         $post->save();
 
         $nextPost = Post::with('user')->where('action', 'under review')->where('id', '>', $id)->get()->first();
-        return $nextPost;
+        // return $nextPost;
+
+        return response()->json(
+            [
+                'post' => $post,
+                'nextPost' => $nextPost
+            ],
+            200);
     }
 
     public function comments()
@@ -42,13 +49,21 @@ class AdminController extends Controller
         //set comment as reviewed
         $action = 'reviewed';
 
-        $comment = Post::find($id);
+        $comment = Comment::find($id);
         $comment->status =  $request->input('status');
         $comment->action = $action;
         $comment->save();
 
         $nextComment = Comment::with('user')->where('action', 'under review')->where('id', '>', $id)->get()->first();
-        return $nextComment;
+        // return $nextComment;
+        return response()->json(
+            [
+                'comment' => $comment,
+                'nextComment' => $nextComment
+            ],
+        200);
+
+        
     }
 
 

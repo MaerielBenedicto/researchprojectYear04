@@ -108706,8 +108706,11 @@ var Dashboard = /*#__PURE__*/function (_Component) {
     _this = _super.call(this);
     _this.state = {
       posts: [],
-      comments: []
+      comments: [],
+      isLoaded: false
     };
+    _this.changePostStatusSuccess = _this.changePostStatusSuccess.bind(_assertThisInitialized(_this));
+    _this.changeCommentStatusSuccess = _this.changeCommentStatusSuccess.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -108727,17 +108730,14 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         }
       })]).then(axios.spread(function (posts, comments) {
         console.log('posts', posts);
-        var postsData = posts.data;
-
-        _this2.setState({
-          posts: postsData
-        });
-
         console.log('comments', comments);
+        var postsData = posts.data;
         var commentsData = comments.data;
 
         _this2.setState({
-          comments: commentsData
+          posts: postsData,
+          comments: commentsData,
+          isLoaded: true
         });
       }))["catch"](function (error) {
         console.log(error);
@@ -108748,34 +108748,72 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
+    key: "changePostStatusSuccess",
+    value: function changePostStatusSuccess(data) {
+      console.log('data', data); //if post is approved, remove post from list
+
+      if (data.status === 'approved') {
+        var tempPosts = this.state.posts; //get rid of old post
+
+        tempPosts.splice(tempPosts.findIndex(function (post) {
+          return post.id == data.id;
+        }), 1);
+        this.setState({
+          posts: tempPosts
+        });
+      }
+    }
+  }, {
+    key: "changeCommentStatusSuccess",
+    value: function changeCommentStatusSuccess(data) {
+      console.log('data', data); //if post is approved, remove post from list
+
+      if (data.status === 'approved') {
+        var tempComments = this.state.comments; //get rid of old post
+
+        tempComments.splice(tempComments.findIndex(function (comment) {
+          return comment.id == data.id;
+        }), 1);
+        this.setState({
+          comments: tempComments
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "App dashboard"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        exact: true,
-        path: "/dashboard"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        exact: true,
-        path: "/dashboard/posts"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostsList__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        posts: this.state.posts
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        exact: true,
-        path: "/dashboard/comments"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CommentsList__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        comments: this.state.comments
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        exact: true,
-        path: "/dashboard/post/:id"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReviewPost__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        posts: this.state.posts
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        exact: true,
-        path: "/dashboard/comment/:id"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReviewComment__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        comments: this.state.comments
-      })))));
+      if (this.state.isLoaded) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "App dashboard"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+          exact: true,
+          path: "/dashboard"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+          exact: true,
+          path: "/dashboard/posts"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostsList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          posts: this.state.posts
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+          exact: true,
+          path: "/dashboard/comments"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CommentsList__WEBPACK_IMPORTED_MODULE_6__["default"], {
+          comments: this.state.comments
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+          exact: true,
+          path: "/dashboard/post/:id"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReviewPost__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          posts: this.state.posts,
+          changeStatusSuccess: this.changePostStatusSuccess
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+          exact: true,
+          path: "/dashboard/comment/:id"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReviewComment__WEBPACK_IMPORTED_MODULE_8__["default"], {
+          comments: this.state.comments,
+          changeStatusSuccess: this.changeCommentStatusSuccess
+        })))));
+      } else {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
+      }
     }
   }]);
 
@@ -109010,14 +109048,19 @@ var ReviewComment = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(ReviewComment);
 
-  function ReviewComment() {
+  function ReviewComment(props) {
     var _this;
 
     _classCallCheck(this, ReviewComment);
 
-    _this = _super.call(this);
+    _this = _super.call(this, props);
+    var comments = props.comments;
+    var comment_id = parseInt(props.match.params.id);
+    var comment = comments.find(function (comment) {
+      return comment.id === comment_id;
+    });
     _this.state = {
-      comment: {},
+      comment: comment,
       alert: null
     };
     _this.changeStatus = _this.changeStatus.bind(_assertThisInitialized(_this));
@@ -109031,7 +109074,7 @@ var ReviewComment = /*#__PURE__*/function (_Component) {
 
       var status = e.target.value;
       var token = localStorage.getItem('token');
-      axios.put('/api/review/comment/' + this.props.match.params.id, {
+      axios.put('/api/review/comment/' + this.state.comment.id, {
         status: status
       }, {
         headers: {
@@ -109042,9 +109085,13 @@ var ReviewComment = /*#__PURE__*/function (_Component) {
         var alert = "Comment #" + _this2.state.comment.id + " successfully " + status + "!";
 
         _this2.setState({
-          comment: response.data,
+          comment: response.data.nextComment,
           alert: alert
         });
+
+        _this2.props.changeStatusSuccess(response.data.comment);
+
+        _this2.props.history.push('' + _this2.state.comment.id);
       })["catch"](function (error) {
         console.log(error);
 
@@ -109056,11 +109103,7 @@ var ReviewComment = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var comments = this.props.comments;
-      var comment_id = parseInt(this.props.match.params.id);
-      var comment = comments.find(function (comment) {
-        return comment.id === comment_id;
-      });
+      var comment = this.state.comment;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-10 dash"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -109154,14 +109197,19 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(ReviewPost);
 
-  function ReviewPost() {
+  function ReviewPost(props) {
     var _this;
 
     _classCallCheck(this, ReviewPost);
 
-    _this = _super.call(this);
+    _this = _super.call(this, props);
+    var posts = props.posts;
+    var post_id = parseInt(props.match.params.id);
+    var post = posts.find(function (post) {
+      return post.id === post_id;
+    });
     _this.state = {
-      post: {},
+      post: post,
       alert: null
     };
     _this.changeStatus = _this.changeStatus.bind(_assertThisInitialized(_this));
@@ -109169,29 +109217,13 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(ReviewPost, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {// axios.get('/api/posts/' + this.props.match.params.id)
-      // .then(response => {        
-      //     this.setState({
-      //         post: response.data.data,
-      //         isLoaded: true
-      //     });
-      // })
-      // .catch(function(error){
-      //     if(error){
-      //         console.log(error);
-      //         this.state.errors = error.response.data.errors;
-      //     } 
-      // });
-    }
-  }, {
     key: "changeStatus",
     value: function changeStatus(e) {
       var _this2 = this;
 
       var status = e.target.value;
       var token = localStorage.getItem('token');
-      axios.put('/api/review/post/' + this.props.match.params.id, {
+      axios.put('/api/review/post/' + this.state.post.id, {
         status: status
       }, {
         headers: {
@@ -109199,12 +109231,16 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
         }
       }).then(function (response) {
         console.log(response.data);
-        var alert = _this2.state.post.title + " successfully " + status + "!";
+        var alert = "Post #" + _this2.state.post.id + " successfully " + status + "!";
 
         _this2.setState({
-          post: response.data,
+          post: response.data.nextPost,
           alert: alert
         });
+
+        _this2.props.changeStatusSuccess(response.data.post);
+
+        _this2.props.history.push('' + _this2.state.post.id);
       })["catch"](function (error) {
         console.log(error);
 
@@ -109216,11 +109252,7 @@ var ReviewPost = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var posts = this.props.posts;
-      var post_id = parseInt(this.props.match.params.id);
-      var post = posts.find(function (post) {
-        return post.id === post_id;
-      });
+      var post = this.state.post;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-10 dash"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -111419,17 +111451,15 @@ var App = /*#__PURE__*/function (_Component) {
     _this.state = {
       user: null,
       isLoggedIn: false
-    };
-    _this.getUser = _this.getUser.bind(_assertThisInitialized(_this));
+    }; // this.getUser = this.getUser.bind(this);
+
     _this.logout = _this.logout.bind(_assertThisInitialized(_this));
     return _this;
-  } //life cycle method
-
+  }
 
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // this.checkIfLoggedIn();
       var token = localStorage.getItem("token");
       console.log("Check if log in");
 
@@ -111472,31 +111502,25 @@ var App = /*#__PURE__*/function (_Component) {
           console.log(error);
         }
       });
-    }
-  }, {
-    key: "getUser",
-    value: function getUser() {
-      var _this3 = this;
+    } // getUser(){
+    //   let token = localStorage.getItem("token");
+    //   axios.get('/api/user',{
+    //     headers: { Authorization: "Bearer " + token }
+    //   })
+    //   .then(response => {
+    //     // console.log('USER DEETS',response);
+    //     this.setState({
+    //       user: response.data.user
+    //     });
+    //   })
+    //   .catch(function(error){
+    //       if(error){
+    //           console.log(error);
+    //           this.setState({errors: error.response.data.errors});
+    //       } 
+    //   });
+    //   }
 
-      var token = localStorage.getItem("token");
-      axios.get('/api/user', {
-        headers: {
-          Authorization: "Bearer " + token
-        }
-      }).then(function (response) {
-        // console.log('USER DEETS',response);
-        _this3.setState({
-          user: response.data.user
-        });
-      })["catch"](function (error) {
-        if (error) {
-          console.log(error);
-          this.setState({
-            errors: error.response.data.errors
-          });
-        }
-      });
-    }
   }, {
     key: "render",
     value: function render() {
