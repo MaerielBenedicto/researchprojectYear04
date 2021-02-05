@@ -3,11 +3,37 @@ import ReactDOM from 'react-dom';
 import Moment from 'react-moment';
 
 import { withRouter, Link } from "react-router-dom";
+import Pagination from '../Pagination';
 
 class PostsList extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            posts: props.posts,
+            loading: false,
+            currentPage: 1,
+            postsPerPage: 14
+        }
+
+        this.paginate = this.paginate.bind(this);
+    }
+
+    //change page
+    paginate(number){
+        this.setState({
+            currentPage: number
+        });
+    }
+
     render(){
-        const posts = this.props.posts;
+        const posts = this.state.posts;
         const awaitingApproval = posts.length;
+
+        //youtube = https://www.youtube.com/watch?v=IYCa1F-OWmk&ab_channel=TraversyMedia
+        const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
+        const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
+        const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
 
         return (
             <div className="col-10 dash">
@@ -33,7 +59,7 @@ class PostsList extends Component {
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
-                        {posts.map(item => (
+                        {currentPosts.map(item => (
                         <tbody key={item.id}>
                           <tr>
                             <td ><Moment format="DD/MM/YYYY">{item.created_at}</Moment></td>
@@ -48,9 +74,9 @@ class PostsList extends Component {
                    
                     </div>
                 </div>
-                
-
+                <Pagination postsPerPage={this.state.postsPerPage} totalPosts={posts.length} paginate={this.paginate} />
             </div>
+
         )
     };
 }

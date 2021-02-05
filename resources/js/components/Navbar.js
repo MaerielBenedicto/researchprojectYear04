@@ -6,7 +6,31 @@ import { Link, withRouter } from 'react-router-dom';
 import '../../css/style.css';
 
 class Navbar extends Component {
+  constructor(props){
+    super(props);
+    
+    this.logout = this.logout.bind(this);
 
+  }
+  logout(e) {
+    axios.get('/api/logout', {
+      headers: {
+        'Authorization': "Bearer " + this.props.user.token,
+        'Accept': 'application/json, text/plain'
+      }
+    })
+      .then((response) => {
+        console.log("USER LOGGED OUT");
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.props.onSuccess();
+      })
+      .catch(function (error) {
+        if (error) {
+          console.log(error);
+        }
+      });
+  }
   render(){
     const user = this.props.user;
 
@@ -50,7 +74,7 @@ class Navbar extends Component {
   
                         { user && (
                           <li className="nav-item">
-                            <Link to="/" className="nav-link" onClick={this.props.logout}>Sign out</Link>
+                            <Link to="/" className="nav-link" onClick={this.logout}>Sign out</Link>
                         </li>
                         )}
   

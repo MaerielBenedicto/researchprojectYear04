@@ -591,3 +591,9 @@ nav {
     border-radius: 5px;
 
 }
+
+/***PAGINATION***/
+.pagination {
+    justify-content: center;
+    
+}

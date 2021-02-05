@@ -34,9 +34,8 @@ class Register extends Component {
         })
         .then((response) => {
             console.log(response.data);
-            localStorage.setItem("token", response.data.token);
-            this.props.user();
-            this.props.history.push('/');    
+            const user = response.data;
+            this.props.onSuccess(user);
           })
         .catch((error) => {
             if(error.response){
@@ -47,7 +46,7 @@ class Register extends Component {
 
     handleChange(e){
         const target = e.target;
-        const value = target.value;
+        const value = (target.type === 'checkbox') ? target.checked : target.value;
         const name = target.name;
     
         this.setState({
@@ -89,6 +88,15 @@ class Register extends Component {
                                 value={this.state.password_confirmation}
                                 onChange={this.handleChange}/>
                             </div>
+
+                            <div className="form-group col-12 form-msg">
+                                    <span>
+                                        <input type="checkbox" id="rememberMe" name="remember"
+                                            checked={this.state.remember}
+                                            onChange={this.handleChange}
+                                         /> 
+                                        <label>Remember me</label></span>
+                                </div>
 
                             <div className="form-bttn col-12">
                                 <button type="submit" className="register-btn">

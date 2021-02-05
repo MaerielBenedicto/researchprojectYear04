@@ -19,13 +19,11 @@ class ReviewComment extends Component {
 
     changeStatus(e) {
         const status = e.target.value;
-        let token = localStorage.getItem('token');
+        let token = this.props.user.token;
+
         axios.put('/api/review/comment/' + this.state.comment.id,
-            {
-                status: status
-            },
-            {
-                headers: { Authorization: "Bearer " + token }
+                { status: status },
+                {  headers: { Authorization: "Bearer " + token }
             })
             .then((response) => {
                 console.log(response.data);

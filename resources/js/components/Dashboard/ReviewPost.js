@@ -21,7 +21,7 @@ class ReviewPost extends Component {
 
     changeStatus(e){
         const status = e.target.value;
-        let token = localStorage.getItem('token');
+        let token = this.props.user.token;
         axios.put('/api/review/post/' + this.state.post.id, 
         {
             status: status

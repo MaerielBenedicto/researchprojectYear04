@@ -11,6 +11,7 @@ class Signin extends Component {
         this.state = {
             email: '',
             password: '',
+            remember: false,
             errors: []
         };
 
@@ -27,19 +28,8 @@ class Signin extends Component {
         })
         .then((response) => {
             console.log(response.data);
-            localStorage.setItem("token", response.data.token);
-            localStorage.setItem("user", JSON.stringify(response.data));
-            const user = response.data;
-            // console.log("LOG IN SUCCESS");
-            
-            this.props.user();
-            if(user.role === 'admin'){
-                this.props.history.push('/dashboard');            
-
-            } else {
-                this.props.history.push('/');          
-            }
-              
+            const user = response.data;            
+            this.props.onSuccess(user, this.state.remember);
           })
           .catch((error) => {
             if(error.response){
@@ -50,7 +40,7 @@ class Signin extends Component {
 
     handleChange(e){
         const target = e.target;
-        const value = target.value;
+        const value = (target.type === 'checkbox') ? target.checked : target.value;
         const name = target.name;
     
         this.setState({
@@ -73,7 +63,6 @@ class Signin extends Component {
                                     <input id="email" type="email" className="form-control" placeholder="Email" name="email" required 
                                     value={this.state.email}
                                     onChange={this.handleChange} />
-                                   
                                 </div>
 
                                 <div className="form-group col-12">
@@ -82,7 +71,12 @@ class Signin extends Component {
                                     onChange={this.handleChange} />
                                 </div>
                                 <div className="form-group col-12 form-msg">
-                                    <span><input type="checkbox" value="lsRememberMe" id="rememberMe"/> <label>Remember me</label></span>
+                                    <span>
+                                        <input type="checkbox" id="rememberMe" name="remember"
+                                            checked={this.state.remember}
+                                            onChange={this.handleChange}
+                                         /> 
+                                        <label>Remember me</label></span>
                                     <a href="#">Forgot Password?</a>
                                 </div>
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
 
 
 import Navbar from '../components/Navbar';
@@ -24,72 +24,75 @@ import '../../css/app.css';
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    let localUser = null;
+    const userString = localStorage.getItem('user');
+    if (userString !== null) {
+      localUser = JSON.parse(userString);
+    }
+
     this.state = {
-      user: null,
-      isLoggedIn: false,
+      user: localUser,
+      forums: []
     }
 
     // this.getUser = this.getUser.bind(this);
-    this.logout = this.logout.bind(this);
+    this.onLoginSuccess = this.onLoginSuccess.bind(this);
+    this.onLogoutSuccess = this.onLogoutSuccess.bind(this);
+    this.onSubmitSuccess = this.onSubmitSuccess.bind(this);
   }
 
   componentDidMount() {
-    let token = localStorage.getItem("token");
-    console.log("Check if log in");
-    if (token) {
-      console.log("logged in");
-      //get user data
-      let userData = JSON.parse(localStorage.getItem('user'));
-      this.setState({ user: userData, isLoggedIn: true });
+    axios.get('/api/forums')
+        .then(response => {
+            // console.log(response);
+             const forums = response.data;
+        
+              this.setState({
+                forums: forums
+              });
+        })
+        .catch(function(error){
+            if(error){
+                console.log(error);
+                this.state.errors = error.response.data.errors;
+            } 
+        });
+  }
+
+  onLoginSuccess(user, remember) {
+
+    this.setState({
+      user: user
+    });
+
+    if (remember) {
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+
+    if(user.role === 'admin'){
+      this.props.history.push('/dashboard');            
     } else {
-      console.log("not log in");
-      this.setState({ isLoggedIn: false });
+        console.log("user");
+        this.props.history.push('/');          
     }
   }
 
-  logout() {
-    let token = localStorage.getItem('token');
-    axios.get('/api/logout', {
-      headers: {
-        'Authorization': "Bearer " + token,
-        'Accept': 'application/json, text/plain'
-      }
-    })
-      .then((response) => {
-        console.log("USER LOGGED OUT");
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        this.setState({
-          user: null
-        });
-      })
-      .catch(function (error) {
-        if (error) {
-          console.log(error);
-        }
-      });
+  onLogoutSuccess() {
+    this.setState({
+      user: null
+    });
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.props.history.push('/');
   }
 
-  // getUser(){
-  //   let token = localStorage.getItem("token");
-  //   axios.get('/api/user',{
-  //     headers: { Authorization: "Bearer " + token }
-  //   })
-  //   .then(response => {
-  //     // console.log('USER DEETS',response);
-  //     this.setState({
-  //       user: response.data.user
-  //     });
-  //   })
-  //   .catch(function(error){
-  //       if(error){
-  //           console.log(error);
-  //           this.setState({errors: error.response.data.errors});
-  //       } 
-  //   });
-  //   }
+  onSubmitSuccess(user){
+    this.setState({ user: user });
+    localStorage.setItem("user", JSON.stringify(user));
+    this.props.history.push('/');  
+  }
 
 
   render() {
@@ -97,19 +100,26 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Router>
-          {/* { user.role === 'user' && (    */}
-          <Navbar logout={this.logout} user={this.state.user} />
-          {/* )} */}
+          <Navbar 
+            onSuccess={this.onLogoutSuccess} 
+            user={this.state.user} 
+          />
           <Switch>
             <Route exact path="/">
-              <Home user={user} />
+              <Home 
+                user={user} 
+                forums={this.state.forums}
+              />
             </Route>
             <Route path="/signin">
-              <Signin user={this.getUser} />
+              <Signin 
+                onSuccess={this.onLoginSuccess}  
+              />
             </Route>
             <Route path="/register">
-              <Register user={this.getUser} />
+              <Register 
+                onSuccess={this.onSubmitSuccess}
+              />
             </Route>
             <Route path="/forums/:forumId">
               <Forum user={user} />
@@ -120,22 +130,24 @@ class App extends Component {
             <Route path="/posts/:id">
               <Post user={user} />
             </Route>
-            <PrivateRoute exact path="/forums" user={user} component={CreateForum} />
-            <PrivateRoute path="/submit-post/:id" user={user} component={CreatePost} />
+            <PrivateRoute exact path="/forums" 
+                user={user} 
+                component={CreateForum} 
+            />
+            <PrivateRoute path="/submit-post/:id" 
+                user={user} 
+                component={CreatePost} 
+            />
             <Route path="/dashboard">
               <Dashboard user={user} />
             </Route>
           </Switch>
-
           <Footer />
-
-        </Router>
-
       </div>
     )
   }
 }
 
-export default App;
+export default withRouter(App);
 
-ReactDOM.render(<App />, document.getElementById('root'))
+// ReactDOM.render(<App />, document.getElementById('root'))

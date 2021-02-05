@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-        let token = localStorage.getItem('token');
+        let token = this.props.user.token;
 
         axios.all([
             axios.get('/api/posts',
@@ -53,7 +53,7 @@ class Dashboard extends Component {
     changePostStatusSuccess(data) {
         console.log('data', data);
         //if post is approved, remove post from list
-        if(data.status === 'approved'){
+        if (data.status === 'approved') {
             let tempPosts = this.state.posts;
             //get rid of old post
             tempPosts.splice(tempPosts.findIndex(post => post.id == data.id), 1);
@@ -65,10 +65,10 @@ class Dashboard extends Component {
 
     changeCommentStatusSuccess(data) {
         console.log('data', data);
-        //if post is approved, remove post from list
-        if(data.status === 'approved'){
+        //if comment is approved, remove comment from list
+        if (data.status === 'approved') {
             let tempComments = this.state.comments;
-            //get rid of old post
+            //get rid of old comment
             tempComments.splice(tempComments.findIndex(comment => comment.id == data.id), 1);
             this.setState({
                 comments: tempComments
@@ -100,9 +100,9 @@ class Dashboard extends Component {
                                 />
                             </Route>
                             <Route exact path="/dashboard/comment/:id">
-                                <ReviewComment 
-                                    comments={this.state.comments} 
-                                    changeStatusSuccess={this.changeCommentStatusSuccess}    
+                                <ReviewComment
+                                    comments={this.state.comments}
+                                    changeStatusSuccess={this.changeCommentStatusSuccess}
                                 />
                             </Route>
                         </Switch>
@@ -111,6 +111,7 @@ class Dashboard extends Component {
             )
         }
         else {
+            //display sidebar only
             return <div> <Router><Sidebar /></Router></div>;
         }
 
