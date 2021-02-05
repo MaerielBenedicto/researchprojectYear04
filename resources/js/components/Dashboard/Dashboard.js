@@ -95,12 +95,14 @@ class Dashboard extends Component {
                             </Route>
                             <Route exact path="/dashboard/post/:id">
                                 <ReviewPost
+                                    user={this.props.user}
                                     posts={this.state.posts}
                                     changeStatusSuccess={this.changePostStatusSuccess}
                                 />
                             </Route>
                             <Route exact path="/dashboard/comment/:id">
                                 <ReviewComment
+                                    user={this.props.user}
                                     comments={this.state.comments}
                                     changeStatusSuccess={this.changeCommentStatusSuccess}
                                 />

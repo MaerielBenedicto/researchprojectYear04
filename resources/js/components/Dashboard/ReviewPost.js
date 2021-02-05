@@ -23,11 +23,8 @@ class ReviewPost extends Component {
         const status = e.target.value;
         let token = this.props.user.token;
         axios.put('/api/review/post/' + this.state.post.id, 
-        {
-            status: status
-        },
-        {
-            headers: { Authorization: "Bearer " + token }
+            { status: status },
+            { headers: { Authorization: "Bearer " + token }
         })
         .then((response) => {
             console.log(response.data);

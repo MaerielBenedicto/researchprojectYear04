@@ -547,13 +547,32 @@ nav {
 }
 .sidebar-links ul li {
     /* padding-left: 20px; */
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     text-decoration: none;
     list-style-type: none;
 }
 
 .side-link a{
+    font-size: 14px;
+    color: #514E4E;
+    font-weight: 700;
+}
+.side-link a:hover {
+    color: #2c8cd6;
+    text-decoration: none;
+}
+
+.side-link a:focus {
+    color: #2c8cd6;
+    text-decoration: none;
+}
+
+.sidebar-p{
     font-size: 16px;
+    margin-bottom: 0px;
+    color: #8C8989;
+    font-weight: 700;
+
 }
 
 .topbar{
@@ -592,8 +611,28 @@ nav {
 
 }
 
+.setting-div{
+    border-top: 1px solid #848484;
+    border-bottom: 1px solid #848484;
+    padding: 20px 0px;
+}
+
+.review-div{
+    padding: 20px 0px;
+}
+
+.icon{
+    margin-bottom: 4px;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+svg {
+    display: inline;
+}
+
 /***PAGINATION***/
 .pagination {
     justify-content: center;
-    
+
 }
