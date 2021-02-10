@@ -7,7 +7,7 @@ class PrivateRoute extends Component {
     render(){
         console.log(this.props.user);
         if(this.props.user){
-            return <this.props.component user={this.props.user}/>
+            return <this.props.component render={(this.props)} user={this.props.user}/>
         } else{
             return <Redirect to={'/signin'} />
         }

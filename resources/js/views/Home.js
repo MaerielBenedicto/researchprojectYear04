@@ -28,16 +28,16 @@ class Home extends Component {
         // this.forums();
     }
 
-    delete(id) {
+    delete(forum) {
         console.log("DELETE");
-        let token = localStorage.getItem("token");
-        axios.delete('/api/forums/' + id,
+        let token = this.props.user.token;
+        axios.delete('/api/forums/' + forum.id,
             {
                 headers: { Authorization: "Bearer " + token }
             })
             .then(response => {
-                console.log(response);
-                this.forums();
+                // console.log(response);
+                this.props.onDeleteForum(forum);
             })
             .catch(function (error) {
                 if (error) {
@@ -96,7 +96,7 @@ class Home extends Component {
                                             ) : ''}
 
                                             {(this.props.user && this.props.user.id === item.user.id) ? (
-                                                <button className="bttn float-right" onClick={() => this.delete(item.id)}>Delete</button>
+                                                <button className="bttn float-right" onClick={() => this.delete(item)}>Delete</button>
                                             ) : ''}
 
                                             <div className="forum-desc">

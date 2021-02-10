@@ -41,6 +41,9 @@ class App extends Component {
     this.onLoginSuccess = this.onLoginSuccess.bind(this);
     this.onLogoutSuccess = this.onLogoutSuccess.bind(this);
     this.onSubmitSuccess = this.onSubmitSuccess.bind(this);
+    this.createForumSuccess = this.createForumSuccess.bind(this);
+    this.onDeleteForum = this.onDeleteForum.bind(this);
+    this.updateForumSuccess = this.updateForumSuccess.bind(this);
   }
 
   componentDidMount() {
@@ -94,6 +97,37 @@ class App extends Component {
     this.props.history.push('/');  
   }
 
+  createForumSuccess(forum){
+    console.log('foruum',forum);
+    let tempForums = this.state.forums;
+
+    //push comment in the beginning of the array 
+    tempForums.push(forum);
+    this.setState({
+      forums: tempForums
+    });
+  }
+
+  onDeleteForum(forum){
+    let tempForums = this.state.forums;
+    //remove comment from array that matches the id
+    tempForums.splice(tempForums.findIndex(f => f.id == forum.id), 1);
+    this.setState({
+      forums: tempForums
+    });
+  }
+
+  updateForumSuccess(forum){
+    let tempForums = this.state.forums;
+    //get rid of old comment
+    tempForums.splice(tempForums.findIndex(f => f.id == forum.id), 1);
+    //add updated comment
+    tempForums.push(forum);
+    this.setState({
+      forums: tempForums
+    });
+  }
+
 
   render() {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -109,6 +143,7 @@ class App extends Component {
               <Home 
                 user={user} 
                 forums={this.state.forums}
+                onDeleteForum={this.onDeleteForum}
               />
             </Route>
             <Route path="/signin">
@@ -132,7 +167,9 @@ class App extends Component {
             </Route>
             <PrivateRoute exact path="/forums" 
                 user={user} 
-                component={CreateForum} 
+                component={CreateForum}
+                createForumSuccess={this.createForumSuccess}
+                updateForumSuccess={this.updateForumSuccess}
             />
             <PrivateRoute path="/submit-post/:id" 
                 user={user} 

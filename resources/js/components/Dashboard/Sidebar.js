@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { withRouter, Link } from "react-router-dom";
+import { withRouter, Link, NavLink } from "react-router-dom";
 import {FaUserCog, FaFolderOpen  } from 'react-icons/fa';
 
 class Sidebar extends Component {
-    constructor(){
-        super();
-        this.state = {
-        };
-    }
-
-    componentDidMount(){
-       
-    }
-
     render(){
         return (
             <div className="sidebar col-2">
@@ -28,25 +18,22 @@ class Sidebar extends Component {
                                     <p className="sidebar-p">Settings</p>
                                 </li>
                                 <li className="side-link">
-                                <FaUserCog className="icon"/> <Link to="/dashboard">Admin</Link>
+                                <FaUserCog className="icon"/> <NavLink to="/dashboard">Admin</NavLink>
                                 </li>
                             </div>
                             <div className="review-div">
-                            <li className="side-link">
+                                <li className="side-link">
                                     <p className="sidebar-p">Review</p>
                                 </li>
                                 <li className="side-link">
-                                <FaFolderOpen className="icon"/><Link to="/dashboard/posts">Posts</Link>
+                                <FaFolderOpen className="icon"/><NavLink to="/dashboard/posts" activeClassName="active">Posts</NavLink>
                                 </li>
                                 <li className="side-link">
-                                <FaFolderOpen className="icon"/><Link to="/dashboard/comments">Comments</Link>
+                                <FaFolderOpen className="icon"/><NavLink to="/dashboard/comments" activeClassName="active">Comments</NavLink>
                                 </li>
                             </div>
-                            
-
                         </ul>    
                     </div>  
-                    
                 </div> 
             </div>
         )

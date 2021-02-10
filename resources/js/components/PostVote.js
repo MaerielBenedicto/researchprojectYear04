@@ -20,7 +20,9 @@ class PostVote extends Component {
 
     upvote(){
         console.log("upvote");
-        let token = localStorage.getItem("token");
+        let token = this.props.user.token;
+
+        //if logged in 
         if(token){
             axios.post('/api/posts/' + this.props.postId + '/vote', 
             {
@@ -47,7 +49,7 @@ class PostVote extends Component {
 
     downvote(){
         console.log("downvote");
-        let token = localStorage.getItem("token");
+        let token = this.props.user.token;
         if(token){
             axios.post('/api/posts/' + this.props.postId + '/vote', 
             {

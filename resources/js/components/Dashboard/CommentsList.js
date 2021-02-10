@@ -35,15 +35,21 @@ class CommentsList extends Component {
         return (
             <div className="col-10 dash">
                 <div className="topbar row">
-                    <div className="topbar-div col-12">
-                        <h4>Posts</h4>
-                        <p className="float-right pb-4">Number of Posts awaiting approval: {awaitingApproval} </p> 
+                <div className="topbar-div col-12">
+                        <div className="row">
+                            <div className="col-6">
+                                <h4>Comments</h4>
+                            </div>
+                            <div className="col-6">
+                                <span className="float-right pb-4">Number of Comments awaiting approval: {awaitingApproval} </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div className="posts-lists col-12">
-                    <div className="post-heading pt-5">
-                        Under Review Queue
+                    <div className="post-heading pt-2">
+                        <h3>Under Review Queue</h3>
                     </div>
                     <div className="posts-table">
                         <table className="table">
@@ -63,7 +69,7 @@ class CommentsList extends Component {
                             <td>{item.body}</td>
                             <td>{item.s_score}</td>
                             <td>{item.s_magnitude}</td>
-                            <td><button><Link to={"/dashboard/comment/" + item.id}>Review</Link></button></td>
+                            <td><button className="review-button"><Link to={"/dashboard/comment/" + item.id}>Review</Link></button></td>
                           </tr>
                         </tbody>
                          ))}

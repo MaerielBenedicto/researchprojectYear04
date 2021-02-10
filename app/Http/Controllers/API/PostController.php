@@ -200,4 +200,8 @@ class PostController extends Controller
     // dd($sentiment);
     return $sentiment;
   }
+
+  public function classifyText(){
+    
+  }
 }

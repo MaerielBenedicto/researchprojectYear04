@@ -5,7 +5,7 @@ import AddComment from '../AddComment';
 import Comments from '../Comments';
 import PostVote from '../PostVote';
 
-// import { CgProfile } from 'react-icons/CgProfile';
+import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 
 class Post extends Component {
@@ -67,6 +67,9 @@ class Post extends Component {
     render(){
         const addClass = this.state.hide ? 'hide-post' : '';
         const hideClass = this.state.hide ? '' : 'removeWarning';
+        const user = this.props.user;
+        const post = this.state.post;
+
         if(this.state.isLoaded){
             return (
                 <div className="body-content">
@@ -76,27 +79,31 @@ class Post extends Component {
                             <div className="row">
                                 <div className="col-12">
                                     <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png"/>
-                                    <span> {this.state.post.user.name}</span>
+                                    <span> {post.user.name}</span>
+                                    {(user && user.id === post.user.id) ? (
+                                        <div>
                                     <Link to={{
                                         pathname: '/submit-post/' + this.props.match.params.id,
                                         state: {
-                                            forumId: this.state.post.forum_id,
+                                            forumId: post.forum_id,
                                             postId: this.props.match.params.id,
-                                            title: this.state.post.title,
-                                            body: this.state.post.body,
+                                            title: post.title,
+                                            body: post.body,
                                             mode: 'edit'
                                         }}} >
-                                            <button className="bttn float-right">Edit</button>
+                                            <span className="bttn float-right"><FaEdit className="icon" />Edit</span>
                                         </Link> 
-                                        <button className="bttn float-right" onClick={this.delete}>Delete</button>
+                                        <button className="bttn float-right" onClick={this.delete}><FaTrashAlt className="icon"/>Delete</button>
+                                        </div>
+                                    ) : ''}
                                 </div>
                                 <div className="col-12">
-                                    <h4>{this.state.post.title}</h4>
-                                    <p>{this.state.post.body}</p>
-                                    <div> Upvote {this.state.post.upvote} </div>
-                                    <div> Downvote {this.state.post.downvote} </div>
+                                    <h4>{post.title}</h4>
+                                    <p>{post.body}</p>
+                                    <div> Upvote {post.upvote} </div>
+                                    <div> Downvote {post.downvote} </div>
                                 </div>
-                                <PostVote postId={this.state.post.id} user={this.props.user} voted={this.getPost}/>
+                                <PostVote postId={post.id} user={user} voted={this.getPost}/>
                             </div>
                        </div>
                        <div className={"row " + hideClass}>
@@ -108,7 +115,7 @@ class Post extends Component {
                             </div>
                     </div>
                     { !this.state.post.action == 'under review' && (
-                        <Comments postId={this.props.match.params.id} user={this.props.user} />
+                        <Comments postId={this.props.match.params.id} user={user} />
                     )}  
                         
                     </div>

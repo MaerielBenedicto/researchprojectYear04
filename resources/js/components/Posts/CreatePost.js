@@ -19,7 +19,8 @@ class CreatePost extends Component {
         //prevent from reloading page
         e.preventDefault();
 
-        let token = localStorage.getItem("token");
+        let token = this.props.user.token;
+        console.log('user token',this.props.user.token);
         if(this.state.mode === 'create'){
             axios.post('/api/forums/' + this.props.location.state.forumId + '/posts', 
             {

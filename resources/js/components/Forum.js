@@ -28,7 +28,7 @@ class Forum extends Component {
         //get posts in a forum
         axios.get('/api/forums/' + this.props.match.params.forumId)
         .then(response => {
-            console.log("THIS",response);
+            console.log(response);
             
               //never modify state directly
               this.setState({
@@ -91,7 +91,7 @@ class Forum extends Component {
                                     <div className="post" key={item.id}>
                                         <div className="post-title">
                                             <Link to={`/posts/${item.id}`} >
-                                            {item.title}
+                                                {item.title}
                                             </Link>
                                         </div>
             

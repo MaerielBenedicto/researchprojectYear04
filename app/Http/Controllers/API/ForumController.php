@@ -46,6 +46,8 @@ class ForumController extends Controller
 
     ]);
 
+    $forum->load('user');
+
     return response()->json(['message' => 'Added to forums', 'data' => $forum], 200);
   }
 
@@ -67,6 +69,8 @@ class ForumController extends Controller
         $forum->description = $request->input('description');
         $forum->user_id = $request->input('user_id');
         $forum->save();
+        
+        $forum->load('user');
 
         return $forum;
     }

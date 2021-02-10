@@ -17,7 +17,7 @@ class CreateForum extends Component {
     handleSubmitForm(e){
         //prevent from reloading page
         e.preventDefault();
-        let token = localStorage.getItem("token");
+        let token = this.props.user.token;
         if(this.state.mode === 'create'){
             axios.post('/api/forums', 
             {
@@ -29,7 +29,8 @@ class CreateForum extends Component {
                 headers: { Authorization: "Bearer " + token }
             })
             .then((response) => {
-                // console.log(response.data.data);
+                console.log('responseeeeeee',response);
+                this.props.render.createForumSuccess(response.data.data);
                 this.props.history.push('/forums/'+ response.data.data.id);   
               })
             .catch((error) => {
@@ -49,7 +50,7 @@ class CreateForum extends Component {
                 headers: { Authorization: "Bearer " + token }
             })
             .then((response) => {
-                // console.log(response.data);
+                this.props.render.updateForumSuccess(response.data);
                 this.props.history.push('/forums/'+ response.data.id); 
               })
             .catch((error) => {

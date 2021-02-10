@@ -562,7 +562,7 @@ nav {
     text-decoration: none;
 }
 
-.side-link a:focus {
+.side-link a:active {
     color: #2c8cd6;
     text-decoration: none;
 }
@@ -601,7 +601,15 @@ nav {
     margin-right: 20px;
     padding: 10px 20px;
     border-radius: 5px;
+}
 
+.post-heading{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.post-heading h4{
+    font-weight: 700;
 }
 
 .denied-bttn{
@@ -631,8 +639,26 @@ svg {
     display: inline;
 }
 
+.review-button{
+    background-color: #b7c7fd;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.review-button a{
+    color: white;
+}
+
+.review-button a:hover{
+    text-decoration: none;
+    color: white;
+}
+
 /***PAGINATION***/
 .pagination {
-    justify-content: center;
-
+    position: fixed;
+    bottom: 0;
+    left: 20%;
+    /* right: 50%; */
+    /* justify-content: center; */
 }
