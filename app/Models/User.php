@@ -73,5 +73,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\CommentVote');
     }
 
+    public function bookmark() {
+        return $this->hasMany('App\Models\Bookmark');
+      }
+
 
 }

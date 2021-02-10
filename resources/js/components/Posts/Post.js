@@ -47,7 +47,7 @@ class Post extends Component {
     }
 
     delete() {
-        let token = localStorage.getItem("token");
+        let token = this.props.user.token;
         axios.delete('/api/posts/' + this.props.match.params.id,
         {
             headers: { Authorization: "Bearer " + token }

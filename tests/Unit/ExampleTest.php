@@ -4,6 +4,8 @@ namespace Tests\Unit;
 use App\Models\User;
 use App\Models\Forum;
 use App\Models\Post;
+use App\Models\Bookmark;
+
 
 use Tests\TestCase;
 // use PHPUnit\Framework\TestCase;
@@ -29,5 +31,7 @@ class ExampleTest extends TestCase
       $comments = $post->comments;
       $this->assertTrue($post->id === $comments->first()->post->id);
 
+      $bookmarks = $user->bookmark;
+      $this->assertTrue($user->id === $bookmarks->first()->user->id);
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\API\CommentController;
 use App\Http\Controllers\API\PostVoteController;
 use App\Http\Controllers\API\CommentVoteController;
+use App\Http\Controllers\API\BookmarkController;
 
 use App\Http\Controllers\API\Admin\AdminController;
 
@@ -68,6 +69,8 @@ Route::middleware('auth:api')->group(function () {
   Route::post('comments/{comment}/vote', [CommentVoteController::class, 'store']);
   Route::put('comment/{post_vote}/vote', [CommentVoteController::class, 'update']);
 
+  Route::get('bookmarks/{id}', [BookmarkController::class, 'index']);
+  Route::post('bookmarks', [BookmarkController::class, 'store']);
 
   //ADMIN 
   Route::get('posts', [AdminController::class, 'posts']);
@@ -75,6 +78,7 @@ Route::middleware('auth:api')->group(function () {
 
   Route::get('comments', [AdminController::class, 'comments']);
   Route::put('review/comment/{comment}', [AdminController::class, 'review_comment']);
+
 
 
 });

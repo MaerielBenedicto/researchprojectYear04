@@ -37,7 +37,5 @@ class ForumsTableSeeder extends Seeder
                   return mt_rand(1, $this->amntOfUsers);
                 },
               ]);
-
-
     }
 }
