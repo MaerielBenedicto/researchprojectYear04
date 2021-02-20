@@ -6,58 +6,56 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Bookmark;
 use App\Models\Post;
+use App\Models\Forum;
 use App\Models\User;
 
+use Auth;
 use Validator;
 
 class BookmarkController extends Controller
 {
 
-  public function index($id)
+  public function index()
     {
-        $bookmarks = Bookmark::where('user_id', $id)
-                 ->with('post','user')->get();
+      $forums = Auth::user()->bookmarks_forums()->get();
+      $posts = Auth::user()->bookmarks_posts()->get();
 
-        if ($bookmarks === null) {
-        $statusMsg = 'Bookmark not found!';
-        $statusCode = 404;
-        }
-        else {
-        return response()->json(
-            [
-                'data' => $bookmarks
-            ],
-            200);
-        }
+      return response()->json(
+          [
+              'forums' => $forums,
+              'posts' => $posts
+          ],
+          200);
     }
 
-  //create post
-  public function store(Request $request){
-    $validator = Validator::make($request->all(), [
-        'user_id' => 'required|integer',
-        'post_id' => 'nullable|integer'
-    ]);
+     //bookmark post
+     public function add_post_bookmark($id){
+      $post = Post::where('id', $id)->first();
+      Auth::user()->bookmarks_posts()->syncWithoutDetaching([$post->id]);
+      return $post;
+    } 
 
-    if ($validator->fails()) {
-        return response()->json($validator->errors(), 422);
+
+    //remove post bookmark
+    public function remove_post_bookmark($id){
+      $post = Post::where('id', $id)->first();
+      Auth::user()->bookmarks_posts()->detach($post->id);
+      return $post;
     }
 
-    $bookmark = Bookmark::create([
-        'user_id' => $request->user_id,
-        'post_id' => $request->post_id
-    ]);
+    //add bookmark
+    public function add_forum_bookmark($id){
+      $forum = Forum::where('id', $id)->first();
+      Auth::user()->bookmarks_forums()->syncWithoutDetaching([$forum->id]);
+      return $forum;
+    } 
 
-    $bookmark->load('post','user');
 
-    return response()->json(['message' => 'Added to bookmarks', 'data' => $bookmark], 200);
-  }
-
-  //delete post
-  public function destroy($id){
-    $bookmark = Bookmark::findOrFail($id);
-    $bookmark->delete();
-
-    return response()->json(['message' => 'Bookmark deleted!'], 200);
-  }
+    //remove bookmark
+    public function remove_forum_bookmark($id){
+      $forum = Forum::where('id', $id)->first();
+      Auth::user()->bookmarks_forums()->detach($forum->id);
+      return $forum;
+    }
 
 }

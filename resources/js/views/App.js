@@ -34,7 +34,8 @@ class App extends Component {
 
     this.state = {
       user: localUser,
-      forums: []
+      forums: [],
+      bookmarks: []
     }
 
     // this.getUser = this.getUser.bind(this);
@@ -44,23 +45,33 @@ class App extends Component {
     this.createForumSuccess = this.createForumSuccess.bind(this);
     this.onDeleteForum = this.onDeleteForum.bind(this);
     this.updateForumSuccess = this.updateForumSuccess.bind(this);
+
   }
 
   componentDidMount() {
-    axios.get('/api/forums')
-        .then(response => {
-            // console.log(response);
-             const forums = response.data;
-        
-              this.setState({
-                forums: forums
-              });
-        })
-        .catch(function(error){
-            if(error){
+      let token = this.state.user.token;
+
+      axios.all([
+        axios.get('/api/forums'),
+        axios.get('/api/bookmarks',
+            { headers: { Authorization: "Bearer " + token } })
+    ])
+        .then(axios.spread((forums, bookmarks) => {
+            console.log('forums', forums);
+            console.log('bookmarks', bookmarks);
+            const forumsData = forums.data;
+            const bookmarksData = bookmarks.data;
+            this.setState({
+                forums: forumsData,
+                bookmarks: bookmarksData,
+                isLoaded: true
+            });
+        }))
+        .catch(function (error) {
+            console.log(error);
+            if (error) {
                 console.log(error);
-                this.state.errors = error.response.data.errors;
-            } 
+            }
         });
   }
 
@@ -74,11 +85,11 @@ class App extends Component {
       localStorage.setItem("user", JSON.stringify(user));
     }
 
-    if(user.role === 'admin'){
-      this.props.history.push('/dashboard');            
+    if (user.role === 'admin') {
+      this.props.history.push('/dashboard');
     } else {
-        console.log("user");
-        this.props.history.push('/');          
+      console.log("user");
+      this.props.history.push('/');
     }
   }
 
@@ -91,14 +102,14 @@ class App extends Component {
     this.props.history.push('/');
   }
 
-  onSubmitSuccess(user){
+  onSubmitSuccess(user) {
     this.setState({ user: user });
     localStorage.setItem("user", JSON.stringify(user));
-    this.props.history.push('/');  
+    this.props.history.push('/');
   }
 
-  createForumSuccess(forum){
-    console.log('foruum',forum);
+  createForumSuccess(forum) {
+    console.log('foruum', forum);
     let tempForums = this.state.forums;
 
     //push comment in the beginning of the array 
@@ -108,7 +119,7 @@ class App extends Component {
     });
   }
 
-  onDeleteForum(forum){
+  onDeleteForum(forum) {
     let tempForums = this.state.forums;
     //remove comment from array that matches the id
     tempForums.splice(tempForums.findIndex(f => f.id == forum.id), 1);
@@ -117,7 +128,7 @@ class App extends Component {
     });
   }
 
-  updateForumSuccess(forum){
+  updateForumSuccess(forum) {
     let tempForums = this.state.forums;
     //get rid of old comment
     tempForums.splice(tempForums.findIndex(f => f.id == forum.id), 1);
@@ -129,57 +140,60 @@ class App extends Component {
   }
 
 
+
+
   render() {
     const user = JSON.parse(localStorage.getItem('user'));
 
     return (
       <div className="App">
-          <Navbar 
-            onSuccess={this.onLogoutSuccess} 
-            user={this.state.user} 
+        <Navbar
+          onSuccess={this.onLogoutSuccess}
+          user={this.state.user}
+        />
+        <Switch>
+          <Route exact path="/">
+            <Home
+              user={user}
+              forums={this.state.forums}
+              onDeleteForum={this.onDeleteForum}
+              bookmarks={this.state.bookmarks}
+            />
+          </Route>
+          <Route path="/signin">
+            <Signin
+              onSuccess={this.onLoginSuccess}
+            />
+          </Route>
+          <Route path="/register">
+            <Register
+              onSuccess={this.onSubmitSuccess}
+            />
+          </Route>
+          <Route path="/forums/:forumId">
+            <Forum user={user} forums={this.state.forums} />
+          </Route>
+          <Route path="/my-profile">
+            <Profile user={user} bookmarks={this.state.bookmarks}/>
+          </Route>
+          <Route path="/posts/:id">
+            <Post user={user} />
+          </Route>
+          <PrivateRoute exact path="/forums"
+            user={user}
+            component={CreateForum}
+            createForumSuccess={this.createForumSuccess}
+            updateForumSuccess={this.updateForumSuccess}
           />
-          <Switch>
-            <Route exact path="/">
-              <Home 
-                user={user} 
-                forums={this.state.forums}
-                onDeleteForum={this.onDeleteForum}
-              />
-            </Route>
-            <Route path="/signin">
-              <Signin 
-                onSuccess={this.onLoginSuccess}  
-              />
-            </Route>
-            <Route path="/register">
-              <Register 
-                onSuccess={this.onSubmitSuccess}
-              />
-            </Route>
-            <Route path="/forums/:forumId">
-              <Forum user={user} forums={this.state.forums}/>
-            </Route>
-            <Route path="/my-profile">
-              <Profile user={user} />
-            </Route>
-            <Route path="/posts/:id">
-              <Post user={user} />
-            </Route>
-            <PrivateRoute exact path="/forums" 
-                user={user} 
-                component={CreateForum}
-                createForumSuccess={this.createForumSuccess}
-                updateForumSuccess={this.updateForumSuccess}
-            />
-            <PrivateRoute path="/submit-post/:id" 
-                user={user} 
-                component={CreatePost} 
-            />
-            <Route path="/dashboard">
-              <Dashboard user={user} />
-            </Route>
-          </Switch>
-          <Footer />
+          <PrivateRoute path="/submit-post/:id"
+            user={user}
+            component={CreatePost}
+          />
+          <Route path="/dashboard">
+            <Dashboard user={user} />
+          </Route>
+        </Switch>
+        <Footer />
       </div>
     )
   }

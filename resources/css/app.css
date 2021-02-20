@@ -691,3 +691,12 @@ svg {
     /* right: 50%; */
     /* justify-content: center; */
 }
+
+/** ICONS ***/
+.bookmark{
+    color: #5596E6;
+}
+
+.post-icon{
+    color: #5596E6;
+}

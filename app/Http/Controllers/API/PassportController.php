@@ -40,6 +40,7 @@ class PassportController extends Controller
 
         //return data
         return response()->json([
+            'id' => $user->id,
             'name' => $user->name,
             'email' => $user->email,
             'token' => $token

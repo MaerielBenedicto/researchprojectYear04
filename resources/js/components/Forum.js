@@ -45,7 +45,7 @@ class Forum extends Component {
             });
     }
 
-    voted(){
+    voted() {
 
     }
 
@@ -72,32 +72,29 @@ class Forum extends Component {
                 filteredPosts = posts.slice().sort((a, b) => b.upvote - a.upvote);
             }
         }
-            return (
-                <div>
-                    <div className="col-12">
-                        {/* <div> */}
-                        <Filter sortby={this.state.sortby} changeSortby={this.changeSortby} />
-                        {/* </div> */}
-
-                    </div>
-                    <div className="body-content forum-post-div">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-9 py-3">
-                                    <div className="forum-detail col-12">
-                                        <div className="row">
-                                            <div className="col-10">
-                                                <h4 className="title">{forum.topic}</h4>
-                                                <p>{forum.description}</p>
-                                            </div>
-                                            <div className="col-2">
-                                                <span>{forum.postsCount} posts</span>
-                                            </div>
+        return (
+            <div>
+                <div className="col-12">
+                    <Filter sortby={this.state.sortby} changeSortby={this.changeSortby} />
+                </div>
+                <div className="body-content forum-post-div">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-9 py-3">
+                                <div className="forum-detail col-12">
+                                    <div className="row">
+                                        <div className="col-10">
+                                            <h4 className="title">{forum.topic}</h4>
+                                            <p>{forum.description}</p>
+                                        </div>
+                                        <div className="col-2">
+                                            <span>{forum.postsCount} posts</span>
                                         </div>
                                     </div>
-                                    
-                                    { this.state.isLoaded && (
-                                        <div className="posts-rows col-12">
+                                </div>
+
+                                {this.state.isLoaded && (
+                                    <div className="posts-rows col-12">
                                         {filteredPosts.map(item => (
                                             <div className="post" key={item.id}>
                                                 <div className="post-title">
@@ -131,24 +128,24 @@ class Forum extends Component {
 
                                         ))}
                                     </div>
-                                    )}
-                                </div>
-                                <div className="col-3 py-3">
-                                    <Link to={{
-                                        pathname: '/submit-post/' + this.props.match.params.forumId,
-                                        state: {
-                                            forumId: this.props.match.params.forumId
-                                        }
-                                    }} >
-                                        <button className="forum-bttn">Start a new discussion</button>
-                                    </Link>
-                                </div>
+                                )}
+                            </div>
+                            <div className="col-3 py-3">
+                                <Link to={{
+                                    pathname: '/submit-post/' + this.props.match.params.forumId,
+                                    state: {
+                                        forumId: this.props.match.params.forumId
+                                    }
+                                }} >
+                                    <button className="forum-bttn">Start a new discussion</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-            )
+        )
     };
 }
 

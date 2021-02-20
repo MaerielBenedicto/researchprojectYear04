@@ -4,12 +4,13 @@ import Post from '../components/Posts/Post';
 import Forum from '../components/Forum';
 import Filter from '../components/Filter';
 import Bookmark from '../components/Bookmark';
+import ForumTable from '../components/ForumTable';
 
 import '../../css/app.css';
 // import '../../css/style.css';
 
 import { Link } from 'react-router-dom';
-import {FaListAlt, FaRegBookmark, FaBookmark } from 'react-icons/fa';
+import { FaListAlt, FaRegBookmark, FaBookmark } from 'react-icons/fa';
 
 class Home extends Component {
     constructor(props) {
@@ -54,6 +55,8 @@ class Home extends Component {
 
     render() {
         const forums = this.props.forums;
+        const bookmarks = this.props.bookmarks.forums;
+
         var filteredForums = [];
         if (this.state.sortby === 'Latest') {
             filteredForums = forums.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
@@ -63,7 +66,18 @@ class Home extends Component {
             filteredForums = forums.slice().sort((a, b) => b.postsCount - a.postsCount);
         }
 
+        //set bookmarked forums
+        filteredForums = filteredForums.map((forum, i) => {
+            if (bookmarks.some(bookmark => bookmark.id === forum.id)) {
+                forum.bookmarked = true;
+            } else {
+                forum.bookmarked = false;
+            }
+            return forum;
+        });
+
         return (
+
             <div>
                 <div className="col-12">
                     <Filter sortby={this.state.sortby} changeSortby={this.changeSortby} />
@@ -75,49 +89,11 @@ class Home extends Component {
                             <div className="forum-list col-9 media py-3">
                                 <div className="col-12">
                                     {filteredForums.map(item => (
-                                        <div className="forum col-12" key={item.id}>
-                                            <div className="forum-title">
-                                                <Link to={`/forums/${item.id}`} className="forum-title">
-                                                    {item.topic}
-                                                </Link>
-                                            </div>
-
-                                            {(this.props.user && this.props.user.id === item.user.id) ? (
-                                                <Link to={{
-                                                    pathname: '/forums',
-                                                    state: {
-                                                        forumId: item.id,
-                                                        topic: item.topic,
-                                                        description: item.description,
-                                                        mode: 'edit'
-                                                    }
-                                                }}>
-                                                    <div className="float-right bttn"> Edit </div>
-                                                </Link>
-                                            ) : ''}
-
-                                            {(this.props.user && this.props.user.id === item.user.id) ? (
-                                                <button className="bttn float-right" onClick={() => this.delete(item)}>Delete</button>
-                                            ) : ''}
-                                            
-                                            
-                                            <div className="forum-desc">
-                                                {item.description}
-                                            </div>
-                                            <div className="forum-actions">
-                                                <FaListAlt className="icon"/> {item.postsCount} posts
-                                               {/* <button className="bookmark-bttn" onClick={()=> this.setState({bookmarked: true})}>
-                                                    {(this.state.bookmarked ? (
-                                                         <span><FaBookmark className="icon"/> Bookmark</span>
-                                                    ) : <span><FaRegBookmark className="icon"/> Bookmark</span> )}
-                                                </button>  */}
-                                                <Bookmark />
-                                            </div>
-
+                                        <div key={item.id}>
+                                            <ForumTable item={item} user={this.props.user} />
                                         </div>
                                     ))}
                                 </div>
-
                             </div>
 
                             <div className="col-3 py-3">
@@ -126,7 +102,7 @@ class Home extends Component {
                                     state: {}
                                 }}>
                                     <button className="forum-bttn">Create a new Forum topic</button>
-                                </Link> 
+                                </Link>
                             </div>
                         </div>
                     </div>

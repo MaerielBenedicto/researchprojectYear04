@@ -168,20 +168,6 @@ class PostController extends Controller
         return $posts;
     }
 
-    //add bookmark
-    public function add_post_bookmark($id){
-      $post = Post::where('id', $id)->first();
-      Auth::user()->bookmarks_post()->syncWithoutDetaching([$post->id]);
-      return $post;
-    } 
-
-
-    //remove bookmark
-    public function remove_post_bookmark($id){
-      $post = Post::where('id', $id)->first();
-      Auth::user()->bookmarks_post()->detach($post->id);
-      return $post;
-    }
 
 
 

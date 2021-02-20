@@ -135,18 +135,4 @@ class ForumController extends Controller
         return $forums;
     }
 
-    //add bookmark
-    public function add_forum_bookmark($id){
-      $forum = Forum::where('id', $id)->first();
-      Auth::user()->bookmarks_forums()->syncWithoutDetaching([$forum->id]);
-      return $forum;
-    } 
-
-
-    //remove bookmark
-    public function remove_forum_bookmark($id){
-      $forum = Forum::where('id', $id)->first();
-      Auth::user()->bookmarks_forums()->detach($forum->id);
-      return $forum;
-    }
 }
