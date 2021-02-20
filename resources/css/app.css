@@ -110,8 +110,9 @@ nav {
 }
 
 .form-msg span{
-    padding-right: 110px;
+    padding-right: 125px;
 }
+
 
 
 /*** SIGN IN ***/
@@ -130,11 +131,21 @@ nav {
     border-radius: 5px;
     color: #FFFFFF;
     margin: 0px auto;
+    font-size: 16px;
 }
 
 .form-bttn{
     text-align: center;
 }
+
+.rememberInput{
+    padding-right: 125px;
+}
+
+.rememberInput input, label{
+    margin-right: 10px;   
+}
+
 
 /*** REGISTER ***/
 
@@ -148,6 +159,7 @@ nav {
     border-radius: 5px;
     color: #FFFFFF;
     margin: 0px auto;
+    font-size: 16px;
 }
 
 .logo-site{

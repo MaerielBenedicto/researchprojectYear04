@@ -89,15 +89,6 @@ class Register extends Component {
                                 onChange={this.handleChange}/>
                             </div>
 
-                            <div className="form-group col-12 form-msg">
-                                    <span>
-                                        <input type="checkbox" id="rememberMe" name="remember"
-                                            checked={this.state.remember}
-                                            onChange={this.handleChange}
-                                         /> 
-                                        <label>Remember me</label></span>
-                                </div>
-
                             <div className="form-bttn col-12">
                                 <button type="submit" className="register-btn">
                                     Register

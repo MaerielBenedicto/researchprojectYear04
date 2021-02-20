@@ -157,7 +157,7 @@ class App extends Component {
               />
             </Route>
             <Route path="/forums/:forumId">
-              <Forum user={user} />
+              <Forum user={user} forums={this.state.forums}/>
             </Route>
             <Route path="/my-profile">
               <Profile user={user} />

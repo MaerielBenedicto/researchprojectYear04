@@ -21,9 +21,10 @@ class ForumController extends Controller
         foreach ($tempForums as $forum) {
           $postCount = $forum->posts()->where('status', 'approved')->count();
           $forum['postsCount'] = $postCount;
-  
+          $forum->load('posts');
           $forums[] = $forum;
         }
+       
         return $forums;
     }
 

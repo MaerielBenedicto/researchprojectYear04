@@ -49,7 +49,6 @@ Route::middleware('auth:api')->group(function () {
   Route::put('forums/{forum}', [ForumController::class, 'update']);
   Route::delete('forums/{forum}', [ForumController::class, 'destroy']);
 
-  //List of user's created forums
   Route::get('profile/{user_id}/forums', [ForumController::class, 'user_forums']);
 
 
@@ -71,6 +70,8 @@ Route::middleware('auth:api')->group(function () {
 
   Route::get('bookmarks/{id}', [BookmarkController::class, 'index']);
   Route::post('bookmarks', [BookmarkController::class, 'store']);
+  Route::delete('bookmarks/{id}', [BookmarkController::class, 'destroy']);
+
 
   //ADMIN 
   Route::get('posts', [AdminController::class, 'posts']);

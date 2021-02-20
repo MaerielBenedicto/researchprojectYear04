@@ -6,12 +6,12 @@ import Home from '../views/Home';
 
 class Signin extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
             email: '',
             password: '',
-            remember: false,
+            remember: true,
             errors: []
         };
 
@@ -19,7 +19,7 @@ class Signin extends Component {
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
     }
 
-    handleSubmitForm(e){
+    handleSubmitForm(e) {
         //prevent from reloading page
         e.preventDefault();
         axios.post('/api/login', {
@@ -28,25 +28,25 @@ class Signin extends Component {
         })
         .then((response) => {
             console.log(response.data);
-            const user = response.data;            
+            const user = response.data;
             this.props.onSuccess(user, this.state.remember);
-          })
-          .catch((error) => {
-            if(error.response){
-                this.setState({errors: error.response.data.errors });
-            } 
+        })
+        .catch((error) => {
+            if (error.response) {
+                this.setState({ errors: error.response.data.errors });
+            }
         });
-      }
+    }
 
-    handleChange(e){
+    handleChange(e) {
         const target = e.target;
         const value = (target.type === 'checkbox') ? target.checked : target.value;
         const name = target.name;
-    
+
         this.setState({
-          [name]: value
+            [name]: value
         });
-      }
+    }
 
     render() {
         return (
@@ -57,25 +57,25 @@ class Signin extends Component {
                             <h2>SIGN IN</h2>
                         </div>
                         {/* LOG IN FORM */}
-                        <form onSubmit={this.handleSubmitForm} className="form-div"> 
+                        <form onSubmit={this.handleSubmitForm} className="form-div">
                             <div className="row">
                                 <div className="form-group col-12">
-                                    <input id="email" type="email" className="form-control" placeholder="Email" name="email" required 
-                                    value={this.state.email}
-                                    onChange={this.handleChange} />
+                                    <input id="email" type="email" className="form-control" placeholder="Email" name="email" required
+                                        value={this.state.email}
+                                        onChange={this.handleChange} />
                                 </div>
 
                                 <div className="form-group col-12">
-                                    <input id="password" type="password" className="form-control" placeholder="Password" name="password" required 
-                                    value={this.state.password}
-                                    onChange={this.handleChange} />
+                                    <input id="password" type="password" className="form-control" placeholder="Password" name="password" required
+                                        value={this.state.password}
+                                        onChange={this.handleChange} />
                                 </div>
                                 <div className="form-group col-12 form-msg">
-                                    <span>
-                                        <input type="checkbox" id="rememberMe" name="remember"
+                                    <span className="rememberInput">
+                                        <input type="checkbox" id="rememberMe" name="remember" 
                                             checked={this.state.remember}
                                             onChange={this.handleChange}
-                                         /> 
+                                        />
                                         <label>Remember me</label></span>
                                     <a href="#">Forgot Password?</a>
                                 </div>

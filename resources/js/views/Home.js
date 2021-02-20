@@ -104,7 +104,7 @@ class Home extends Component {
                                             </div>
                                             <div className="forum-desc">
                                                 {item.postsCount} posts
-                                    </div>
+                                             </div>
 
                                         </div>
                                     ))}
