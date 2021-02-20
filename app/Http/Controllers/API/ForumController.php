@@ -18,10 +18,13 @@ class ForumController extends Controller
     {
         $tempForums = Forum::with('user')->get();
         $forums = array();
+
+        //get approved posts in each forum 
+        //count each posts in the forum 
         foreach ($tempForums as $forum) {
           $postCount = $forum->posts()->where('status', 'approved')->count();
           $forum['postsCount'] = $postCount;
-          $forum->load('posts');
+          $forum['posts'] = $forum->posts()->where('status', 'approved')->get();
           $forums[] = $forum;
         }
        

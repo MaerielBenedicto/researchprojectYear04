@@ -51,7 +51,6 @@ Route::middleware('auth:api')->group(function () {
 
   Route::get('profile/{user_id}/forums', [ForumController::class, 'user_forums']);
 
-
   Route::post('forums/{forum}/posts', [PostController::class, 'store']);
   Route::put('posts/{post}', [PostController::class, 'update']);
   Route::delete('posts/{post}', [PostController::class, 'destroy']);
