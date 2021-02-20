@@ -19,6 +19,7 @@ class Sidebar extends Component {
                                 </li>
                                 <li className="side-link">
                                 <FaUserCog className="icon"/> <NavLink to="/dashboard">Admin</NavLink>
+                               
                                 </li>
                             </div>
                             <div className="review-div">

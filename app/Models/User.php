@@ -73,9 +73,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\CommentVote');
     }
 
-    public function bookmark() {
-        return $this->hasMany('App\Models\Bookmark');
-      }
+    public function bookmarks_post() {
+        return $this->belongsToMany('App\Models\Post', 'bookmarks', 'user_id', 'post_id');
+    }
 
-
+    public function bookmarks_forums() {
+        return $this->belongsToMany('App\Models\Forum', 'bookmarks', 'user_id', 'forum_id');
+    }
 }

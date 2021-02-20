@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import Post from '../components/Posts/Post';
 import Forum from '../components/Forum';
 import Filter from '../components/Filter';
+import Bookmark from '../components/Bookmark';
 
 import '../../css/app.css';
 // import '../../css/style.css';
 
 import { Link } from 'react-router-dom';
-
+import {FaListAlt, FaRegBookmark, FaBookmark } from 'react-icons/fa';
 
 class Home extends Component {
     constructor(props) {
@@ -98,13 +99,20 @@ class Home extends Component {
                                             {(this.props.user && this.props.user.id === item.user.id) ? (
                                                 <button className="bttn float-right" onClick={() => this.delete(item)}>Delete</button>
                                             ) : ''}
-
+                                            
+                                            
                                             <div className="forum-desc">
                                                 {item.description}
                                             </div>
-                                            <div className="forum-desc">
-                                                {item.postsCount} posts
-                                             </div>
+                                            <div className="forum-actions">
+                                                <FaListAlt className="icon"/> {item.postsCount} posts
+                                               {/* <button className="bookmark-bttn" onClick={()=> this.setState({bookmarked: true})}>
+                                                    {(this.state.bookmarked ? (
+                                                         <span><FaBookmark className="icon"/> Bookmark</span>
+                                                    ) : <span><FaRegBookmark className="icon"/> Bookmark</span> )}
+                                                </button>  */}
+                                                <Bookmark />
+                                            </div>
 
                                         </div>
                                     ))}
@@ -113,17 +121,12 @@ class Home extends Component {
                             </div>
 
                             <div className="col-3 py-3">
-                                {/* <div className="col-12"> */}
                                 <Link to={{
                                     pathname: '/forums',
-                                    state: {
-                                        // forumId: this.props.match.params.forumId
-                                    }
-                                }}
-                                >
+                                    state: {}
+                                }}>
                                     <button className="forum-bttn">Create a new Forum topic</button>
-                                </Link>
-                                {/* </div> */}
+                                </Link> 
                             </div>
                         </div>
                     </div>

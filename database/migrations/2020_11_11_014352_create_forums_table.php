@@ -17,7 +17,7 @@ class CreateForumsTable extends Migration
           $table->bigIncrements('id');
           $table->string('topic');
           $table->string('description');
-          $table->string('category');
+        //   $table->string('category');
           $table->bigInteger('user_id')->unsigned();
 
           $table->timestamps();

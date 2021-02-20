@@ -25,4 +25,8 @@ class Forum extends Model
     public function posts(){
       return $this->hasMany('App\Models\Post');
     }
+
+    public function bookmarks(){
+      return $this->belongsToMany('App\Models\User', 'bookmarks', 'forum_id', 'user_id');
+    } 
 }

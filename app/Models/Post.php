@@ -35,5 +35,7 @@ class Post extends Model
       return $this->hasMany('App\Models\PostVote');
     }
 
-
+    public function bookmarks(){
+      return $this->belongsToMany('App\Models\User', 'bookmarks', 'post_id', 'user_id');
+    } 
 }

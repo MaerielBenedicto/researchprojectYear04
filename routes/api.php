@@ -56,6 +56,8 @@ Route::middleware('auth:api')->group(function () {
   Route::delete('posts/{post}', [PostController::class, 'destroy']);
   Route::get('profile/{user_id}/posts', [PostController::class, 'user_posts']);
 
+
+
   Route::post('posts/{post}/comments', [CommentController::class, 'store']);
   Route::put('comments/{comment}', [CommentController::class, 'update']);
   Route::get('comments/{comment}', [CommentController::class, 'show']);
@@ -67,9 +69,17 @@ Route::middleware('auth:api')->group(function () {
   Route::post('comments/{comment}/vote', [CommentVoteController::class, 'store']);
   Route::put('comment/{post_vote}/vote', [CommentVoteController::class, 'update']);
 
-  Route::get('bookmarks/{id}', [BookmarkController::class, 'index']);
-  Route::post('bookmarks', [BookmarkController::class, 'store']);
-  Route::delete('bookmarks/{id}', [BookmarkController::class, 'destroy']);
+  //bookmark post
+  Route::post('bookmark/post/{id}', [PostController::class, 'add_post_bookmark']);
+  Route::post('unbookmark/post/{id}', [PostController::class, 'remove_post_bookmark']);
+
+  //bookmark forum
+  Route::post('bookmark/forum/{id}', [ForumController::class, 'add_forum_bookmark']);
+  Route::post('unbookmark/forum/{id}', [ForumController::class, 'remove_forum_bookmark']);
+
+  // Route::get('bookmarks/{id}', [BookmarkController::class, 'index']);
+  // Route::post('bookmarks', [BookmarkController::class, 'store']);
+  // Route::delete('bookmarks/{id}', [BookmarkController::class, 'destroy']);
 
 
   //ADMIN 
