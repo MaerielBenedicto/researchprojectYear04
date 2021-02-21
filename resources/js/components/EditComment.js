@@ -39,6 +39,28 @@ class EditComment extends Component {
                         <button className="bttn float-right" onClick={this.delete}><FaTrashAlt className="icon" />Delete</button>
                     </div>
                 ) : ''}
+
+
+                {/* Commeng */}
+                {(this.state.edit == true && this.state.editId === item.id) ? (
+                    <div>
+                        <textarea className="comment-box form-control" id="body" placeholder="Add a comment" name="comment_value"
+                            value={this.state.comment_value}
+                            onChange={this.handleChange}></textarea>
+                        <button onClick={() => this.editComment(item.id)}>Update</button>
+                        <button onClick={() => this.setState({ edit: false })}>Cancel</button>
+                    </div>
+                ) : (<div className="apt-notes">
+                    {item.body}
+                </div>
+                    )}
+
+                {(this.props.user && this.props.user.id === item.user.id) ? (
+                    <div className="float-right">
+                        <button onClick={() => this.deleteComment(item.id)}>Delete</button>
+                        <button onClick={() => this.setState({ edit: true, editId: item.id, comment: item, comment_value: item.body })}>Edit</button>
+                    </div>
+                ) : ''}
             </div>
         )
     };

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
+import { FaSortUp, FaSortDown } from 'react-icons/fa';
 
 class CommentVote extends Component {
     constructor(){
         super();
         this.state = {
             upvote: false,
-            downvote: false
+            downvote: false,
+            voted: null
         };
 
         this.upvote = this.upvote.bind(this);
@@ -71,12 +73,37 @@ class CommentVote extends Component {
 
 
     render(){
-        return (
-            <div>
-                <button onClick={this.upvote}>Upvote</button>
-                <button onClick={this.downvote}>Downvote</button>
-            </div>
-        )
+        const voted = this.state.voted;
+        
+        if(voted !== undefined){
+            return (
+                <div>
+                    {(voted) ? (
+                        <div>
+                            <button onClick={this.upvote} className="vote-bttn"><FaSortUp className="voted-icon" /></button>
+                            <div className="upvote-count">{this.props.item_upvote}</div>
+                            <button onClick={this.downvote} className="vote-bttn"><FaSortDown className=" vote-icon" /></button>
+                        </div>)
+                        : (
+                            <div>
+                                <button onClick={this.upvote} className="vote-bttn"><FaSortUp className="vote-icon" /></button>
+                                <div className="upvote-count">{this.props.item_upvote}</div>
+                                <button onClick={this.downvote} className="vote-bttn"><FaSortDown className=" voted-icon" /></button>
+                            </div>
+    
+                        )}
+                </div>
+            )
+        } else {
+            return (
+                    <div>
+                    <button onClick={this.upvote} className="vote-bttn"><FaSortUp className="vote-icon" /></button>
+                    <div className="upvote-count">{this.props.item_upvote}</div>
+                    <button onClick={this.downvote} className="vote-bttn"><FaSortDown className=" vote-icon" /></button>
+                </div>
+            )
+        }
+
     };
 }
 

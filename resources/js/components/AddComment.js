@@ -16,7 +16,7 @@ class AddComment extends Component {
     handleSubmitForm(e){
         //prevent from reloading page
         e.preventDefault();
-        let token = localStorage.getItem("token");
+        let token = this.props.user.token;
         if(token){
             axios.post('/api/posts/' + this.props.postId + '/comments', 
             {
@@ -29,13 +29,8 @@ class AddComment extends Component {
             })
             .then((response) => {
                 console.log(response.data);
-                
-                let c = response.data.data;
-                let b = { user: response.data.user };
-                c = _.merge(response.data.data, b);
                 this.setState({comment: ""});
                 this.props.addComment(response.data.data);
-                
               })
             .catch(function(error) {
                 console.log(error);

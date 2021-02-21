@@ -45,9 +45,19 @@ class CommentController extends Controller
     }
 
     $body = $request->body;
+    //generate random values
+    $s_score = mt_rand(-1.0, 1.0);
+    $s_magnitude = mt_rand(1, 10);
 
+    //negative sentiment
+    if($s_score <= -0.25 && $s_magnitude > .5) {
+      $action = 'under review';
+      $status = 'pending';
+    } else {
+        $action = 'null';
+        $status = 'approved'; 
+    }
     // $sentimentValues = $this->sentiment($body);
-
 
     $comment = Comment::create([
         'body' => $request->body,
@@ -56,11 +66,14 @@ class CommentController extends Controller
         // 's_score' => $sentimentValues['score'],
         // 's_magnitude' => $sentimentValues['magnitude']
         's_score' => '0',
-        's_magnitude' => '0'
+        's_magnitude' => '0',
+        'status' => $status,
+        'action' => $action
     ]);
-
-    $user = $comment->user()->first();
-    return response()->json(['message' => 'Comment created', 'data' => $comment,'user'=> $user], 200);
+    
+    //load comment along with user
+    $comment = $comment->load('user');
+    return response()->json(['message' => 'Comment created', 'data' => $comment], 200);
   }
 
   public function update(Request $request, $id)

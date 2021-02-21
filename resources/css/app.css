@@ -287,7 +287,9 @@ nav {
     font-weight: 800;
 }
 
-.bookmark-bttn{
+.bookmark-bttn, 
+.update-bttn,
+.cancel-bttn{
     margin-left: 20px;
     background-color: white;
 }
@@ -301,8 +303,6 @@ nav {
     color: black;
     text-decoration: none;
 }
-
-
 
 .vote-bttn{
     background-color: white;
@@ -331,10 +331,12 @@ nav {
 .post-body-div{
     padding-right: 30px;
 }
+
 .upvote-count{
     text-align: center;
-    height: 20px;
+    height: 15px;
     width: 50px;
+    font-size: 12px;
 }
 /*** FORUM-POST ***/
 .forum-detail{
@@ -404,7 +406,7 @@ nav {
     margin-bottom: 20px;
     padding: 20px 20px;
 }
-.post-detail span{
+.post-detail span {
     padding-left: 20px;
 }
 
@@ -419,11 +421,20 @@ nav {
     font-size: 14px;
     margin: 20px 0px;
 }
-
-.post-detail img{
+.post-detail img, .comment-div img{
     width: 50px;
     height: 50px;
 }
+
+.comment-div{
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.date{
+    font-size: 14px;
+}
+
 
 .hide-post{
     -moz-filter: blur(5px);
@@ -487,7 +498,7 @@ nav {
 
 .each-comment{
     border-bottom: 1px solid #888888;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     padding-top: 20px;
 }
 
@@ -763,15 +774,15 @@ svg {
     stroke: black;
     stroke-width: 10;
     fill: white;
-    width: 40px;
-    height: 35px;
+    width: 35px;
+    height: 30px;
 }
 
 .voted-icon{
     stroke: black;
     stroke-width: 10;
     color: #5596E6;
-    width: 40px;
-    height: 35px;
+    width: 35px;
+    height: 30px;
 }
 
