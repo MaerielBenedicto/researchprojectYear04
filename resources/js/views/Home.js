@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Post from '../components/Posts/Post';
-import Forum from '../components/Forum';
+import Forum from '../components/PostList';
 import Filter from '../components/Filter';
 import Bookmark from '../components/Bookmark';
 import ForumTable from '../components/ForumTable';

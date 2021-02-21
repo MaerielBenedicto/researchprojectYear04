@@ -6,7 +6,7 @@ import PostVote from './PostVote';
 import Bookmark from './Bookmark';
 import { FaCommentAlt, FaEdit } from 'react-icons/fa';
 
-class Forum extends Component {
+class PostList extends Component {
     constructor() {
         super();
         this.state = {
@@ -57,7 +57,8 @@ class Forum extends Component {
         const forum_id = parseInt(this.props.match.params.forumId);
         const forums = this.props.forums;
         const bookmarks = this.props.bookmarks;
-
+        const votes = this.props.votes;
+        console.log('votes', votes);
         //get forum with the forum_id
         const forum = forums.find(forum => forum.id === forum_id);
 
@@ -82,6 +83,23 @@ class Forum extends Component {
                 }
                 return post;
             });
+
+            filteredPosts = filteredPosts.filter((post, i) => {
+                return votes.map((vote => {
+                    if(vote.post_id == post.id){
+                       if(vote.vote == 1){
+                           post.voted = true;
+                       } else if(vote.vote == -1) {
+                           post.voted = false;
+                       } else {
+                            post.voted = null;
+                       } 
+                       return post;
+                    }
+                }));
+            });
+
+            
         }
         return (
             <div>
@@ -122,6 +140,7 @@ class Forum extends Component {
                                                             user={this.props.user} 
                                                             voted={this.getPosts} 
                                                             item_upvote={item.upvote} 
+                                                            item_voted={item.voted}
                                                         />
                                                     </div>
                                                 </div>
@@ -143,7 +162,10 @@ class Forum extends Component {
                                                                 user={this.props.user}
                                                                 id={item.id}
                                                                 bookmarked={item.bookmarked} 
-                                                                post_bookmark={true} />
+                                                                post_bookmark={true} 
+                                                                AddbookmarkSuccess={this.props.AddbookmarkSuccess}
+                                                                RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
+                                                                />
 
                                                             {(this.props.user && this.props.user.id === item.user.id) ? (
                                                                 <Link to={{
@@ -187,4 +209,4 @@ class Forum extends Component {
     };
 }
 
-export default withRouter(Forum);
+export default withRouter(PostList);

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-import Forum from '../components/Forum';
+import PostList from '../components/PostList';
 import Post from '../components/Posts/Post';
 import Signin from '../components/Signin';
 import Register from '../components/Register';
@@ -36,7 +36,8 @@ class App extends Component {
       user: localUser,
       forums: [],
       forums_bookmarks: [],
-      posts_bookmarks: []
+      posts_bookmarks: [],
+      votes: []
     }
 
     // this.getUser = this.getUser.bind(this);
@@ -46,8 +47,11 @@ class App extends Component {
     this.createForumSuccess = this.createForumSuccess.bind(this);
     this.onDeleteForum = this.onDeleteForum.bind(this);
     this.updateForumSuccess = this.updateForumSuccess.bind(this);
-    this.AddbookmarkSuccess = this.AddbookmarkSuccess.bind(this);
-    this.RemovebookmarkSuccess = this.RemovebookmarkSuccess.bind(this);
+    this.AddForumbookmarkSuccess = this.AddForumbookmarkSuccess.bind(this);
+    this.RemoveForumbookmarkSuccess = this.RemoveForumbookmarkSuccess.bind(this);
+    this.AddPostbookmarkSuccess = this.AddPostbookmarkSuccess.bind(this);
+    this.RemovePostbookmarkSuccess = this.RemovePostbookmarkSuccess.bind(this);
+
   }
 
   componentDidMount() {
@@ -145,7 +149,7 @@ class App extends Component {
   }
 
   //add forum to bookmark
-  AddbookmarkSuccess(forum){
+  AddForumbookmarkSuccess(forum){
     let tempForumsBookmarks = this.state.forums_bookmarks;
 
     //push comment in the beginning of the array 
@@ -155,12 +159,31 @@ class App extends Component {
     });
   }
 
-  RemovebookmarkSuccess(forum){
+  RemoveForumbookmarkSuccess(forum){
     let tempForumsBookmarks = this.state.forums_bookmarks;
     //remove forum from array that matches the id
     tempForumsBookmarks.splice(tempForumsBookmarks.findIndex(f => f.id == forum.id), 1);
     this.setState({
       forums_bookmarks: tempForumsBookmarks
+    });
+  }
+
+  AddPostbookmarkSuccess(post){
+    let tempPostsBookmarks = this.state.posts_bookmarks;
+
+    //push comment in the beginning of the array 
+    tempPostsBookmarks.push(post);
+    this.setState({
+      posts_bookmarks: tempPostsBookmarks
+    });
+  }
+
+  RemovePostbookmarkSuccess(post){
+    let tempPostsBookmarks = this.state.posts_bookmarks;
+    //remove forum from array that matches the id
+    tempPostsBookmarks.splice(tempPostsBookmarks.findIndex(p => p.id == post.id), 1);
+    this.setState({
+      posts_bookmarks: tempPostsBookmarks
     });
   }
 
@@ -181,8 +204,8 @@ class App extends Component {
               forums={this.state.forums}
               onDeleteForum={this.onDeleteForum}
               bookmarks={this.state.forums_bookmarks}
-              AddbookmarkSuccess={this.AddbookmarkSuccess}
-              RemovebookmarkSuccess={this.RemovebookmarkSuccess}
+              AddbookmarkSuccess={this.AddForumbookmarkSuccess}
+              RemovebookmarkSuccess={this.RemoveForumbookmarkSuccess}
             />
           </Route>
           <Route path="/signin">
@@ -196,9 +219,12 @@ class App extends Component {
             />
           </Route>
           <Route path="/forums/:forumId">
-            <Forum user={user} 
+            <PostList user={user} 
                    forums={this.state.forums}
-                   bookmarks={this.state.posts_bookmarks}  
+                   bookmarks={this.state.posts_bookmarks}
+                   AddbookmarkSuccess={this.AddPostbookmarkSuccess}
+                   RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
+                   votes={this.state.votes}  
             />
           </Route>
           <Route path="/my-profile">
