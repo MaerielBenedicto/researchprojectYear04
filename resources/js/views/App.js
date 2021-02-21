@@ -56,17 +56,19 @@ class App extends Component {
       axios.all([
         axios.get('/api/forums'),
         axios.get('/api/bookmarks',
-            { headers: { Authorization: "Bearer " + token } })
-    ])
-        .then(axios.spread((forums, bookmarks) => {
-            console.log('forums', forums);
-            console.log('bookmarks', bookmarks);
+            { headers: { Authorization: "Bearer " + token } }),
+        axios.get('/api/posts/vote/' + this.state.user.id,
+            { headers: { Authorization: "Bearer " + token } }),
+      ])
+        .then(axios.spread((forums, bookmarks, votes) => {
             const forumsData = forums.data;
             const bookmarksData = bookmarks.data;
+            const votesData = votes.data;
             this.setState({
                 forums: forumsData,
                 forums_bookmarks: bookmarksData.forums,
                 posts_bookmarks: bookmarksData.posts,
+                votes: votesData,
                 isLoaded: true
             });
         }))

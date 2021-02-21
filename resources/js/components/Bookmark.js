@@ -63,6 +63,7 @@ class Bookmark extends Component {
                 })
                 .then((response) => {
                     // console.log(response.data);
+                    this.props.AddbookmarkSuccess(response.data);
                     this.setState({bookmarked: true});
                 })
                 .catch(function(error) {
@@ -80,6 +81,7 @@ class Bookmark extends Component {
                 })
                 .then((response) => {
                     // console.log(response.data);
+                    this.props.RemovebookmarkSuccess(response.data);
                     this.setState({bookmarked: false});
                 })
                 .catch(function(error) {
@@ -93,8 +95,6 @@ class Bookmark extends Component {
     }
 
     render(){
-
-        const bookmarks = this.props.bookmarks;
         return (
             <button className="bookmark-bttn" onClick={()=> this.bookmark()}>
             {(this.state.bookmarked) ? (

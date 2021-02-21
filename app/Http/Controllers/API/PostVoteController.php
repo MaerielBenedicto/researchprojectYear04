@@ -15,7 +15,7 @@ class PostVoteController extends Controller
     {
         //get all upvoted posts
         $user = User::where('id', $id)->first();
-        $posts = $user->post_votes()->where('vote', '1')->with('post')->get();
+        $posts = $user->post_votes()->with('post')->get();
         return $posts;
     }
 

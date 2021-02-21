@@ -117,7 +117,12 @@ class Forum extends Component {
                                                 </div>
                                                 <div className="col-2 vote-div">
                                                     <div className="float-right">
-                                                        <PostVote postId={item.id} user={this.props.user} voted={this.getPosts} item_upvote={item.upvote} />
+                                                        <PostVote 
+                                                            postId={item.id} 
+                                                            user={this.props.user} 
+                                                            voted={this.getPosts} 
+                                                            item_upvote={item.upvote} 
+                                                        />
                                                     </div>
                                                 </div>
                                                 <div className="div col-12 post-deets">
@@ -137,7 +142,7 @@ class Forum extends Component {
                                                             <Bookmark
                                                                 user={this.props.user}
                                                                 id={item.id}
-                                                                // bookmarked={item.bookmarked} 
+                                                                bookmarked={item.bookmarked} 
                                                                 post_bookmark={true} />
 
                                                             {(this.props.user && this.props.user.id === item.user.id) ? (

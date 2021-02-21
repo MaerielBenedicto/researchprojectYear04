@@ -9,7 +9,7 @@ class PostVote extends Component {
         this.state = {
             upvote: null,
             downvote: null,
-            upvoted: true,
+            upvoted: false,
             downvoted: false
         };
 
@@ -38,7 +38,7 @@ class PostVote extends Component {
             })
             .then((response) => {
                 console.log(response.data);
-                this.setState({upvote: true});
+                this.setState({upvoted: true, downvoted: false});
                 this.props.voted();
               })
             .catch(function(error) {
@@ -66,7 +66,7 @@ class PostVote extends Component {
             .then((response) => {
                 console.log(response.data);
                 this.props.voted();
-                this.setState({downvote: true});
+                this.setState({downvoted: true, upvoted: true});
               })
             .catch(function(error) {
                 console.log(error);
@@ -87,9 +87,9 @@ class PostVote extends Component {
                 <button onClick={this.upvote} className="vote-bttn"><FaSortUp className="vote-icon"/></button> 
                 )}
                 <div className="upvote-count">{this.props.item_upvote}</div>
-                {(this.state.downvoted) ?(
+                {(this.state.downvoted) ? (
                     <button onClick={this.downvote} className="vote-bttn"><FaSortDown className=" voted-icon"/></button>
-                ):(<button onClick={this.downvote} className="vote-bttn"><FaSortDown className=" vote-icon"/></button>
+                ) : ( <button onClick={this.downvote} className="vote-bttn"><FaSortDown className=" vote-icon"/></button>
                 )}
             </div>
         )

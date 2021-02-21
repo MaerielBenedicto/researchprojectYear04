@@ -36,34 +36,39 @@ Route::group(['middleware' => 'guest:api'], function() {
 
   Route::get('posts/{post}/comments', [CommentController::class, 'index']);
 
-  Route::get('posts/vote/{user}', [PostVoteController::class, 'index']);
-  Route::get('comments/vote/{user}', [CommentVoteController::class, 'index']);
-
 });
 
 Route::middleware('auth:api')->group(function () {
+  //auth
   Route::get('user', [PassportController::class, 'user']);
   Route::get('logout', [PassportController::class, 'logout']);
 
+  //forums
   Route::post('forums', [ForumController::class, 'store']);
   Route::put('forums/{forum}', [ForumController::class, 'update']);
   Route::delete('forums/{forum}', [ForumController::class, 'destroy']);
 
   Route::get('profile/{user_id}/forums', [ForumController::class, 'user_forums']);
 
+  //posts in a forum
   Route::post('forums/{forum}/posts', [PostController::class, 'store']);
   Route::put('posts/{post}', [PostController::class, 'update']);
   Route::delete('posts/{post}', [PostController::class, 'destroy']);
   Route::get('profile/{user_id}/posts', [PostController::class, 'user_posts']);
 
+  //post
   Route::post('posts/{post}/comments', [CommentController::class, 'store']);
   Route::put('comments/{comment}', [CommentController::class, 'update']);
   Route::get('comments/{comment}', [CommentController::class, 'show']);
   Route::delete('comments/{comment}', [CommentController::class, 'destroy']);
 
+  //vote in a post
+  Route::get('posts/vote/{user}', [PostVoteController::class, 'index']);
   Route::post('posts/{post}/vote', [PostVoteController::class, 'store']);
   Route::put('post/{post_vote}/vote', [PostVoteController::class, 'update']);
 
+  //vote in a comment
+  Route::get('comments/vote/{user}', [CommentVoteController::class, 'index']);
   Route::post('comments/{comment}/vote', [CommentVoteController::class, 'store']);
   Route::put('comment/{post_vote}/vote', [CommentVoteController::class, 'update']);
 
@@ -76,8 +81,6 @@ Route::middleware('auth:api')->group(function () {
   Route::post('unbookmark/forum/{id}', [BookmarkController::class, 'remove_forum_bookmark']);
 
   Route::get('bookmarks', [BookmarkController::class, 'index']);
-  // Route::post('bookmarks', [BookmarkController::class, 'store']);
-  // Route::delete('bookmarks/{id}', [BookmarkController::class, 'destroy']);
 
 
   //ADMIN 
