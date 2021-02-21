@@ -26,6 +26,7 @@ class Bookmark extends Component {
                 .then((response) => {
                     // console.log(response.data);
                     this.setState({bookmarked: true});
+                    this.props.AddbookmarkSuccess(response.data);
                 })
                 .catch(function(error) {
                     console.log(error);
@@ -43,6 +44,8 @@ class Bookmark extends Component {
                 .then((response) => {
                     // console.log(response.data);
                     this.setState({bookmarked: false});
+                    this.props.RemovebookmarkSuccess(response.data);
+
                 })
                 .catch(function(error) {
                     console.log(error);

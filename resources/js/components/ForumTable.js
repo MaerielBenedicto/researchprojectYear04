@@ -48,7 +48,14 @@ class ForumTable extends Component {
                     </div>
                     <div className="forum-actions">
                         <FaListAlt className="icon post-icon" /> {item.postsCount} posts
-                        <Bookmark user={this.props.user} id={item.id} bookmarked={item.bookmarked} forum_bookmark={true}/>
+                        <Bookmark 
+                            user={this.props.user} 
+                            id={item.id} 
+                            bookmarked={item.bookmarked} 
+                            forum_bookmark={true} 
+                            AddbookmarkSuccess={this.props.AddbookmarkSuccess}
+                            RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
+                        />
                     </div>
 
                 </div>

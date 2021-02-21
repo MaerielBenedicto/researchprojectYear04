@@ -56,7 +56,7 @@ class Forum extends Component {
     render() {
         const forum_id = parseInt(this.props.match.params.forumId);
         const forums = this.props.forums;
-        const bookmarks = this.props.bookmarks.posts;
+        const bookmarks = this.props.bookmarks;
 
         //get forum with the forum_id
         const forum = forums.find(forum => forum.id === forum_id);

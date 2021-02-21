@@ -53,7 +53,7 @@ class Home extends Component {
 
     render() {
         const forums = this.props.forums;
-        const bookmarks = this.props.bookmarks.forums;
+        const bookmarks = this.props.bookmarks;
 
         var filteredForums = [];
         if (this.state.sortby === 'Latest') {
@@ -88,7 +88,12 @@ class Home extends Component {
                                 <div className="col-12">
                                     {filteredForums.map(item => (
                                         <div key={item.id}>
-                                            <ForumTable item={item} user={this.props.user} />
+                                            <ForumTable 
+                                                item={item} 
+                                                user={this.props.user} 
+                                                AddbookmarkSuccess={this.props.AddbookmarkSuccess}
+                                                RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
+                                            />
                                         </div>
                                     ))}
                                 </div>

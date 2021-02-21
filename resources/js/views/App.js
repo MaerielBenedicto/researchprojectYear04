@@ -35,7 +35,8 @@ class App extends Component {
     this.state = {
       user: localUser,
       forums: [],
-      bookmarks: []
+      forums_bookmarks: [],
+      posts_bookmarks: []
     }
 
     // this.getUser = this.getUser.bind(this);
@@ -45,7 +46,8 @@ class App extends Component {
     this.createForumSuccess = this.createForumSuccess.bind(this);
     this.onDeleteForum = this.onDeleteForum.bind(this);
     this.updateForumSuccess = this.updateForumSuccess.bind(this);
-
+    this.AddbookmarkSuccess = this.AddbookmarkSuccess.bind(this);
+    this.RemovebookmarkSuccess = this.RemovebookmarkSuccess.bind(this);
   }
 
   componentDidMount() {
@@ -63,7 +65,8 @@ class App extends Component {
             const bookmarksData = bookmarks.data;
             this.setState({
                 forums: forumsData,
-                bookmarks: bookmarksData,
+                forums_bookmarks: bookmarksData.forums,
+                posts_bookmarks: bookmarksData.posts,
                 isLoaded: true
             });
         }))
@@ -139,7 +142,25 @@ class App extends Component {
     });
   }
 
+  //add forum to bookmark
+  AddbookmarkSuccess(forum){
+    let tempForumsBookmarks = this.state.forums_bookmarks;
 
+    //push comment in the beginning of the array 
+    tempForumsBookmarks.push(forum);
+    this.setState({
+      forums_bookmarks: tempForumsBookmarks
+    });
+  }
+
+  RemovebookmarkSuccess(forum){
+    let tempForumsBookmarks = this.state.forums_bookmarks;
+    //remove forum from array that matches the id
+    tempForumsBookmarks.splice(tempForumsBookmarks.findIndex(f => f.id == forum.id), 1);
+    this.setState({
+      forums_bookmarks: tempForumsBookmarks
+    });
+  }
 
 
   render() {
@@ -157,7 +178,9 @@ class App extends Component {
               user={user}
               forums={this.state.forums}
               onDeleteForum={this.onDeleteForum}
-              bookmarks={this.state.bookmarks}
+              bookmarks={this.state.forums_bookmarks}
+              AddbookmarkSuccess={this.AddbookmarkSuccess}
+              RemovebookmarkSuccess={this.RemovebookmarkSuccess}
             />
           </Route>
           <Route path="/signin">
@@ -172,8 +195,8 @@ class App extends Component {
           </Route>
           <Route path="/forums/:forumId">
             <Forum user={user} 
-                   forums={this.state.forums}  
-                   bookmarks={this.state.bookmarks} 
+                   forums={this.state.forums}
+                   bookmarks={this.state.posts_bookmarks}  
             />
           </Route>
           <Route path="/my-profile">
