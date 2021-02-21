@@ -28,7 +28,7 @@ class Post extends Model
     }
 
     public function comments(){
-      return $this->hasMany('App\Models\Comment');
+      return $this->hasMany('App\Models\Comment')->with('user')->get();
     }
 
     public function post_vote(){

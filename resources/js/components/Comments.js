@@ -5,17 +5,17 @@ import AddComment from './AddComment';
 import CommentVote from './CommentVote';
 
 class Comments extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            comments: [],
+            comments: props.comments,
             comment: {},
             comment_value: "",
             sort: '',
             edit: false,
             editId: ''
         };
-        this.comments = this.comments.bind(this);
+        // this.comments = this.comments.bind(this);
         this.addComment = this.addComment.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.deleteComment = this.deleteComment.bind(this);
@@ -23,27 +23,27 @@ class Comments extends Component {
     }
 
     componentDidMount(){
-        this.comments();
+        // this.comments();
     }
 
-    comments(){
-        axios.get('/api/posts/' + this.props.postId + '/comments')
-        .then(response => {
-            console.log(response);
-            const tempComments = response.data.data;
-            console.log(response.data.data);
-            //never modify state directly
-            this.setState({
-                comments: tempComments
-            });
-        })
-        .catch(function(error){
-            if(error){
-                console.log(error.response);
-                this.state.errors = error.response.data.errors;
-            } 
-        });
-    }
+    // comments(){
+    //     axios.get('/api/posts/' + this.props.postId + '/comments')
+    //     .then(response => {
+    //         console.log(response);
+    //         const tempComments = response.data.data;
+    //         console.log(response.data.data);
+    //         //never modify state directly
+    //         this.setState({
+    //             comments: tempComments
+    //         });
+    //     })
+    //     .catch(function(error){
+    //         if(error){
+    //             console.log(error.response);
+    //             this.state.errors = error.response.data.errors;
+    //         } 
+    //     });
+    // }
 
     addComment(comment){        
         let tempComments = this.state.comments;
@@ -109,13 +109,11 @@ class Comments extends Component {
         });
       }
 
-     
-
-
+    
     render(){
         return (
             <div className="">
-                <PrivateRoute postId={this.props.postId} userId={this.props.user.id} addComment={this.addComment} component={AddComment}/>
+                {/* <PrivateRoute postId={this.props.postId} userId={this.props.user.id} addComment={this.addComment} component={AddComment}/> */}
                 <div className="row">
                      <div className="col comment-select">
                                 <h6>Sort</h6>
