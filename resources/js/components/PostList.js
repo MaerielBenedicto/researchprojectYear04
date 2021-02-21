@@ -148,7 +148,11 @@ class PostList extends Component {
                                                     <div className="row">
                                                         <div className="col-11 offset-1">
                                                             <div className="post-title">
-                                                                <Link to={`/posts/${item.id}`} >
+                                                                <Link to={{
+                                                                    pathname: `/posts/${item.id}`,
+                                                                    state: {
+                                                                        post: item
+                                                                    }}} >
                                                                     {item.title}
                                                                 </Link>
                                                             </div>

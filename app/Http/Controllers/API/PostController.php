@@ -132,8 +132,12 @@ class PostController extends Controller
     $countUpvote = $post->post_vote()->where('vote', '1')->count();
     $countDownvote = $post->post_vote()->where('vote', '-1')->count();
 
+    //count upvotes and downvotes
     $post['upvote'] = $countUpvote;
     $post['downvote'] = $countDownvote;
+
+    //load comments of the post
+    $post['comments'] = $post->comments;
 
     if ($post === null) {
       $statusMsg = 'post not found!';

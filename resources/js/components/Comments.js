@@ -115,8 +115,8 @@ class Comments extends Component {
     render(){
         return (
             <div className="">
-                {/* <PrivateRoute postId={this.props.postId} userId={this.props.user.id} addComment={this.addComment} component={AddComment}/> */}
-                {/* <div className="row">
+                <PrivateRoute postId={this.props.postId} userId={this.props.user.id} addComment={this.addComment} component={AddComment}/>
+                <div className="row">
                      <div className="col comment-select">
                                 <h6>Sort</h6>
                                 <form>
@@ -127,7 +127,7 @@ class Comments extends Component {
                                     </select>
                                 </form>
                             </div>
-                    </div> */}
+                    </div>
                 <div className="row mt-5">
                         <div className="comment-box col-9 py-3">
                         <AddComment postId={this.props.postId} user={this.props.user} addComment={this.addComment}/>

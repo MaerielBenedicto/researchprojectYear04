@@ -13,16 +13,19 @@ class Post extends Component {
         super();
         this.state = {
             post: {},
+            comments: [],
             isLoaded: false,
             sortby: 'Latest'
         };
 
         this.delete = this.delete.bind(this);
         this.getPost = this.getPost.bind(this);
+        this.comments = this.comments.bind(this);
     }
 
     componentDidMount(){
         this.getPost();
+        this.comments();
     }
 
     getPost(){
@@ -41,6 +44,25 @@ class Post extends Component {
         .catch(function(error){
             if(error){
                 console.log(error);
+                this.state.errors = error.response.data.errors;
+            } 
+        });
+    }
+
+    comments(){
+        axios.get('/api/posts/' + this.state.post.id + '/comments')
+        .then(response => {
+            console.log(response);
+            const tempComments = response.data.data;
+            console.log(response.data.data);
+            //never modify state directly
+            this.setState({
+                comments: tempComments
+            });
+        })
+        .catch(function(error){
+            if(error){
+                console.log(error.response);
                 this.state.errors = error.response.data.errors;
             } 
         });
@@ -65,6 +87,8 @@ class Post extends Component {
     }
 
     render(){
+        const forums = this.props.forums;
+        
         const addClass = this.state.hide ? 'hide-post' : '';
         const hideClass = this.state.hide ? '' : 'removeWarning';
         const user = this.props.user;
@@ -114,8 +138,9 @@ class Post extends Component {
                                 </div>
                             </div>
                     </div>
-                    { !this.state.post.action == 'under review' && (
-                        <Comments postId={this.props.match.params.id} user={user} />
+
+                    { !post.action === 'under review' && (
+                        <Comments comments={this.state.comments} postId={this.props.match.params.id} user={user} />
                     )}  
                         
                     </div>

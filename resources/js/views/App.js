@@ -233,7 +233,9 @@ class App extends Component {
             />
           </Route>
           <Route path="/posts/:id">
-            <Post user={user} />
+            <Post user={user} 
+                  forums={this.state.forums}
+            />
           </Route>
           <PrivateRoute exact path="/forums"
             user={user}
