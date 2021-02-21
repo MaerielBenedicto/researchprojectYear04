@@ -98,7 +98,7 @@ class Bookmark extends Component {
         return (
             <button className="bookmark-bttn" onClick={()=> this.bookmark()}>
             {(this.state.bookmarked) ? (
-                 <span><FaBookmark className="icon bookmark"/> Bookmarked</span>
+                 <span><FaBookmark className="icon bookmark"/> Bookmark</span>
             ) : <span><FaRegBookmark className="icon"/> Bookmark</span> }
             </button> 
         )

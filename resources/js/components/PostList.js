@@ -151,6 +151,7 @@ class PostList extends Component {
                                                                 <Link to={{
                                                                     pathname: `/posts/${item.id}`,
                                                                     state: {
+                                                                        
                                                                         post: item
                                                                     }}} >
                                                                     {item.title}

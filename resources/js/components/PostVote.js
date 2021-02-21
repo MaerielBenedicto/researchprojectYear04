@@ -6,16 +6,13 @@ import { FaSortUp, FaSortDown } from 'react-icons/fa';
 class PostVote extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            voted: this.props.item_voted
+            voted: props.item_voted
         };
 
         this.upvote = this.upvote.bind(this);
         this.downvote = this.downvote.bind(this);
-    }
-
-    componentDidMount() {
-
     }
 
     upvote() {
@@ -76,11 +73,12 @@ class PostVote extends Component {
 
 
     render() {
+        const voted = this.state.voted;
         
-        if(this.state.voted !== undefined){
+        if(voted !== undefined){
             return (
                 <div>
-                    {(this.state.voted) ? (
+                    {(voted) ? (
                         <div>
                             <button onClick={this.upvote} className="vote-bttn"><FaSortUp className="voted-icon" /></button>
                             <div className="upvote-count">{this.props.item_upvote}</div>

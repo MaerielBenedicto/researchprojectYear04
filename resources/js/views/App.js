@@ -235,6 +235,9 @@ class App extends Component {
           <Route path="/posts/:id">
             <Post user={user} 
                   forums={this.state.forums}
+                  AddbookmarkSuccess={this.AddPostbookmarkSuccess}
+                  RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
+                  votes={this.state.votes}
             />
           </Route>
           <PrivateRoute exact path="/forums"

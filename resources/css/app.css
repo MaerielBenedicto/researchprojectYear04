@@ -292,6 +292,18 @@ nav {
     background-color: white;
 }
 
+.edit-bttn a{
+    color: black;
+    text-decoration: none;
+}
+
+.edit-bttn a:hover{
+    color: black;
+    text-decoration: none;
+}
+
+
+
 .vote-bttn{
     background-color: white;
     height: 0px;
@@ -307,6 +319,18 @@ nav {
     padding-left: 30px;
 }
 
+.post-user-deet span{
+    padding-left: 0px !important;
+}
+.post-user-deet p{ 
+    margin-top: 5px !important; 
+    margin-bottom: 0px !important;
+    line-height: 10px;
+}
+
+.post-body-div{
+    padding-right: 30px;
+}
 .upvote-count{
     text-align: center;
     height: 20px;
