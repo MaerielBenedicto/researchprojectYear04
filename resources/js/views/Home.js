@@ -7,10 +7,8 @@ import Bookmark from '../components/Bookmark';
 import ForumTable from '../components/ForumTable';
 
 import '../../css/app.css';
-// import '../../css/style.css';
 
 import { Link } from 'react-router-dom';
-import { FaListAlt, FaRegBookmark, FaBookmark } from 'react-icons/fa';
 
 class Home extends Component {
     constructor(props) {

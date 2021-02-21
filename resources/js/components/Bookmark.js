@@ -51,6 +51,41 @@ class Bookmark extends Component {
                     } 
                 });
             }
+        } else {
+            //if not yet bookmarked
+            if(!this.state.bookmarked){
+                axios.post('/api/bookmark/post/' + this.props.id, null,
+                {
+                    headers: { Authorization: "Bearer " + token }
+                })
+                .then((response) => {
+                    // console.log(response.data);
+                    this.setState({bookmarked: true});
+                })
+                .catch(function(error) {
+                    console.log(error);
+                    if(error){
+                        console.log(error);
+                    } 
+                });
+            } 
+            //un bookmark forum
+            else {
+                axios.post('/api/unbookmark/post/' + this.props.id, null,
+                {
+                    headers: { Authorization: "Bearer " + token }
+                })
+                .then((response) => {
+                    // console.log(response.data);
+                    this.setState({bookmarked: false});
+                })
+                .catch(function(error) {
+                    console.log(error);
+                    if(error){
+                        console.log(error);
+                    } 
+                });
+            }
         }
     }
 

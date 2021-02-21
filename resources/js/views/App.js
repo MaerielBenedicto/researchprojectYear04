@@ -171,10 +171,15 @@ class App extends Component {
             />
           </Route>
           <Route path="/forums/:forumId">
-            <Forum user={user} forums={this.state.forums} />
+            <Forum user={user} 
+                   forums={this.state.forums}  
+                   bookmarks={this.state.bookmarks} 
+            />
           </Route>
           <Route path="/my-profile">
-            <Profile user={user} bookmarks={this.state.bookmarks}/>
+            <Profile user={user} 
+                     bookmarks={this.state.bookmarks} 
+            />
           </Route>
           <Route path="/posts/:id">
             <Post user={user} />

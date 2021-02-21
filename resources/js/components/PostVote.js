@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
+import {FaSortUp, FaSortDown} from 'react-icons/fa';
 
 class PostVote extends Component {
     constructor(){
         super();
         this.state = {
             upvote: null,
-            downvote: null
+            downvote: null,
+            upvoted: true,
+            downvoted: false
         };
 
         this.upvote = this.upvote.bind(this);
@@ -78,8 +81,16 @@ class PostVote extends Component {
     render(){
         return (
             <div>
-                <button onClick={this.upvote}>Upvote</button>
-                <button onClick={this.downvote}>Downvote</button>
+                {(this.state.upvoted) ? (
+                <button onClick={this.upvote} className="vote-bttn"><FaSortUp className="voted-icon"/></button> )
+                : ( 
+                <button onClick={this.upvote} className="vote-bttn"><FaSortUp className="vote-icon"/></button> 
+                )}
+                <div className="upvote-count">{this.props.item_upvote}</div>
+                {(this.state.downvoted) ?(
+                    <button onClick={this.downvote} className="vote-bttn"><FaSortDown className=" voted-icon"/></button>
+                ):(<button onClick={this.downvote} className="vote-bttn"><FaSortDown className=" vote-icon"/></button>
+                )}
             </div>
         )
     };

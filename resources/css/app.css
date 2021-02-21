@@ -292,8 +292,25 @@ nav {
     background-color: white;
 }
 
+.vote-bttn{
+    background-color: white;
+    height: 0px;
+}
 
+.vote-div{
+    height: 50px;
+    padding-left: 50px;
+}
 
+.post-deets{
+    padding-left: 30px;
+}
+
+.upvote-count{
+    text-align: center;
+    height: 20px;
+    width: 50px;
+}
 /*** FORUM-POST ***/
 .forum-detail{
     width: 100%;
@@ -317,6 +334,7 @@ nav {
 
 .posts-rows{
     padding:0px;
+    margin-left: 15px;
 }
 
 .post{
@@ -345,7 +363,8 @@ nav {
 
 .post-body{
     font-size: 14px;
-    margin: 20px 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /** POST PAGE **/
@@ -445,6 +464,19 @@ nav {
     border-bottom: 1px solid #888888;
     padding-bottom: 40px;
     padding-top: 20px;
+}
+
+.post-row{
+    padding-left: 5px;
+}
+
+.post-row img{
+    width: 50px;
+    height: 50px;
+}
+
+.post-row span{
+    margin-left: 20px;
 }
 
 /** CREATE FORUM **/
@@ -683,6 +715,7 @@ svg {
     color: white;
 }
 
+
 /***PAGINATION***/
 .pagination {
     position: fixed;
@@ -700,3 +733,20 @@ svg {
 .post-icon{
     color: #5596E6;
 }
+
+.vote-icon{
+    stroke: black;
+    stroke-width: 10;
+    fill: white;
+    width: 40px;
+    height: 35px;
+}
+
+.voted-icon{
+    stroke: black;
+    stroke-width: 10;
+    color: #5596E6;
+    width: 40px;
+    height: 35px;
+}
+
