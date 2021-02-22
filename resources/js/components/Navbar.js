@@ -21,7 +21,6 @@ class Navbar extends Component {
     })
       .then((response) => {
         console.log("USER LOGGED OUT");
-        localStorage.removeItem('token');
         localStorage.removeItem('user');
         this.props.onSuccess();
       })
@@ -86,11 +85,11 @@ class Navbar extends Component {
                     </li>
                   )}
 
-                  {user && (
+                  {/* {user && (
                     <li className="nav-item">
                       <Link to="/" className="nav-link" onClick={this.logout}>Sign out</Link>
                     </li>
-                  )}
+                  )} */}
 
                 </ul>
               </div>

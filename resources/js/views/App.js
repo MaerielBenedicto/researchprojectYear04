@@ -56,37 +56,53 @@ class App extends Component {
   }
 
   componentDidMount() {
-      let token = this.state.user.token;
+    let user = this.state.user;
 
-      axios.all([
-        axios.get('/api/forums'),
-        axios.get('/api/bookmarks',
-            { headers: { Authorization: "Bearer " + token } }),
-        axios.get('/api/posts/vote/' + this.state.user.id,
-            { headers: { Authorization: "Bearer " + token } }),
-            axios.get('/api/comments/vote/' + this.state.user.id,
-            { headers: { Authorization: "Bearer " + token } }),
-      ])
-        .then(axios.spread((forums, bookmarks, pvotes, cvotes) => {
-            const forumsData = forums.data;
-            const bookmarksData = bookmarks.data;
-            const pvotesData = pvotes.data;
-            const cvotesData = cvotes.data;
-            this.setState({
-                forums: forumsData,
+    axios.get('/api/forums')
+      .then((forums) => {
+        const forumsData = forums.data;
+        this.setState({
+          forums: forumsData,
+          isLoaded: true
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+        if (error) {
+          console.log(error);
+        }
+      });
+
+      if(user){
+        axios.all([
+          axios.get('/api/bookmarks',
+            { headers: { Authorization: "Bearer " + user.token } }),
+          axios.get('/api/posts/vote/' + user.id,
+            { headers: { Authorization: "Bearer " + user.token } }),
+          axios.get('/api/comments/vote/' + user.id,
+            { headers: { Authorization: "Bearer " + user.token } })
+            .then(axios.spread((bookmarks, pvotes, cvotes) => {
+              const bookmarksData = bookmarks.data;
+              const pvotesData = pvotes.data;
+              const cvotesData = cvotes.data;
+              this.setState({
                 forums_bookmarks: bookmarksData.forums,
                 posts_bookmarks: bookmarksData.posts,
                 post_votes: pvotesData,
                 comment_votes: cvotesData,
                 isLoaded: true
-            });
-        }))
-        .catch(function (error) {
-            console.log(error);
-            if (error) {
+              });
+            }))
+            .catch(function (error) {
+              console.log(error);
+              if (error) {
                 console.log(error);
-            }
-        });
+              }
+            })
+        ]);
+    
+      }
+   
   }
 
   onLoginSuccess(user, remember) {
@@ -154,7 +170,7 @@ class App extends Component {
   }
 
   //add forum to bookmark
-  AddForumbookmarkSuccess(forum){
+  AddForumbookmarkSuccess(forum) {
     let tempForumsBookmarks = this.state.forums_bookmarks;
 
     //push comment in the beginning of the array 
@@ -164,7 +180,7 @@ class App extends Component {
     });
   }
 
-  RemoveForumbookmarkSuccess(forum){
+  RemoveForumbookmarkSuccess(forum) {
     let tempForumsBookmarks = this.state.forums_bookmarks;
     //remove forum from array that matches the id
     tempForumsBookmarks.splice(tempForumsBookmarks.findIndex(f => f.id == forum.id), 1);
@@ -173,7 +189,7 @@ class App extends Component {
     });
   }
 
-  AddPostbookmarkSuccess(post){
+  AddPostbookmarkSuccess(post) {
     let tempPostsBookmarks = this.state.posts_bookmarks;
 
     //push comment in the beginning of the array 
@@ -183,7 +199,7 @@ class App extends Component {
     });
   }
 
-  RemovePostbookmarkSuccess(post){
+  RemovePostbookmarkSuccess(post) {
     let tempPostsBookmarks = this.state.posts_bookmarks;
     //remove forum from array that matches the id
     tempPostsBookmarks.splice(tempPostsBookmarks.findIndex(p => p.id == post.id), 1);
@@ -224,26 +240,26 @@ class App extends Component {
             />
           </Route>
           <Route path="/forums/:forumId">
-            <PostList user={user} 
-                   forums={this.state.forums}
-                   bookmarks={this.state.posts_bookmarks}
-                   AddbookmarkSuccess={this.AddPostbookmarkSuccess}
-                   RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
-                   pvotes={this.state.post_votes}  
+            <PostList user={user}
+              forums={this.state.forums}
+              bookmarks={this.state.posts_bookmarks}
+              AddbookmarkSuccess={this.AddPostbookmarkSuccess}
+              RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
+              pvotes={this.state.post_votes}
             />
           </Route>
           <Route path="/my-profile">
-            <Profile user={user} 
-                     bookmarks={this.state.bookmarks} 
+            <Profile user={user}
+              bookmarks={this.state.bookmarks}
             />
           </Route>
           <Route path="/posts/:id">
-            <Post user={user} 
-                  forums={this.state.forums}
-                  AddbookmarkSuccess={this.AddPostbookmarkSuccess}
-                  RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
-                  pvotes={this.state.post_votes}
-                  cvotes={this.state.comment_votes}
+            <Post user={user}
+              forums={this.state.forums}
+              AddbookmarkSuccess={this.AddPostbookmarkSuccess}
+              RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
+              pvotes={this.state.post_votes}
+              cvotes={this.state.comment_votes}
             />
           </Route>
           <PrivateRoute exact path="/forums"

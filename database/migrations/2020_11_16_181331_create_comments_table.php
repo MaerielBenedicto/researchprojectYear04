@@ -25,7 +25,7 @@ class CreateCommentsTable extends Migration
           $table->set('action', ['under review', 'reviewed', 'null']);
 
           $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
-          $table->foreign('post_id')->references('id')->on('posts')->onUpdate('cascade')->onDelete('restrict');
+          $table->foreign('post_id')->references('id')->on('posts')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

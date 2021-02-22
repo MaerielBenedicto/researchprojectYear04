@@ -20,9 +20,9 @@ class CreateBookmarksTable extends Migration
             $table->bigInteger('forum_id')->unsigned()->nullable();
             $table->timestamps();
 
-            // $table->foreign('post_id')->references('id')->on('posts');
-            // $table->foreign('user_id')->references('id')->on('users');
-            // $table->foreign('forum_id')->references('id')->on('forum');
+            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('forum_id')->references('id')->on('forum');
         });
     }
 

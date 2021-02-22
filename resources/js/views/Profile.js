@@ -46,7 +46,7 @@ class Profile extends Component {
     render() {
         const user = this.state.user;
         return (
-            <div className="body-content">
+            <div className="body-content pb-0">
                 <div className="container">
                     {/* <div className="row"> */}
                     <div className="col-12">
@@ -141,21 +141,6 @@ class Profile extends Component {
                             </div>
                         </div>
                     </div>
-
-                    {/* <div className="profile-div col-5">
-                            <div className="profile-heading">
-                                <h2>MY PROFILE</h2>
-                            </div>
-                            <div className="profile-details">
-                                <h4>{user.name}</h4>
-                                <h4>{user.email}</h4>
-                            </div>
-                        </div>
-                        <div className="approval-list col-6">
-                            <h4> Waiting for Approval</h4>
-                            <h4> 2 Posts</h4>
-                        </div> */}
-                    {/* </div> */}
 
                 </div>
 

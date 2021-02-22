@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
-import {FaTrashAlt, FaEllipsisV, FaEdit} from 'react-icons/fa';
+import { FaTrashAlt, FaEllipsisH, FaEdit, FaCommentAlt } from 'react-icons/fa';
 import Moment from 'react-moment';
 
 class UserPosts extends Component {
@@ -62,92 +62,81 @@ class UserPosts extends Component {
     render() {
 
         const posts = this.state.posts;
+
+        const underReview = posts.filter((post => {
+            if (post.action == 'under review') {
+                return post;
+            }
+        }));
+
         return (
             <div className="mt-2">
                 <div className="container">
-                    <h4>POSTS</h4>
+                    <div className="row">
 
-                    <div className="posts-table">
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Body</th>
-                                    <th scope="col"></th>
-                                </tr>
-                            </thead>
-                            {posts.map(item => (
-                                <tbody key={item.id}>
-                                    <tr>
-                                        <td ><Moment format="DD/MM/YYYY">{item.created_at}</Moment></td>
-                                        <td>{item.title}</td>
-                                        <td>{item.body}</td>
+                        <div className="posts-table col-lg-9">
+                            <table className="table table-bordered">
 
-                                        <td>
-                                            <div className="dropdown show">
-                                                <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <FaEllipsisV className="icon" />
-                                                </a>
+                                {posts.map(item => (
+                                    <tbody key={item.id}>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    {/* <h4>{item.title}</h4> */}
+                                                    <Link to={{
+                                                        pathname: `/posts/${item.id}`,
+                                                        state: {
 
-                                                <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <button className="dropdown-item drop-down-link edit-bttn">
-                                                        <Link to={{
-                                                            pathname: '/submit-post/' + item.forum_id,
-                                                            state: {
-                                                                forumId: item.forum_id,
-                                                                postId: item.id,
-                                                                title: item.title,
-                                                                body: item.body,
-                                                                mode: 'edit'
-                                                            }
-                                                        }} >
-                                                            <span className="bttn"><FaEdit className="icon" />Edit</span>
-                                                        </Link>
-                                                    </button>
-                                                    <button className="dropdown-item drop-down-link"onClick={() => this.delete(item.id)}>
-                                                        <span><FaTrashAlt className="icon" />  Delete </span>
-                                                    </button>
+                                                            post: item
+                                                        }
+                                                    }} ><h4>{item.title}</h4></Link>
+                                                    {item.action == 'under review' && (
+                                                        <span className="warning-status"> Under Review</span>
+                                                    )}
+                                                    <p><span>Forum: {item.forum.topic}</span> | Posted on: <Moment format="DD/MM/YYYY">{item.created_at}</Moment></p>
+                                                    <div className="row">
+                                                        <div className="dropdown show col-6">
+                                                            <FaCommentAlt className="icon ml-0" /> {item.comments.length} <span className="p-0">Comments</span>
+                                                            <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <FaEllipsisH className="icon" />
+                                                            </a>
+
+                                                            <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                <button className="dropdown-item drop-down-link edit-bttn">
+                                                                    <Link to={{
+                                                                        pathname: '/submit-post/' + item.forum_id,
+                                                                        state: {
+                                                                            forumId: item.forum_id,
+                                                                            postId: item.id,
+                                                                            title: item.title,
+                                                                            body: item.body,
+                                                                            mode: 'edit'
+                                                                        }
+                                                                    }} >
+                                                                        <span className="bttn"><FaEdit className="icon" />Edit</span>
+                                                                    </Link>
+                                                                </button>
+                                                                <button className="dropdown-item drop-down-link" onClick={() => this.delete(item.id)}>
+                                                                    <span><FaTrashAlt className="icon" />  Delete </span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            ))}
-                        </table>
-                    </div>
 
-
-                    {this.state.posts.map(item => (
-                        <div className="post" key={item.id}>
-                            <div className="post-title">
-                                <Link to={`/posts/${item.id}`} >
-                                    {item.title}
-                                </Link>
-                            </div>
-
-                            <div className="post-body">
-                                {item.body}
-                            </div>
-
-                            <Link to={{
-                                pathname: '/submit-post/' + item.forum_id,
-                                state: {
-                                    forumId: item.forum_id,
-                                    postId: item.id,
-                                    title: item.title,
-                                    body: item.body,
-                                    mode: 'edit'
-
-                                }
-                            }} >
-
-                                <button className="bttn">Edit</button>
-                            </Link>
-                            <button className="bttn float-right" onClick={() => this.delete(item.id)}>Delete</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                ))}
+                            </table>
                         </div>
+                        <div className="col-lg-3 approval-list">
+                            <p> Waiting for Approval:</p>
 
-                    ))}
+                            <p> {underReview.length} Posts</p>
+                        </div>
+                    </div>
 
                 </div>
 

@@ -21,7 +21,7 @@ class PostController extends Controller
          $post = Post::where('forum_id', $id)
                       // ->where('action', 'null')
                       ->with('user')->get();
-                      
+
         return response()->json(
           [
               'data' => $post
@@ -162,7 +162,11 @@ class PostController extends Controller
 
   public function user_posts($id)
     {
-        $posts = Post::where('user_id', $id)->with('user')->get();
+        $posts = Post::where('user_id', $id)->with('user','forum')->get();
+        foreach($posts as $post){
+          $post['comments'] = $post->comments();
+        }
+
         return $posts;
     }
 

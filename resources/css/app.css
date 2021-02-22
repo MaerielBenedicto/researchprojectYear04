@@ -31,6 +31,15 @@ h4{
     font-size: 18px;
 }
 
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
+
 /****  NAVBAR ****/
 
 nav {
@@ -640,7 +649,9 @@ nav {
     padding: 20px 10px;
 }
 .approval-list {
-    padding: 50px;
+    height: 100%;
+    border: 1px solid #dee2e6;
+    padding: 10px;
 }
 
 .profile {
@@ -650,6 +661,12 @@ nav {
 .profile-avatar img{
     width: 80px;
     height: 80px;
+}
+
+.warning-status{
+    color: red;
+    float: right;
+    font-size: 12px;
 }
 
 .edit-avatar-bttn{
