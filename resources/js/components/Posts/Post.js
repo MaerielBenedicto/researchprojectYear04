@@ -23,6 +23,9 @@ class Post extends Component {
         this.comments = this.comments.bind(this);
         this.delete = this.delete.bind(this);
         this.getPost = this.getPost.bind(this);
+        this.updateSuccess = this.updateSuccess.bind(this);
+        this.addComment = this.addComment.bind(this);
+
     }
 
     componentDidMount() {
@@ -39,8 +42,7 @@ class Post extends Component {
                     });
                 }
                 this.setState({
-                    post: response.data.data,
-                    isLoaded: true
+                    post: response.data.data
                 });
             })
             .catch(function (error) {
@@ -54,9 +56,10 @@ class Post extends Component {
     comments(){
         axios.get('/api/posts/' + this.props.match.params.id + '/comments')
         .then(response => {
-            console.log(response);
+            console.log(response.data.data);
            this.setState({
-               comments: response.data.data
+               comments: response.data.data,
+               isLoaded: true
            }); 
         })
         .catch(function (error) {
@@ -85,6 +88,28 @@ class Post extends Component {
             });
     }
 
+    updateSuccess(result) {
+        let tempComments = this.state.comments;
+        //get rid of old comment
+        tempComments.splice(tempComments.findIndex(comment => comment.id == result.id), 1);
+        //add updated comment
+        tempComments.unshift(result);
+        this.setState({
+          comments: tempComments
+        });
+    }
+
+    addComment(comment) {
+        let tempComments = this.state.comments;
+
+        //push comment in the beginning of the array
+        tempComments.unshift(comment);
+        this.setState({
+            comments: tempComments
+        });
+    }
+
+
     render() {
         const forums = this.props.forums;
 
@@ -106,6 +131,7 @@ class Post extends Component {
         }));
 
         const cvotes = this.props.cvotes;
+        
         const comments = this.state.comments.filter((comment, i) => {
             return cvotes.map((vote => {
                 if(vote.comment_id == comment.id){
@@ -214,6 +240,8 @@ class Post extends Component {
                                 postId={this.props.match.params.id} 
                                 user={user}
                                 getComments={this.comments}
+                                addComment={this.addComment}
+                                updateComment={this.updateSuccess}
                             />
                         )}
 

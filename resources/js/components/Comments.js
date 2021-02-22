@@ -17,23 +17,13 @@ class Comments extends Component {
             edit: false,
             editId: ''
         };
-        // this.comments = this.comments.bind(this);
-        this.addComment = this.addComment.bind(this);
+        
         this.handleChange = this.handleChange.bind(this);
         this.deleteComment = this.deleteComment.bind(this);
         this.editComment = this.editComment.bind(this);
     }
 
-    addComment(comment) {
-        let tempComments = this.state.comments;
-
-        //push comment in the beginning of the array
-        tempComments.unshift(comment);
-        this.setState({
-            comments: tempComments
-        });
-    }
-
+    
     handleChange(e) {
         // this.setState({sort: e.target.value});
         const target = e.target;
@@ -52,19 +42,17 @@ class Comments extends Component {
                 headers: { Authorization: "Bearer " + token }
             })
             .then(response => {
-                // console.log(response);
-                this.comments();
+                this.props.getComments();
             })
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.state.errors = error.response.data.errors;
+                    this.setState({errors: error.data});
                 }
             });
     }
 
     editComment(id) {
-        console.log("EDIT")
         let token = this.props.user.token;
         axios.put('/api/comments/' + id,
             {
@@ -76,14 +64,13 @@ class Comments extends Component {
                 headers: { Authorization: "Bearer " + token }
             })
             .then(response => {
-                // console.log(response);
-                this.comments();
-                this.setState({ edit: false, editId: '', comment_value: '', comment: '' });
+                this.setState({ edit: false});
+                this.props.updateComment(response.data);
             })
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.state.errors = error.response.data.errors;
+                    this.setState({errors: error.data});
                 }
             });
     }
@@ -91,8 +78,9 @@ class Comments extends Component {
 
     render() {
         const user = this.props.user;
-        const comments = this.props.comments;
-        
+        var comments = this.props.comments;
+        comments = comments.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
         return (
             <div className="">
                 {/* <PrivateRoute postId={this.props.postId} userId={this.props.user.id} addComment={this.addComment} component={AddComment}/> */}
@@ -109,7 +97,7 @@ class Comments extends Component {
                 </div>
                 <div className="row mt-5 ml-0">
                     <div className="comment-box col-9 py-3">
-                        <AddComment postId={this.props.postId} user={this.props.user} addComment={this.addComment} />
+                        <AddComment postId={this.props.postId} user={this.props.user} addComment={this.props.addComment} />
 
                         {comments.map(item => (
                             <div key={item.id} className="each-comment">

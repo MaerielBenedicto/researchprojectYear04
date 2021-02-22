@@ -89,17 +89,35 @@ class CommentController extends Controller
         }
 
         $body = $request->input('body');
-        $sentimentValues = $this->sentiment($body);
+        // $sentimentValues = $this->sentiment($body);
+        //generate random values
+        $s_score = mt_rand(-1.0, 1.0);
+        $s_magnitude = mt_rand(1, 10);
+    
+        //negative sentiment
+        if($s_score <= -0.25 && $s_magnitude > .5) {
+          $action = 'under review';
+          $status = 'pending';
+        } else {
+            $action = 'null';
+            $status = 'approved'; 
+        }
 
         $comment = Comment::find($id);
         $comment->body = $request->input('body');
         $comment->user_id = $request->input('user_id');
         $comment->post_id = $request->input('post_id');
-        $comment->s_score = $sentimentValues['score'];
-        $comment->s_magnitude = $sentimentValues['magnitude'];
+        // $comment->s_score = $sentimentValues['score'];
+        // $comment->s_magnitude = $sentimentValues['magnitude'];
+        $comment->s_score = $s_score;
+        $comment->s_magnitude = $s_magnitude;
+        $comment->status = $status;
+        $comment->action = $action;
         $comment->save();
 
-        return $comment;
+        //load comment along with user
+      $comment = $comment->load('user');
+      return $comment;
     }
 
   //view comment
