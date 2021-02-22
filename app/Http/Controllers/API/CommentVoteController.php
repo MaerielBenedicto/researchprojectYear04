@@ -15,7 +15,7 @@ class CommentVoteController extends Controller
     {
         //get all upvoted comments
         $user = User::where('id', $id)->first();
-        $comments = $user->comment_votes()->where('upvote', true)->with('comment')->get();
+        $comments = $user->comment_votes()->with('comment')->get();
         return $comments;
     }
 

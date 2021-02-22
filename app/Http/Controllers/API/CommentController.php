@@ -18,7 +18,7 @@ class CommentController extends Controller
   public function index($id)
     {
         $post = Post::where('id', $id)->first();
-        $tempComments = $post->comments()->with('user')->get();
+        $tempComments = $post->comments()->load('user');
 
         $comments = array();
         foreach ($tempComments as $comment) {
@@ -29,7 +29,7 @@ class CommentController extends Controller
           
           $comments[] = $comment;
         }
-        return response()->json(['message' => 'Comment created', 'data' => $comments], 200);
+        return response()->json(['data' => $comments], 200);
     }
 
   //create post

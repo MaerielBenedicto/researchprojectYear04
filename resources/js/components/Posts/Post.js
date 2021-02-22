@@ -20,12 +20,14 @@ class Post extends Component {
             sortby: 'Latest'
         };
 
+        this.comments = this.comments.bind(this);
         this.delete = this.delete.bind(this);
         this.getPost = this.getPost.bind(this);
     }
 
     componentDidMount() {
         this.getPost();
+        this.comments();
     }
 
     getPost() {
@@ -38,7 +40,6 @@ class Post extends Component {
                 }
                 this.setState({
                     post: response.data.data,
-                    comments: response.data.data.comments,
                     isLoaded: true
                 });
             })
@@ -48,6 +49,22 @@ class Post extends Component {
                     this.state.errors = error.response.data.errors;
                 }
             });
+    }
+
+    comments(){
+        axios.get('/api/posts/' + this.props.match.params.id + '/comments')
+        .then(response => {
+            console.log(response);
+           this.setState({
+               comments: response.data.data
+           }); 
+        })
+        .catch(function (error) {
+            if (error) {
+                console.log(error);
+                this.state.errors = error.response.data.errors;
+            }
+        });
     }
 
     delete() {
@@ -75,8 +92,8 @@ class Post extends Component {
         const hideClass = this.state.hide ? '' : 'removeWarning';
         const user = this.props.user;
         const post = this.state.post;
-        const votes = this.props.votes;
-        votes.map((vote =>{
+        const pvotes = this.props.pvotes;
+        pvotes.map((vote =>{
             if(vote.post_id == post.id){
                 if(vote.vote == 1){
                     post.voted = true;
@@ -87,6 +104,23 @@ class Post extends Component {
                 } 
             }
         }));
+
+        const cvotes = this.props.cvotes;
+        const comments = this.state.comments.filter((comment, i) => {
+            return cvotes.map((vote => {
+                if(vote.comment_id == comment.id){
+                   if(vote.vote == 1){
+                    comment.voted = true;
+                   } else if(vote.vote == -1) {
+                    comment.voted = false;
+                   } else {
+                    comment.voted = null;
+                   } 
+                   return comment;
+                }
+            }));
+        });
+
 
         if (this.state.isLoaded) {
             return (
@@ -175,7 +209,12 @@ class Post extends Component {
                         </div>
 
                         { post.action !== 'under review' && (
-                            <Comments comments={this.state.comments} postId={this.props.match.params.id} user={user} />
+                            <Comments 
+                                comments={comments} 
+                                postId={this.props.match.params.id} 
+                                user={user}
+                                getComments={this.comments}
+                            />
                         )}
 
                     </div>

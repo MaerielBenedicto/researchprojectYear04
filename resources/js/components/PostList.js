@@ -57,8 +57,8 @@ class PostList extends Component {
         const forum_id = parseInt(this.props.match.params.forumId);
         const forums = this.props.forums;
         const bookmarks = this.props.bookmarks;
-        const votes = this.props.votes;
-        console.log('votes', votes);
+        const votes = this.props.pvotes;
+
         //get forum with the forum_id
         const forum = forums.find(forum => forum.id === forum_id);
 

@@ -37,7 +37,8 @@ class App extends Component {
       forums: [],
       forums_bookmarks: [],
       posts_bookmarks: [],
-      votes: []
+      post_votes: [],
+      comment_votes: []
     }
 
     // this.getUser = this.getUser.bind(this);
@@ -63,16 +64,20 @@ class App extends Component {
             { headers: { Authorization: "Bearer " + token } }),
         axios.get('/api/posts/vote/' + this.state.user.id,
             { headers: { Authorization: "Bearer " + token } }),
+            axios.get('/api/comments/vote/' + this.state.user.id,
+            { headers: { Authorization: "Bearer " + token } }),
       ])
-        .then(axios.spread((forums, bookmarks, votes) => {
+        .then(axios.spread((forums, bookmarks, pvotes, cvotes) => {
             const forumsData = forums.data;
             const bookmarksData = bookmarks.data;
-            const votesData = votes.data;
+            const pvotesData = pvotes.data;
+            const cvotesData = cvotes.data;
             this.setState({
                 forums: forumsData,
                 forums_bookmarks: bookmarksData.forums,
                 posts_bookmarks: bookmarksData.posts,
-                votes: votesData,
+                post_votes: pvotesData,
+                comment_votes: cvotesData,
                 isLoaded: true
             });
         }))
@@ -224,7 +229,7 @@ class App extends Component {
                    bookmarks={this.state.posts_bookmarks}
                    AddbookmarkSuccess={this.AddPostbookmarkSuccess}
                    RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
-                   votes={this.state.votes}  
+                   pvotes={this.state.post_votes}  
             />
           </Route>
           <Route path="/my-profile">
@@ -237,7 +242,8 @@ class App extends Component {
                   forums={this.state.forums}
                   AddbookmarkSuccess={this.AddPostbookmarkSuccess}
                   RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
-                  votes={this.state.votes}
+                  pvotes={this.state.post_votes}
+                  cvotes={this.state.comment_votes}
             />
           </Route>
           <PrivateRoute exact path="/forums"

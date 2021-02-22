@@ -10,7 +10,7 @@ class Comments extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            comments: props.comments,
+            comments: [],
             comment: {},
             comment_value: "",
             sort: '',
@@ -91,12 +91,13 @@ class Comments extends Component {
 
     render() {
         const user = this.props.user;
+        const comments = this.props.comments;
+        
         return (
             <div className="">
                 {/* <PrivateRoute postId={this.props.postId} userId={this.props.user.id} addComment={this.addComment} component={AddComment}/> */}
                 <div className="row">
                     <div className="col comment-select">
-                        <h6>Sort</h6>
                         <form>
                             <select className="comment-select-button" value={this.state.sort} onChange={this.handleChange}>
                                 <option disabled value="">Sort by:</option>
@@ -110,7 +111,7 @@ class Comments extends Component {
                     <div className="comment-box col-9 py-3">
                         <AddComment postId={this.props.postId} user={this.props.user} addComment={this.addComment} />
 
-                        {this.state.comments.map(item => (
+                        {comments.map(item => (
                             <div key={item.id} className="each-comment">
                                 <div className="row comment-div">
                                     <div className="col-1">
@@ -121,7 +122,13 @@ class Comments extends Component {
                                         <p className="date"><Moment format="LL">{item.created_at}</Moment></p>
                                     </div>
                                     <div className="col-1">
-                                        <CommentVote commentId={item.id} user={this.props.user} voted={this.comments} />
+                                        <CommentVote 
+                                            commentId={item.id} 
+                                            user={this.props.user} 
+                                            voted={this.props.getComments} 
+                                            item_upvote={item.upvote}  
+                                            item_voted={item.voted} 
+                                        />
                                     </div>
                                 </div>
                                 <div className="row">

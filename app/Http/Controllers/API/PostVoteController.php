@@ -13,7 +13,7 @@ class PostVoteController extends Controller
 {
   public function index($id)
     {
-        //get all upvoted posts
+        //get all voted posts
         $user = User::where('id', $id)->first();
         $posts = $user->post_votes()->with('post')->get();
         return $posts;

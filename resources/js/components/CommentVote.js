@@ -4,12 +4,10 @@ import { withRouter, Link } from "react-router-dom";
 import { FaSortUp, FaSortDown } from 'react-icons/fa';
 
 class CommentVote extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
-            upvote: false,
-            downvote: false,
-            voted: null
+            voted: props.item_voted
         };
 
         this.upvote = this.upvote.bind(this);
@@ -19,7 +17,7 @@ class CommentVote extends Component {
     
     upvote(){
         console.log("upvote");
-        let token = localStorage.getItem("token");
+        let token = this.props.user.token;
         if(token){
             axios.post('/api/comments/' + this.props.commentId + '/vote', 
             {
@@ -33,7 +31,7 @@ class CommentVote extends Component {
             .then((response) => {
                 console.log(response.data);
                 this.props.voted();
-                this.setState({upvote: true});
+                this.setState({voted: true});
               })
             .catch(function(error) {
                 console.log(error.response);
@@ -46,7 +44,7 @@ class CommentVote extends Component {
 
     downvote(){
         console.log("downvote");
-        let token = localStorage.getItem("token");
+        let token = this.props.user.token;
         if(token){
             axios.post('/api/comments/' + this.props.commentId + '/vote', 
             {
@@ -60,7 +58,7 @@ class CommentVote extends Component {
             .then((response) => {
                 console.log(response.data);
                 this.props.voted();
-                this.setState({downvote: true});
+                this.setState({voted: false});
               })
             .catch(function(error) {
                 console.log(error.response);
@@ -90,7 +88,6 @@ class CommentVote extends Component {
                                 <div className="upvote-count">{this.props.item_upvote}</div>
                                 <button onClick={this.downvote} className="vote-bttn"><FaSortDown className=" voted-icon" /></button>
                             </div>
-    
                         )}
                 </div>
             )
