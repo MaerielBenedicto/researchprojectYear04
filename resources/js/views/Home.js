@@ -80,7 +80,7 @@ class Home extends Component {
                 <div className="col-12">
                     <Filter sortby={this.state.sortby} changeSortby={this.changeSortby} />
                 </div>
-                <div className="body-content forum-list-div">
+                <div className="forum-list-div">
                     <div className="container">
                         <div className="row item-list mb-3">
 
@@ -93,6 +93,7 @@ class Home extends Component {
                                                 user={this.props.user} 
                                                 AddbookmarkSuccess={this.props.AddbookmarkSuccess}
                                                 RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
+                                                delete={this.delete}
                                             />
                                         </div>
                                     ))}

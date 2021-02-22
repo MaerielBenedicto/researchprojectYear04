@@ -21,13 +21,7 @@ class PostController extends Controller
          $post = Post::where('forum_id', $id)
                       // ->where('action', 'null')
                       ->with('user')->get();
-
-        // $countUpvote = $post->post_vote()->where('vote', '1')->count();
-        // $countDownvote = $post->post_vote()->where('vote', '-1')->count();
-
-        // $post['upvote'] = $countUpvote;
-        // $post['downvote'] = $countDownvote;
-        // $post['comments'] = $post->comments();
+                      
         return response()->json(
           [
               'data' => $post

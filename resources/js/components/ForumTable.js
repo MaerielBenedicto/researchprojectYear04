@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
-import {FaListAlt, FaRegBookmark, FaBookmark } from 'react-icons/fa';
+import { FaListAlt, FaEdit, FaTrashAlt, FaEllipsisV } from 'react-icons/fa';
 import Bookmark from './Bookmark';
 class ForumTable extends Component {
     constructor() {
@@ -16,47 +16,63 @@ class ForumTable extends Component {
 
     render() {
         const item = this.props.item;
-
+        const user = this.props.user;
         return (
-            <div >
+            <div className="row">
                 <div className="forum col-12" key={item.id}>
-                    <div className="forum-title">
-                        <Link to={`/forums/${item.id}`} className="forum-title">
-                            {item.topic}
-                        </Link>
+                    <div className="row">
+                    <div className="col-11">
+                        <div className="forum-title">
+                            <Link to={`/forums/${item.id}`} className="forum-title">
+                                {item.topic}
+                            </Link>
+                        </div>
                     </div>
+                    <div className="col-1">
+                    {(user && user.id === item.user.id) ? (
+                        <div className="dropdown show">
+                            <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <FaEllipsisV className="icon" />
+                            </a>
 
-                    {(this.props.user && this.props.user.id === item.user.id) ? (
-                        <Link to={{
-                            pathname: '/forums',
-                            state: {
-                                forumId: item.id,
-                                topic: item.topic,
-                                description: item.description,
-                                mode: 'edit'
-                            }
-                        }}>
-                            <div className="float-right bttn"> Edit </div>
-                        </Link>
+                            <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <button className="dropdown-item drop-down-link edit-bttn">
+                                    <Link to={{
+                                        pathname: '/forums',
+                                        state: {
+                                            forumId: item.id,
+                                            topic: item.topic,
+                                            description: item.description,
+                                            mode: 'edit'
+                                        }
+                                    }}>
+                                        <span className="bttn"><FaEdit className="icon" />Edit</span>
+                                    </Link>
+                                </button>
+                                <button className="dropdown-item drop-down-link" onClick={() => this.props.delete(item)}>
+                                    <span><FaTrashAlt className="icon" />  Delete </span>
+                                </button>
+                            </div>
+                        </div>
                     ) : ''}
-
-                    {(this.props.user && this.props.user.id === item.user.id) ? (
-                        <button className="bttn float-right" onClick={() => this.delete(item)}>Delete</button>
-                    ) : ''}
-                    <div className="forum-desc">
-                        {item.description}
                     </div>
-                    <div className="forum-actions">
+                    </div>
+                    <div className="forum-desc col-12 pl-4">
+                        <span>{item.description}</span>
+                    </div>
+                    <div className="forum-actions col-12">
                         <FaListAlt className="icon post-icon" /> {item.postsCount} posts
-                        <Bookmark 
-                            user={this.props.user} 
-                            id={item.id} 
-                            bookmarked={item.bookmarked} 
-                            forum_bookmark={true} 
+                        <Bookmark
+                            user={this.props.user}
+                            id={item.id}
+                            bookmarked={item.bookmarked}
+                            forum_bookmark={true}
                             AddbookmarkSuccess={this.props.AddbookmarkSuccess}
                             RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
                         />
                     </div>
+
+                    
 
                 </div>
             </div>

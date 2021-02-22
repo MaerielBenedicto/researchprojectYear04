@@ -78,7 +78,11 @@ nav {
 
 
 #navbar-links a.nav-link {
-    padding: 10px 0px;
+    padding: 10px 10px;
+}
+
+.drop-down-link {
+    font-size: 16px;
 }
 
 /*** FORMS ***/
@@ -339,6 +343,11 @@ nav {
     font-size: 12px;
 }
 /*** FORUM-POST ***/
+
+.numpost {
+    vertical-align: middle;
+    line-height: 68px;
+}
 .forum-detail{
     width: 100%;
     background: #FFFFFF;
@@ -348,7 +357,7 @@ nav {
     border-radius: 5px;
 
     margin-bottom: 20px;
-    padding: 20px 20px;
+    padding: 35px 35px;
     background-color: aliceblue;
 } 
 
@@ -496,6 +505,14 @@ nav {
     margin-bottom: 50px;
 }
 
+.add-comment-div h4 {
+    padding: 20px 10px;
+}
+
+.add-comment-div form {
+    padding: 0px 10px;
+}
+
 .each-comment{
     border-bottom: 1px solid #888888;
     padding-bottom: 20px;
@@ -566,7 +583,7 @@ nav {
     margin-top: 100px;
     background-color: #5596e6;
     height: 80px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .sort-list{
@@ -606,20 +623,44 @@ nav {
 .forum-list-div,
 .forum-post-div
 {
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 .profile-div{
-    border-bottom: 2px solid  #888888;
+    /* border-bottom: 2px solid  #888888; */
     margin-bottom: 20px;
     padding-bottom: 30px;
 }
 
+.profile-heading{
+    border-bottom: 1px solid gray;
+}
 
+.profile-details{
+    padding: 20px 10px;
+}
 .approval-list {
     padding: 50px;
 }
 
+.profile {
+    padding: 40px;
+}
+
+.profile-avatar img{
+    width: 80px;
+    height: 80px;
+}
+
+.edit-avatar-bttn{
+    border: 1px solid #5596e6;
+    background-color: #5596e6;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white; 
+    margin-top: 20px;
+    font-weight: 700;
+}
 
 /*** DASHBOARD ****/
 

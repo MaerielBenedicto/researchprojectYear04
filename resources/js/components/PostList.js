@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import Filter from './Filter';
 import PostVote from './PostVote';
 import Bookmark from './Bookmark';
-import { FaCommentAlt, FaEdit } from 'react-icons/fa';
+import { FaCommentAlt, FaEdit,FaListAlt } from 'react-icons/fa';
 
 class PostList extends Component {
     constructor() {
@@ -68,8 +68,8 @@ class PostList extends Component {
                 filteredPosts = posts.slice().sort((a, b) => b.upvote - a.upvote);
             }
 
-             //set bookmarked posts
-             filteredPosts = filteredPosts.map((post, i) => {
+            //set bookmarked posts
+            filteredPosts = filteredPosts.map((post, i) => {
                 if (bookmarks.some(bookmark => bookmark.id === post.id)) {
                     post.bookmarked = true;
                 } else {
@@ -80,27 +80,27 @@ class PostList extends Component {
 
             filteredPosts = filteredPosts.filter((post, i) => {
                 return votes.map((vote => {
-                    if(vote.post_id == post.id){
-                       if(vote.vote == 1){
-                           post.voted = true;
-                       } else if(vote.vote == -1) {
-                           post.voted = false;
-                       } else {
+                    if (vote.post_id == post.id) {
+                        if (vote.vote == 1) {
+                            post.voted = true;
+                        } else if (vote.vote == -1) {
+                            post.voted = false;
+                        } else {
                             post.voted = null;
-                       } 
-                       return post;
+                        }
+                        return post;
                     }
                 }));
             });
 
-            
+
         }
         return (
             <div>
                 <div className="col-12">
                     <Filter sortby={this.state.sortby} changeSortby={this.changeSortby} />
                 </div>
-                <div className="body-content forum-post-div">
+                <div className="forum-post-div">
                     <div className="container">
                         <div className="row">
                             <div className="col-9 py-3">
@@ -110,8 +110,8 @@ class PostList extends Component {
                                             <h4 className="title">{forum.topic}</h4>
                                             <p>{forum.description}</p>
                                         </div>
-                                        <div className="col-2">
-                                            <span>{forum.postsCount} posts</span>
+                                        <div className="col-2 numpost">
+                                            <FaListAlt className="icon post-icon" /> {forum.postsCount} posts
                                         </div>
                                     </div>
                                 </div>
@@ -124,16 +124,15 @@ class PostList extends Component {
                                                     <div className="col-12 post-row">
                                                         <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png" />
                                                         <span> {item.user.name}</span>
-
                                                     </div>
                                                 </div>
                                                 <div className="col-2 vote-div">
                                                     <div className="float-right">
-                                                        <PostVote 
-                                                            postId={item.id} 
-                                                            user={this.props.user} 
-                                                            voted={this.getPosts} 
-                                                            item_upvote={item.upvote} 
+                                                        <PostVote
+                                                            postId={item.id}
+                                                            user={this.props.user}
+                                                            voted={this.getPosts}
+                                                            item_upvote={item.upvote}
                                                             item_voted={item.voted}
                                                         />
                                                     </div>
@@ -145,9 +144,10 @@ class PostList extends Component {
                                                                 <Link to={{
                                                                     pathname: `/posts/${item.id}`,
                                                                     state: {
-                                                                        
+
                                                                         post: item
-                                                                    }}} >
+                                                                    }
+                                                                }} >
                                                                     {item.title}
                                                                 </Link>
                                                             </div>
@@ -160,11 +160,11 @@ class PostList extends Component {
                                                             <Bookmark
                                                                 user={this.props.user}
                                                                 id={item.id}
-                                                                bookmarked={item.bookmarked} 
-                                                                post_bookmark={true} 
+                                                                bookmarked={item.bookmarked}
+                                                                post_bookmark={true}
                                                                 AddbookmarkSuccess={this.props.AddbookmarkSuccess}
                                                                 RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
-                                                                />
+                                                            />
 
                                                             {(this.props.user && this.props.user.id === item.user.id) ? (
                                                                 <Link to={{

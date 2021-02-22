@@ -19,7 +19,7 @@ class UserForums extends Component {
 
     forums(){
         //get user forums
-        let token = localStorage.getItem("token");
+        let token = this.props.user.token;
         axios.get('/api/profile/' + this.props.user.id + '/forums', 
         {
             headers: { Authorization: "Bearer " + token }
@@ -39,7 +39,7 @@ class UserForums extends Component {
 
     delete(id) {
         console.log("DELETE");
-        let token = localStorage.getItem("token");
+        let token = this.props.user.token;
         axios.delete('/api/forums/' + id,
         {
             headers: { Authorization: "Bearer " + token }

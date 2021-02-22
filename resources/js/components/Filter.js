@@ -5,7 +5,7 @@ import { withRouter, Link } from "react-router-dom";
 class Filter extends Component {
     render(){
         return (
-            <div className="filter-bar row fixed-top">
+            <div className="filter-bar row">
                 <div className="container">
                   <ul className="sort-list">
                       <li><a className="sort-list-a" onClick={e => this.props.changeSortby('Popular')}> Popular</a></li>
