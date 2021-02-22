@@ -25,7 +25,15 @@ class ForumController extends Controller
         foreach ($tempForums as $forum) {
           $postCount = $forum->posts()->where('status', 'approved')->count();
           $forum['postsCount'] = $postCount;
-          $forum['posts'] = $forum->posts()->where('status', 'approved')->get();
+          $posts = $forum->posts()->where('status', 'approved')->get();
+          $postwComments = array();
+
+         foreach ($posts as $post){
+            $comments = $post->comments();
+            $post['comments'] = $comments;
+            $postwComments[] = $post;
+          }
+          $forum['posts'] = $postwComments;
           $forums[] = $forum;
         }
        
@@ -92,7 +100,8 @@ class ForumController extends Controller
       $countDownvote = $post->post_vote()->where('vote', '-1')->count();      
       $post['upvote'] = $countUpvote;
       $post['downvote'] = $countDownvote;
-      
+      $post['comments'] = $post->comments();
+
       $posts[] = $post;
     }
 

@@ -13,6 +13,7 @@ class CreatePost extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
+        this.goBack = this.goBack.bind(this);
     }
 
     handleSubmitForm(e){
@@ -76,6 +77,10 @@ class CreatePost extends Component {
         });
       }
 
+      goBack(){
+        this.props.history.goBack();
+      }
+
     render(){
         return (
             <div className="body-content">
@@ -101,6 +106,7 @@ class CreatePost extends Component {
                         </div>
                         <div className="form-bttn col-12">
                             <button className="submit-button" type="submit">Submit</button>
+                            <button onClick={()=> this.goBack} className="cancel-button float-right">Cancel</button>
                         </div>
                     </div>
                     </form>

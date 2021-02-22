@@ -82,19 +82,7 @@ class Comments extends Component {
         comments = comments.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
         return (
-            <div className="">
-                {/* <PrivateRoute postId={this.props.postId} userId={this.props.user.id} addComment={this.addComment} component={AddComment}/> */}
-                <div className="row">
-                    <div className="col comment-select">
-                        <form>
-                            <select className="comment-select-button" value={this.state.sort} onChange={this.handleChange}>
-                                <option disabled value="">Sort by:</option>
-                                <option value="Popularity">Popularity</option>
-                                <option value="Latest">Latest</option>
-                            </select>
-                        </form>
-                    </div>
-                </div>
+            <div>    
                 <div className="row mt-5 ml-0">
                     <div className="comment-box col-9 py-3">
                         <AddComment postId={this.props.postId} user={this.props.user} addComment={this.props.addComment} />

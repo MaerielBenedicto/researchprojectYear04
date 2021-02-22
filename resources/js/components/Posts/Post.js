@@ -7,7 +7,7 @@ import PostVote from '../PostVote';
 import Bookmark from '../Bookmark';
 import Moment from 'react-moment';
 
-import { FaEdit, FaTrashAlt, FaCommentAlt, FaEllipsisV } from 'react-icons/fa';
+import { FaEdit, FaTrashAlt, FaCommentAlt, FaEllipsisV, FaRegWindowClose } from 'react-icons/fa';
 
 
 class Post extends Component {
@@ -131,7 +131,7 @@ class Post extends Component {
         }));
 
         const cvotes = this.props.cvotes;
-        
+
         const comments = this.state.comments.filter((comment, i) => {
             return cvotes.map((vote => {
                 if(vote.comment_id == comment.id){
@@ -227,9 +227,15 @@ class Post extends Component {
                             </div>
                             <div className={"row " + hideClass}>
                                 <div className={'col-6 warning-div'}>
-                                    <p className="warning-text">This  post is currently under review as it may contain abusive language.
-                                        You are the only one that can view this post.  Edit this post or wait for admin approval. </p>
-                                    <button onClick={() => this.setState({ hide: false })}>Close</button>
+                                    <div>
+                                        <button className="close-bttn float-right" onClick={() => this.setState({ hide: false })}><FaRegWindowClose /></button>
+                                    </div>
+                                    <div>
+                                        <p className="warning-text">This post is currently under review as it may contain abusive language.
+                                        You are the only one that can view this post. Edit this post or wait for admin approval. </p>
+                                    </div>
+                                    
+                                   
                                 </div>
                             </div>
                         </div>

@@ -28,12 +28,10 @@ class PostList extends Component {
         //get posts in a forum
         axios.get('/api/forums/' + this.props.match.params.forumId)
             .then(response => {
-                console.log(response);
+                // console.log(response);
 
-                //never modify state directly
                 this.setState({
                     posts: response.data.data,
-                    forum: response.data.forum,
                     isLoaded: true
                 });
             })
@@ -43,10 +41,6 @@ class PostList extends Component {
                     this.state.errors = error.response.data.errors;
                 }
             });
-    }
-
-    voted() {
-
     }
 
     changeSortby(sort) {
@@ -162,7 +156,7 @@ class PostList extends Component {
                                                             </div>
                                                         </div>
                                                         <div className="col-11 offset-1 p-0">
-                                                            <FaCommentAlt className="icon" /> <span>Comments</span>
+                                                            <FaCommentAlt className="icon" />{item.comments.length} <span className="pr-2">Comments</span>
                                                             <Bookmark
                                                                 user={this.props.user}
                                                                 id={item.id}

@@ -786,3 +786,16 @@ svg {
     height: 30px;
 }
 
+.close-bttn{
+    position: absolute;
+    top: -30px;
+    right: 0px;
+    background-color: #ccc;
+}
+
+.cancel-button{
+    font-weight: 700;
+    font-size: 16px;
+    background-color: white;
+    margin-right: 20px;
+}
