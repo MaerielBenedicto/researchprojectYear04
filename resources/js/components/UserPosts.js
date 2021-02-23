@@ -70,11 +70,14 @@ class UserPosts extends Component {
         }));
 
         return (
-            <div className="mt-2">
+            <div className="mt-2 body-m-bottom">
                 <div className="container">
                     <div className="row">
 
                         <div className="posts-table col-lg-9">
+                            {posts.length === 0 && (
+                                <div className="p-4"><p> You currently do not have any posts!</p></div>
+                            )}
                             <table className="table table-bordered">
 
                                 {posts.map(item => (
@@ -86,7 +89,6 @@ class UserPosts extends Component {
                                                     <Link to={{
                                                         pathname: `/posts/${item.id}`,
                                                         state: {
-
                                                             post: item
                                                         }
                                                     }} ><h4>{item.title}</h4></Link>

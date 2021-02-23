@@ -28,7 +28,6 @@ class CreatePostsTable extends Migration
 
           $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
           $table->foreign('forum_id')->references('id')->on('forums')->onUpdate('cascade')->onDelete('restrict');
-
         });
     }
 
@@ -39,6 +38,8 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('posts');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');    
     }
 }

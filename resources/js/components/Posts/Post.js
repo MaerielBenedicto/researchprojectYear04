@@ -25,7 +25,6 @@ class Post extends Component {
         this.getPost = this.getPost.bind(this);
         this.updateSuccess = this.updateSuccess.bind(this);
         this.addComment = this.addComment.bind(this);
-
     }
 
     componentDidMount() {
@@ -42,7 +41,8 @@ class Post extends Component {
                     });
                 }
                 this.setState({
-                    post: response.data.data
+                    post: response.data.data,
+                    isLoaded: true
                 });
             })
             .catch(function (error) {
@@ -56,10 +56,11 @@ class Post extends Component {
     comments(){
         axios.get('/api/posts/' + this.props.match.params.id + '/comments')
         .then(response => {
-            console.log(response.data.data);
+            console.log('comment!!!!',response.data.data);
+            console.log("SHOULD POP UP!!!!!");
            this.setState({
                comments: response.data.data,
-               isLoaded: true
+            //    isLoaded: true
            }); 
         })
         .catch(function (error) {
@@ -109,6 +110,10 @@ class Post extends Component {
         });
     }
 
+    votedSuccess(){
+        console.log("voted")
+    }
+
 
     render() {
         const forums = this.props.forums;
@@ -131,8 +136,8 @@ class Post extends Component {
         }));
 
         const cvotes = this.props.cvotes;
-
-        const comments = this.state.comments.filter((comment, i) => {
+        var comments = this.state.comments;
+        comments.filter((comment, i) => {
             return cvotes.map((vote => {
                 if(vote.comment_id == comment.id){
                    if(vote.vote == 1){
@@ -147,6 +152,7 @@ class Post extends Component {
             }));
         });
 
+        console.log('comments',comments);
 
         if (this.state.isLoaded) {
             return (
@@ -248,6 +254,7 @@ class Post extends Component {
                                 getComments={this.comments}
                                 addComment={this.addComment}
                                 updateComment={this.updateSuccess}
+                                votedSuccess={this.props.votedSuccess}
                             />
                         )}
 

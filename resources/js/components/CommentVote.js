@@ -29,7 +29,8 @@ class CommentVote extends Component {
                 headers: { Authorization: "Bearer " + token }
             })
             .then((response) => {
-                console.log(response.data);
+                console.log('upvote',response.data);
+                // this.props.votedSuccess(response.data);
                 this.props.voted();
                 this.setState({voted: true});
               })
@@ -56,8 +57,9 @@ class CommentVote extends Component {
                 headers: { Authorization: "Bearer " + token }
             })
             .then((response) => {
-                console.log(response.data);
-                this.props.voted();
+                console.log('downvote',response.data);
+                this.props.votedSuccess(response.data);
+                // this.props.voted();
                 this.setState({voted: false});
               })
             .catch(function(error) {
@@ -72,7 +74,7 @@ class CommentVote extends Component {
 
     render(){
         const voted = this.state.voted;
-        
+        // console.log(this.props.item_voted);
         if(voted !== undefined){
             return (
                 <div>

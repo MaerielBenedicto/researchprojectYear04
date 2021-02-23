@@ -3,23 +3,30 @@ import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 import UserForums from '../components/UserForums';
 import UserPosts from '../components/UserPosts';
+import Avatar from '../components/Modal/Avatar';
+
 import {FaUserEdit, FaWindowClose} from 'react-icons/fa';
 class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: props.user
+            user: {}
         };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmitForm = this.handleSubmitForm.bind(this);
+        this.uploaded = this.uploaded.bind(this);
+        
     }
 
     handleSubmitForm(e) {
         //prevent from reloading page
         e.preventDefault();
         axios.post('/api/register', {
-            name: this.state.name,
-            email: this.state.email,
-            password: this.state.password,
-            password_confirmation: this.state.password_confirmation
+            name: this.state.user.name,
+            email: this.state.user.email,
+            password: this.state.user.password,
+            password_confirmation: this.state.user.password_confirmation
         })
             .then((response) => {
                 console.log(response.data);
@@ -35,7 +42,7 @@ class Profile extends Component {
 
     handleChange(e) {
         const target = e.target;
-        const value = (target.type === 'checkbox') ? target.checked : target.value;
+        const value = target.value;
         const name = target.name;
 
         this.setState({
@@ -43,8 +50,14 @@ class Profile extends Component {
         });
     }
 
+    uploaded(){
+        this.setState({showModal: false});
+    }
+
     render() {
-        const user = this.state.user;
+        const user = this.props.user;
+        const avatar = user.image ? ('uploads/' + user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png';
+
         return (
             <div className="body-content pb-0">
                 <div className="container">
@@ -65,8 +78,9 @@ class Profile extends Component {
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div className="row profile">
                                     <div className="col-2 profile-avatar">
-                                        <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png" />
-                                        <div><button className="edit-avatar-bttn">Edit avatar</button></div>
+                                        <img src={avatar} />
+                                        
+                                        <div><button onClick={()=> this.setState({showModal: true})}className="edit-avatar-bttn">Edit avatar</button></div>
                                     </div>
                                     <div className="profile-div col-5">
                                         <div className="profile-heading">
@@ -134,19 +148,20 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <UserPosts user={this.props.user}/>
+                                <UserPosts user={user}/>
                             </div>
                             <div className="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                <UserForums user={this.props.user}/>
+                                <UserForums user={user}/>
                             </div>
                         </div>
+                        
+                        {this.state.showModal && (
+                                <Avatar user={user} uploaded={this.uploaded} uploadSuccess={this.props.uploadSuccess}/>
+                        )}
+
                     </div>
 
                 </div>
-
-
-                {/* <UserForums user={this.props.user}/> */}
-                {/* <UserPosts user={this.props.user}/> */}
 
             </div>
         )

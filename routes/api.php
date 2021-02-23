@@ -9,6 +9,7 @@ use App\Http\Controllers\API\CommentController;
 use App\Http\Controllers\API\PostVoteController;
 use App\Http\Controllers\API\CommentVoteController;
 use App\Http\Controllers\API\BookmarkController;
+use App\Http\Controllers\API\ProfileController;
 
 use App\Http\Controllers\API\Admin\AdminController;
 
@@ -42,6 +43,9 @@ Route::middleware('auth:api')->group(function () {
   //auth
   Route::get('user', [PassportController::class, 'user']);
   Route::get('logout', [PassportController::class, 'logout']);
+
+  //profile 
+  Route::post('profile/{user}', [ProfileController::class, 'updateAvatar']);
 
   //forums
   Route::post('forums', [ForumController::class, 'store']);

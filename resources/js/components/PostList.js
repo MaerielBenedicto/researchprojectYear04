@@ -100,7 +100,7 @@ class PostList extends Component {
                 <div className="col-12">
                     <Filter sortby={this.state.sortby} changeSortby={this.changeSortby} />
                 </div>
-                <div className="forum-post-div">
+                <div className="forum-post-div body-m-bottom">
                     <div className="container">
                         <div className="row">
                             <div className="col-9 py-3">

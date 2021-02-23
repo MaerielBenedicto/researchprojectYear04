@@ -73,6 +73,7 @@ class PassportController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
                 'token' => $token,
+                'image' => $user->image,
                 'role' => $role
             ], 200);
         }
@@ -81,9 +82,12 @@ class PassportController extends Controller
         }
     }
 
-    public function user()
+    public function user(Request $request)
     {
-        return response()->json(['user' => auth()->user()], 200);
+        $user = auth()->user();
+        $user['token'] = $request->bearerToken();
+
+        return response()->json(['user' => $user], 200);
     }
 
     public function logout(Request $request)

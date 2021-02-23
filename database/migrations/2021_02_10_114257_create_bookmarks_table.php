@@ -22,7 +22,7 @@ class CreateBookmarksTable extends Migration
 
             $table->foreign('post_id')->references('id')->on('posts');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('forum_id')->references('id')->on('forum');
+            $table->foreign('forum_id')->references('id')->on('forums');
         });
     }
 

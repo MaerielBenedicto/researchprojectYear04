@@ -150,7 +150,12 @@ class PostController extends Controller
   public function destroy($id){
     $post = Post::findOrFail($id);
     //delete comments of the post
-    $post->comments()->delete();
+    
+    $comments = $post->comments();
+    foreach($comments as $comment){
+      $comment->comment_vote()->delete();
+    }
+    dd($post->comments()->count());
     //delete votes of the post
     $post->post_vote()->delete();
     //delete post
