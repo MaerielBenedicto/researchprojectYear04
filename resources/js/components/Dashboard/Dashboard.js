@@ -82,10 +82,10 @@ class Dashboard extends Component {
             return (
                 <div className="App dashboard">
                     <Router>
-                        <Sidebar />
+                        <Sidebar  user={this.props.user} onSuccess={this.props.onSuccess}/>
                         <Switch>
                             <Route exact path="/dashboard">
-                                <Home />
+                                <Home user={this.props.user}/>
                             </Route>
                             <Route exact path="/dashboard/posts">
                                 <PostsList posts={this.state.posts} />
@@ -114,7 +114,7 @@ class Dashboard extends Component {
         }
         else {
             //display sidebar only
-            return <div> <Router><Sidebar /></Router></div>;
+            return <div> <Router><Sidebar user={this.props.user} onSuccess={this.props.onSuccess}/></Router></div>;
         }
 
     };

@@ -54,7 +54,7 @@ class App extends Component {
     this.RemovePostbookmarkSuccess = this.RemovePostbookmarkSuccess.bind(this);
     this.votedSuccess = this.votedSuccess.bind(this);
     this.uploadSuccess = this.uploadSuccess.bind(this);
-
+    this.updateProfile = this.updateProfile.bind(this);
   }
 
   componentDidMount() {
@@ -76,46 +76,33 @@ class App extends Component {
       });
 
       if(user){
-        axios.get('/api/bookmarks',
+        axios.all([
+          axios.get('/api/bookmarks',
+            { headers: { Authorization: "Bearer " + user.token } }),
+          axios.get('/api/posts/vote/' + user.id,
+            { headers: { Authorization: "Bearer " + user.token } }),
+          axios.get('/api/comments/vote/' + user.id,
             { headers: { Authorization: "Bearer " + user.token } })
-            .then((response) => {
-              console.log(response);
-            })
+        ])
+            .then(axios.spread((bookmarks, pvotes, cvotes) => {
+              const bookmarksData = bookmarks.data;
+              const pvotesData = pvotes.data;
+              const cvotesData = cvotes.data;
+
+              this.setState({
+                forums_bookmarks: bookmarksData.forums,
+                posts_bookmarks: bookmarksData.posts,
+                post_votes: pvotesData,
+                comment_votes: cvotesData,
+                isLoaded: true
+              });
+            }))
             .catch(function (error) {
-                    console.log(error);
-                    if (error) {
-                      console.log(error);
-                    }
-                  }); 
-
-
-        // axios.all([
-        //   axios.get('/api/bookmarks',
-        //     { headers: { Authorization: "Bearer " + user.token } }),
-        //   axios.get('/api/posts/vote/' + user.id,
-        //     { headers: { Authorization: "Bearer " + user.token } }),
-        //   axios.get('/api/comments/vote/' + user.id,
-        //     { headers: { Authorization: "Bearer " + user.token } })
-        // ])
-        //     .then(axios.spread((bookmarks, pvotes, cvotes) => {
-        //       const bookmarksData = bookmarks.data;
-        //       const pvotesData = pvotes.data;
-        //       const cvotesData = cvotes.data;
-
-        //       this.setState({
-        //         forums_bookmarks: bookmarksData.forums,
-        //         posts_bookmarks: bookmarksData.posts,
-        //         post_votes: pvotesData,
-        //         comment_votes: cvotesData,
-        //         isLoaded: true
-        //       });
-        //     }))
-        //     .catch(function (error) {
-        //       console.log(error);
-        //       if (error) {
-        //         console.log(error);
-        //       }
-        //     });    
+              console.log(error);
+              if (error) {
+                console.log(error);
+              }
+            });    
       }
    
   }
@@ -237,8 +224,6 @@ class App extends Component {
 
   uploadSuccess(image){
     let token = this.state.user.token;
-    console.log("SUCCESS");
-    // localStorage.setItem("user", JSON.stringify(user));
       axios.get('/api/user',
         { headers: { Authorization: "Bearer " + token } })
         .then((response) =>{
@@ -254,9 +239,25 @@ class App extends Component {
         });    
   }
 
+  updateProfile(){
+    let token = this.state.user.token;
+      axios.get('/api/user',
+        { headers: { Authorization: "Bearer " + token } })
+        .then((response) =>{
+          console.log(response);
+          localStorage.setItem("user", JSON.stringify(response.data.user));
+           this.setState({user: response.data.user})
+        })
+        .catch(function (error) {
+          console.log(error);
+          if (error) {
+            console.log(error);
+          }
+        });
+  }
+
   render() {
     const user = JSON.parse(localStorage.getItem('user'));
-
     return (
       <div className="App">
         <Navbar
@@ -297,6 +298,7 @@ class App extends Component {
             <Profile user={user}
               bookmarks={this.state.bookmarks}
               uploadSuccess={this.uploadSuccess}
+              updateProfile={this.updateProfile}
             />
           </Route>
           <Route path="/posts/:id">
@@ -320,7 +322,7 @@ class App extends Component {
             component={CreatePost}
           />
           <Route path="/dashboard">
-            <Dashboard user={user} />
+            <Dashboard user={user} onSuccess={this.onLogoutSuccess}/>
           </Route>
         </Switch>
         <Footer />

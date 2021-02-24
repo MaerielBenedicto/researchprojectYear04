@@ -35,7 +35,7 @@ class Avatar extends Component {
         for (var pair of data.entries()) {
             console.log(pair[0]+ ', ' + pair[1]); 
         }
-        axios.post('/api/profile/' + user.id, data, {
+        axios.post('/api/avatar/' + user.id, data, {
             headers: {
                 'Authorization': "Bearer " + token,
                 'Content-Type': 'multipart/form-data'
@@ -54,8 +54,10 @@ class Avatar extends Component {
 
     render() {
 
+        const showModal = (this.props.showModal) ?  'style': '';
+
         return (
-            <div className="modal style" >
+            <div className={'modal' + showModal} >
                 <div className="modal-mask">
                     <div className="modal-wrapper">
                         <div className="modal-container">
@@ -83,7 +85,7 @@ class Avatar extends Component {
                                             </div>
 
                                             <div className="col-lg-3 col-sm-6">
-                                                <button type="button" className="btn btn-secondary">Cancel</button>
+                                                <button type="button" onClick={this.props.closeModal} className="btn btn-secondary">Cancel</button>
                                             </div>
                                         </div>
                                     </form>

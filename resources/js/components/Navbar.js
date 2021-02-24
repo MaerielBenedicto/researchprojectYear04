@@ -21,7 +21,6 @@ class Navbar extends Component {
     })
       .then((response) => {
         console.log("USER LOGGED OUT");
-        localStorage.removeItem('user');
         this.props.onSuccess();
       })
       .catch(function (error) {
@@ -76,6 +75,9 @@ class Navbar extends Component {
 
                           <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <Link to="/my-profile" className="nav-link dropdown-item drop-down-link">My Profile</Link> 
+                            {user.role == 'admin' &&( 
+                                <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                            )}
                             <Link to="/" className="nav-link dropdown-item drop-down-link" onClick={this.logout}>Sign out</Link>
                           </div>
                         </div>
@@ -85,7 +87,7 @@ class Navbar extends Component {
                     </li>
                   )}
 
-                  {/* {user && (
+                  {/* {user.role == 'admin' && (
                     <li className="nav-item">
                       <Link to="/" className="nav-link" onClick={this.logout}>Sign out</Link>
                     </li>

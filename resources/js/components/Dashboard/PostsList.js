@@ -12,7 +12,7 @@ class PostsList extends Component {
             posts: props.posts,
             loading: false,
             currentPage: 1,
-            postsPerPage: 12
+            postsPerPage: 9
         }
 
         this.paginate = this.paginate.bind(this);

@@ -11,7 +11,7 @@ class CommentsList extends Component {
             comments: props.comments,
             loading: false,
             currentPage: 1,
-            postsPerPage: 8
+            postsPerPage: 7
         }
 
         this.paginate = this.paginate.bind(this);
@@ -48,15 +48,15 @@ class CommentsList extends Component {
                 </div>
 
                 <div className="posts-lists col-12">
-                    <div className="post-heading pt-2">
-                        <h3>Under Review Queue</h3>
+                    <div className="post-heading">
+                        <h4>Under Review Queue</h4>
                     </div>
                     <div className="posts-table">
                         <table className="table">
                         <thead>
                           <tr>
                             <th scope="col">Date</th>
-                            <th scope="col">Title</th>
+                            <th scope="col">Body</th>
                             <th scope="col">Sentiment Score</th>
                             <th scope="col">Sentiment Magnitude</th>
                             <th scope="col">Action</th>
@@ -66,7 +66,7 @@ class CommentsList extends Component {
                         <tbody key={item.id}>
                           <tr>
                             <td ><Moment format="DD/MM/YYYY">{item.created_at}</Moment></td>
-                            <td>{item.body}</td>
+                            <td>{item.body.substr(0,150)}...</td>
                             <td>{item.s_score}</td>
                             <td>{item.s_magnitude}</td>
                             <td><button className="review-button"><Link to={"/dashboard/comment/" + item.id}>Review</Link></button></td>

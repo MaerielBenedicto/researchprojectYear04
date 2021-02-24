@@ -45,7 +45,8 @@ Route::middleware('auth:api')->group(function () {
   Route::get('logout', [PassportController::class, 'logout']);
 
   //profile 
-  Route::post('profile/{user}', [ProfileController::class, 'updateAvatar']);
+  Route::post('avatar/{user}', [ProfileController::class, 'updateAvatar']);
+  Route::post('profile/{user}', [ProfileController::class, 'update']);
 
   //forums
   Route::post('forums', [ForumController::class, 'store']);

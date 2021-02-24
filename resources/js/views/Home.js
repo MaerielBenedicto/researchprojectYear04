@@ -105,7 +105,7 @@ class Home extends Component {
                                     pathname: '/forums',
                                     state: {}
                                 }}>
-                                    <button className="forum-bttn">Create a new Forum topic</button>
+                                    <button className="forum-bttn btn-primary">Create a new Forum topic</button>
                                 </Link>
                             </div>
                         </div>

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
+import { FaTrashAlt, FaEllipsisH, FaEdit, FaCommentAlt } from 'react-icons/fa';
+import Moment from 'react-moment';
 
 class UserForums extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             forums: []
@@ -13,84 +15,120 @@ class UserForums extends Component {
         this.forums = this.forums.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.forums();
     }
 
-    forums(){
+    forums() {
         //get user forums
         let token = this.props.user.token;
-        axios.get('/api/profile/' + this.props.user.id + '/forums', 
-        {
-            headers: { Authorization: "Bearer " + token }
-        })
-        .then(response => {
-            this.setState({
-                forums: response.data
+        axios.get('/api/profile/' + this.props.user.id + '/forums',
+            {
+                headers: { Authorization: "Bearer " + token }
+            })
+            .then(response => {
+                this.setState({
+                    forums: response.data
+                });
+            })
+            .catch(function (error) {
+                if (error) {
+                    console.log(error.response);
+                    this.state.errors = error.response.data.errors;
+                }
             });
-        })
-        .catch(function(error){
-            if(error){
-                console.log(error.response);
-                this.state.errors = error.response.data.errors;
-            } 
-        });
     }
 
     delete(id) {
         console.log("DELETE");
         let token = this.props.user.token;
         axios.delete('/api/forums/' + id,
-        {
-            headers: { Authorization: "Bearer " + token }
-        })
-        .then(response => {
-            console.log(response);
-            this.forums();
-        })
-        .catch(function(error){
-            if(error){
-                console.log(error);
-                this.state.errors = error.response.data.errors;
-            } 
-        });
+            {
+                headers: { Authorization: "Bearer " + token }
+            })
+            .then(response => {
+                console.log(response);
+                this.forums();
+            })
+            .catch(function (error) {
+                if (error) {
+                    console.log(error);
+                    this.state.errors = error.response.data.errors;
+                }
+            });
     }
 
-    render(){
+    render() {
+        const forums = this.state.forums;
+
         return (
-            <div className="mt-4">
-                <div className="container"> 
-                    <h4>FORUMS</h4>
-                    {this.state.forums.map(item => (
-                        <div className="forum col-12"  key={item.id}>
-                        <div className="forum-title">
-                            <Link to={`/forums/${item.id}`} className="forum-title">
-                                {item.topic}
-                            </Link>
-                        </div>
+            <div className="mt-2 body-m-bottom">
+                <div className="container">
+                    <div className="row">
 
-                        <Link to={{
-                            pathname: '/forums',
-                            state: {
-                                forumId: item.id,
-                                topic: item.topic,
-                                description: item.description,
-                                mode: 'edit'
-                            }}}>
-                          <div className="float-right bttn"> Edit </div>
-                        </Link>
+                        <div className="posts-table col-lg-9">
+                            {forums.length === 0 && (
+                                <div className="p-4"><p> You currently do not have any posts!</p></div>
+                            )}
+                            <table className="table table-bordered">
 
-                            <button className="bttn float-right" onClick={ () => this.delete(item.id)}>Delete</button>
+                                {forums.map(item => (
+                                    <tbody key={item.id}>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <Link to={`/forums/${item.id}`}>
+                                                    <h4>{item.topic}</h4>
+                                                    </Link>
+                                                    <p><span>Posted on: <Moment format="DD/MM/YYYY">{item.created_at}</Moment></span></p>
 
-                        <div className="forum-desc">
-                            { item.description}
+                                                    <p>{item.description}</p>
+                                                    <div className="row">
+                                                        <div className="dropdown show col-6">
+                                                            <FaCommentAlt className="icon ml-0" /> {item.postsCount} <span className="p-0">Posts</span>
+                                                            <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <FaEllipsisH className="icon" />
+                                                            </a>
+
+                                                            <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                                <button className="dropdown-item drop-down-link edit-bttn">
+                                                                    <Link to={{
+                                                                        pathname: '/forums',
+                                                                        state: {
+                                                                            forumId: item.id,
+                                                                            topic: item.topic,
+                                                                            description: item.description,
+                                                                            mode: 'edit'
+                                                                        }
+                                                                    }}>
+                                                                        <span className="bttn"><FaEdit className="icon" />Edit</span>
+                                                                    </Link>
+                                                                </button>
+                                                                <button className="dropdown-item drop-down-link" onClick={() => this.delete(item.id)}>
+                                                                    <span><FaTrashAlt className="icon" />  Delete </span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                ))}
+                            </table>
+                            
                         </div>
-                        <div className="forum-desc">
-                            { item.postsCount} posts
-                        </div>
-                        
-                    </div>                                 
-                    ))}
+                        <div className="col">
+                                <Link to={{
+                                        pathname: '/forums',
+                                        state: {}
+                                    }}>
+                                        <button className="forum-bttn btn-primary">Create a new Forum topic</button>
+                                    </Link>
+                            </div>
+                    </div>
 
                 </div>
                 

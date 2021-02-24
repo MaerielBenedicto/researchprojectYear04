@@ -10,6 +10,10 @@ class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            name: props.user.name, 
+            email: props.user.email,
+            password: '',
+            password_confirmation: '',
             user: {}
         };
 
@@ -22,16 +26,20 @@ class Profile extends Component {
     handleSubmitForm(e) {
         //prevent from reloading page
         e.preventDefault();
-        axios.post('/api/register', {
-            name: this.state.user.name,
-            email: this.state.user.email,
-            password: this.state.user.password,
-            password_confirmation: this.state.user.password_confirmation
+
+        //
+        axios.post('/api/profile/' + this.props.user.id, {
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+            password_confirmation: this.state.password_confirmation
+        }, 
+        { headers: { Authorization: "Bearer " + this.props.user.token } 
         })
             .then((response) => {
                 console.log(response.data);
-                const user = response.data;
-                this.props.onSuccess(user);
+                this.props.updateProfile(response.data.user);
+                this.setState({update: false});
             })
             .catch((error) => {
                 if (error.response) {
@@ -56,7 +64,9 @@ class Profile extends Component {
 
     render() {
         const user = this.props.user;
-        const avatar = user.image ? ('uploads/' + user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png';
+
+        //if user.image is not set to the default
+        const avatar = (user.image !== 'image.jpg') ? ('uploads/' + user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png';
 
         return (
             <div className="body-content pb-0">
@@ -68,11 +78,17 @@ class Profile extends Component {
                                 <a href="#home" className="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">My Profile</a>
                             </li>
                             <li className="nav-item" role="presentation">
-                                <a href="#profile-tab" className="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Posts</a>
+                                <a href="#forums-tab" className="nav-link" id="forums-tab" data-toggle="tab" data-target="#forums" type="button" role="tab" aria-controls="forums" aria-selected="false">Forums</a>
                             </li>
                             <li className="nav-item" role="presentation">
-                                <a href="#contact-tab" className="nav-link" id="contact-tab" data-toggle="tab" data-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Comments</a>
+                                <a href="#posts-tab" className="nav-link" id="posts-tab" data-toggle="tab" data-target="#posts" type="button" role="tab" aria-controls="posts" aria-selected="false">Posts</a>
                             </li>
+                            {/* <li className="nav-item" role="presentation">
+                                <a href="#comments-tab" className="nav-link" id="comments-tab" data-toggle="tab" data-target="#comments" type="button" role="tab" aria-controls="comments" aria-selected="false">Comments</a>
+                            </li>
+                            <li className="nav-item" role="presentation">
+                                <a href="#bookmarks-tab" className="nav-link" id="bookmarks-tab" data-toggle="tab" data-target="#bookmarks" type="button" role="tab" aria-controls="bookmarks" aria-selected="false">Bookmarks</a>
+                            </li> */}
                         </ul>
                         <div className="tab-content" id="myTabContent">
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -80,7 +96,7 @@ class Profile extends Component {
                                     <div className="col-2 profile-avatar">
                                         <img src={avatar} />
                                         
-                                        <div><button onClick={()=> this.setState({showModal: true})}className="edit-avatar-bttn">Edit avatar</button></div>
+                                        <div><button onClick={()=> this.setState({showModal: true})}className="edit-avatar-bttn btn-primary">Edit avatar</button></div>
                                     </div>
                                     <div className="profile-div col-5">
                                         <div className="profile-heading">
@@ -104,7 +120,7 @@ class Profile extends Component {
                                                         <label>Name</label>
                                                         {(this.state.update) ? (
                                                             <input id="name" type="text" className="form-control" placeholder="Name" name="name"
-                                                                value={this.state.user.name}
+                                                                value={this.state.name}
                                                                 onChange={this.handleChange} />
                                                         ) : (<p> {user.name} </p>)}
                                                     </div>
@@ -113,24 +129,25 @@ class Profile extends Component {
                                                         <label>Email address</label>
                                                         {(this.state.update) ? (
                                                             <input id="email" type="email" className="form-control" placeholder="Email" name="email"
-                                                                value={this.state.user.email}
+                                                                value={this.state.email}
                                                                 onChange={this.handleChange} />
                                                         ) : (<p>{user.email}</p>)}
                                                     </div>
-
+                                                    
+                                                    {/* UPDATE PROFILE */}
                                                     {(this.state.update) ? (
                                                         <div>
                                                             <div className="form-group col-12">
                                                                 <label>Password</label>
                                                                 <input id="password" type="password" className="form-control" placeholder="Password" name="password"
-                                                                    value={this.state.user.password}
+                                                                    value={this.state.password}
                                                                     onChange={this.handleChange} />
                                                             </div>
 
                                                             <div className="form-group col-12">
                                                                 <label>Confrim password</label>
                                                                 <input id="password_confirmation" type="password" className="form-control" placeholder="Confirm password" name="password_confirmation"
-                                                                    value={this.state.user.password_confirmation}
+                                                                    value={this.state.password_confirmation}
                                                                     onChange={this.handleChange} />
                                                             </div>
 
@@ -147,16 +164,29 @@ class Profile extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <UserPosts user={user}/>
-                            </div>
-                            <div className="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div className="tab-pane fade" id="forums" role="tabpanel" aria-labelledby="forums-tab">
                                 <UserForums user={user}/>
                             </div>
+                            <div className="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                                <UserPosts user={user}/>
+                            </div>
+                            {/* <div className="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
+                                <UserPosts user={user}/>
+                            </div>
+                            <div className="tab-pane fade" id="bookmarks" role="tabpanel" aria-labelledby="bookmarks-tab">
+                                <UserPosts user={user}/>
+                            </div> */}
+                            
                         </div>
                         
+                        {/* UPLOAD IMAGE  */}
                         {this.state.showModal && (
-                                <Avatar user={user} uploaded={this.uploaded} uploadSuccess={this.props.uploadSuccess}/>
+                                <Avatar user={user} 
+                                        uploaded={this.uploaded} 
+                                        uploadSuccess={this.props.uploadSuccess}
+                                        showModal={this.state.showModal}
+                                        closeModal={()=> this.setState({showModal: false})}
+                                />
                         )}
 
                     </div>
@@ -168,4 +198,4 @@ class Profile extends Component {
     };
 }
 
-export default Profile;
+export default withRouter(Profile);

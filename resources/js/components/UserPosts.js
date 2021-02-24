@@ -89,7 +89,8 @@ class UserPosts extends Component {
                                                     <Link to={{
                                                         pathname: `/posts/${item.id}`,
                                                         state: {
-                                                            post: item
+                                                            post: item,
+                                                            prevPath: location.pathname
                                                         }
                                                     }} ><h4>{item.title}</h4></Link>
                                                     {item.action == 'under review' && (
@@ -147,4 +148,4 @@ class UserPosts extends Component {
     };
 }
 
-export default UserPosts;
+export default withRouter(UserPosts);
