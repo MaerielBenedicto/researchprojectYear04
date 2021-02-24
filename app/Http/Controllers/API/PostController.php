@@ -132,6 +132,7 @@ class PostController extends Controller
 
     //load comments of the post
     $post['comments'] = $post->comments();
+    $post['post_vote'] = $post->post_vote;
 
     if ($post === null) {
       $statusMsg = 'post not found!';

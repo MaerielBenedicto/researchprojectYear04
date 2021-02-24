@@ -48,6 +48,7 @@ class PostList extends Component {
     }
 
     render() {
+        const user = this.props.user;
         const forum_id = parseInt(this.props.match.params.forumId);
         const forums = this.props.forums;
         const bookmarks = this.props.bookmarks;
@@ -78,22 +79,23 @@ class PostList extends Component {
                 return post;
             });
 
-            filteredPosts = filteredPosts.filter((post, i) => {
-                return votes.map((vote => {
-                    if (vote.post_id == post.id) {
-                        if (vote.vote == 1) {
-                            post.voted = true;
-                        } else if (vote.vote == -1) {
-                            post.voted = false;
-                        } else {
-                            post.voted = null;
+            //check if user have voted post
+            filteredPosts.filter((post, i) => {
+                if (post.post_vote.length > 1) {
+                  return  post.post_vote.map((vote) => {
+                        if (vote.user_id == user.id) {
+                            if (vote.vote == 1) {
+                                post.voted = true;
+                            } else if (vote.vote == -1) {
+                                post.voted = false;
+                            } else {
+                                post.voted = null;
+                            }
+                            return post;
                         }
-                        return post;
-                    }
-                }));
+                    })
+                }
             });
-
-
         }
         return (
             <div>

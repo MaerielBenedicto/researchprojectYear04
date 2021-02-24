@@ -101,7 +101,7 @@ class ForumController extends Controller
       $post['upvote'] = $countUpvote;
       $post['downvote'] = $countDownvote;
       $post['comments'] = $post->comments();
-
+      $post['post_vote'] = $post->post_vote;
       $posts[] = $post;
     }
 

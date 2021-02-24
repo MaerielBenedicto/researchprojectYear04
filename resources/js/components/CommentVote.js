@@ -58,8 +58,8 @@ class CommentVote extends Component {
             })
             .then((response) => {
                 console.log('downvote',response.data);
-                this.props.votedSuccess(response.data);
-                // this.props.voted();
+                // this.props.votedSuccess(response.data);
+                this.props.voted();
                 this.setState({voted: false});
               })
             .catch(function(error) {

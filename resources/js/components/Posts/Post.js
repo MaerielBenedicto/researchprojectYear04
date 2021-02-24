@@ -53,22 +53,19 @@ class Post extends Component {
             });
     }
 
-    comments(){
+    comments() {
         axios.get('/api/posts/' + this.props.match.params.id + '/comments')
-        .then(response => {
-            console.log('comment!!!!',response.data.data);
-            console.log("SHOULD POP UP!!!!!");
-           this.setState({
-               comments: response.data.data,
-            //    isLoaded: true
-           }); 
-        })
-        .catch(function (error) {
-            if (error) {
-                console.log(error);
-                this.state.errors = error.response.data.errors;
-            }
-        });
+            .then(response => {
+                this.setState({
+                    comments: response.data.data
+                });
+            })
+            .catch(function (error) {
+                if (error) {
+                    console.log(error);
+                    this.state.errors = error.response.data.errors;
+                }
+            });
     }
 
     delete() {
@@ -96,7 +93,7 @@ class Post extends Component {
         //add updated comment
         tempComments.unshift(result);
         this.setState({
-          comments: tempComments
+            comments: tempComments
         });
     }
 
@@ -110,11 +107,6 @@ class Post extends Component {
         });
     }
 
-    votedSuccess(){
-        console.log("voted")
-    }
-
-
     render() {
         const forums = this.props.forums;
 
@@ -123,36 +115,54 @@ class Post extends Component {
         const user = this.props.user;
         const post = this.state.post;
         const pvotes = this.props.pvotes;
-        pvotes.map((vote =>{
-            if(vote.post_id == post.id){
-                if(vote.vote == 1){
+        pvotes.map((vote => {
+            if (vote.post_id == post.id) {
+                if (vote.vote == 1) {
                     post.voted = true;
-                } else if(vote.vote == -1) {
+                } else if (vote.vote == -1) {
                     post.voted = false;
                 } else {
-                     post.voted = null;
-                } 
+                    post.voted = null;
+                }
             }
         }));
 
-        const cvotes = this.props.cvotes;
-        var comments = this.state.comments;
-        comments.filter((comment, i) => {
-            return cvotes.map((vote => {
-                if(vote.comment_id == comment.id){
-                   if(vote.vote == 1){
-                    comment.voted = true;
-                   } else if(vote.vote == -1) {
-                    comment.voted = false;
-                   } else {
-                    comment.voted = null;
-                   } 
-                   return comment;
+        if(post.post_vote > 1){
+            post.post_vote.map((vote) => {
+                if (vote.user_id == user.id) {
+                    if (vote.vote == 1) {
+                        post.voted = true;
+                    } else if (vote.vote == -1) {
+                        post.voted = false;
+                    } else {
+                        post.voted = null;
+                    }
+                    return post;
                 }
-            }));
+            })
+        }
+
+
+
+        var comments = this.state.comments;
+        //check if user have voted comment
+        comments.filter((comment, i) => {
+            if (comment.comment_vote.length > 1) {
+              return  comment.comment_vote.map((vote) => {
+                    if (vote.user_id == user.id) {
+                        if (vote.vote == 1) {
+                            comment.voted = true;
+                        } else if (vote.vote == -1) {
+                            comment.voted = false;
+                        } else {
+                            comment.voted = null;
+                        }
+                        return comment;
+                    }
+                })
+            }
         });
 
-        console.log('comments',comments);
 
         if (this.state.isLoaded) {
             return (
@@ -166,8 +176,8 @@ class Post extends Component {
                                     </div>
                                     <div className="col-10 post-user-deet">
                                         <div>
-                                        <span> {post.user.name}</span>
-                                        <p><Moment format="LL">{post.created_at}</Moment></p>
+                                            <span> {post.user.name}</span>
+                                            <p><Moment format="LL">{post.created_at}</Moment></p>
                                         </div>
                                     </div>
                                     <div className="col-1 vote-div pl-0">
@@ -195,38 +205,38 @@ class Post extends Component {
                                             AddbookmarkSuccess={this.props.AddbookmarkSuccess}
                                             RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
                                         />
-                                         {/* <FaEllipsisV className="icon float-right"/> */}
+                                        {/* <FaEllipsisV className="icon float-right"/> */}
                                     </div>
                                     <div className="col-1">
 
-                                    {(user && user.id === post.user.id) ? (
-                                        <div className="dropdown show">
-                                        <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">     
-                                         <FaEllipsisV className="icon"/>
-                                        </a>
+                                        {(user && user.id === post.user.id) ? (
+                                            <div className="dropdown show">
+                                                <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <FaEllipsisV className="icon" />
+                                                </a>
 
-                                        <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <button className="dropdown-item drop-down-link edit-bttn">
-                                            <Link to={{
-                                            pathname: '/submit-post/' + this.props.match.params.id,
-                                            state: {
-                                                forumId: post.forum_id,
-                                                postId: this.props.match.params.id,
-                                                title: post.title,
-                                                body: post.body,
-                                                mode: 'edit'
-                                            }
-                                        }} >
-                                            <span className="bttn"><FaEdit className="icon" />Edit</span>
-                                        </Link>
-                                            </button>
-                                            <button className="dropdown-item drop-down-link" onClick={this.delete}>
-                                                <span><FaTrashAlt className="icon" />  Delete </span>  
-                                            </button>
-                                        </div>
-                                    </div>
-                                ) : ''}
-                                    
+                                                <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                    <button className="dropdown-item drop-down-link edit-bttn">
+                                                        <Link to={{
+                                                            pathname: '/submit-post/' + this.props.match.params.id,
+                                                            state: {
+                                                                forumId: post.forum_id,
+                                                                postId: this.props.match.params.id,
+                                                                title: post.title,
+                                                                body: post.body,
+                                                                mode: 'edit'
+                                                            }
+                                                        }} >
+                                                            <span className="bttn"><FaEdit className="icon" />Edit</span>
+                                                        </Link>
+                                                    </button>
+                                                    <button className="dropdown-item drop-down-link" onClick={this.delete}>
+                                                        <span><FaTrashAlt className="icon" />  Delete </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ) : ''}
+
                                     </div>
                                 </div>
 
@@ -240,16 +250,16 @@ class Post extends Component {
                                         <p className="warning-text">This post is currently under review as it may contain abusive language.
                                         You are the only one that can view this post. Edit this post or wait for admin approval. </p>
                                     </div>
-                                    
-                                   
+
+
                                 </div>
                             </div>
                         </div>
 
-                        { post.action !== 'under review' && (
-                            <Comments 
-                                comments={comments} 
-                                postId={this.props.match.params.id} 
+                        {post.action !== 'under review' && (
+                            <Comments
+                                comments={comments}
+                                postId={this.props.match.params.id}
                                 user={user}
                                 getComments={this.comments}
                                 addComment={this.addComment}
