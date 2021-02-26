@@ -56,7 +56,6 @@ class ForumController extends Controller
         'topic' => $request->topic,
         'description' => $request->description,
         'user_id' => $request->user_id
-
     ]);
 
     $forum->load('user');

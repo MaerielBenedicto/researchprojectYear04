@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import Filter from './Filter';
 import PostVote from './PostVote';
 import Bookmark from './Bookmark';
-import { FaCommentAlt, FaEdit,FaListAlt } from 'react-icons/fa';
+import { FaCommentAlt, FaEdit, FaListAlt } from 'react-icons/fa';
 
 class PostList extends Component {
     constructor() {
@@ -29,7 +29,6 @@ class PostList extends Component {
         axios.get('/api/forums/' + this.props.match.params.forumId)
             .then(response => {
                 // console.log(response);
-
                 this.setState({
                     posts: response.data.data,
                     isLoaded: true
@@ -69,33 +68,38 @@ class PostList extends Component {
                 filteredPosts = posts.slice().sort((a, b) => b.upvote - a.upvote);
             }
 
-            //set bookmarked posts
-            filteredPosts = filteredPosts.map((post, i) => {
-                if (bookmarks.some(bookmark => bookmark.id === post.id)) {
-                    post.bookmarked = true;
-                } else {
-                    post.bookmarked = false;
-                }
-                return post;
-            });
+            if (user) {
+                //set bookmarked posts
+                filteredPosts = filteredPosts.map((post, i) => {
+                    if (bookmarks.some(bookmark => bookmark.id === post.id)) {
+                        post.bookmarked = true;
+                    } else {
+                        post.bookmarked = false;
+                    }
+                    return post;
+                });
+            }
 
-            //check if user have voted post
-            filteredPosts.filter((post, i) => {
-                if (post.post_vote.length > 1) {
-                  return  post.post_vote.map((vote) => {
-                        if (vote.user_id == user.id) {
-                            if (vote.vote == 1) {
-                                post.voted = true;
-                            } else if (vote.vote == -1) {
-                                post.voted = false;
-                            } else {
-                                post.voted = null;
+            if (user) {
+                //check if user have voted post
+                filteredPosts.filter((post, i) => {
+                    if (post.post_vote.length > 1) {
+                        return post.post_vote.map((vote) => {
+                            if (vote.user_id == user.id) {
+                                if (vote.vote == 1) {
+                                    post.voted = true;
+                                } else if (vote.vote == -1) {
+                                    post.voted = false;
+                                } else {
+                                    post.voted = null;
+                                }
+                                return post;
                             }
-                            return post;
-                        }
-                    })
-                }
-            });
+                        })
+                    }
+                });
+            }
+
         }
         return (
             <div>
@@ -198,7 +202,7 @@ class PostList extends Component {
                                         forumId: this.props.match.params.forumId
                                     }
                                 }} >
-                                    <button className="forum-bttn">Start a new discussion</button>
+                                    <button className="forum-bttn btn-primary">Start a new discussion</button>
                                 </Link>
                             </div>
                         </div>

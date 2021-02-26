@@ -17,10 +17,10 @@ class PostVote extends Component {
 
     upvote() {
         console.log("upvote");
-        let token = this.props.user.token;
+        let user = this.props.user;
 
         //if logged in 
-        if (token) {
+        if (user) {
             axios.post('/api/posts/' + this.props.postId + '/vote',
                 {
                     vote: '1',
@@ -28,7 +28,7 @@ class PostVote extends Component {
                     post_id: this.props.postId
                 },
                 {
-                    headers: { Authorization: "Bearer " + token }
+                    headers: { Authorization: "Bearer " + user.token }
                 })
                 .then((response) => {
                     console.log(response.data);
@@ -41,13 +41,15 @@ class PostVote extends Component {
                         console.log(error.response);
                     }
                 });
+        }else {
+            this.props.history.push('/signin');
         }
     }
 
     downvote() {
         console.log("downvote");
-        let token = this.props.user.token;
-        if (token) {
+        let user = this.props.user;
+        if (user) {
             axios.post('/api/posts/' + this.props.postId + '/vote',
                 {
                     vote: '-1',
@@ -55,7 +57,7 @@ class PostVote extends Component {
                     post_id: this.props.postId
                 },
                 {
-                    headers: { Authorization: "Bearer " + token }
+                    headers: { Authorization: "Bearer " + user.token }
                 })
                 .then((response) => {
                     console.log(response.data);
@@ -68,6 +70,8 @@ class PostVote extends Component {
                         console.log(error);
                     }
                 });
+        } else {
+            this.props.history.push('/signin');
         }
     }
 
@@ -108,4 +112,4 @@ class PostVote extends Component {
 
 }
 
-export default PostVote;
+export default withRouter(PostVote);

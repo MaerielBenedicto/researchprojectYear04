@@ -12,6 +12,7 @@ class CreateForum extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
+        this.goBack = this.goBack.bind(this);
     }
 
     handleSubmitForm(e){
@@ -72,6 +73,10 @@ class CreateForum extends Component {
         });
       }
 
+      goBack(){
+        this.props.history.goBack();
+      }
+
     render(){
         return (
             <div className="body-content">
@@ -84,7 +89,7 @@ class CreateForum extends Component {
                         </div>
                         <div className="col-lg-12 forum-topic">
                             <h4>Topic Title</h4>
-                            <input id="forum-title" type="text" className="form-control-forum" placeholder="Title" name="topic" required 
+                            <input id="forum-title" type="text" className="form-control-forum" placeholder="Topic" name="topic"  
                             value={this.state.topic}
                             onChange={this.handleChange} />
                         </div>
@@ -96,7 +101,9 @@ class CreateForum extends Component {
                             </textarea>
                         </div>
                         <div className="form-bttn col-12">
-                            <button className="submit-button" type="submit">Submit</button>
+                            <button className="submit-button btn-primary" type="submit">Submit</button>
+                            {/* <button onClick={()=> this.goBack} className="cancel-button float-right btn-secondary">Cancel</button> */}
+
                         </div>
                     </div>
                     </form>

@@ -23,6 +23,7 @@ class CreatePost extends Component {
         let token = this.props.user.token;
         console.log('user token',this.props.user.token);
         if(this.state.mode === 'create'){
+            e.preventDefault();
             axios.post('/api/forums/' + this.props.location.state.forumId + '/posts', 
             {
                 title: this.state.title,
@@ -44,6 +45,7 @@ class CreatePost extends Component {
                 } 
             });  
         } else if(this.state.mode === 'edit'){
+            e.preventDefault();
             axios.put('/api/posts/' + this.state.postId, 
             {
                 title: this.state.title,
@@ -78,6 +80,7 @@ class CreatePost extends Component {
       }
 
       goBack(){
+          console.log("WHY");
         this.props.history.goBack();
       }
 
@@ -93,7 +96,7 @@ class CreatePost extends Component {
                         </div>
                         <div className="col-lg-12 forum-topic">
                             <h3>Title</h3>
-                            <input id="forum-title" type="text" className="form-control-forum" placeholder="Title" name="title" required 
+                            <input id="forum-title" type="text" className="form-control-forum" placeholder="Title" name="title" 
                             value={this.state.title}
                             onChange={this.handleChange} />
                         </div>
@@ -105,8 +108,8 @@ class CreatePost extends Component {
                             </textarea>
                         </div>
                         <div className="form-bttn col-12">
-                            <button className="submit-button" type="submit">Submit</button>
-                            <button onClick={()=> this.goBack} className="cancel-button float-right">Cancel</button>
+                            <button className="submit-button btn-primary" type="submit">Submit</button>
+                            {/* <button onClick={()=> this.goBack} className="cancel-button float-right btn-secondary">Cancel</button> */}
                         </div>
                     </div>
                     </form>

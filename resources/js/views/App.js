@@ -52,7 +52,6 @@ class App extends Component {
     this.RemoveForumbookmarkSuccess = this.RemoveForumbookmarkSuccess.bind(this);
     this.AddPostbookmarkSuccess = this.AddPostbookmarkSuccess.bind(this);
     this.RemovePostbookmarkSuccess = this.RemovePostbookmarkSuccess.bind(this);
-    this.votedSuccess = this.votedSuccess.bind(this);
     this.uploadSuccess = this.uploadSuccess.bind(this);
     this.updateProfile = this.updateProfile.bind(this);
   }
@@ -60,6 +59,7 @@ class App extends Component {
   componentDidMount() {
     let user = this.state.user;
 
+    //get list of forums
     axios.get('/api/forums')
       .then((forums) => {
         const forumsData = forums.data;
@@ -76,27 +76,17 @@ class App extends Component {
       });
 
       if(user){
-        axios.all([
-          axios.get('/api/bookmarks',
-            { headers: { Authorization: "Bearer " + user.token } }),
-          axios.get('/api/posts/vote/' + user.id,
-            { headers: { Authorization: "Bearer " + user.token } }),
-          axios.get('/api/comments/vote/' + user.id,
+        axios.get('/api/bookmarks',
             { headers: { Authorization: "Bearer " + user.token } })
-        ])
-            .then(axios.spread((bookmarks, pvotes, cvotes) => {
-              const bookmarksData = bookmarks.data;
-              const pvotesData = pvotes.data;
-              const cvotesData = cvotes.data;
-
+            .then((response) => {
+              const bookmarksData = response.data;
+              
               this.setState({
                 forums_bookmarks: bookmarksData.forums,
                 posts_bookmarks: bookmarksData.posts,
-                post_votes: pvotesData,
-                comment_votes: cvotesData,
                 isLoaded: true
               });
-            }))
+            })
             .catch(function (error) {
               console.log(error);
               if (error) {
@@ -104,7 +94,6 @@ class App extends Component {
               }
             });    
       }
-   
   }
 
   onLoginSuccess(user, remember) {
@@ -210,18 +199,6 @@ class App extends Component {
     });
   }
 
-
-  votedSuccess(vote){
-    console.log('vote', vote);
-    let temp = this.state.cvotes;
-
-    //push comment in the beginning of the array 
-    temp.push(vote);
-    this.setState({
-      comment_votes: temp
-    });
-  }
-
   uploadSuccess(image){
     let token = this.state.user.token;
       axios.get('/api/user',
@@ -291,7 +268,6 @@ class App extends Component {
               bookmarks={this.state.posts_bookmarks}
               AddbookmarkSuccess={this.AddPostbookmarkSuccess}
               RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
-              pvotes={this.state.post_votes}
             />
           </Route>
           <Route path="/my-profile">
@@ -306,9 +282,6 @@ class App extends Component {
               forums={this.state.forums}
               AddbookmarkSuccess={this.AddPostbookmarkSuccess}
               RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
-              pvotes={this.state.post_votes}
-              cvotes={this.state.comment_votes}
-              votedSuccess={this.votedSuccess}
             />
           </Route>
           <PrivateRoute exact path="/forums"

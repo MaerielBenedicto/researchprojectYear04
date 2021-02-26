@@ -66,7 +66,7 @@ class Profile extends Component {
         const user = this.props.user;
 
         //if user.image is not set to the default
-        const avatar = (user.image !== 'image.jpg') ? ('uploads/' + user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png';
+        const avatar = (user.image !== 'image.jpg' || undefined) ? ('uploads/' + user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png';
 
         return (
             <div className="body-content pb-0">

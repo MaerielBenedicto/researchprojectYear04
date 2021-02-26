@@ -11,15 +11,15 @@ use Validator;
 
 class PostVoteController extends Controller
 {
+  /** GET ALL VOTED POSTS OF USER **/
   public function index($id)
     {
-        //get all voted posts
         $user = User::where('id', $id)->first();
         $posts = $user->post_votes()->with('post')->get();
         return $posts;
     }
 
-  //create post_vote
+  /** CREATE POST VOTE **/
   public function store(Request $request, $id){
     $validator = Validator::make($request->all(), [
         'vote' => 'required|integer',
@@ -35,8 +35,6 @@ class PostVoteController extends Controller
     $pVote = PostVote::where('user_id', $request->user_id)
                       ->where('post_id', $request->post_id)->first();
 
-    
-
     if($pVote === null){
       $post = PostVote::create([
           'vote' => $request->vote,
@@ -45,21 +43,18 @@ class PostVoteController extends Controller
       ]);
 
       return response()->json(['message' => 'Vote created', 'data' => $post], 200);
-      
-
     } else {
       //if user have voted already, update vote
       if($pVote['vote'] !== '0'){
         //call update function -- passing the request datas and post_vote id
         return $this->update($request, $pVote['id']);
       }
-
-      
       // return response()->json(['message' => 'User have already voted'], 422);
     }
 
   }
 
+  /** CHANGE POST VOTE **/
   public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [

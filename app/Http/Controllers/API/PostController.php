@@ -16,10 +16,11 @@ use Google\Cloud\Language\V1\Entity\Type as EntityType;
 
 class PostController extends Controller
 {
+
+  /** GET ALL POSTS **/
   public function index($id)
     {
          $post = Post::where('forum_id', $id)
-                      // ->where('action', 'null')
                       ->with('user')->get();
 
         return response()->json(
@@ -119,10 +120,12 @@ class PostController extends Controller
         return $post;
     }
 
-  //view post
+  /** VIEW POST **/
   public function show($id)
   {
     $post = Post::with('user')->findOrFail($id);
+    
+    //count votes
     $countUpvote = $post->post_vote()->where('vote', '1')->count();
     $countDownvote = $post->post_vote()->where('vote', '-1')->count();
 
@@ -132,6 +135,7 @@ class PostController extends Controller
 
     //load comments of the post
     $post['comments'] = $post->comments();
+    //load votes of the post
     $post['post_vote'] = $post->post_vote;
 
     if ($post === null) {
@@ -147,25 +151,16 @@ class PostController extends Controller
     }
   }
 
-  //delete post
+  /** DELETE POST **/
   public function destroy($id){
     $post = Post::findOrFail($id);
-    //delete comments of the post
-    
-    $comments = $post->comments();
-    foreach($comments as $comment){
-      $comment->comment_vote()->delete();
-    }
-    dd($post->comments()->count());
-    //delete votes of the post
-    $post->post_vote()->delete();
-    //delete post
     $post->delete();
 
     return response()->json(['message' => 'Post deleted!'], 200);
   }
 
 
+  /** GET ALL POSTS OF USER **/
   public function user_posts($id)
     {
         $posts = Post::where('user_id', $id)->with('user','forum')->get();
@@ -206,9 +201,5 @@ class PostController extends Controller
     $sentiment = $annotation->sentiment();
     // dd($sentiment);
     return $sentiment;
-  }
-
-  public function classifyText(){
-    
   }
 }

@@ -49,7 +49,7 @@ Route::middleware('auth:api')->group(function () {
   Route::post('profile/{user}', [ProfileController::class, 'update']);
 
   //forums
-  Route::post('forums', [ForumController::class, 'store']);
+  Route::post('forums', [ForumController::class, 'store'])->name('create.forum');
   Route::put('forums/{forum}', [ForumController::class, 'update']);
   Route::delete('forums/{forum}', [ForumController::class, 'destroy']);
 

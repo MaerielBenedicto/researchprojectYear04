@@ -68,7 +68,7 @@ class UserForums extends Component {
 
                         <div className="posts-table col-lg-9">
                             {forums.length === 0 && (
-                                <div className="p-4"><p> You currently do not have any posts!</p></div>
+                                <div className="p-4"><p> You currently do not have any forums!</p></div>
                             )}
                             <table className="table table-bordered">
 

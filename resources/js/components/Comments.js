@@ -104,7 +104,6 @@ class Comments extends Component {
                                             voted={this.props.getComments} 
                                             item_upvote={item.upvote}  
                                             item_voted={item.voted} 
-                                            votedSuccess={this.props.votedSuccess}
                                         />
                                     </div>
                                 </div>

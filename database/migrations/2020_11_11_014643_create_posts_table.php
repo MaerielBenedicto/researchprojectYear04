@@ -26,8 +26,8 @@ class CreatePostsTable extends Migration
 
           $table->timestamps();
 
-          $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('restrict');
-          $table->foreign('forum_id')->references('id')->on('forums')->onUpdate('cascade')->onDelete('restrict');
+          $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+          $table->foreign('forum_id')->references('id')->on('forums')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

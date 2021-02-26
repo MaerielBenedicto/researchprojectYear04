@@ -17,8 +17,8 @@ class CommentVote extends Component {
     
     upvote(){
         console.log("upvote");
-        let token = this.props.user.token;
-        if(token){
+        let user = this.props.user;
+        if(user){
             axios.post('/api/comments/' + this.props.commentId + '/vote', 
             {
                 vote: '1',
@@ -26,11 +26,10 @@ class CommentVote extends Component {
                 comment_id: this.props.commentId
             },
             {
-                headers: { Authorization: "Bearer " + token }
+                headers: { Authorization: "Bearer " + user.token }
             })
             .then((response) => {
-                console.log('upvote',response.data);
-                // this.props.votedSuccess(response.data);
+                // console.log('upvote',response.data);
                 this.props.voted();
                 this.setState({voted: true});
               })
@@ -40,13 +39,15 @@ class CommentVote extends Component {
                     console.log(error);
                 } 
             });
+        } else {
+            this.props.history.push('/signin');
         }
     }
 
     downvote(){
         console.log("downvote");
-        let token = this.props.user.token;
-        if(token){
+        let user = this.props.user;
+        if(user){        
             axios.post('/api/comments/' + this.props.commentId + '/vote', 
             {
                 vote: '-1',
@@ -54,11 +55,10 @@ class CommentVote extends Component {
                 comment_id: this.props.commentId
             },
             {
-                headers: { Authorization: "Bearer " + token }
+                headers: { Authorization: "Bearer " + user.token }
             })
             .then((response) => {
-                console.log('downvote',response.data);
-                // this.props.votedSuccess(response.data);
+                // console.log('downvote',response.data);
                 this.props.voted();
                 this.setState({voted: false});
               })
@@ -68,6 +68,8 @@ class CommentVote extends Component {
                     console.log(error);
                 } 
             });
+        }else {
+            this.props.history.push('/signin');
         }
     }
 
@@ -106,4 +108,4 @@ class CommentVote extends Component {
     };
 }
 
-export default CommentVote;
+export default withRouter(CommentVote);

@@ -35,6 +35,7 @@ class Post extends Component {
     getPost() {
         axios.get('/api/posts/' + this.props.match.params.id)
             .then(response => {
+
                 if (response.data.data.action === "under review") {
                     this.setState({
                         hide: true
@@ -108,63 +109,51 @@ class Post extends Component {
     }
 
     render() {
-        const forums = this.props.forums;
-
-        const addClass = this.state.hide ? 'hide-post' : '';
-        const hideClass = this.state.hide ? '' : 'removeWarning';
-        const user = this.props.user;
-        const post = this.state.post;
-        const pvotes = this.props.pvotes;
-        pvotes.map((vote => {
-            if (vote.post_id == post.id) {
-                if (vote.vote == 1) {
-                    post.voted = true;
-                } else if (vote.vote == -1) {
-                    post.voted = false;
-                } else {
-                    post.voted = null;
-                }
-            }
-        }));
-
-        if(post.post_vote > 1){
-            post.post_vote.map((vote) => {
-                if (vote.user_id == user.id) {
-                    if (vote.vote == 1) {
-                        post.voted = true;
-                    } else if (vote.vote == -1) {
-                        post.voted = false;
-                    } else {
-                        post.voted = null;
-                    }
-                    return post;
-                }
-            })
-        }
-
-
-
-        var comments = this.state.comments;
-        //check if user have voted comment
-        comments.filter((comment, i) => {
-            if (comment.comment_vote.length > 1) {
-              return  comment.comment_vote.map((vote) => {
-                    if (vote.user_id == user.id) {
-                        if (vote.vote == 1) {
-                            comment.voted = true;
-                        } else if (vote.vote == -1) {
-                            comment.voted = false;
-                        } else {
-                            comment.voted = null;
-                        }
-                        return comment;
-                    }
-                })
-            }
-        });
-
 
         if (this.state.isLoaded) {
+            const forums = this.props.forums;
+
+            const addClass = this.state.hide ? 'hide-post' : '';
+            const hideClass = this.state.hide ? '' : 'removeWarning';
+            const user = this.props.user;
+            const post = this.state.post;
+            if (user) {
+                if (post.post_vote.length >= 1) {
+                    post.post_vote.map((vote) => {
+                        if (vote.user_id == user.id) {
+                            if (vote.vote == 1) {
+                                post.voted = true;
+                            } else if (vote.vote == -1) {
+                                post.voted = false;
+                            } else {
+                                post.voted = null;
+                            }
+                            return post;
+                        }
+                    })
+                }
+            }
+            var comments = this.state.comments;
+            if (user) {
+                //check if user have voted comment
+                comments.filter((comment, i) => {
+                    if (comment.comment_vote.length >= 1) {
+                        return comment.comment_vote.map((vote) => {
+                            if (vote.user_id == user.id) {
+                                if (vote.vote == 1) {
+                                    comment.voted = true;
+                                } else if (vote.vote == -1) {
+                                    comment.voted = false;
+                                } else {
+                                    comment.voted = null;
+                                }
+                                return comment;
+                            }
+                        })
+                    }
+                });
+            }
+
             return (
                 <div className="body-content">
                     <div className="container">
@@ -262,9 +251,9 @@ class Post extends Component {
                                 postId={this.props.match.params.id}
                                 user={user}
                                 getComments={this.comments}
-                                addComment={this.addComment}
+                                // addComment={this.addComment}
+                                addComment={this.comments}
                                 updateComment={this.updateSuccess}
-                                votedSuccess={this.props.votedSuccess}
                             />
                         )}
 
