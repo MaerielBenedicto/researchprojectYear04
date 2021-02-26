@@ -295,7 +295,7 @@ class App extends Component {
             component={CreatePost}
           />
           <Route path="/dashboard">
-            <Dashboard user={user} onSuccess={this.onLogoutSuccess}/>
+            <Dashboard user={user} onSuccess={this.onLogoutSuccess} uploadSuccess={this.uploadSuccess}/>
           </Route>
         </Switch>
         <Footer />

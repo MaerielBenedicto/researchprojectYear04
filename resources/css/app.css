@@ -134,6 +134,20 @@ nav {
     padding-right: 125px;
 }
 
+.profile-details .form-control {
+    height: 45px;
+    width: 385px;
+    border-radius: 5px;
+
+    background: #E9E9E9;
+    border: 1px solid #E9E9E9;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding-left: 20px;
+
+    margin: 0px;
+}
+
 
 
 /*** SIGN IN ***/
@@ -744,11 +758,11 @@ nav {
 
 }
 
-.logout-btn{
+/* .logout-btn{
     position: fixed;
     bottom: 0px;
+} */
 
-}
 .topbar{
     height: 80px;
     background-color: #FCFCFC;

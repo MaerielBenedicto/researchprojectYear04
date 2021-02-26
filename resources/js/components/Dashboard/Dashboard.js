@@ -20,6 +20,8 @@ class Dashboard extends Component {
         };
         this.changePostStatusSuccess = this.changePostStatusSuccess.bind(this);
         this.changeCommentStatusSuccess = this.changeCommentStatusSuccess.bind(this);
+        this.uploadSuccess = this.uploadSuccess.bind(this);
+        this.updateProfile = this.updateProfile.bind(this);
     }
 
     componentDidMount() {
@@ -76,6 +78,40 @@ class Dashboard extends Component {
         }
     }
 
+    uploadSuccess(image){
+        let token = this.props.user.token;
+          axios.get('/api/user',
+            { headers: { Authorization: "Bearer " + token } })
+            .then((response) =>{
+              console.log(response);
+              localStorage.setItem("user", JSON.stringify(response.data.user));
+               this.setState({user: response.data.user})
+            })
+            .catch(function (error) {
+              console.log(error);
+              if (error) {
+                console.log(error);
+              }
+            });    
+      }
+    
+      updateProfile(){
+        let token = this.state.user.token;
+          axios.get('/api/user',
+            { headers: { Authorization: "Bearer " + token } })
+            .then((response) =>{
+              console.log(response);
+              localStorage.setItem("user", JSON.stringify(response.data.user));
+               this.setState({user: response.data.user})
+            })
+            .catch(function (error) {
+              console.log(error);
+              if (error) {
+                console.log(error);
+              }
+            });
+      }
+
 
     render() {
         if (this.state.isLoaded) {
@@ -85,7 +121,8 @@ class Dashboard extends Component {
                         <Sidebar  user={this.props.user} onSuccess={this.props.onSuccess}/>
                         <Switch>
                             <Route exact path="/dashboard">
-                                <Home user={this.props.user}/>
+                                <Home user={this.props.user} 
+                                      uploadSuccess={this.props.uploadSuccess}/>
                             </Route>
                             <Route exact path="/dashboard/posts">
                                 <PostsList posts={this.state.posts} />
