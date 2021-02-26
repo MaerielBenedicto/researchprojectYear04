@@ -40,24 +40,42 @@ class UserTest extends TestCase
         $this->assertFalse($user->hasRole($role->name));
     }
 
+
     /**
-     * User can create new forum 
+     * Test user can bookmark post
      *
      * @return void
      */
-    public function test_can_create_forum() {
+    public function test_a_user_can_bookmark_post()
+    {
+        $user = User::factory()->create(); 
+        $forum = Forum::factory()->create(['user_id' => $user->id]);
+        $post = Post::factory()->create(['user_id' => $user->id,
+                                         'forum_id' => $forum->id]);
         
-        $user = User::factory()->create();
-        Passport::actingAs($user);
-
-        $response = $this->json('POST', '/api/forums', [
-                'topic' => 'new forum topic',
-                'description' => 'new description',
-                'user_id' => $user->id,
-            ]);
-
-        $response->assertStatus(200);
+        $user->bookmarks_posts()->syncWithoutDetaching([$post->id]);
+        
+        // A comment exists in a post's comment collections
+        $this->assertTrue($user->bookmarks_posts->contains($post));
     }
+
+    /**
+     * Test user can bookmark forums
+     *
+     * @return void
+     */
+    public function test_a_user_can_bookmark_forums()
+    {
+        $user = User::factory()->create(); 
+        $forum = Forum::factory()->create(['user_id' => $user->id]);
+        
+        $user->bookmarks_forums()->syncWithoutDetaching([$forum->id]);
+        
+        // A comment exists in a post's comment collections
+        $this->assertTrue($user->bookmarks_forums->contains($forum));
+    }
+
+
 
 
 

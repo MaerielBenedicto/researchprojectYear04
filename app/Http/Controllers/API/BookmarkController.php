@@ -42,6 +42,7 @@ class BookmarkController extends Controller
       Auth::user()->bookmarks_posts()->detach($post->id);
       return $post;
     }
+    
 
     //add bookmark
     public function add_forum_bookmark($id){

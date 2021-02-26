@@ -9,6 +9,7 @@ class Bookmark extends Pivot
 {
     use HasFactory;
     protected $table='bookmarks';  
+    
     // public function user() {
     //   return $this->belongsTo('App\Models\User','user_id');
     // }

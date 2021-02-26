@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 use Tests\TestCase;
-// use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {

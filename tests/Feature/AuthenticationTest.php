@@ -75,33 +75,19 @@ class AuthenticationTest extends TestCase
      * @return void
      */
 
-    public function test_register()
-    {
-        $this->setUpFaker();
+    // public function test_register()
+    // {
+    //     $this->setUpFaker();
 
-        $user = [
-            'name' => $this->faker->name,
-            'email' => $this->faker->email,
-            'password' => 'secret',
-            'password_confirmation' => 'secret'
-        ];
+    //     $user = [
+    //         'name' => $this->faker->name,
+    //         'email' => $this->faker->email,
+    //         'password' => 'secret',
+    //         'password_confirmation' => 'secret'
+    //     ];
 
-        $response = $this->json('POST','/api/register', $user)
-                    ->assertStatus(200);
-    }
+    //     $response = $this->json('POST','/api/register', $user)
+    //                 ->assertStatus(200);
+    // }
 
-    
-    public function testGetForum()
-    {
-        $response = $this->get('api/forums');
-        $array = $response;
-        $firstRecord = $response[0];
-        $result = false;
-
-        if($firstRecord['id'] == 1)
-        {
-            $result = true;
-        }
-        $this->assertEquals(true, $result);
-    }
 }
