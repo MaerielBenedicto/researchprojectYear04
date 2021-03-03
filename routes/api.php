@@ -32,7 +32,8 @@ Route::group(['middleware' => 'guest:api'], function() {
   Route::get('forums', [ForumController::class, 'index']);
   Route::get('forums/{forum}', [ForumController::class, 'show']);
 
-  Route::get('forums/{forum}/posts', [PostController::class, 'index']);
+  // Route::get('forums/{forum}/posts', [PostController::class, 'index']);
+  Route::get('posts-lists', [PostController::class, 'index']);
   Route::get('posts/{post}', [PostController::class, 'show']);
 
   Route::get('posts/{post}/comments', [CommentController::class, 'index']);

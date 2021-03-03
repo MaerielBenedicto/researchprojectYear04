@@ -12,12 +12,14 @@ import Signin from '../components/Signin';
 import Register from '../components/Register';
 import CreateForum from '../components/Modal/CreateForum';
 import CreatePost from '../components/Posts/CreatePost';
+
 //admin pages
 import Dashboard from '../components/Dashboard/Dashboard';
 import PrivateRoute from '../components/PrivateRoute';
 
 import Home from './Home';
 import Profile from './Profile';
+import H from './H';
 
 import '../../css/app.css';
 
@@ -54,6 +56,8 @@ class App extends Component {
     this.RemovePostbookmarkSuccess = this.RemovePostbookmarkSuccess.bind(this);
     this.uploadSuccess = this.uploadSuccess.bind(this);
     this.updateProfile = this.updateProfile.bind(this);
+    this.getPosts = this.getPosts.bind(this);
+
   }
 
   componentDidMount() {
@@ -74,6 +78,8 @@ class App extends Component {
           console.log(error);
         }
       });
+
+    this.getPosts();
 
       if(user){
         axios.get('/api/bookmarks',
@@ -233,6 +239,24 @@ class App extends Component {
         });
   }
 
+  getPosts() {
+    //get list of posts
+    axios.get('/api/posts-lists')
+        .then((posts) => {
+            const postsData = posts.data.data;
+            this.setState({
+                posts: postsData,
+                // isLoaded: true
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+            if (error) {
+                console.log(error);
+            }
+        });
+}
+
   render() {
     const user = JSON.parse(localStorage.getItem('user'));
     return (
@@ -246,10 +270,22 @@ class App extends Component {
             <Home
               user={user}
               forums={this.state.forums}
+              posts={this.state.posts}
               onDeleteForum={this.onDeleteForum}
               bookmarks={this.state.forums_bookmarks}
               AddbookmarkSuccess={this.AddForumbookmarkSuccess}
               RemovebookmarkSuccess={this.RemoveForumbookmarkSuccess}
+            />
+          </Route>
+          <Route path="/home">
+            <H
+              user={user}
+              posts={this.state.posts}
+              forums={this.state.forums}
+              getPosts={this.getPosts}
+              bookmarks={this.state.posts_bookmarks}
+              AddbookmarkSuccess={this.AddPostbookmarkSuccess}
+              RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
             />
           </Route>
           <Route path="/signin">
@@ -293,6 +329,7 @@ class App extends Component {
           <PrivateRoute path="/submit-post/:id"
             user={user}
             component={CreatePost}
+            getPosts={this.getPosts}
           />
           <Route path="/dashboard">
             <Dashboard user={user} onSuccess={this.onLogoutSuccess} uploadSuccess={this.uploadSuccess}/>

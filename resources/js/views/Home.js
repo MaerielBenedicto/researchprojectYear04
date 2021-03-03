@@ -5,7 +5,7 @@ import Forum from '../components/PostList';
 import Filter from '../components/Filter';
 import Bookmark from '../components/Bookmark';
 import ForumTable from '../components/ForumTable';
-
+import SideLinkPosts from '../components/SideLinkPosts';
 import '../../css/app.css';
 
 import { Link } from 'react-router-dom';
@@ -83,8 +83,8 @@ class Home extends Component {
                 <div className="forum-list-div">
                     <div className="container">
                         <div className="row item-list mb-3">
-
-                            <div className="forum-list col-9 media py-3">
+                    
+                            <div className="forum-list col-12 col-lg-9 col-sm-12 col-md-12 order-1 order-sm-last order-md-1 py-3">
                                 <div className="col-12">
                                     {filteredForums.map(item => (
                                         <div key={item.id}>
@@ -99,14 +99,17 @@ class Home extends Component {
                                     ))}
                                 </div>
                             </div>
-
-                            <div className="col-3 py-3">
+                        
+                            <div className="col-12 col-lg-3 col-sm-12 col-md-12 col-xs-12 py-3 order-sm-1 order-md-2 create-bttn">
                                 <Link to={{
                                     pathname: '/forums',
                                     state: {}
                                 }}>
                                     <button className="forum-bttn btn-primary">Create a new Forum topic</button>
                                 </Link>
+                                <SideLinkPosts 
+                                    posts={this.props.posts}
+                                />
                             </div>
                         </div>
                     </div>

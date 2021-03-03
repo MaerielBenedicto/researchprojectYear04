@@ -81,7 +81,7 @@ class PostVote extends Component {
         
         if(voted !== undefined){
             return (
-                <div>
+                <div className="float-right">
                     {(voted) ? (
                         <div>
                             <button onClick={this.upvote} className="vote-bttn"><FaSortUp className="voted-icon" /></button>
@@ -100,7 +100,7 @@ class PostVote extends Component {
             )
         } else {
             return (
-                    <div>
+                    <div className="float-right">
                     <button onClick={this.upvote} className="vote-bttn"><FaSortUp className="vote-icon" /></button>
                     <div className="upvote-count">{this.props.item_upvote}</div>
                     <button onClick={this.downvote} className="vote-bttn"><FaSortDown className=" vote-icon" /></button>

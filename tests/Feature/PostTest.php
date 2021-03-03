@@ -53,4 +53,28 @@ class PostTest extends TestCase
 		$response->assertSee($post->title);
 		$response->assertStatus(200);
 	}
+
+    /**
+	 * A user can create a post
+     *
+     * @return void
+     */	
+	public function test_a_user_can_create_a_post() {
+        $user = User::findOrfail(3); 
+        $forum = Forum::findOrfail(1);
+
+        Passport::actingAs($user);
+        
+        $data = [
+            'title' => 'new title',
+            'body' => 'new body', 
+            'user_id' => $user->id, 
+            'forum_id' => $forum->id
+        ];
+
+        $response = $this->json('POST','/api/forums/' . $forum->id . '/posts', $data)
+                    ->assertStatus(200);
+	}
+
+    
 }

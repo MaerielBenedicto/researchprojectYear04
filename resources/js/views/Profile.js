@@ -94,7 +94,7 @@ class Profile extends Component {
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div className="row profile">
                                     <div className="col-2 profile-avatar">
-                                        <img src={avatar} />
+                                    <img src={(user.image !== 'image.jpg' || undefined) ? ('uploads/' + user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
                                         
                                         <div><button onClick={()=> this.setState({showModal: true})}className="edit-avatar-bttn btn-primary">Edit avatar</button></div>
                                     </div>

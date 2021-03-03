@@ -91,7 +91,7 @@ class Comments extends Component {
                             <div key={item.id} className="each-comment">
                                 <div className="row comment-div">
                                     <div className="col-1">
-                                        <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png" />
+                                        <img src={(item.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + item.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
                                     </div>
                                     <div className="col-10">
                                         <span> {item.user.name} </span>

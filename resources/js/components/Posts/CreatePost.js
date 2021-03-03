@@ -36,6 +36,7 @@ class CreatePost extends Component {
             })
             .then((response) => {
                 console.log(response.data.data);
+                this.props.render.getPosts();
                 this.props.history.push('/posts/'+ response.data.data.id);   
               })
             .catch((error) => {
@@ -58,6 +59,7 @@ class CreatePost extends Component {
             })
             .then((response) => {
                 console.log(response.data);
+                this.props.render.getPosts();
                 this.props.history.push('/posts/'+ response.data.id);   
               })
             .catch((error) => {
@@ -90,24 +92,24 @@ class CreatePost extends Component {
                 <div className="container">
                     {/* Create Forum */}
                     <form onSubmit={this.handleSubmitForm}> 
-                    <div className="row">
+                    <div className="rowjustify-content-center">
                         <div className="col-lg-12">
                             <h3>Start a discussion</h3>
                         </div>
-                        <div className="col-lg-12 forum-topic">
-                            <h3>Title</h3>
+                        <div className="col-lg-9 forum-topic">
+                            <h4>Title</h4>
                             <input id="forum-title" type="text" className="form-control-forum" placeholder="Title" name="title" 
                             value={this.state.title}
                             onChange={this.handleChange} />
                         </div>
-                        <div className="col-lg-12 forum-description">
-                            <h3>Body</h3>
+                        <div className="col-lg-9 forum-description">
+                            <h4>Body</h4>
                             <textarea className="form-control-forum-body col-12 mb-3" rows="9" id="body" placeholder="Body" name="body"  
                             value={this.state.body}
                             onChange={this.handleChange}>
                             </textarea>
                         </div>
-                        <div className="form-bttn col-12">
+                        <div className="form-bttn col-9">
                             <button className="submit-button btn-primary" type="submit">Submit</button>
                             {/* <button onClick={()=> this.goBack} className="cancel-button float-right btn-secondary">Cancel</button> */}
                         </div>

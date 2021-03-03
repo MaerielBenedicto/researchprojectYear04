@@ -83,24 +83,24 @@ class CreateForum extends Component {
                 <div className="container">
                     {/* Create Forum */}
                     <form onSubmit={this.handleSubmitForm}> 
-                    <div className="row">
-                        <div className="col-lg-12">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-9">
                             <h3>Create new Forum Topic</h3>
                         </div>
-                        <div className="col-lg-12 forum-topic">
+                        <div className="col-lg-9 forum-topic">
                             <h4>Topic Title</h4>
                             <input id="forum-title" type="text" className="form-control-forum" placeholder="Topic" name="topic"  
                             value={this.state.topic}
                             onChange={this.handleChange} />
                         </div>
-                        <div className="col-lg-12 forum-description">
-                            <h3>Topic Description</h3>
+                        <div className="col-lg-9 forum-description">
+                            <h4>Topic Description</h4>
                             <textarea className="form-control-forum-body col-12 mb-3" rows="9" id="description" placeholder="Description" name="description"  
                             value={this.state.description}
                             onChange={this.handleChange}>
                             </textarea>
                         </div>
-                        <div className="form-bttn col-12">
+                        <div className="form-bttn col-lg-9">
                             <button className="submit-button btn-primary" type="submit">Submit</button>
                             {/* <button onClick={()=> this.goBack} className="cancel-button float-right btn-secondary">Cancel</button> */}
 

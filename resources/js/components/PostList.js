@@ -4,6 +4,8 @@ import { withRouter, Link } from "react-router-dom";
 import Filter from './Filter';
 import PostVote from './PostVote';
 import Bookmark from './Bookmark';
+import SideLinkForums from './SideLinkForums';
+
 import { FaCommentAlt, FaEdit, FaListAlt } from 'react-icons/fa';
 
 class PostList extends Component {
@@ -99,7 +101,6 @@ class PostList extends Component {
                     }
                 });
             }
-
         }
         return (
             <div>
@@ -109,31 +110,25 @@ class PostList extends Component {
                 <div className="forum-post-div body-m-bottom">
                     <div className="container">
                         <div className="row">
-                            <div className="col-9 py-3">
-                                <div className="forum-detail col-12">
+                                <div className="forum-detail col-lg-9 col-sm-12 col-xs-12 order-lg-1 order-sm-2">
                                     <div className="row">
-                                        <div className="col-10">
+                                        <div className="col-lg-10 col-sm-12 col-md-12 ">
                                             <h4 className="title">{forum.topic}</h4>
                                             <p>{forum.description}</p>
                                         </div>
-                                        <div className="col-2 numpost">
+                                        <div className="col-lg-2 col-md-12 col-sm-12  numpost">
                                             <FaListAlt className="icon post-icon" /> {forum.postsCount} posts
                                         </div>
                                     </div>
                                 </div>
 
                                 {this.state.isLoaded && (
-                                    <div className="posts-rows col-12">
+                                    <div className="posts-rows ml-0 col-lg-9 col-md-12 col-sm-12 col-xs-12 order-sm-3 order-xs-3">
                                         {filteredPosts.map(item => (
-                                            <div className="post row" key={item.id}>
-                                                <div className="col-10">
-                                                    <div className="col-12 post-row">
-                                                        <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png" />
+                                            <div className="post ml-0 col-lg-12 col-md-12 col-xs-12 col-sm-12 order-md-1 order-sm-3" key={item.id}>
+                                                    <div className="col-lg-12 col-md-9 col-sm-8 post-row">
+                                                    <img src={(item.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + item.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
                                                         <span> {item.user.name}</span>
-                                                    </div>
-                                                </div>
-                                                <div className="col-2 vote-div">
-                                                    <div className="float-right">
                                                         <PostVote
                                                             postId={item.id}
                                                             user={this.props.user}
@@ -142,26 +137,17 @@ class PostList extends Component {
                                                             item_voted={item.voted}
                                                         />
                                                     </div>
-                                                </div>
-                                                <div className="div col-12 post-deets">
-                                                    <div className="row">
-                                                        <div className="col-11 offset-1">
+                                                        <div className="col-10 offset-1">
                                                             <div className="post-title">
                                                                 <Link to={{
                                                                     pathname: `/posts/${item.id}`,
-                                                                    state: {
-
-                                                                        post: item
-                                                                    }
-                                                                }} >
+                                                                    state: { post: item }}} >
                                                                     {item.title}
                                                                 </Link>
                                                             </div>
                                                             <div className="post-body">
                                                                 {item.body}
                                                             </div>
-                                                        </div>
-                                                        <div className="col-11 offset-1 p-0">
                                                             <FaCommentAlt className="icon" />{item.comments.length} <span className="pr-2">Comments</span>
                                                             <Bookmark
                                                                 user={this.props.user}
@@ -187,15 +173,12 @@ class PostList extends Component {
                                                                 </Link>
                                                             ) : ''}
                                                         </div>
-                                                    </div>
-                                                </div>
                                             </div>
 
                                         ))}
                                     </div>
                                 )}
-                            </div>
-                            <div className="col-3 py-3">
+                                <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 order-sm-1 order-md-1">
                                 <Link to={{
                                     pathname: '/submit-post/' + this.props.match.params.forumId,
                                     state: {
@@ -204,7 +187,12 @@ class PostList extends Component {
                                 }} >
                                     <button className="forum-bttn btn-primary">Start a new discussion</button>
                                 </Link>
-                            </div>
+                                {/* <div className="col-lg-3"> */}
+                                {/* <SideLinkForums
+                                    forums={this.props.forums}
+                                /> */}
+                            {/* </div> */}
+                                </div>                            
                         </div>
                     </div>
                 </div>

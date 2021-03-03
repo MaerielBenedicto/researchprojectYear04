@@ -5,6 +5,8 @@ import AddComment from '../AddComment';
 import Comments from '../Comments';
 import PostVote from '../PostVote';
 import Bookmark from '../Bookmark';
+import SideLinkForums from '../SideLinkForums';
+
 import Moment from 'react-moment';
 
 import { FaEdit, FaTrashAlt, FaCommentAlt, FaEllipsisV, FaRegWindowClose } from 'react-icons/fa';
@@ -158,15 +160,22 @@ class Post extends Component {
                 <div className="body-content">
                     <div className="container">
                         <div className="row ml-0">
-                            <div className={'post-detail col-9 py-3 ' + addClass}>
+                            <div className={'post-detail col-lg-9 col-sm-12 py-3 ' + addClass} style={{ height: 100 + '%' }}>
                                 <div className="row">
                                     <div className="col-1">
-                                        <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png" />
+                                        <img src={(post.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + post.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
                                     </div>
                                     <div className="col-10 post-user-deet">
                                         <div>
                                             <span> {post.user.name}</span>
-                                            <p><Moment format="LL">{post.created_at}</Moment></p>
+                                            <p>
+                                                <strong>Posted on: </strong>
+                                                <Link to={`/forums/${post.forum_id}`}>
+                                                    {post.forum.topic}
+                                                </Link>&nbsp;
+                                                        <strong>|</strong> &nbsp;
+                                                        <Moment format="LL">{post.created_at}</Moment>
+                                            </p>
                                         </div>
                                     </div>
                                     <div className="col-1 vote-div pl-0">
@@ -183,8 +192,6 @@ class Post extends Component {
                                     <div className="col-11 offset-1 post-body-div">
                                         <h4>{post.title}</h4>
                                         <p>{post.body}</p>
-                                    </div>
-                                    <div className="col-10 offset-1">
                                         <FaCommentAlt className="icon ml-0" /> {this.state.comments.length} <span className="p-0">Comments</span>
                                         <Bookmark
                                             user={this.props.user}
@@ -194,12 +201,8 @@ class Post extends Component {
                                             AddbookmarkSuccess={this.props.AddbookmarkSuccess}
                                             RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
                                         />
-                                        {/* <FaEllipsisV className="icon float-right"/> */}
-                                    </div>
-                                    <div className="col-1">
-
                                         {(user && user.id === post.user.id) ? (
-                                            <div className="dropdown show">
+                                            <div className="dropdown show float-right">
                                                 <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <FaEllipsisV className="icon" />
                                                 </a>
@@ -225,7 +228,6 @@ class Post extends Component {
                                                 </div>
                                             </div>
                                         ) : ''}
-
                                     </div>
                                 </div>
 
@@ -243,19 +245,27 @@ class Post extends Component {
 
                                 </div>
                             </div>
+                            <div className="col-lg-3">
+                                <SideLinkForums
+                                    forums={this.props.forums}
+                                />
+                            </div>
+                            {post.action !== 'under review' && (
+                                <div className="col-lg-12">
+                                    <Comments
+                                        comments={comments}
+                                        postId={this.props.match.params.id}
+                                        user={user}
+                                        getComments={this.comments}
+                                        // addComment={this.addComment}
+                                        addComment={this.comments}
+                                        updateComment={this.updateSuccess}
+                                    />
+                                </div>
+                            )}
                         </div>
 
-                        {post.action !== 'under review' && (
-                            <Comments
-                                comments={comments}
-                                postId={this.props.match.params.id}
-                                user={user}
-                                getComments={this.comments}
-                                // addComment={this.addComment}
-                                addComment={this.comments}
-                                updateComment={this.updateSuccess}
-                            />
-                        )}
+
 
                     </div>
                 </div>

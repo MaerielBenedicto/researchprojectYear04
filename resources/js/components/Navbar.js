@@ -10,8 +10,8 @@ class Navbar extends Component {
     super(props);
 
     this.logout = this.logout.bind(this);
-
   }
+
   logout(e) {
     axios.get('/api/logout', {
       headers: {
@@ -29,6 +29,7 @@ class Navbar extends Component {
         }
       });
   }
+
   render() {
     const user = this.props.user;
 
@@ -48,6 +49,11 @@ class Navbar extends Component {
               {/* <!-- NAVBAR LINKS --> */}
               <div className="collapse navbar-collapse" id="navbar-links">
                 <ul className="navbar-nav ml-auto">
+                  
+                <li className="nav-item">
+                    <Link to="/home" className="nav-link">Home</Link>
+                  </li>
+                  
                   <li className="nav-item">
                     <Link to="/" className="nav-link">Forums</Link>
                   </li>

@@ -60,9 +60,32 @@ class CommentTest extends TestCase
             'user_id' => $user->id,
             'post_id' => $post->id
         ];
-        // dd($response->getContent());
 
         $response = $this->json('POST','/api/posts/'. $post->id . '/comments', $data)
                             ->assertStatus(200);
 	}
+
+    /**
+	 * A user can delete comment
+     *
+     * @return void
+     */	
+    // public function test_a_user_can_add_comment() {
+	// 	$user = User::factory()->create(); 
+    //     $forum = Forum::factory()->create(['user_id' => $user->id]);
+	// 	$post = Post::factory()->create(['user_id' => $user->id,
+    //                                      'forum_id' => $forum->id]);
+        
+    //     Passport::actingAs($user);
+    //     $this->setUpFaker();
+
+    //     $data = [
+    //         'body' => $this->faker->paragraph,
+    //         'user_id' => $user->id,
+    //         'post_id' => $post->id
+    //     ];
+
+    //     $response = $this->json('POST','/api/posts/'. $post->id . '/comments', $data)
+    //                         ->assertStatus(200);
+	// }
 }

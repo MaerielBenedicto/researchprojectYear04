@@ -17,15 +17,26 @@ use Google\Cloud\Language\V1\Entity\Type as EntityType;
 class PostController extends Controller
 {
 
-  /** GET ALL POSTS **/
-  public function index($id)
+  /** GET ALL APPROVED POSTS **/
+  public function index()
     {
-         $post = Post::where('forum_id', $id)
-                      ->with('user')->get();
+        $postsAll = Post::all()->where('status', 'approved')->load('user', 'forum');
+        $posts = array();
 
+       foreach ($postsAll as $post){
+          $comments = $post->comments();
+          $post['comments'] = $comments;
+          $countUpvote = $post->post_vote()->where('vote', '1')->count();
+          $countDownvote = $post->post_vote()->where('vote', '-1')->count();      
+          $post['upvote'] = $countUpvote;
+          $post['downvote'] = $countDownvote;
+          $post['post_vote'] = $post->post_vote;
+          $posts[] = $post;
+        }
+        
         return response()->json(
           [
-              'data' => $post
+              'data' => $posts
           ],
           200);
     }
@@ -123,7 +134,7 @@ class PostController extends Controller
   /** VIEW POST **/
   public function show($id)
   {
-    $post = Post::with('user')->findOrFail($id);
+    $post = Post::with('user','forum')->findOrFail($id);
     
     //count votes
     $countUpvote = $post->post_vote()->where('vote', '1')->count();
