@@ -4,9 +4,10 @@ import { withRouter, Link } from "react-router-dom";
 import Filter from './Filter';
 import PostVote from './PostVote';
 import Bookmark from './Bookmark';
-import SideLinkForums from './SideLinkForums';
+import SideLinkPosts from './SideLinkPosts';
+import Moment from 'react-moment';
 
-import { FaCommentAlt, FaEdit, FaListAlt } from 'react-icons/fa';
+import { FaCommentAlt, FaEdit, FaListAlt,FaEllipsisV, FaTrashAlt } from 'react-icons/fa';
 
 class PostList extends Component {
     constructor() {
@@ -15,11 +16,13 @@ class PostList extends Component {
             posts: [],
             forum: {},
             isLoaded: false,
-            sortby: 'Latest'
+            sortby: 'Latest',
+            search: null
         };
 
         this.getPosts = this.getPosts.bind(this);
         this.changeSortby = this.changeSortby.bind(this);
+        this.onSearchChange = this.onSearchChange.bind(this);
     }
 
     componentDidMount() {
@@ -48,6 +51,12 @@ class PostList extends Component {
         this.setState({ sortby: sort });
     }
 
+    //set search state
+    onSearchChange(e) {
+        const search = e.target.value;
+        this.setState({ search: search });
+    }
+
     render() {
         const user = this.props.user;
         const forum_id = parseInt(this.props.match.params.forumId);
@@ -69,6 +78,11 @@ class PostList extends Component {
             } else if (this.state.sortby === 'Popular') {
                 filteredPosts = posts.slice().sort((a, b) => b.upvote - a.upvote);
             }
+
+            filteredPosts = filteredPosts.filter(post =>
+                (this.state.search === null) || (post.title.includes(this.state.search)) ||
+                (post.body.includes(this.state.search))
+            );
 
             if (user) {
                 //set bookmarked posts
@@ -105,97 +119,190 @@ class PostList extends Component {
         return (
             <div>
                 <div className="col-12">
-                    <Filter sortby={this.state.sortby} changeSortby={this.changeSortby} />
+                    <Filter
+                        sortby={this.state.sortby}
+                        changeSortby={this.changeSortby}
+                        onSearchChange={this.onSearchChange}
+                        search={this.state.search}
+                    />
                 </div>
-                <div className="forum-post-div body-m-bottom">
-                    <div className="container">
-                        <div className="row">
-                                <div className="forum-detail col-lg-9 col-sm-12 col-xs-12 order-lg-1 order-sm-2">
-                                    <div className="row">
-                                        <div className="col-lg-10 col-sm-12 col-md-12 ">
-                                            <h4 className="title">{forum.topic}</h4>
-                                            <p>{forum.description}</p>
-                                        </div>
-                                        <div className="col-lg-2 col-md-12 col-sm-12  numpost">
-                                            <FaListAlt className="icon post-icon" /> {forum.postsCount} posts
-                                        </div>
+                {/* <div className="forum-post-div body-m-bottom"> */}
+                <div className="container body-m-bottom">
+                    <div className="row ml-0 p-3">
+                        <div className="col-lg-9">
+                            <div className="row">
+                            <div className="forum-detail col-lg-12 col-sm-12 col-xs-12 order-lg-1 order-sm-2">
+                                <div className="row">
+                                    <div className="col-lg-10 col-sm-12 col-md-12 ">
+                                        <h4 className="title">{forum.topic}</h4>
+                                        <p>{forum.description}</p>
                                     </div>
+                                    <div className="col-lg-2 col-md-12 col-sm-12  numpost">
+                                        <FaListAlt className="icon post-icon" /> {forum.postsCount} posts
+                                        </div>
                                 </div>
+                            </div>
 
-                                {this.state.isLoaded && (
-                                    <div className="posts-rows ml-0 col-lg-9 col-md-12 col-sm-12 col-xs-12 order-sm-3 order-xs-3">
-                                        {filteredPosts.map(item => (
-                                            <div className="post ml-0 col-lg-12 col-md-12 col-xs-12 col-sm-12 order-md-1 order-sm-3" key={item.id}>
-                                                    <div className="col-lg-12 col-md-9 col-sm-8 post-row">
-                                                    <img src={(item.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + item.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
-                                                        <span> {item.user.name}</span>
-                                                        <PostVote
-                                                            postId={item.id}
-                                                            user={this.props.user}
-                                                            voted={this.getPosts}
-                                                            item_upvote={item.upvote}
-                                                            item_voted={item.voted}
-                                                        />
-                                                    </div>
-                                                        <div className="col-10 offset-1">
-                                                            <div className="post-title">
-                                                                <Link to={{
-                                                                    pathname: `/posts/${item.id}`,
-                                                                    state: { post: item }}} >
-                                                                    {item.title}
-                                                                </Link>
-                                                            </div>
-                                                            <div className="post-body">
-                                                                {item.body}
-                                                            </div>
-                                                            <FaCommentAlt className="icon" />{item.comments.length} <span className="pr-2">Comments</span>
-                                                            <Bookmark
-                                                                user={this.props.user}
-                                                                id={item.id}
-                                                                bookmarked={item.bookmarked}
-                                                                post_bookmark={true}
-                                                                AddbookmarkSuccess={this.props.AddbookmarkSuccess}
-                                                                RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
-                                                            />
+                            {this.state.isLoaded && (
+                                <div className="posts-rows ml-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 order-3 order-sm-3 order-xs-3">
+                                    {filteredPosts.map(post => (
+                                        <div className={'post-detail col-lg-12 col-sm-12 py-3 '} key={post.id}>
+                                        <div className="row">
+                                            <div className="col-1">
+                                                <img src={(post.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + post.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
+                                            </div>
+                                            <div className="col-10 post-user-deet">
+                                                <div>
+                                                    <span> {post.user.name}</span>
+                                                    <p>
+                                                        <strong>Posted on: </strong>
+                                                        <Link to={`/forums/${forum.id}`}>
+                                                            {forum.topic}
+                                                        </Link>&nbsp;
+                                                        <strong>|</strong> &nbsp;
+                                                        <Moment format="LL">{post.created_at}</Moment>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div className="col-1 vote-div pl-0">
+                                                <PostVote
+                                                    postId={post.id}
+                                                    user={user}
+                                                    voted={this.getPosts}
+                                                    item_upvote={post.upvote}
+                                                    item_voted={post.voted}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-11 offset-1 post-body-div">
+                                                <h4>
+                                                    <Link to={{
+                                                        pathname: `/posts/${post.id}`,
+                                                        state: { post: post }
+                                                    }}>
+                                                        {post.title}
+                                                    </Link>
+                                                </h4>
 
-                                                            {(this.props.user && this.props.user.id === item.user.id) ? (
+                                                <p>{post.body}</p>
+                                                <FaCommentAlt className="icon ml-0" /> {post.comments.length} <span className="p-0">Comments</span>
+                                                <Bookmark
+                                                    user={this.props.user}
+                                                    id={post.id}
+                                                    bookmarked={post.bookmarked}
+                                                    post_bookmark={true}
+                                                    AddbookmarkSuccess={this.props.AddbookmarkSuccess}
+                                                    RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
+                                                />
+                                                {(user && user.id === post.user.id) ? (
+                                                    <div className="dropdown show float-right">
+                                                        <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <FaEllipsisV className="icon" />
+                                                        </a>
+
+                                                        <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <button className="dropdown-item drop-down-link edit-bttn">
                                                                 <Link to={{
-                                                                    pathname: '/submit-post/' + this.props.match.params.forumId,
+                                                                    pathname: '/submit-post/' + post.forum_id,
                                                                     state: {
-                                                                        forumId: this.props.match.params.forumId,
-                                                                        postId: item.id,
-                                                                        title: item.title,
-                                                                        body: item.body,
+                                                                        forumId: post.forum_id,
+                                                                        postId: post.id,
+                                                                        title: post.title,
+                                                                        body: post.body,
                                                                         mode: 'edit'
                                                                     }
                                                                 }} >
-                                                                    <button className="bookmark-bttn"> <FaEdit className="icon" />Edit</button>
+                                                                    <span className="bttn"><FaEdit className="icon" />Edit</span>
                                                                 </Link>
-                                                            ) : ''}
+                                                            </button>
+                                                            <button className="dropdown-item drop-down-link" onClick={() => this.delete(post)}>
+                                                                <span><FaTrashAlt className="icon" />  Delete </span>
+                                                            </button>
                                                         </div>
+                                                    </div>
+                                                ) : ''}
                                             </div>
-
-                                        ))}
+                                        </div>
                                     </div>
-                                )}
-                                <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 order-sm-1 order-md-1">
-                                <Link to={{
-                                    pathname: '/submit-post/' + this.props.match.params.forumId,
-                                    state: {
-                                        forumId: this.props.match.params.forumId
-                                    }
-                                }} >
-                                    <button className="forum-bttn btn-primary">Start a new discussion</button>
-                                </Link>
-                                {/* <div className="col-lg-3"> */}
-                                {/* <SideLinkForums
-                                    forums={this.props.forums}
-                                /> */}
-                            {/* </div> */}
-                                </div>                            
+
+
+
+
+
+
+
+                                        // <div className="post ml-0 col-lg-12 col-md-12 col-xs-12 col-sm-12 oder-3 order-md-1 order-sm-3" key={item.id}>
+                                        //     <div className="col-lg-12 col-md-9 col-sm-8 post-row">
+                                        //         <img src={(item.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + item.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
+                                        //         <span> {item.user.name}</span>
+                                        //         <PostVote
+                                        //             postId={item.id}
+                                        //             user={this.props.user}
+                                        //             voted={this.getPosts}
+                                        //             item_upvote={item.upvote}
+                                        //             item_voted={item.voted}
+                                        //         />
+                                        //     </div>
+                                        //     <div className="col-10 offset-1">
+                                        //         <div className="post-title">
+                                        //             <Link to={{
+                                        //                 pathname: `/posts/${item.id}`,
+                                        //                 state: { post: item }
+                                        //             }} >
+                                        //                 {item.title}
+                                        //             </Link>
+                                        //         </div>
+                                        //         <div className="post-body">
+                                        //             {item.body}
+                                        //         </div>
+                                        //         <FaCommentAlt className="icon" />{item.comments.length} <span className="pr-2">Comments</span>
+                                        //         <Bookmark
+                                        //             user={this.props.user}
+                                        //             id={item.id}
+                                        //             bookmarked={item.bookmarked}
+                                        //             post_bookmark={true}
+                                        //             AddbookmarkSuccess={this.props.AddbookmarkSuccess}
+                                        //             RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
+                                        //         />
+
+                                        //         {(this.props.user && this.props.user.id === item.user.id) ? (
+                                        //             <Link to={{
+                                        //                 pathname: '/submit-post/' + this.props.match.params.forumId,
+                                        //                 state: {
+                                        //                     forumId: this.props.match.params.forumId,
+                                        //                     postId: item.id,
+                                        //                     title: item.title,
+                                        //                     body: item.body,
+                                        //                     mode: 'edit'
+                                        //                 }
+                                        //             }} >
+                                        //                 <button className="bookmark-bttn"> <FaEdit className="icon" />Edit</button>
+                                        //             </Link>
+                                        //         ) : ''}
+                                        //     </div>
+                                        // </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                        </div>
+                        <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 order-sm-1 order-md-1 order-2" style={{ height: 100 + '%' }}>
+                            <Link to={{
+                                pathname: '/submit-post/' + this.props.match.params.forumId,
+                                state: {
+                                    forumId: this.props.match.params.forumId
+                                }
+                            }} >
+                                <button className="forum-bttn btn-primary mb-2">Start a new discussion</button>
+                            </Link>
+                            <SideLinkPosts
+                                posts={this.props.posts}
+                            />
                         </div>
                     </div>
                 </div>
+                {/* </div> */}
             </div>
 
         )

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link, Redirect, useHistory, withRouter } from 'react-router-dom'
 import '../../css/app.css';
-import Home from '../views/Home';
+import Forums from '../views/Forums';
 
 class Signin extends Component {
 

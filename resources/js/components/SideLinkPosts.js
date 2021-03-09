@@ -16,10 +16,8 @@ class SideLinkPosts extends Component {
     render() {
         const posts = this.props.posts;
         if(posts !== undefined){
-            console.log(posts);
             var filteredPosts = [];
             filteredPosts = posts.slice(0,5).sort((a, b) => b.upvote - a.upvote);
-            console.log(filteredPosts);
             return (
                 <div className="col-lg-12 sidelinks-div mt-4">
                     <div>

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Link, Redirect, withRouter } from 'react-router-dom'
 import '../../css/app.css';
 
-import Home from '../views/Home';
+import Forums from '../views/Forums';
 
 class Register extends Component {
 

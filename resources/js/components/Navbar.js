@@ -1,8 +1,7 @@
 import { nodeName } from 'jquery';
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
-import {FaUserCircle} from 'react-icons/fa';
+import { FaUserCircle } from 'react-icons/fa';
 import '../../css/style.css';
 
 class Navbar extends Component {
@@ -49,13 +48,13 @@ class Navbar extends Component {
               {/* <!-- NAVBAR LINKS --> */}
               <div className="collapse navbar-collapse" id="navbar-links">
                 <ul className="navbar-nav ml-auto">
-                  
-                <li className="nav-item">
-                    <Link to="/home" className="nav-link">Home</Link>
-                  </li>
-                  
+
                   <li className="nav-item">
-                    <Link to="/" className="nav-link">Forums</Link>
+                    <Link to="/" className="nav-link">Home</Link>
+                  </li>
+
+                  <li className="nav-item">
+                    <Link to="/forums-lists" className="nav-link">Forums</Link>
                   </li>
 
                   {!user && (
@@ -75,14 +74,14 @@ class Navbar extends Component {
                       <div className="row d-flex justify-content-between">
 
                         <div className="dropdown show">
-                        <a className="btn nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">     
-                            <FaUserCircle className="icon"/> Account
+                          <a className="btn nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <FaUserCircle className="icon" /> Account
                         </a>
 
                           <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <Link to="/my-profile" className="nav-link dropdown-item drop-down-link">My Profile</Link> 
-                            {user.role == 'admin' &&( 
-                                <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                            <Link to="/my-profile" className="nav-link dropdown-item drop-down-link">My Profile</Link>
+                            {user.role == 'admin' && (
+                              <Link to="/dashboard" className="nav-link">Dashboard</Link>
                             )}
                             <Link to="/" className="nav-link dropdown-item drop-down-link" onClick={this.logout}>Sign out</Link>
                           </div>

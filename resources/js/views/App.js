@@ -17,9 +17,9 @@ import CreatePost from '../components/Posts/CreatePost';
 import Dashboard from '../components/Dashboard/Dashboard';
 import PrivateRoute from '../components/PrivateRoute';
 
-import Home from './Home';
+import Forums from './Forums';
 import Profile from './Profile';
-import H from './H';
+import Home from './Home';
 
 import '../../css/app.css';
 
@@ -57,7 +57,6 @@ class App extends Component {
     this.uploadSuccess = this.uploadSuccess.bind(this);
     this.updateProfile = this.updateProfile.bind(this);
     this.getPosts = this.getPosts.bind(this);
-
   }
 
   componentDidMount() {
@@ -81,25 +80,25 @@ class App extends Component {
 
     this.getPosts();
 
-      if(user){
-        axios.get('/api/bookmarks',
-            { headers: { Authorization: "Bearer " + user.token } })
-            .then((response) => {
-              const bookmarksData = response.data;
-              
-              this.setState({
-                forums_bookmarks: bookmarksData.forums,
-                posts_bookmarks: bookmarksData.posts,
-                isLoaded: true
-              });
-            })
-            .catch(function (error) {
-              console.log(error);
-              if (error) {
-                console.log(error);
-              }
-            });    
-      }
+    if (user) {
+      axios.get('/api/bookmarks',
+        { headers: { Authorization: "Bearer " + user.token } })
+        .then((response) => {
+          const bookmarksData = response.data;
+
+          this.setState({
+            forums_bookmarks: bookmarksData.forums,
+            posts_bookmarks: bookmarksData.posts,
+            isLoaded: true
+          });
+        })
+        .catch(function (error) {
+          console.log(error);
+          if (error) {
+            console.log(error);
+          }
+        });
+    }
   }
 
   onLoginSuccess(user, remember) {
@@ -205,57 +204,57 @@ class App extends Component {
     });
   }
 
-  uploadSuccess(image){
+  uploadSuccess(image) {
     let token = this.state.user.token;
-      axios.get('/api/user',
-        { headers: { Authorization: "Bearer " + token } })
-        .then((response) =>{
-          console.log(response);
-          localStorage.setItem("user", JSON.stringify(response.data.user));
-           this.setState({user: response.data.user})
-        })
-        .catch(function (error) {
+    axios.get('/api/user',
+      { headers: { Authorization: "Bearer " + token } })
+      .then((response) => {
+        console.log(response);
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        this.setState({ user: response.data.user })
+      })
+      .catch(function (error) {
+        console.log(error);
+        if (error) {
           console.log(error);
-          if (error) {
-            console.log(error);
-          }
-        });    
+        }
+      });
   }
 
-  updateProfile(){
+  updateProfile() {
     let token = this.state.user.token;
-      axios.get('/api/user',
-        { headers: { Authorization: "Bearer " + token } })
-        .then((response) =>{
-          console.log(response);
-          localStorage.setItem("user", JSON.stringify(response.data.user));
-           this.setState({user: response.data.user})
-        })
-        .catch(function (error) {
+    axios.get('/api/user',
+      { headers: { Authorization: "Bearer " + token } })
+      .then((response) => {
+        console.log(response);
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        this.setState({ user: response.data.user })
+      })
+      .catch(function (error) {
+        console.log(error);
+        if (error) {
           console.log(error);
-          if (error) {
-            console.log(error);
-          }
-        });
+        }
+      });
   }
 
   getPosts() {
     //get list of posts
     axios.get('/api/posts-lists')
-        .then((posts) => {
-            const postsData = posts.data.data;
-            this.setState({
-                posts: postsData,
-                // isLoaded: true
-            });
-        })
-        .catch(function (error) {
-            console.log(error);
-            if (error) {
-                console.log(error);
-            }
+      .then((posts) => {
+        const postsData = posts.data.data;
+        this.setState({
+          posts: postsData,
+          // isLoaded: true
         });
-}
+      })
+      .catch(function (error) {
+        console.log(error);
+        if (error) {
+          console.log(error);
+        }
+      });
+  }
 
   render() {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -266,8 +265,8 @@ class App extends Component {
           user={this.state.user}
         />
         <Switch>
-          <Route exact path="/">
-            <Home
+          <Route path="/forums-lists">
+            <Forums
               user={user}
               forums={this.state.forums}
               posts={this.state.posts}
@@ -277,8 +276,8 @@ class App extends Component {
               RemovebookmarkSuccess={this.RemoveForumbookmarkSuccess}
             />
           </Route>
-          <Route path="/home">
-            <H
+          <Route exact path="/">
+            <Home
               user={user}
               posts={this.state.posts}
               forums={this.state.forums}
@@ -286,6 +285,7 @@ class App extends Component {
               bookmarks={this.state.posts_bookmarks}
               AddbookmarkSuccess={this.AddPostbookmarkSuccess}
               RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
+              search={this.state.search}
             />
           </Route>
           <Route path="/signin">
@@ -302,8 +302,10 @@ class App extends Component {
             <PostList user={user}
               forums={this.state.forums}
               bookmarks={this.state.posts_bookmarks}
+              getPosts={this.getPosts}
               AddbookmarkSuccess={this.AddPostbookmarkSuccess}
               RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
+              posts={this.state.posts}
             />
           </Route>
           <Route path="/my-profile">
@@ -332,7 +334,7 @@ class App extends Component {
             getPosts={this.getPosts}
           />
           <Route path="/dashboard">
-            <Dashboard user={user} onSuccess={this.onLogoutSuccess} uploadSuccess={this.uploadSuccess}/>
+            <Dashboard user={user} onSuccess={this.onLogoutSuccess} uploadSuccess={this.uploadSuccess} />
           </Route>
         </Switch>
         <Footer />

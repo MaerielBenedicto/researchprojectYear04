@@ -18,45 +18,45 @@ class ForumTable extends Component {
         const item = this.props.item;
         const user = this.props.user;
         return (
-            <div className="row">
-                <div className="forum col-12" key={item.id}>
+            // <div className="row">
+                <div className="forum col-lg-12" key={item.id}>
                     <div className="row">
-                    <div className="col-11">
-                        <div className="forum-title">
-                            <Link to={`/forums/${item.id}`} className="forum-title">
-                                {item.topic}
-                            </Link>
+                        <div className="col-11 forum-title">
+                            {/* <div className="forum-title"> */}
+                                <Link to={`/forums/${item.id}`} className="forum-title">
+                                    {item.topic}
+                                </Link>
+                            {/* </div> */}
                         </div>
-                    </div>
-                    <div className="col-1">
-                    {(user && user.id === item.user.id) ? (
-                        <div className="dropdown show">
-                            <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <FaEllipsisV className="icon" />
-                            </a>
+                        <div className="col-1">
+                        {(user && user.id === item.user.id) ? (
+                            <div className="dropdown show">
+                                <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <FaEllipsisV className="icon" />
+                                </a>
 
-                            <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <button className="dropdown-item drop-down-link edit-bttn">
-                                    <Link to={{
-                                        pathname: '/forums',
-                                        state: {
-                                            forumId: item.id,
-                                            topic: item.topic,
-                                            description: item.description,
-                                            mode: 'edit'
-                                        }
-                                    }}>
-                                        <span className="bttn"><FaEdit className="icon" />Edit</span>
-                                    </Link>
-                                </button>
-                                <button className="dropdown-item drop-down-link" onClick={() => this.props.delete(item)}>
-                                    <span><FaTrashAlt className="icon" />  Delete </span>
-                                </button>
+                                <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <button className="dropdown-item drop-down-link edit-bttn">
+                                        <Link to={{
+                                            pathname: '/forums',
+                                            state: {
+                                                forumId: item.id,
+                                                topic: item.topic,
+                                                description: item.description,
+                                                mode: 'edit'
+                                            }
+                                        }}>
+                                            <span className="bttn"><FaEdit className="icon" />Edit</span>
+                                        </Link>
+                                    </button>
+                                    <button className="dropdown-item drop-down-link" onClick={() => this.props.delete(item)}>
+                                        <span><FaTrashAlt className="icon" />  Delete </span>
+                                    </button>
+                                </div>
                             </div>
+                        ) : ''}
                         </div>
-                    ) : ''}
-                    </div>
-                    </div>
+                    {/* </div> */}
                     <div className="forum-desc col-12 pl-4">
                         <span>{item.description}</span>
                     </div>
