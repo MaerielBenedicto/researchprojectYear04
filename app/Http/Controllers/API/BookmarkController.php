@@ -18,7 +18,7 @@ class BookmarkController extends Controller
   public function index()
     {
       $forums = Auth::user()->bookmarks_forums()->get();
-      $posts = Auth::user()->bookmarks_posts()->get();
+      $posts = Auth::user()->bookmarks_posts()->with('user','forum')->get();
 
       return response()->json(
           [

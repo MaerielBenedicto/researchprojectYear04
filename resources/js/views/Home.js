@@ -5,6 +5,7 @@ import Filter from '../components/Filter';
 import PostVote from '../components/PostVote';
 import Bookmark from '../components/Bookmark';
 import SideLinkForums from '../components/SideLinkForums';
+import Pagination from '../components/Pagination';
 
 import { FaCommentAlt, FaEdit, FaListAlt, FaEllipsisV, FaTrashAlt } from 'react-icons/fa';
 import Moment from 'react-moment';
@@ -15,16 +16,22 @@ class Home extends Component {
         this.state = {
             posts: props.posts,
             sortby: 'Latest',
-            search: null
+            search: null,
+            currentPage: 1,
+            postsPerPage: 25
         };
 
         this.changeSortby = this.changeSortby.bind(this);
         this.delete = this.delete.bind(this);
         this.onSearchChange = this.onSearchChange.bind(this);
+        this.paginate = this.paginate.bind(this);
     }
 
-    componentDidMount() {
-
+    //change page
+    paginate(number) {
+        this.setState({
+            currentPage: number
+        });
     }
 
     delete(post) {
@@ -75,10 +82,14 @@ class Home extends Component {
 
 
             filteredPosts = filteredPosts.filter(post =>
-            (this.state.search === null) || (post.title.includes(this.state.search)) ||
+                (this.state.search === null) || (post.title.includes(this.state.search)) ||
                 (post.body.includes(this.state.search))
-            ); 
+            );
 
+            //youtube = https://www.youtube.com/watch?v=IYCa1F-OWmk&ab_channel=TraversyMedia
+            const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
+            const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
+            const currentFilteredPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
 
             if (user) {
                 //set bookmarked posts
@@ -92,7 +103,7 @@ class Home extends Component {
                 });
 
                 //check if user have voted post
-                filteredPosts.filter((post, i) => {
+                currentFilteredPosts.filter((post, i) => {
                     if (post.post_vote.length > 1) {
                         return post.post_vote.map((vote) => {
                             if (vote.user_id == user.id) {
@@ -126,7 +137,7 @@ class Home extends Component {
                         <div className="row ml-0" >
                             <div className="col-lg-9">
                                 {/* <div className="posts-rows ml-0 col-lg-9 col-md-12 col-sm-12 col-xs-12 order-sm-3 order-xs-3"> */}
-                                {filteredPosts.map(post => (
+                                {currentFilteredPosts.map(post => (
                                     <div className={'post-detail col-lg-12 col-sm-12 py-3 '} key={post.id}>
                                         <div className="row">
                                             <div className="col-1">
@@ -217,6 +228,7 @@ class Home extends Component {
 
                         </div>
                         {/* </div> */}
+                        <Pagination postsPerPage={this.state.postsPerPage} totalPosts={posts.length} paginate={this.paginate} />
                     </div>
                 </div>
             )

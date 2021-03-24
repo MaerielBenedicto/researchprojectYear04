@@ -17,6 +17,7 @@ class Pagination extends Component {
             pageNumbers.push(i);
         }
 
+
         this.setState({
             pageNumbers: pageNumbers
         });

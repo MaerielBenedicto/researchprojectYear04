@@ -867,7 +867,7 @@ svg {
 
 /***PAGINATION***/
 .pagination {
-    position: fixed;
+    /* position: fixed; */
     /* bottom: 0; */
     left: 20%;
     /* right: 50%; */

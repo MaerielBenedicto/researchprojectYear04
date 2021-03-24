@@ -6,6 +6,8 @@ import Filter from '../components/Filter';
 import Bookmark from '../components/Bookmark';
 import ForumTable from '../components/ForumTable';
 import SideLinkPosts from '../components/SideLinkPosts';
+import Pagination from '../components/Pagination';
+
 import '../../css/app.css';
 
 import { Link } from 'react-router-dom';
@@ -18,18 +20,25 @@ class Forums extends Component {
             forums: [],
             isLoaded: false,
             sortby: 'Latest',
-            search: null
+            search: null,
+            currentPage: 1,
+            forumsPerPage: 25
         };
 
         this.delete = this.delete.bind(this);
         this.changeSortby = this.changeSortby.bind(this);
         this.onSearchChange = this.onSearchChange.bind(this);
+        this.paginate = this.paginate.bind(this);
 
     }
 
-    componentDidMount() {
-        // this.forums();
+    //change page
+    paginate(number) {
+        this.setState({
+            currentPage: number
+        });
     }
+
 
     delete(forum) {
         console.log("DELETE");
@@ -73,6 +82,7 @@ class Forums extends Component {
             filteredForums = forums.slice().sort((a, b) => b.postsCount - a.postsCount);
         }
 
+
         filteredForums = filteredForums.filter(forum =>
             (this.state.search === null) || (forum.topic.includes(this.state.search)) ||
             (forum.description.includes(this.state.search))
@@ -89,6 +99,11 @@ class Forums extends Component {
                 return forum;
             });
         }
+
+        //youtube = https://www.youtube.com/watch?v=IYCa1F-OWmk&ab_channel=TraversyMedia
+        const indexOfLastPost = this.state.currentPage * this.state.forumsPerPage;
+        const indexOfFirstPost = indexOfLastPost - this.state.forumsPerPage;
+        const currentFilteredForums = filteredForums.slice(indexOfFirstPost, indexOfLastPost);
 
 
         return (
@@ -108,7 +123,7 @@ class Forums extends Component {
 
                             {/* <div className="forum-list col-12 col-lg-9 col-sm-12 col-md-12 order-1 order-sm-last order-md-1 py-3"> */}
                                 <div className="col-lg-9">
-                                    {filteredForums.map(item => (
+                                    {currentFilteredForums.map(item => (
                                         <div key={item.id}>
                                             <ForumTable
                                                 item={item}
@@ -134,6 +149,8 @@ class Forums extends Component {
                                 />
                             </div>
                         </div>
+                        <Pagination postsPerPage={this.state.forumsPerPage} totalPosts={forums.length} paginate={this.paginate} />
+
                     </div>
 
                 {/* </div> */}

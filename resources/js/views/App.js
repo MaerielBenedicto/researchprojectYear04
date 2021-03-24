@@ -313,6 +313,8 @@ class App extends Component {
               bookmarks={this.state.bookmarks}
               uploadSuccess={this.uploadSuccess}
               updateProfile={this.updateProfile}
+              posts_bookmarks={this.state.posts_bookmarks}
+              forums_bookmarks={this.state.forums_bookmarks}
             />
           </Route>
           <Route path="/posts/:id">

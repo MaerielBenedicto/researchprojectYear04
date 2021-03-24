@@ -6,6 +6,7 @@ import UserPosts from '../components/UserPosts';
 import Avatar from '../components/Modal/Avatar';
 
 import {FaUserEdit, FaWindowClose} from 'react-icons/fa';
+import BookmarkLists from '../components/BookmarkLists';
 class Profile extends Component {
     constructor(props) {
         super(props);
@@ -85,10 +86,10 @@ class Profile extends Component {
                             </li>
                             {/* <li className="nav-item" role="presentation">
                                 <a href="#comments-tab" className="nav-link" id="comments-tab" data-toggle="tab" data-target="#comments" type="button" role="tab" aria-controls="comments" aria-selected="false">Comments</a>
-                            </li>
+                            </li> */}
                             <li className="nav-item" role="presentation">
                                 <a href="#bookmarks-tab" className="nav-link" id="bookmarks-tab" data-toggle="tab" data-target="#bookmarks" type="button" role="tab" aria-controls="bookmarks" aria-selected="false">Bookmarks</a>
-                            </li> */}
+                            </li>
                         </ul>
                         <div className="tab-content" id="myTabContent">
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -172,10 +173,14 @@ class Profile extends Component {
                             </div>
                             {/* <div className="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
                                 <UserPosts user={user}/>
-                            </div>
-                            <div className="tab-pane fade" id="bookmarks" role="tabpanel" aria-labelledby="bookmarks-tab">
-                                <UserPosts user={user}/>
                             </div> */}
+                            <div className="tab-pane fade" id="bookmarks" role="tabpanel" aria-labelledby="bookmarks-tab">
+                                <BookmarkLists 
+                                    user={user} 
+                                    posts_bookmarks={this.props.posts_bookmarks}
+                                    forums_bookmarks={this.props.forums_bookmarks}
+                                />
+                            </div>
                             
                         </div>
                         

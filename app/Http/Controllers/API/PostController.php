@@ -186,12 +186,10 @@ class PostController extends Controller
 
 
   public function sentiment($body){
-    //create an instance of the serviceBuilder /**
-    //to specify project ID and JSON credentials
 
+    //create an instance of the serviceBuilder /**
     $cloud = new ServiceBuilder([
       //specify location of the JSON file with 'keyFilePath'
-      //base_path helper to refer to the fully qualified app root path
       'keyFilePath' => base_path('Practice01-f057879454bc.json'),
 
       //GCP
@@ -199,7 +197,6 @@ class PostController extends Controller
     ]);
 
     //create instance of LanguageClient class
-    //ServiceBuilder Class makes it easy by exposing various factory methods which
     //grants access to services in the API
     $language = $cloud->language();
 
