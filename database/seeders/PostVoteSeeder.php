@@ -22,7 +22,7 @@ class PostVoteSeeder extends Seeder
       $this->amntOfPosts = Post::all()->count();
 
       PostVote::factory()
-              ->count(500)
+              ->count(50)
               ->create([
                 //assign random integer to user_id (amount of users)
                 'user_id' => function(){

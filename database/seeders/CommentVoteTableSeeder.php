@@ -22,7 +22,7 @@ class CommentVoteTableSeeder extends Seeder
       $this->amntOfComments = Comment::all()->count();
 
       CommentVote::factory()
-              ->count(500)
+              ->count(50)
               ->create([
                 //assign random integer to user_id (amount of users)
                 'user_id' => function(){

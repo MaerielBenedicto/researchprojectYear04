@@ -61,7 +61,8 @@
             "@php artisan package:discover"
         ],
         "post-install-cmd": [ 
-            "php artisan passport:install"
+            "php artisan passport:install",
+            "php artisan storage:link"
         ]
     }
 }

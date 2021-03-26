@@ -30,7 +30,7 @@ class ForumsTableSeeder extends Seeder
       $this->amntOfUsers = User::all()->count();
 
       Forum::factory()
-              ->count(100)
+              ->count(50)
               ->create([
                 //assign random integer to user_id (amount of users)
                 'user_id' => function(){
