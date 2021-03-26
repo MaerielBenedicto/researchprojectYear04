@@ -26,10 +26,10 @@ class PostVoteSeeder extends Seeder
               ->create([
                 //assign random integer to user_id (amount of users)
                 'user_id' => function(){
-                  return mt_rand(1, $this->amntOfUsers);
+                  return mt_rand(0, $this->amntOfUsers);
                 },
                 'post_id' => function(){
-                    return mt_rand(1, $this->amntOfPosts);
+                    return mt_rand(0, $this->amntOfPosts);
                   },
               ]);
 

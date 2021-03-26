@@ -25,9 +25,7 @@ class CommentVote extends Component {
                 user_id: this.props.user.id,
                 comment_id: this.props.commentId
             },
-            {
-                headers: { Authorization: "Bearer " + user.token }
-            })
+            { headers: { Authorization: "Bearer " + user.token } })
             .then((response) => {
                 // console.log('upvote',response.data);
                 this.props.voted();
@@ -35,9 +33,7 @@ class CommentVote extends Component {
               })
             .catch(function(error) {
                 console.log(error.response);
-                if(error){
-                    console.log(error);
-                } 
+                if(error) console.log(error);
             });
         } else {
             this.props.history.push('/signin');
@@ -54,9 +50,7 @@ class CommentVote extends Component {
                 user_id: this.props.user.id,
                 comment_id: this.props.commentId
             },
-            {
-                headers: { Authorization: "Bearer " + user.token }
-            })
+            { headers: { Authorization: "Bearer " + user.token }})
             .then((response) => {
                 // console.log('downvote',response.data);
                 this.props.voted();
@@ -64,9 +58,7 @@ class CommentVote extends Component {
               })
             .catch(function(error) {
                 console.log(error.response);
-                if(error){
-                    console.log(error);
-                } 
+                if(error) console.log(error);
             });
         }else {
             this.props.history.push('/signin');
@@ -76,7 +68,6 @@ class CommentVote extends Component {
 
     render(){
         const voted = this.state.voted;
-        // console.log(this.props.item_voted);
         if(voted !== undefined){
             return (
                 <div>

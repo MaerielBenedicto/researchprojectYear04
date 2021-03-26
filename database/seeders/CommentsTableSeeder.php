@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use DB;
 use Illuminate\Database\Seeder;
 use App\Models\Comment;
 use App\Models\User;
@@ -34,20 +34,24 @@ class CommentsTableSeeder extends Seeder
       // $comment->save();
 
 
-      $this->amntOfUsers = User::all()->count();
-      $this->amntOfPosts = Post::all()->count();
+      // $this->amntOfUsers = User::all()->count();
+      // $this->amntOfPosts = Post::all()->count();
 
-      Comment::factory()
-              ->count(50)
-              ->create([
-                //assign random integer to user_id (amount of users)
-                'user_id' => function(){
-                  return mt_rand(1, $this->amntOfUsers);
-                },
-                //assign random integer to post_id (amount of posts)
-                'post_id' => function(){
-                  return mt_rand(1, $this->amntOfPosts);
-                }
-              ]);
+      // Comment::factory()
+      //         ->count(50)
+      //         ->create([
+      //           //assign random integer to user_id (amount of users)
+      //           'user_id' => function(){
+      //             return mt_rand(1, $this->amntOfUsers);
+      //           },
+      //           //assign random integer to post_id (amount of posts)
+      //           'post_id' => function(){
+      //             return mt_rand(1, $this->amntOfPosts);
+      //           }
+      //         ]);
+
+      $path = 'database/data/comments.sql';
+      DB::unprepared(file_get_contents($path));
+      $this->command->info('Comment table seeded!');
     }
 }

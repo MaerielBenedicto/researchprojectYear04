@@ -10,7 +10,7 @@ import PostList from '../components/PostList';
 import Post from '../components/Posts/Post';
 import Signin from '../components/Signin';
 import Register from '../components/Register';
-import CreateForum from '../components/Modal/CreateForum';
+import CreateForum from '../components/CreateForum';
 import CreatePost from '../components/Posts/CreatePost';
 
 //admin pages

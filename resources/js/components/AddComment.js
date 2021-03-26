@@ -15,7 +15,6 @@ class AddComment extends Component {
     }
 
     handleSubmitForm(e) {
-        // console.log(token);
         e.preventDefault();
         let user = this.props.user;
         
@@ -28,26 +27,19 @@ class AddComment extends Component {
                 },
                 { headers: { Authorization: "Bearer " + user.token } })
                 .then((response) => {
-                    // console.log(response.data);
                     this.setState({ comment: "" });
                     let comment = response.data.data;
-                    if(comment.action == 'under review'){
-                        this.props.showModal();
-                    }
+                    if(comment.action == 'under review') this.props.showModal();
                     this.props.addComment(response.data.data);
                 })
                 .catch(function (error) {
-                    // console.log(error);
-                    if (error) {
-                        console.log(error);
-                    }
+                    if (error)  console.log(error);
                 });
         }
         else {
             //if not signed in; go to sign in page
             this.props.history.push('/signin');
         }
-
     }
 
     handleChange(e) {

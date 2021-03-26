@@ -1,19 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { withRouter, Link } from "react-router-dom";
 import Moment from 'react-moment';
-import { FaTrashAlt, FaEllipsisH, FaEdit, FaCommentAlt } from 'react-icons/fa';
+
 class BookmarkLists extends Component {
-    constructor() {
-        super();
-        this.state = {
-        };
-    }
-
-    componentDidMount() {
-
-    }
-
     render() {
         const posts = this.props.posts_bookmarks;
         const forums = this.props.forums_bookmarks;
@@ -25,7 +13,7 @@ class BookmarkLists extends Component {
                             {posts.length === 0 && (
                                 <div className="p-4"><p> You currently do not have any bookmarked posts!</p></div>
                             )}
-                            { posts.length !== 0 && (
+                            {posts.length !== 0 && (
                                 <h4 className="mt-1"><strong>Posts: </strong></h4>
                             )}
                             <table className="table table-bordered">
@@ -36,7 +24,10 @@ class BookmarkLists extends Component {
                                                 <div className="bookmark-list">
                                                     <div className="row">
                                                         <div className="col-2">
-                                                            <img src={(item.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + item.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
+                                                            <img 
+                                                                src={(item.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + item.user.image) 
+                                                                : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} 
+                                                            />
                                                         </div>
                                                         <div className="col-10">
                                                             <Link to={{
@@ -54,14 +45,13 @@ class BookmarkLists extends Component {
                                                                     {item.forum.topic}
                                                                 </Link> &nbsp;
                                                          </span> </p>
-                                                         <p><strong>Posted on: </strong> <Moment format="DD/MM/YYYY">{item.created_at}</Moment></p>
-
+                                                            <p>
+                                                                <strong>Posted on: </strong> 
+                                                                <Moment format="DD/MM/YYYY">{item.created_at}</Moment>
+                                                            </p>
                                                         </div>
                                                     </div>
-
-
                                                 </div>
-
                                             </td>
                                         </tr>
                                     </tbody>
@@ -72,7 +62,7 @@ class BookmarkLists extends Component {
                             {forums.length === 0 && (
                                 <div className="p-4"><p> You currently do not have any bookmarked forums!</p></div>
                             )}
-                            { forums.length !== 0 && (
+                            {forums.length !== 0 && (
                                 <h4 className="mt-1"><strong>Forums: </strong></h4>
                             )}
                             <table className="table table-bordered">
@@ -85,23 +75,20 @@ class BookmarkLists extends Component {
                                                     <Link to={`/forums/${item.id}`}>
                                                         <h4>{item.topic}</h4>
                                                     </Link>
-                                                    <p><span><strong>Posted on: </strong> <Moment format="DD/MM/YYYY">{item.created_at}</Moment></span></p>
+                                                    <p><span><strong>Posted on: </strong> 
+                                                        <Moment format="DD/MM/YYYY">{item.created_at}</Moment></span>
+                                                    </p>
 
                                                     <p>{item.description}</p>
-
                                                 </div>
-
                                             </td>
                                         </tr>
                                     </tbody>
                                 ))}
                             </table>
-
                         </div>
                     </div>
-
                 </div>
-
             </div>
         )
     };

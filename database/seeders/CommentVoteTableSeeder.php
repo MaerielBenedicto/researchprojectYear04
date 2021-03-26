@@ -26,10 +26,10 @@ class CommentVoteTableSeeder extends Seeder
               ->create([
                 //assign random integer to user_id (amount of users)
                 'user_id' => function(){
-                  return mt_rand(1, $this->amntOfUsers);
+                  return mt_rand(0, $this->amntOfUsers);
                 },
                 'comment_id' => function(){
-                    return mt_rand(1, $this->amntOfComments);
+                    return mt_rand(0, $this->amntOfComments);
                   },
               ]);
 

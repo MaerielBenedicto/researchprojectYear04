@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { withRouter, Link } from "react-router-dom";
 import AddComment from './AddComment';
 import CommentVote from './CommentVote';
 import DeleteConfirmation from './Modal/DeleteConfirmation';
@@ -30,7 +28,6 @@ class Comments extends Component {
 
 
     handleChange(e) {
-        // this.setState({sort: e.target.value});
         const target = e.target;
         const value = target.value;
         const name = target.name;
@@ -50,10 +47,7 @@ class Comments extends Component {
                 this.props.getComments();
             })
             .catch(function (error) {
-                if (error) {
-                    console.log(error);
-                    this.setState({ errors: error.data });
-                }
+                if (error) this.setState({ errors: error.data });
             });
     }
 
@@ -65,11 +59,8 @@ class Comments extends Component {
                 post_id: this.state.comment.post_id,
                 user_id: this.state.comment.user_id
             },
-            {
-                headers: { Authorization: "Bearer " + token }
-            })
+            { headers: { Authorization: "Bearer " + token }})
             .then(response => {
-                console.log(response);
                 this.setState({ edit: false });
 
                 //display warning modal if comment is under review
@@ -79,10 +70,8 @@ class Comments extends Component {
                 this.props.updateComment(response.data);
             })
             .catch(function (error) {
-                if (error) {
-                    console.log(error);
-                    this.setState({ errors: error.data });
-                }
+                if (error) this.setState({ errors: error.data });
+                
             });
     }
 
@@ -149,11 +138,20 @@ class Comments extends Component {
                             <div className="row">
                                 {(this.state.edit == true && this.state.editId === item.id) ? (
                                     <div className="col-10 offset-1">
-                                        <textarea className="comment-box form-control" id="body" placeholder="Add a comment" name="comment_value"
+                                        <textarea className="comment-box form-control" 
+                                            id="body" placeholder="Add a comment" 
+                                            name="comment_value"
                                             value={this.state.comment_value}
-                                            onChange={this.handleChange}></textarea>
-                                        <button className="update-bttn float-right mt-2" onClick={() => this.editComment(item.id)}>Save</button>
-                                        <button className="cancel-bttn float-right mt-2" onClick={() => this.setState({ edit: false })}>Cancel</button>
+                                            onChange={this.handleChange}>
+                                        </textarea>
+                                        <button 
+                                            className="update-bttn float-right mt-2" 
+                                            onClick={() => this.editComment(item.id)}>Save
+                                        </button>
+                                        <button 
+                                            className="cancel-bttn float-right mt-2" 
+                                            onClick={() => this.setState({ edit: false })}>Cancel
+                                        </button>
                                     </div>
                                 ) : (<div className="col-10 offset-1">
                                     <p>{item.body}</p>
@@ -164,7 +162,9 @@ class Comments extends Component {
                                 <div className="col-12">
                                     {(!this.state.edit && user && user.id === item.user.id) ? (
                                         <div className="dropdown show float-right">
-                                            <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <a className="btn actions-btn dropdown" href="#" 
+                                                role="button" id="dropdownMenuLink" data-toggle="dropdown" 
+                                                aria-haspopup="true" aria-expanded="false">
                                                 <FaEllipsisV className="icon" />
                                             </a>
                                             <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -198,7 +198,7 @@ class Comments extends Component {
                     />
                 )}
 
-                {/* DELETE FORUM */}
+                {/* Warning */}
                 {this.state.showModalWarning && (
                     <Warning
                         user={user}
