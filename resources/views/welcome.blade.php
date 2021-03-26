@@ -15,8 +15,7 @@
         </style>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- <script src="{{ mix('/js/app.js') }}"></script> -->
-
-        <!-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> -->
+        <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
 
         
     </head>
