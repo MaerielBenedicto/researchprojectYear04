@@ -41,7 +41,7 @@ class Navbar extends Component {
             <div className="container">
               <div className="ml-auto">
                 <Link to="/" className="navbar-brand">
-                  <span className="logo-site"> Convo </span>
+                  <span className="logo-site"> CONVO </span>
                 </Link>
               </div>
 

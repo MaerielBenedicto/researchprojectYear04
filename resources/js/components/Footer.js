@@ -18,7 +18,7 @@ class Footer extends Component {
                       <div className="row logo-site-footer">
                         <div className="col-lg-2 col-sm-12 col-md-3">
                             <Link to="/" className="footer-brand">
-                                <span className=""> LOGO</span>
+                                <span className=""> CONVO</span>
                             </Link> 
                         </div>
                         <div className="col-lg-2 col-sm-12 col-md-3">

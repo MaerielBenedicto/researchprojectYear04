@@ -43,7 +43,7 @@ class Home extends Component {
             .then(response => {
                 // console.log(response);
                 this.props.getPosts();
-                this.props.history.push('/home');
+                this.props.history.push('/');
             })
             .catch(function (error) {
                 if (error) {
