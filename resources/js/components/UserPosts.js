@@ -86,7 +86,7 @@ class UserPosts extends Component {
                                     <tbody key={item.id}>
                                         <tr>
                                             <td>
-                                                <div>
+                                                <div className="profile-posts-list">
                                                     {/* <h4>{item.title}</h4> */}
                                                     <Link to={{
                                                         pathname: `/posts/${item.id}`,
@@ -98,7 +98,8 @@ class UserPosts extends Component {
                                                     {item.action == 'under review' && (
                                                         <span className="warning-status"> Under Review</span>
                                                     )}
-                                                    <p><span>Forum: {item.forum.topic}</span> | Posted on: <Moment format="DD/MM/YYYY">{item.created_at}</Moment></p>
+                                                    <p><span><strong>Forum: </strong> {item.forum.topic}</span></p>
+                                                    <p><strong>Posted on: </strong><Moment format="DD/MM/YYYY">{item.created_at}</Moment></p>
                                                     <div className="row">
                                                         <div className="dropdown show col-6">
                                                             <FaCommentAlt className="icon ml-0" /> {item.comments.length} <span className="p-0">Comments</span>

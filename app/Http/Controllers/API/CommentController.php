@@ -46,8 +46,10 @@ class CommentController extends Controller
 
     $body = $request->body;
     //generate random values
-    $s_score = mt_rand(-1.0, 1.0);
+    // $s_score = mt_rand(-1.0, 0);
+    $s_score = -0.5;
     $s_magnitude = mt_rand(1, 10);
+    // $s_score = -0.5;
 
     //negative sentiment
     if($s_score <= -0.25 && $s_magnitude > .5) {

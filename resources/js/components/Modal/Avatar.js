@@ -13,11 +13,7 @@ class Avatar extends Component {
         this.uploadImage = this.uploadImage.bind(this);
     }
 
-    // componentDidMount() {
-    // }
-
     handleChange(e) {
-        console.log("WHY");
         let file = e.target.files;
         if(!file.length) return;
         this.setState({image: file[0]});

@@ -32,7 +32,7 @@ class BookmarkController extends Controller
      public function add_post_bookmark($id){
       $post = Post::where('id', $id)->first();
       Auth::user()->bookmarks_posts()->syncWithoutDetaching([$post->id]);
-      $post->load('forum');
+      $post->load('forum','user');
       return $post;
     } 
 

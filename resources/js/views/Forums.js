@@ -137,7 +137,7 @@ class Forums extends Component {
                                 </div>
                             {/* </div> */}
 
-                            <div className="col-12 col-lg-3 col-sm-12 col-md-12 col-xs-12 py-3 order-sm-1 order-md-2 create-bttn">
+                            <div className="col-12 col-lg-3 col-sm-12 col-md-12 col-xs-12 order-sm-1 order-md-2 create-bttn">
                                 <Link to={{
                                     pathname: '/forums',
                                     state: {}

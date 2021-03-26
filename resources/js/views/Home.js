@@ -138,7 +138,7 @@ class Home extends Component {
                             <div className="col-lg-9">
                                 {/* <div className="posts-rows ml-0 col-lg-9 col-md-12 col-sm-12 col-xs-12 order-sm-3 order-xs-3"> */}
                                 {currentFilteredPosts.map(post => (
-                                    <div className={'post-detail col-lg-12 col-sm-12 py-3 '} key={post.id}>
+                                    <div className={'post-detail col-lg-11 col-sm-12 py-3 '} key={post.id}>
                                         <div className="row">
                                             <div className="col-1">
                                                 <img src={(post.user.image !== 'image.jpg' || undefined) ? ('uploads/' + post.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
@@ -220,7 +220,7 @@ class Home extends Component {
                                 ))}
 
                             </div>
-                            <div className="col-lg-3 side-link">
+                            <div className="col-lg-3  side-link">
                                 <SideLinkForums
                                     forums={this.props.forums}
                                 />

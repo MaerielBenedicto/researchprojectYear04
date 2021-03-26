@@ -24,7 +24,8 @@ class Post extends Component {
             comments: [],
             isLoaded: false,
             sortby: 'Latest',
-            showModal: false
+            showModal: false,
+            showModalWarning: false
         };
 
         this.comments = this.comments.bind(this);
@@ -55,7 +56,7 @@ class Post extends Component {
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.setState({errors: error.response.data.errors});
+                    this.setState({ errors: error.response.data.errors });
                 }
             });
     }
@@ -70,7 +71,7 @@ class Post extends Component {
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.setState({errors: error.response.data.errors});
+                    this.setState({ errors: error.response.data.errors });
                 }
             });
     }
@@ -88,7 +89,7 @@ class Post extends Component {
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.setState({errors: error.response.data.errors});
+                    this.setState({ errors: error.response.data.errors });
                 }
             });
     }
@@ -159,14 +160,14 @@ class Post extends Component {
                     }
                 });
 
-                 //set bookmarked post
-                    if (bookmarks.map(bookmark => bookmark.id === post.id)) {
-                        post.bookmarked = true;
-                    } else {
-                        post.bookmarked = false;
-                    }
+                //set bookmarked post
+                if (bookmarks.some(bookmark => bookmark.id === post.id)) {
+                    post.bookmarked = true;
+                } else {
+                    post.bookmarked = false;
+                }
             }
-            
+
 
             return (
                 <div className="body-m-top body-m-bottom">
@@ -174,7 +175,7 @@ class Post extends Component {
                         <div className="row ml-0">
                             <div className="col-9">
                                 <div className="row">
-                                    <div className={'post-detail col-lg-12 col-sm-12 py-3 order-1' + addClass} style={{ height: 100 + '%' }}>
+                                    <div className={'post-detail col-lg-11 col-sm-12 py-3 order-1 ' + addClass} style={{ height: 100 + '%' }}>
                                         <div className="row">
                                             <div className="col-1">
                                                 <img src={(post.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + post.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
@@ -236,7 +237,7 @@ class Post extends Component {
                                                                     <span className="bttn"><FaEdit className="icon" />Edit</span>
                                                                 </Link>
                                                             </button>
-                                                            <button className="dropdown-item drop-down-link" onClick={()=> this.setState({showModal: true})}>
+                                                            <button className="dropdown-item drop-down-link" onClick={() => this.setState({ showModal: true })}>
                                                                 <span><FaTrashAlt className="icon" />  Delete </span>
                                                             </button>
                                                         </div>
@@ -246,8 +247,8 @@ class Post extends Component {
                                         </div>
 
                                     </div>
-                                    <div className={" " + hideClass}>
-                                        <div className={'col-lg-12 warning-div'}>
+                                    <div className={"col-lg-9 " + hideClass}>
+                                        <div className={'col-lg-9 warning-div'}>
                                             <div>
                                                 <button className="close-bttn float-right" onClick={() => this.setState({ hide: false })}><FaRegWindowClose /></button>
                                             </div>
@@ -259,7 +260,7 @@ class Post extends Component {
                                     </div>
 
                                     {post.action !== 'under review' && (
-                                        <div className="col-lg-12 order-2 p-0">
+                                        <div className="col-lg-11 order-2 p-0">
                                             <Comments
                                                 comments={comments}
                                                 postId={this.props.match.params.id}
@@ -291,6 +292,7 @@ class Post extends Component {
                                 closeModal={() => this.setState({ showModal: false })}
                             />
                         )}
+
                     </div>
                 </div>
             )

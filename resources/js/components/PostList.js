@@ -156,7 +156,7 @@ class PostList extends Component {
                     <div className="row ml-0 p-3">
                         <div className="col-lg-9">
                             <div className="row">
-                                <div className="forum-detail col-lg-12 col-sm-12 col-xs-12 order-lg-1 order-sm-2">
+                                <div className="forum-detail col-lg-11 col-sm-12 col-xs-12 order-lg-1 order-sm-2">
                                     <div className="row">
                                         <div className="col-lg-10 col-sm-12 col-md-12 ">
                                             <h4 className="title">{forum.topic}</h4>
@@ -169,7 +169,7 @@ class PostList extends Component {
                                 </div>
 
                                 {this.state.isLoaded && (
-                                    <div className="posts-rows ml-0 col-lg-12 col-md-12 col-sm-12 col-xs-12 order-3 order-sm-3 order-xs-3">
+                                    <div className="posts-rows ml-0 col-lg-11 col-md-12 col-sm-12 col-xs-12 order-3 order-sm-3 order-xs-3">
                                         {filteredPosts.map(post => (
                                             <div className={'post-detail col-lg-12 col-sm-12 py-3 '} key={post.id}>
                                                 <div className="row">

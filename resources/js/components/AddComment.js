@@ -30,6 +30,10 @@ class AddComment extends Component {
                 .then((response) => {
                     // console.log(response.data);
                     this.setState({ comment: "" });
+                    let comment = response.data.data;
+                    if(comment.action == 'under review'){
+                        this.props.showModal();
+                    }
                     this.props.addComment(response.data.data);
                 })
                 .catch(function (error) {

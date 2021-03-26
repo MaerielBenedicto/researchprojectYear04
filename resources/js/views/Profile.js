@@ -93,7 +93,7 @@ class Profile extends Component {
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div className="row profile">
                                     <div className="col-2 profile-avatar">
-                                        
+
                                         {/* display default image if user have no avatar */}
                                         <img 
                                             src={(user.image !== 'image.jpg' || undefined) ? 
@@ -154,7 +154,7 @@ class Profile extends Component {
                                                             </div>
 
                                                             <div className="form-group col-12">
-                                                                <label>Confrim password</label>
+                                                                <label>Confirm password</label>
                                                                 <input id="password_confirmation" type="password" className="form-control" placeholder="Confirm password" name="password_confirmation"
                                                                     value={this.state.password_confirmation}
                                                                     onChange={this.handleChange} />
@@ -201,11 +201,8 @@ class Profile extends Component {
                                 closeModal={() => this.setState({ showModal: false })}
                             />
                         )}
-
                     </div>
-
                 </div>
-
             </div>
         )
     };

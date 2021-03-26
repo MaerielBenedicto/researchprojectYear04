@@ -22,7 +22,7 @@ class ForumTable extends Component {
         const user = this.props.user;
         return (
             // <div className="row">
-            <div className="forum col-lg-12" key={item.id}>
+            <div className="forum col-lg-11" key={item.id}>
                 <div className="row">
                     <div className="col-11 forum-title">
                         {/* <div className="forum-title"> */}
