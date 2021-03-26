@@ -85,7 +85,7 @@ nav {
 
 .nav-link{
     color:#000;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* #navbar-links li.nav-item a.last-nav-link {
@@ -609,12 +609,17 @@ img {
     border: 1px solid #E9E9E9;
     box-sizing: border-box;
     border-radius: 5px;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
 }
 
 .forum-topic{
     padding: 20px;
     margin-bottom: 40px;
+}
+
+.forum-topic h4,
+.forum-description h4  {
+    font-size: 16px;
 }
 
 .submit-button{
@@ -793,16 +798,33 @@ img {
     padding: 30px 30px;
 }
 
-.posts-lists{
-    /* padding: 50px 20px; */
-    padding: 0px;
+.posts-lists-review h2{
+    padding-top: 40px;
+    padding-left: 10px;
+    font-size: 22px; 
+ }
+
+.posts-lists-review h4{
+    padding-left: 10px;
+    font-size: 16px;
+    padding-top: 20px;
+    font-weight: 600;
+}
+
+.actions-buttons {
+    margin-top: 5px;
 }
 
 .user-data{
     background-color: #FCFCFC;
-    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     margin-right: 20px;
     margin-left: 20px;
+}
+
+.user-data-row{
+    margin-bottom: 10px;
 }
 
 .approve-bttn{
@@ -1025,4 +1047,33 @@ svg {
 
 .create-bttn{
     height: 100%;
+}
+
+#sidebar {
+    background-color: #DDDBDB;
+}
+
+.sidelinks-div li {
+    padding-bottom: 10px;
+}
+
+span.error{
+    color: rgb(255, 42, 42);
+    margin-top: 10px;
+    font-size: 14px;
+    display:inline-block;
+  }
+  
+  .asterik{
+    color: red;
+  }
+
+  .create-title h3{
+      font-size: 22px;
+      font-weight: 600;
+  }
+@media only screen and (max-width: 767px){
+    .sidebar {
+        display: inline-block;
+    }
 }

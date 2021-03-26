@@ -19,7 +19,7 @@ class SideLinkForums extends Component {
         filteredForums = forums.slice(0, 5).sort((a, b) => b.postsCount - a.postsCount);
 
         return (
-            <div className="col-lg-12 sidelinks-div">
+            <div className="col-lg-12 sidelinks-div side-link">
                 <div>
                     <h4 className="sidelink-title">Popular Forums</h4>
                     {filteredForums.map(forum => (

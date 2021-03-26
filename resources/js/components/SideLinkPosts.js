@@ -19,7 +19,7 @@ class SideLinkPosts extends Component {
             var filteredPosts = [];
             filteredPosts = posts.slice(0,5).sort((a, b) => b.upvote - a.upvote);
             return (
-                <div className="col-lg-12 sidelinks-div mt-4">
+                <div className="col-lg-12 sidelinks-div mt-4 side-link">
                     <div>
                         <h4 className="sidelink-title">Popular Posts</h4>
                         {filteredPosts.map(post => (

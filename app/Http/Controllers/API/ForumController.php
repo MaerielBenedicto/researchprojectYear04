@@ -44,7 +44,7 @@ class ForumController extends Controller
   public function store(Request $request){
     $validator = Validator::make($request->all(), [
         'topic' => 'required|string',
-        'description' => 'nullable|string',
+        'description' => 'required|string',
         'user_id' => 'required|integer'
     ]);
 
@@ -67,7 +67,7 @@ class ForumController extends Controller
     {
         $validator = Validator::make($request->all(), [
           'topic' => 'required|string',
-          'description' => 'nullable|string',
+          'description' => 'required|string',
           'user_id' => 'required|integer'
 
         ]);

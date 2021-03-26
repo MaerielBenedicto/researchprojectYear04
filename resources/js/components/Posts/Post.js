@@ -157,116 +157,117 @@ class Post extends Component {
             }
 
             return (
-                <div className="body-content">
+                <div className="body-m-top body-m-bottom">
                     <div className="container">
                         <div className="row ml-0">
-                            <div className={'post-detail col-lg-9 col-sm-12 py-3 ' + addClass} style={{ height: 100 + '%' }}>
+                            <div className="col-9">
                                 <div className="row">
-                                    <div className="col-1">
-                                        <img src={(post.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + post.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
-                                    </div>
-                                    <div className="col-10 post-user-deet">
-                                        <div>
-                                            <span> {post.user.name}</span>
-                                            <p>
-                                                <strong>Posted on: </strong>
-                                                <Link to={`/forums/${post.forum_id}`}>
-                                                    {post.forum.topic}
-                                                </Link>&nbsp;
+                                    <div className={'post-detail col-lg-12 col-sm-12 py-3 order-1' + addClass} style={{ height: 100 + '%' }}>
+                                        <div className="row">
+                                            <div className="col-1">
+                                                <img src={(post.user.image !== 'image.jpg' || undefined) ? ('../uploads/' + post.user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
+                                            </div>
+                                            <div className="col-10 post-user-deet">
+                                                <div>
+                                                    <span> {post.user.name}</span>
+                                                    <p>
+                                                        <strong>Posted on: </strong>
+                                                        <Link to={`/forums/${post.forum_id}`}>
+                                                            {post.forum.topic}
+                                                        </Link>&nbsp;
                                                         <strong>|</strong> &nbsp;
                                                         <Moment format="LL">{post.created_at}</Moment>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div className="col-1 vote-div pl-0">
-                                        <PostVote
-                                            postId={post.id}
-                                            user={user}
-                                            voted={this.getPost}
-                                            item_upvote={post.upvote}
-                                            item_voted={post.voted}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-11 offset-1 post-body-div">
-                                        <h4>{post.title}</h4>
-                                        <p>{post.body}</p>
-                                        <FaCommentAlt className="icon ml-0" /> {this.state.comments.length} <span className="p-0">Comments</span>
-                                        <Bookmark
-                                            user={this.props.user}
-                                            id={post.id}
-                                            bookmarked={post.bookmarked}
-                                            post_bookmark={true}
-                                            AddbookmarkSuccess={this.props.AddbookmarkSuccess}
-                                            RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
-                                        />
-                                        {(user && user.id === post.user.id) ? (
-                                            <div className="dropdown show float-right">
-                                                <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <FaEllipsisV className="icon" />
-                                                </a>
-
-                                                <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                    <button className="dropdown-item drop-down-link edit-bttn">
-                                                        <Link to={{
-                                                            pathname: '/submit-post/' + this.props.match.params.id,
-                                                            state: {
-                                                                forumId: post.forum_id,
-                                                                postId: this.props.match.params.id,
-                                                                title: post.title,
-                                                                body: post.body,
-                                                                mode: 'edit'
-                                                            }
-                                                        }} >
-                                                            <span className="bttn"><FaEdit className="icon" />Edit</span>
-                                                        </Link>
-                                                    </button>
-                                                    <button className="dropdown-item drop-down-link" onClick={this.delete}>
-                                                        <span><FaTrashAlt className="icon" />  Delete </span>
-                                                    </button>
+                                                    </p>
                                                 </div>
                                             </div>
-                                        ) : ''}
-                                    </div>
-                                </div>
+                                            <div className="col-1 vote-div pl-0">
+                                                <PostVote
+                                                    postId={post.id}
+                                                    user={user}
+                                                    voted={this.getPost}
+                                                    item_upvote={post.upvote}
+                                                    item_voted={post.voted}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-11 offset-1 post-body-div">
+                                                <h4>{post.title}</h4>
+                                                <p>{post.body}</p>
+                                                <FaCommentAlt className="icon ml-0" /> {this.state.comments.length} <span className="p-0">Comments</span>
+                                                <Bookmark
+                                                    user={this.props.user}
+                                                    id={post.id}
+                                                    bookmarked={post.bookmarked}
+                                                    post_bookmark={true}
+                                                    AddbookmarkSuccess={this.props.AddbookmarkSuccess}
+                                                    RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
+                                                />
+                                                {(user && user.id === post.user.id) ? (
+                                                    <div className="dropdown show float-right">
+                                                        <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <FaEllipsisV className="icon" />
+                                                        </a>
 
-                            </div>
-                            <div className={"row " + hideClass}>
-                                <div className={'col-6 warning-div'}>
-                                    <div>
-                                        <button className="close-bttn float-right" onClick={() => this.setState({ hide: false })}><FaRegWindowClose /></button>
+                                                        <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                            <button className="dropdown-item drop-down-link edit-bttn">
+                                                                <Link to={{
+                                                                    pathname: '/submit-post/' + this.props.match.params.id,
+                                                                    state: {
+                                                                        forumId: post.forum_id,
+                                                                        postId: this.props.match.params.id,
+                                                                        title: post.title,
+                                                                        body: post.body,
+                                                                        mode: 'edit'
+                                                                    }
+                                                                }} >
+                                                                    <span className="bttn"><FaEdit className="icon" />Edit</span>
+                                                                </Link>
+                                                            </button>
+                                                            <button className="dropdown-item drop-down-link" onClick={this.delete}>
+                                                                <span><FaTrashAlt className="icon" />  Delete </span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                ) : ''}
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <div>
-                                        <p className="warning-text">This post is currently under review as it may contain abusive language.
+                                    <div className={" " + hideClass}>
+                                        <div className={'col-lg-12 warning-div'}>
+                                            <div>
+                                                <button className="close-bttn float-right" onClick={() => this.setState({ hide: false })}><FaRegWindowClose /></button>
+                                            </div>
+                                            <div>
+                                                <p className="warning-text">This post is currently under review as it may contain abusive language.
                                         You are the only one that can view this post. Edit this post or wait for admin approval. </p>
+                                            </div>
+                                        </div>
                                     </div>
 
-
+                                    {post.action !== 'under review' && (
+                                        <div className="col-lg-12 order-2 p-0">
+                                            <Comments
+                                                comments={comments}
+                                                postId={this.props.match.params.id}
+                                                user={user}
+                                                getComments={this.comments}
+                                                // addComment={this.addComment}
+                                                addComment={this.comments}
+                                                updateComment={this.updateSuccess}
+                                            />
+                                        </div>
+                                    )}
                                 </div>
                             </div>
-                            <div className="col-lg-3">
+
+                            <div className="col-lg-3 order-3 side-link">
                                 <SideLinkForums
                                     forums={this.props.forums}
                                 />
                             </div>
-                            {post.action !== 'under review' && (
-                                <div className="col-lg-12">
-                                    <Comments
-                                        comments={comments}
-                                        postId={this.props.match.params.id}
-                                        user={user}
-                                        getComments={this.comments}
-                                        // addComment={this.addComment}
-                                        addComment={this.comments}
-                                        updateComment={this.updateSuccess}
-                                    />
-                                </div>
-                            )}
                         </div>
-
-
-
                     </div>
                 </div>
             )

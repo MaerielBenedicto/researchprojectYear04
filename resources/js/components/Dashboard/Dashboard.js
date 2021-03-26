@@ -117,9 +117,7 @@ class Dashboard extends Component {
         if (this.state.isLoaded) {
             return (
                 <div className="App dashboard">
-                    <Router>
                         <Sidebar  user={this.props.user} onSuccess={this.props.onSuccess}/>
-                        <Switch>
                             <Route exact path="/dashboard">
                                 <Home user={this.props.user} 
                                       uploadSuccess={this.props.uploadSuccess}/>
@@ -144,8 +142,6 @@ class Dashboard extends Component {
                                     changeStatusSuccess={this.changeCommentStatusSuccess}
                                 />
                             </Route>
-                        </Switch>
-                    </Router>
                 </div>
             )
         }

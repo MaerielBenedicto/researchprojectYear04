@@ -4,7 +4,7 @@ import { withRouter, Link } from "react-router-dom";
 import AddComment from './AddComment';
 import CommentVote from './CommentVote';
 import Moment from 'react-moment';
-import { FaEdit, FaTrashAlt, FaCommentAlt, FaEllipsisV } from 'react-icons/fa';
+import { FaEdit, FaTrashAlt, FaCommentAlt, FaEllipsisV, FaComments } from 'react-icons/fa';
 
 class Comments extends Component {
     constructor(props) {
@@ -83,8 +83,8 @@ class Comments extends Component {
 
         return (
             <div>    
-                <div className="row mt-5 ml-0">
-                    <div className="comment-box col-9 py-3">
+                {/* <div className="row mt-5 ml-0"> */}
+                    <div className="comment-box col-12 py-3">
                         <AddComment postId={this.props.postId} user={this.props.user} addComment={this.props.addComment} />
 
                         {comments.map(item => (
@@ -145,7 +145,7 @@ class Comments extends Component {
                             </div>
                         ))}
                     </div>
-                </div>
+                {/* </div> */}
             </div>
         )
     };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
+import {FaPencilAlt} from 'react-icons/fa';
 
 class CreateForum extends Component {
     constructor(props){
@@ -8,11 +9,12 @@ class CreateForum extends Component {
         this.state = {
             topic: props.location.state.topic || '',
             description: props.location.state.description || '',
-            mode: props.location.state.mode || 'create'
+            mode: props.location.state.mode || 'create',
+            errors: {}
         };
+
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
-        this.goBack = this.goBack.bind(this);
     }
 
     handleSubmitForm(e){
@@ -20,6 +22,8 @@ class CreateForum extends Component {
         e.preventDefault();
         let token = this.props.user.token;
         if(this.state.mode === 'create'){
+            
+            //send post request
             axios.post('/api/forums', 
             {
                 topic: this.state.topic,
@@ -30,17 +34,17 @@ class CreateForum extends Component {
                 headers: { Authorization: "Bearer " + token }
             })
             .then((response) => {
-                console.log('responseeeeeee',response);
                 this.props.render.createForumSuccess(response.data.data);
                 this.props.history.push('/forums/'+ response.data.data.id);   
               })
             .catch((error) => {
-                console.log(error);
                 if(error){
-                    console.log(error);
+                    this.setState({errors: error.response.data});
                 } 
             });   
         } else if(this.state.mode === 'edit') {
+
+            //send update request
             axios.put('/api/forums/' + this.props.location.state.forumId, 
             {
                 topic: this.state.topic,
@@ -55,9 +59,8 @@ class CreateForum extends Component {
                 this.props.history.push('/forums/'+ response.data.id); 
               })
             .catch((error) => {
-                console.log(error);
                 if(error){
-                    console.log(error);
+                    this.setState({errors: error.response.data});
                 } 
             }); 
         }
@@ -73,37 +76,40 @@ class CreateForum extends Component {
         });
       }
 
-      goBack(){
-        this.props.history.goBack();
-      }
 
     render(){
+        const errors = this.state.errors;
         return (
             <div className="body-content">
                 <div className="container">
                     {/* Create Forum */}
                     <form onSubmit={this.handleSubmitForm}> 
                     <div className="row justify-content-center">
-                        <div className="col-lg-9">
-                            <h3>Create new Forum Topic</h3>
+                        <div className="col-lg-9 create-title">
+                            <h3> <FaPencilAlt className="icon" />Create new Forum Topic</h3>
+                            <p className="ml-2"><span className="asterik">*</span> &mdash; Required Fields</p>
                         </div>
                         <div className="col-lg-9 forum-topic">
-                            <h4>Topic Title</h4>
-                            <input id="forum-title" type="text" className="form-control-forum" placeholder="Topic" name="topic"  
-                            value={this.state.topic}
-                            onChange={this.handleChange} />
+                            <h4>Topic Title <span className="asterik">*</span></h4>
+                            <input id="forum-title" type="text" 
+                                className="form-control-forum" 
+                                placeholder="Topic" name="topic"  
+                                value={this.state.topic}
+                                onChange={this.handleChange} 
+                            />
+                            <span className="error">{errors.topic}</span>
                         </div>
                         <div className="col-lg-9 forum-description">
                             <h4>Topic Description</h4>
-                            <textarea className="form-control-forum-body col-12 mb-3" rows="9" id="description" placeholder="Description" name="description"  
-                            value={this.state.description}
-                            onChange={this.handleChange}>
+                            <textarea className="form-control-forum-body col-12 mb-3" 
+                                rows="9" id="description" placeholder="Description" 
+                                name="description"  
+                                value={this.state.description}
+                                onChange={this.handleChange}>
                             </textarea>
                         </div>
                         <div className="form-bttn col-lg-9">
                             <button className="submit-button btn-primary" type="submit">Submit</button>
-                            {/* <button onClick={()=> this.goBack} className="cancel-button float-right btn-secondary">Cancel</button> */}
-
                         </div>
                     </div>
                     </form>

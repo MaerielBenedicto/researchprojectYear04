@@ -61,30 +61,32 @@ class ReviewComment extends Component {
                 )}
 
 
-                <div className="posts-lists col-12">
+                <div className="posts-lists-review col-12">
                     <h2>Under review</h2>
-                    <div className="row">
-                        <div className="user-data col-6">
-                            <p>Posted on: <Moment format="DD/MM/YYYY">{comment.created_at}</Moment></p>
-                            <p>User: {comment.user.name}</p>
-                            <p>Email: {comment.user.email}</p>
+                    <div className="row user-data-row">
+                        <div className="user-data col-5">
+                            <p><b>Posted on:</b> <Moment format="DD/MM/YYYY">{comment.created_at}</Moment></p>
+                            <p><b>User:</b> {comment.user.name}</p>
+                            <p><b>Email:</b> {comment.user.email}</p>
                         </div>
 
-                        <div className="user-data col-5">
+                        {/* <div className="user-data col-5">
                             <p>Sentiment score: {comment.s_score}</p>
                             <p>Magnitude score: {comment.s_magnitude}</p>
                             <p>Sentiment: Negative </p>
-                        </div>
+                        </div> */}
                     </div>
 
+                    <h4>Body</h4>
                     <div className="row mt-3">
                         <div className="user-data col-11">
-                            <p>Body: {comment.body}</p>
+                            <p>{comment.body}</p>
                         </div>
                     </div>
+                    
                     <div className="row mt-3 ml-2">
-                        <div className="col-5">
-                            <p>Action</p>
+                    <h4> Action </h4>
+                        <div className="col-5 actions-buttons">
                             <button value="approved" onClick={this.changeStatus} className="approve-bttn">Approve</button>
                             <button value="denied" onClick={this.changeStatus} className="denied-bttn">Deny</button>
                         </div>

@@ -114,7 +114,7 @@ class App extends Component {
     if (user.role === 'admin') {
       this.props.history.push('/dashboard');
     } else {
-      console.log("user");
+      // console.log("user");
       this.props.history.push('/');
     }
   }
@@ -135,7 +135,7 @@ class App extends Component {
   }
 
   createForumSuccess(forum) {
-    console.log('foruum', forum);
+    // console.log('foruum', forum);
     let tempForums = this.state.forums;
 
     //push comment in the beginning of the array 
@@ -209,7 +209,7 @@ class App extends Component {
     axios.get('/api/user',
       { headers: { Authorization: "Bearer " + token } })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         localStorage.setItem("user", JSON.stringify(response.data.user));
         this.setState({ user: response.data.user })
       })

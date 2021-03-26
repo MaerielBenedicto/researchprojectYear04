@@ -30,12 +30,13 @@ class Sidebar extends Component {
       
     render(){
         return (
-            <div className="sidebar col-2">
+            <div className="sidebar d-none d-md-block col-2">
                 <div className="">
                     <Link to="/" className="navbar-brand">
                         <span className="logo-site"> LOGO</span>
                     </Link>
-                    <div className="sidebar-links">
+                    
+                    <div id="sidebar" className="sidebar-links ">
                         <ul>
                             <div className="setting-div">
                                 <li className="side-link">
