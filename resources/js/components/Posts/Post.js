@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
+
+//components
 import AddComment from '../AddComment';
 import Comments from '../Comments';
 import PostVote from '../PostVote';
 import Bookmark from '../Bookmark';
 import SideLinkForums from '../SideLinkForums';
+import DeleteConfirmation from '../Modal/DeleteConfirmation';
 
+//moment
 import Moment from 'react-moment';
-
+//icons
 import { FaEdit, FaTrashAlt, FaCommentAlt, FaEllipsisV, FaRegWindowClose } from 'react-icons/fa';
 
 
@@ -19,7 +23,8 @@ class Post extends Component {
             post: {},
             comments: [],
             isLoaded: false,
-            sortby: 'Latest'
+            sortby: 'Latest',
+            showModal: false
         };
 
         this.comments = this.comments.bind(this);
@@ -37,7 +42,6 @@ class Post extends Component {
     getPost() {
         axios.get('/api/posts/' + this.props.match.params.id)
             .then(response => {
-
                 if (response.data.data.action === "under review") {
                     this.setState({
                         hide: true
@@ -51,7 +55,7 @@ class Post extends Component {
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.state.errors = error.response.data.errors;
+                    this.setState({errors: error.response.data.errors});
                 }
             });
     }
@@ -66,7 +70,7 @@ class Post extends Component {
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.state.errors = error.response.data.errors;
+                    this.setState({errors: error.response.data.errors});
                 }
             });
     }
@@ -84,7 +88,7 @@ class Post extends Component {
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.state.errors = error.response.data.errors;
+                    this.setState({errors: error.response.data.errors});
                 }
             });
     }
@@ -111,7 +115,6 @@ class Post extends Component {
     }
 
     render() {
-
         if (this.state.isLoaded) {
             const forums = this.props.forums;
 
@@ -119,6 +122,9 @@ class Post extends Component {
             const hideClass = this.state.hide ? '' : 'removeWarning';
             const user = this.props.user;
             const post = this.state.post;
+            var comments = this.state.comments;
+            const bookmarks = this.props.bookmarks;
+
             if (user) {
                 if (post.post_vote.length >= 1) {
                     post.post_vote.map((vote) => {
@@ -132,11 +138,9 @@ class Post extends Component {
                             }
                             return post;
                         }
-                    })
+                    });
                 }
-            }
-            var comments = this.state.comments;
-            if (user) {
+
                 //check if user have voted comment
                 comments.filter((comment, i) => {
                     if (comment.comment_vote.length >= 1) {
@@ -154,7 +158,15 @@ class Post extends Component {
                         })
                     }
                 });
+
+                 //set bookmarked post
+                    if (bookmarks.map(bookmark => bookmark.id === post.id)) {
+                        post.bookmarked = true;
+                    } else {
+                        post.bookmarked = false;
+                    }
             }
+            
 
             return (
                 <div className="body-m-top body-m-bottom">
@@ -224,7 +236,7 @@ class Post extends Component {
                                                                     <span className="bttn"><FaEdit className="icon" />Edit</span>
                                                                 </Link>
                                                             </button>
-                                                            <button className="dropdown-item drop-down-link" onClick={this.delete}>
+                                                            <button className="dropdown-item drop-down-link" onClick={()=> this.setState({showModal: true})}>
                                                                 <span><FaTrashAlt className="icon" />  Delete </span>
                                                             </button>
                                                         </div>
@@ -268,6 +280,17 @@ class Post extends Component {
                                 />
                             </div>
                         </div>
+
+                        {/* DELETE POST */}
+                        {this.state.showModal && (
+                            <DeleteConfirmation
+                                user={user}
+                                item={"post"}
+                                delete={this.delete}
+                                showModal={this.state.showModal}
+                                closeModal={() => this.setState({ showModal: false })}
+                            />
+                        )}
                     </div>
                 </div>
             )

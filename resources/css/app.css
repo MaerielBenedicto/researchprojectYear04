@@ -104,9 +104,9 @@ nav {
 
 /*** FORMS ***/
 
-.form-group {
+/* .form-group {
     margin-bottom: 28px;
-}
+} */
 
 .form-control,
 .custom-select,
@@ -124,6 +124,11 @@ nav {
 
 .form-div input{
     margin: 0px auto;
+}
+
+.form-div span.error{
+    margin: 0px 20%;
+
 }
 
 .form-msg{

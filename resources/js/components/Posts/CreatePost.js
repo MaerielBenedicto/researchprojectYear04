@@ -22,7 +22,6 @@ class CreatePost extends Component {
         //prevent from reloading page
         e.preventDefault();
         let token = this.props.user.token;
-        // console.log('user token',this.props.user.token);
         if(this.state.mode === 'create'){
             e.preventDefault();
             axios.post('/api/forums/' + this.props.location.state.forumId + '/posts', 
@@ -41,7 +40,6 @@ class CreatePost extends Component {
                 this.props.history.push('/posts/'+ response.data.data.id);   
               })
             .catch((error) => {
-                // console.log(error);
                 if(error){
                     // console.log(error.response.data);
                     this.setState({errors: error.response.data});

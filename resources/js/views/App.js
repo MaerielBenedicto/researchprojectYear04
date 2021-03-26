@@ -187,7 +187,8 @@ class App extends Component {
 
   AddPostbookmarkSuccess(post) {
     let tempPostsBookmarks = this.state.posts_bookmarks;
-
+    console.log(tempPostsBookmarks);
+    console.log(post);
     //push comment in the beginning of the array 
     tempPostsBookmarks.push(post);
     this.setState({
@@ -322,6 +323,7 @@ class App extends Component {
               forums={this.state.forums}
               AddbookmarkSuccess={this.AddPostbookmarkSuccess}
               RemovebookmarkSuccess={this.RemovePostbookmarkSuccess}
+              bookmarks={this.state.posts_bookmarks}
             />
           </Route>
           <PrivateRoute exact path="/forums"

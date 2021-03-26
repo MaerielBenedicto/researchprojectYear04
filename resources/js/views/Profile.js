@@ -5,13 +5,13 @@ import UserForums from '../components/UserForums';
 import UserPosts from '../components/UserPosts';
 import Avatar from '../components/Modal/Avatar';
 
-import {FaUserEdit, FaWindowClose} from 'react-icons/fa';
+import { FaUserEdit, FaWindowClose } from 'react-icons/fa';
 import BookmarkLists from '../components/BookmarkLists';
 class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: props.user.name, 
+            name: props.user.name,
             email: props.user.email,
             password: '',
             password_confirmation: '',
@@ -21,7 +21,7 @@ class Profile extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
         this.uploaded = this.uploaded.bind(this);
-        
+
     }
 
     handleSubmitForm(e) {
@@ -34,13 +34,14 @@ class Profile extends Component {
             email: this.state.email,
             password: this.state.password,
             password_confirmation: this.state.password_confirmation
-        }, 
-        { headers: { Authorization: "Bearer " + this.props.user.token } 
-        })
+        },
+            {
+                headers: { Authorization: "Bearer " + this.props.user.token }
+            })
             .then((response) => {
                 console.log(response.data);
                 this.props.updateProfile(response.data.user);
-                this.setState({update: false});
+                this.setState({ update: false });
             })
             .catch((error) => {
                 if (error.response) {
@@ -59,8 +60,8 @@ class Profile extends Component {
         });
     }
 
-    uploaded(){
-        this.setState({showModal: false});
+    uploaded() {
+        this.setState({ showModal: false });
     }
 
     render() {
@@ -84,9 +85,6 @@ class Profile extends Component {
                             <li className="nav-item" role="presentation">
                                 <a href="#posts-tab" className="nav-link" id="posts-tab" data-toggle="tab" data-target="#posts" type="button" role="tab" aria-controls="posts" aria-selected="false">Posts</a>
                             </li>
-                            {/* <li className="nav-item" role="presentation">
-                                <a href="#comments-tab" className="nav-link" id="comments-tab" data-toggle="tab" data-target="#comments" type="button" role="tab" aria-controls="comments" aria-selected="false">Comments</a>
-                            </li> */}
                             <li className="nav-item" role="presentation">
                                 <a href="#bookmarks-tab" className="nav-link" id="bookmarks-tab" data-toggle="tab" data-target="#bookmarks" type="button" role="tab" aria-controls="bookmarks" aria-selected="false">Bookmarks</a>
                             </li>
@@ -95,24 +93,34 @@ class Profile extends Component {
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div className="row profile">
                                     <div className="col-2 profile-avatar">
-                                    <img src={(user.image !== 'image.jpg' || undefined) ? ('uploads/' + user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
                                         
-                                        <div><button onClick={()=> this.setState({showModal: true})} className="edit-avatar-bttn btn-primary">Edit avatar</button></div>
+                                        {/* display default image if user have no avatar */}
+                                        <img 
+                                            src={(user.image !== 'image.jpg' || undefined) ? 
+                                                ('uploads/' + user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} 
+                                        />
+
+                                        <div>
+                                            <button 
+                                                onClick={() => this.setState({ showModal: true })}
+                                                className="edit-avatar-bttn btn-primary">Edit avatar
+                                            </button>
+                                        </div>
                                     </div>
                                     <div className="profile-div col-5">
                                         <div className="profile-heading">
-                                            <h4>Account information 
+                                            <h4>Account information
                                                 {this.state.update && (
-                                                    <button onClick={()=> this.setState({update: false})} className="float-right">
-                                                    <FaWindowClose className="icon" />
-                                                </button>
+                                                    <button onClick={() => this.setState({ update: false })} className="float-right">
+                                                        <FaWindowClose className="icon" />
+                                                    </button>
                                                 )}
-                                        
-                                                <button onClick={()=> this.setState({update: true})} className="float-right">
+
+                                                <button onClick={() => this.setState({ update: true })} className="float-right">
                                                     <FaUserEdit className="icon" />
                                                 </button>
                                             </h4>
-                                            
+
                                         </div>
                                         <div className="profile-details">
                                             <form onSubmit={this.handleSubmitForm} className="form-div">
@@ -134,7 +142,7 @@ class Profile extends Component {
                                                                 onChange={this.handleChange} />
                                                         ) : (<p>{user.email}</p>)}
                                                     </div>
-                                                    
+
                                                     {/* UPDATE PROFILE */}
                                                     {(this.state.update) ? (
                                                         <div>
@@ -158,7 +166,7 @@ class Profile extends Component {
                                                         </button>
                                                             </div>
                                                         </div>
-                                                    ):""}
+                                                    ) : ""}
                                                 </div>
                                             </form>
                                         </div>
@@ -166,32 +174,32 @@ class Profile extends Component {
                                 </div>
                             </div>
                             <div className="tab-pane fade" id="forums" role="tabpanel" aria-labelledby="forums-tab">
-                                <UserForums user={user}/>
+                                <UserForums user={user} />
                             </div>
                             <div className="tab-pane fade" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                                <UserPosts user={user}/>
+                                <UserPosts user={user} />
                             </div>
                             {/* <div className="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
                                 <UserPosts user={user}/>
                             </div> */}
                             <div className="tab-pane fade" id="bookmarks" role="tabpanel" aria-labelledby="bookmarks-tab">
-                                <BookmarkLists 
-                                    user={user} 
+                                <BookmarkLists
+                                    user={user}
                                     posts_bookmarks={this.props.posts_bookmarks}
                                     forums_bookmarks={this.props.forums_bookmarks}
                                 />
                             </div>
-                            
+
                         </div>
-                        
+
                         {/* UPLOAD IMAGE  */}
                         {this.state.showModal && (
-                                <Avatar user={user} 
-                                        uploaded={this.uploaded} 
-                                        uploadSuccess={this.props.uploadSuccess}
-                                        showModal={this.state.showModal}
-                                        closeModal={()=> this.setState({showModal: false})}
-                                />
+                            <Avatar user={user}
+                                uploaded={this.uploaded}
+                                uploadSuccess={this.props.uploadSuccess}
+                                showModal={this.state.showModal}
+                                closeModal={() => this.setState({ showModal: false })}
+                            />
                         )}
 
                     </div>

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 import AddComment from './AddComment';
 import CommentVote from './CommentVote';
+import DeleteConfirmation from './Modal/DeleteConfirmation';
+
 import Moment from 'react-moment';
 import { FaEdit, FaTrashAlt, FaCommentAlt, FaEllipsisV, FaComments } from 'react-icons/fa';
 
@@ -15,7 +17,8 @@ class Comments extends Component {
             comment_value: "",
             sort: '',
             edit: false,
-            editId: ''
+            editId: '',
+            showModal: false
         };
         
         this.handleChange = this.handleChange.bind(this);
@@ -35,9 +38,9 @@ class Comments extends Component {
         });
     }
 
-    deleteComment(id) {
+    deleteComment() {
         let token = this.props.user.token;
-        axios.delete('/api/comments/' + id,
+        axios.delete('/api/comments/' + this.state.item,
             {
                 headers: { Authorization: "Bearer " + token }
             })
@@ -64,6 +67,7 @@ class Comments extends Component {
                 headers: { Authorization: "Bearer " + token }
             })
             .then(response => {
+                console.log(response);
                 this.setState({ edit: false});
                 this.props.updateComment(response.data);
             })
@@ -85,7 +89,13 @@ class Comments extends Component {
             <div>    
                 {/* <div className="row mt-5 ml-0"> */}
                     <div className="comment-box col-12 py-3">
-                        <AddComment postId={this.props.postId} user={this.props.user} addComment={this.props.addComment} />
+
+                        {/* ADD COMMENT COMPONENT */}
+                        <AddComment 
+                            postId={this.props.postId} 
+                            user={user} 
+                            addComment={this.props.addComment} 
+                        />
 
                         {comments.map(item => (
                             <div key={item.id} className="each-comment">
@@ -134,7 +144,9 @@ class Comments extends Component {
                                                         <span className="bttn"><FaEdit className="icon" />Edit</span>
                                                     </button>
                                                     <button className="dropdown-item drop-down-link edit-bttn"
-                                                        onClick={() => this.deleteComment(item.id)}>
+                                                        // onClick={() => this.deleteComment(item.id)}
+                                                        onClick={()=> this.setState({showModal: true, item: item.id})}
+                                                        >
                                                         <span><FaTrashAlt className="icon" />  Delete </span>
                                                     </button>
                                                 </div>
@@ -145,6 +157,17 @@ class Comments extends Component {
                             </div>
                         ))}
                     </div>
+
+                    {/* DELETE FORUM */}
+                    {this.state.showModal && (
+                        <DeleteConfirmation 
+                            user={user}
+                            item={"comment"}
+                            delete={this.deleteComment}
+                            showModal={this.state.showModal}
+                            closeModal={() => this.setState({ showModal: false })}
+                        />
+                    )}
                 {/* </div> */}
             </div>
         )

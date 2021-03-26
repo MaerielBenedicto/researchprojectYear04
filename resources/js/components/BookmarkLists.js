@@ -44,7 +44,7 @@ class BookmarkLists extends Component {
                                                         <span className="warning-status"> Under Review</span>
                                                     )}
                                                     <p><span>Forum: {item.forum.topic}</span> | Posted on: <Moment format="DD/MM/YYYY">{item.created_at}</Moment></p>
-                                                
+
                                                 </div>
 
                                             </td>
@@ -65,7 +65,7 @@ class BookmarkLists extends Component {
                                             <td>
                                                 <div>
                                                     <Link to={`/forums/${item.id}`}>
-                                                    <h4>{item.topic}</h4>
+                                                        <h4>{item.topic}</h4>
                                                     </Link>
                                                     <p><span>Posted on: <Moment format="DD/MM/YYYY">{item.created_at}</Moment></span></p>
 
@@ -78,7 +78,7 @@ class BookmarkLists extends Component {
                                     </tbody>
                                 ))}
                             </table>
-                            
+
                         </div>
                     </div>
 

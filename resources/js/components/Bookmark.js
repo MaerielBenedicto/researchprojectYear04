@@ -16,7 +16,6 @@ class Bookmark extends Component {
     bookmark(){
         let token = this.props.user.token;
         if(this.props.forum_bookmark){
-            
             //if not yet bookmarked
             if(!this.state.bookmarked){
                 axios.post('/api/bookmark/forum/' + this.props.id, null,
@@ -24,7 +23,7 @@ class Bookmark extends Component {
                     headers: { Authorization: "Bearer " + token }
                 })
                 .then((response) => {
-                    // console.log(response.data);
+                    console.log(response.data);
                     this.setState({bookmarked: true});
                     this.props.AddbookmarkSuccess(response.data);
                 })
@@ -62,7 +61,7 @@ class Bookmark extends Component {
                     headers: { Authorization: "Bearer " + token }
                 })
                 .then((response) => {
-                    // console.log(response.data);
+                    console.log(response.data);
                     this.props.AddbookmarkSuccess(response.data);
                     this.setState({bookmarked: true});
                 })

@@ -4,8 +4,8 @@ import { withRouter, Link } from "react-router-dom";
 import { FaComments } from 'react-icons/fa';
 
 class AddComment extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             comment: ""
         };
@@ -15,32 +15,32 @@ class AddComment extends Component {
     }
 
     handleSubmitForm(e) {
-        //prevent from reloading page
+        // console.log(token);
         e.preventDefault();
-        let token = this.props.user.token;
-        if (token) {
+        let user = this.props.user;
+        
+        if (user) {
             axios.post('/api/posts/' + this.props.postId + '/comments',
                 {
                     body: this.state.comment,
                     post_id: this.props.postId,
                     user_id: this.props.user.id
                 },
-                {
-                    headers: { Authorization: "Bearer " + token }
-                })
+                { headers: { Authorization: "Bearer " + user.token } })
                 .then((response) => {
-                    console.log(response.data);
+                    // console.log(response.data);
                     this.setState({ comment: "" });
                     this.props.addComment(response.data.data);
                 })
                 .catch(function (error) {
-                    console.log(error);
+                    // console.log(error);
                     if (error) {
                         console.log(error);
                     }
                 });
         }
         else {
+            //if not signed in; go to sign in page
             this.props.history.push('/signin');
         }
 
@@ -61,7 +61,9 @@ class AddComment extends Component {
             <div className="add-comment-div">
                 <h4><FaComments className="icon" />Add a comment</h4>
                 <form onSubmit={this.handleSubmitForm}>
-                    <textarea className="comment-box form-control col-12 mb-3" rows="5" id="body" placeholder="Add a comment" name="comment"
+                    <textarea className="comment-box form-control col-12 mb-3" 
+                        rows="5" id="body" placeholder="Add a comment" 
+                        name="comment"
                         value={this.state.comment}
                         onChange={this.handleChange}>
                     </textarea>

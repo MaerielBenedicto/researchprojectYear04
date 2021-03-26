@@ -117,6 +117,7 @@ class CommentController extends Controller
 
         //load comment along with user
       $comment = $comment->load('user');
+      $comment['comment_vote'] = $comment->comment_vote();
       return $comment;
     }
 

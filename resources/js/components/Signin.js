@@ -12,7 +12,7 @@ class Signin extends Component {
             email: '',
             password: '',
             remember: true,
-            errors: []
+            errors: {}
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -49,6 +49,7 @@ class Signin extends Component {
     }
 
     render() {
+        const errors = this.state.errors;
         return (
             <div className="body-content">
                 <div className="row">
@@ -60,15 +61,22 @@ class Signin extends Component {
                         <form onSubmit={this.handleSubmitForm} className="form-div">
                             <div className="row">
                                 <div className="form-group col-12">
-                                    <input id="email" type="email" className="form-control" placeholder="Email" name="email" required
+                                    <input id="email" type="email" 
+                                        className="form-control" 
+                                        placeholder="Email" name="email" 
                                         value={this.state.email}
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} 
+                                    />
+                                    <span className="error">{errors.email}</span>
                                 </div>
 
                                 <div className="form-group col-12">
-                                    <input id="password" type="password" className="form-control" placeholder="Password" name="password" required
+                                    <input id="password" type="password" className="form-control" 
+                                        placeholder="Password" name="password" 
                                         value={this.state.password}
-                                        onChange={this.handleChange} />
+                                        onChange={this.handleChange} 
+                                    />
+                                    <span className="error">{errors.password}</span>
                                 </div>
                                 <div className="form-group col-12 form-msg">
                                     <span className="rememberInput">
