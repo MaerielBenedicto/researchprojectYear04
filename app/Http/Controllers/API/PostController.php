@@ -55,11 +55,9 @@ class PostController extends Controller
     }
 
     $body = $request->body;
-    // $sentimentValues = $this->sentiment($body);
-
-    //generate random values
-    $s_score = mt_rand(-1.0, 1.0);
-    $s_magnitude = mt_rand(1, 10);
+    $sentimentValues = $this->sentiment($body);
+    $s_score = $sentimentValues['score'];
+    $s_magnitude = $sentimentValues['magnitude'];
 
     //negative sentiment
     if($s_score <= -0.25 && $s_magnitude > .5) {
@@ -75,8 +73,6 @@ class PostController extends Controller
         'body' => $request->body,
         'user_id' => $request->user_id,
         'forum_id' => $id,
-        // 's_score' => $sentimentValues['score'],
-        // 's_magnitude' => $sentimentValues['magnitude']
         's_score' => $s_score,
         's_magnitude' =>  $s_magnitude,
         'status' => $status,
@@ -100,11 +96,9 @@ class PostController extends Controller
         }
 
         $body = $request->input('body');
-        // $sentimentValues = $this->sentiment($body);
-
-        //generate random values
-        $s_score = mt_rand(-1.0, 1.0);
-        $s_magnitude = mt_rand(1, 10);
+        $sentimentValues = $this->sentiment($body);
+        $s_score = $sentimentValues['score'];
+        $s_magnitude = $sentimentValues['magnitude'];
     
         //negative sentiment
         if($s_score <= -0.25 && $s_magnitude > .5) {
@@ -120,8 +114,6 @@ class PostController extends Controller
         $post->body = $request->input('body');
         $post->user_id = $request->input('user_id');
         $post->forum_id = $request->input('forum_id');
-        // $post->s_score = $sentimentValues['score'];
-        // $post->s_magnitude = $sentimentValues['magnitude'];
         $post->s_score = $s_score;
         $post->s_magnitude = $s_magnitude;
         $post->status = $status;

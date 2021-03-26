@@ -45,11 +45,9 @@ class CommentController extends Controller
     }
 
     $body = $request->body;
-    //generate random values
-    // $s_score = mt_rand(-1.0, 0);
-    $s_score = -0.5;
-    $s_magnitude = mt_rand(1, 10);
-    // $s_score = -0.5;
+    $sentimentValues = $this->sentiment($body);
+    $s_score = $sentimentValues['score'];
+    $s_magnitude = $sentimentValues['magnitude'];
 
     //negative sentiment
     if($s_score <= -0.25 && $s_magnitude > .5) {
@@ -65,10 +63,8 @@ class CommentController extends Controller
         'body' => $request->body,
         'user_id' => $request->user_id,
         'post_id' => $id,
-        // 's_score' => $sentimentValues['score'],
-        // 's_magnitude' => $sentimentValues['magnitude']
-        's_score' => '0',
-        's_magnitude' => '0',
+        's_score' =>  $s_score,
+        's_magnitude' => $s_magnitude,
         'status' => $status,
         'action' => $action
     ]);
@@ -91,10 +87,9 @@ class CommentController extends Controller
         }
 
         $body = $request->input('body');
-        // $sentimentValues = $this->sentiment($body);
-        //generate random values
-        $s_score = mt_rand(-1.0, 1.0);
-        $s_magnitude = mt_rand(1, 10);
+        $sentimentValues = $this->sentiment($body);
+        $s_score = $sentimentValues['score'];
+        $s_magnitude = $sentimentValues['magnitude'];
     
         //negative sentiment
         if($s_score <= -0.25 && $s_magnitude > .5) {
@@ -109,8 +104,6 @@ class CommentController extends Controller
         $comment->body = $request->input('body');
         $comment->user_id = $request->input('user_id');
         $comment->post_id = $request->input('post_id');
-        // $comment->s_score = $sentimentValues['score'];
-        // $comment->s_magnitude = $sentimentValues['magnitude'];
         $comment->s_score = $s_score;
         $comment->s_magnitude = $s_magnitude;
         $comment->status = $status;
