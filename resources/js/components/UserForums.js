@@ -25,9 +25,7 @@ class UserForums extends Component {
         //get user forums
         let token = this.props.user.token;
         axios.get('/api/profile/' + this.props.user.id + '/forums',
-            {
-                headers: { Authorization: "Bearer " + token }
-            })
+            { headers: { Authorization: "Bearer " + token }})
             .then(response => {
                 this.setState({
                     forums: response.data
@@ -35,19 +33,16 @@ class UserForums extends Component {
             })
             .catch(function (error) {
                 if (error) {
-                    console.log(error.response);
-                    this.state.errors = error.response.data.errors;
+                    console.log(error);
+                    this.setState({errors: error.response.data.errors});
                 }
             });
     }
 
     delete() {
-        console.log("DELETE");
         let token = this.props.user.token;
         axios.delete('/api/forums/' + this.state.item,
-            {
-                headers: { Authorization: "Bearer " + token }
-            })
+            { headers: { Authorization: "Bearer " + token }})
             .then(response => {
                 console.log(response);
                 this.forums();
@@ -55,7 +50,7 @@ class UserForums extends Component {
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.state.errors = error.response.data.errors;
+                    this.setState({errors: error.response.data.errors});
                 }
             });
     }
@@ -131,7 +126,7 @@ class UserForums extends Component {
                             </Link>
                         </div>
                     </div>
-                    
+
                     {/* DELETE FORUM */}
                     {this.state.showModal && (
                         <DeleteConfirmation 

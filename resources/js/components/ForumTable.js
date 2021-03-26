@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
-import { FaListAlt, FaEdit, FaTrashAlt, FaEllipsisV } from 'react-icons/fa';
+
+/*Components */
 import Bookmark from './Bookmark';
 import DeleteConfirmation from './Modal/DeleteConfirmation';
+
+/*Icons */
+import { FaListAlt, FaEdit, FaTrashAlt, FaEllipsisV } from 'react-icons/fa';
 
 class ForumTable extends Component {
     constructor(props) {
@@ -18,19 +22,21 @@ class ForumTable extends Component {
         const user = this.props.user;
         return (
             // <div className="row">
-                <div className="forum col-lg-12" key={item.id}>
-                    <div className="row">
-                        <div className="col-11 forum-title">
-                            {/* <div className="forum-title"> */}
-                                <Link to={`/forums/${item.id}`} className="forum-title">
-                                    {item.topic}
-                                </Link>
-                            {/* </div> */}
-                        </div>
-                        <div className="col-1">
+            <div className="forum col-lg-12" key={item.id}>
+                <div className="row">
+                    <div className="col-11 forum-title">
+                        {/* <div className="forum-title"> */}
+                        <Link to={`/forums/${item.id}`} className="forum-title">
+                            {item.topic}
+                        </Link>
+                        {/* </div> */}
+                    </div>
+                    <div className="col-1">
                         {(user && user.id === item.user.id) ? (
                             <div className="dropdown show">
-                                <a className="btn actions-btn dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a className="btn actions-btn dropdown" href="#" 
+                                    role="button" id="dropdownMenuLink" data-toggle="dropdown" 
+                                    aria-haspopup="true" aria-expanded="false">
                                     <FaEllipsisV className="icon" />
                                 </a>
 
@@ -48,13 +54,14 @@ class ForumTable extends Component {
                                             <span className="bttn"><FaEdit className="icon" />Edit</span>
                                         </Link>
                                     </button>
-                                    <button className="dropdown-item drop-down-link"  onClick={()=> this.setState({showModal: true, item: item})}>
+                                    <button className="dropdown-item drop-down-link" 
+                                        onClick={() => this.setState({ showModal: true, item: item })}>
                                         <span><FaTrashAlt className="icon" />  Delete </span>
                                     </button>
                                 </div>
                             </div>
                         ) : ''}
-                        </div>
+                    </div>
                     {/* </div> */}
                     <div className="forum-desc col-12 pl-4">
                         <span>{item.description}</span>
@@ -70,20 +77,18 @@ class ForumTable extends Component {
                             RemovebookmarkSuccess={this.props.RemovebookmarkSuccess}
                         />
                     </div>
-
-                    
-
                 </div>
+
                 {/* DELETE FORUM */}
                 {this.state.showModal && (
-                        <DeleteConfirmation 
-                            user={user}
-                            item={"forum"}
-                            delete={() => this.props.delete(this.state.item)}
-                            showModal={this.state.showModal}
-                            closeModal={() => this.setState({ showModal: false })}
-                        />
-                    )}
+                    <DeleteConfirmation
+                        user={user}
+                        item={"forum"}
+                        delete={() => this.props.delete(this.state.item)}
+                        showModal={this.state.showModal}
+                        closeModal={() => this.setState({ showModal: false })}
+                    />
+                )}
             </div>
         )
     };

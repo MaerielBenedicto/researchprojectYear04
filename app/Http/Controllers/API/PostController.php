@@ -165,6 +165,12 @@ class PostController extends Controller
   /** DELETE POST **/
   public function destroy($id){
     $post = Post::findOrFail($id);
+    $comments = $post->comments();
+
+    //delete comments in the post
+    foreach($comments as $comment){
+      $comment->delete();
+    }
     $post->delete();
 
     return response()->json(['message' => 'Post deleted!'], 200);
@@ -184,9 +190,8 @@ class PostController extends Controller
 
 
 
-
+  /**SENTIMENT ANALYSIS */
   public function sentiment($body){
-
     //create an instance of the serviceBuilder /**
     $cloud = new ServiceBuilder([
       //specify location of the JSON file with 'keyFilePath'

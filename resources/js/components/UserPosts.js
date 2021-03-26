@@ -36,7 +36,7 @@ class UserPosts extends Component {
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.state.errors = error.response.data.errors;
+                    this.setState({errors: error.response.data.errors});
                 }
             });
     }
@@ -55,7 +55,7 @@ class UserPosts extends Component {
             .catch(function (error) {
                 if (error) {
                     console.log(error);
-                    this.state.errors = error.response.data.errors;
+                    this.setState({errors: error.response.data.errors});
                 }
             });
     }
