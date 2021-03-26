@@ -97,7 +97,7 @@ class Profile extends Component {
                                     <div className="col-2 profile-avatar">
                                     <img src={(user.image !== 'image.jpg' || undefined) ? ('uploads/' + user.image) : 'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'} />
                                         
-                                        <div><button onClick={()=> this.setState({showModal: true})}className="edit-avatar-bttn btn-primary">Edit avatar</button></div>
+                                        <div><button onClick={()=> this.setState({showModal: true})} className="edit-avatar-bttn btn-primary">Edit avatar</button></div>
                                     </div>
                                     <div className="profile-div col-5">
                                         <div className="profile-heading">

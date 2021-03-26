@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 import { FaListAlt, FaEdit, FaTrashAlt, FaEllipsisV } from 'react-icons/fa';
 import Bookmark from './Bookmark';
+import DeleteConfirmation from './Modal/DeleteConfirmation';
+
 class ForumTable extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
+            showModal: false
         };
-    }
-
-    componentDidMount() {
-
     }
 
     render() {
@@ -49,7 +48,7 @@ class ForumTable extends Component {
                                             <span className="bttn"><FaEdit className="icon" />Edit</span>
                                         </Link>
                                     </button>
-                                    <button className="dropdown-item drop-down-link" onClick={() => this.props.delete(item)}>
+                                    <button className="dropdown-item drop-down-link"  onClick={()=> this.setState({showModal: true, item: item})}>
                                         <span><FaTrashAlt className="icon" />  Delete </span>
                                     </button>
                                 </div>
@@ -75,6 +74,16 @@ class ForumTable extends Component {
                     
 
                 </div>
+                {/* DELETE FORUM */}
+                {this.state.showModal && (
+                        <DeleteConfirmation 
+                            user={user}
+                            item={"forum"}
+                            delete={() => this.props.delete(this.state.item)}
+                            showModal={this.state.showModal}
+                            closeModal={() => this.setState({ showModal: false })}
+                        />
+                    )}
             </div>
         )
     };

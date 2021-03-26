@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 import { FaTrashAlt, FaEllipsisH, FaEdit, FaCommentAlt } from 'react-icons/fa';
 import Moment from 'react-moment';
+import DeleteConfirmation from './Modal/DeleteConfirmation';
 
 class UserForums extends Component {
     constructor() {
         super();
         this.state = {
-            forums: []
+            forums: [],
+            showModal: false
         };
 
         this.delete = this.delete.bind(this);
@@ -39,10 +41,10 @@ class UserForums extends Component {
             });
     }
 
-    delete(id) {
+    delete() {
         console.log("DELETE");
         let token = this.props.user.token;
-        axios.delete('/api/forums/' + id,
+        axios.delete('/api/forums/' + this.state.item,
             {
                 headers: { Authorization: "Bearer " + token }
             })
@@ -60,7 +62,7 @@ class UserForums extends Component {
 
     render() {
         const forums = this.state.forums;
-
+        const user = this.props.user;
         return (
             <div className="mt-2 body-m-bottom">
                 <div className="container">
@@ -78,7 +80,7 @@ class UserForums extends Component {
                                             <td>
                                                 <div>
                                                     <Link to={`/forums/${item.id}`}>
-                                                    <h4>{item.topic}</h4>
+                                                        <h4>{item.topic}</h4>
                                                     </Link>
                                                     <p><span>Posted on: <Moment format="DD/MM/YYYY">{item.created_at}</Moment></span></p>
 
@@ -104,7 +106,7 @@ class UserForums extends Component {
                                                                         <span className="bttn"><FaEdit className="icon" />Edit</span>
                                                                     </Link>
                                                                 </button>
-                                                                <button className="dropdown-item drop-down-link" onClick={() => this.delete(item.id)}>
+                                                                <button className="dropdown-item drop-down-link" onClick={()=> this.setState({showModal: true, item: item.id})} >
                                                                     <span><FaTrashAlt className="icon" />  Delete </span>
                                                                 </button>
                                                             </div>
@@ -118,20 +120,31 @@ class UserForums extends Component {
                                     </tbody>
                                 ))}
                             </table>
-                            
+
                         </div>
                         <div className="col">
-                                <Link to={{
-                                        pathname: '/forums',
-                                        state: {}
-                                    }}>
-                                        <button className="forum-bttn btn-primary">Create a new Forum topic</button>
-                                    </Link>
-                            </div>
+                            <Link to={{
+                                pathname: '/forums',
+                                state: {}
+                            }}>
+                                <button className="forum-bttn btn-primary">Create a new Forum topic</button>
+                            </Link>
+                        </div>
                     </div>
+                    
+                    {/* DELETE FORUM */}
+                    {this.state.showModal && (
+                        <DeleteConfirmation 
+                            user={user}
+                            item={"forum"}
+                            delete={this.delete}
+                            showModal={this.state.showModal}
+                            closeModal={() => this.setState({ showModal: false })}
+                        />
+                    )}
 
                 </div>
-                
+
             </div>
         )
     };

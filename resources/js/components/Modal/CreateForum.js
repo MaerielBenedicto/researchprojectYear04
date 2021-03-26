@@ -86,7 +86,7 @@ class CreateForum extends Component {
                     <form onSubmit={this.handleSubmitForm}> 
                     <div className="row justify-content-center">
                         <div className="col-lg-9 create-title">
-                            <h3> <FaPencilAlt className="icon" />Create new Forum Topic</h3>
+                            <h3> <FaPencilAlt className="icon" />Create a Forum Topic</h3>
                             <p className="ml-2"><span className="asterik">*</span> &mdash; Required Fields</p>
                         </div>
                         <div className="col-lg-9 forum-topic">
@@ -100,15 +100,17 @@ class CreateForum extends Component {
                             <span className="error">{errors.topic}</span>
                         </div>
                         <div className="col-lg-9 forum-description">
-                            <h4>Topic Description</h4>
-                            <textarea className="form-control-forum-body col-12 mb-3" 
+                            <h4>Topic Description <span className="asterik">*</span></h4>
+                            <textarea className="form-control-forum-body col-12 " 
                                 rows="9" id="description" placeholder="Description" 
                                 name="description"  
                                 value={this.state.description}
                                 onChange={this.handleChange}>
                             </textarea>
+                            <span className="error">{errors.description}</span>
+
                         </div>
-                        <div className="form-bttn col-lg-9">
+                        <div className="form-bttn mt-2 col-lg-9">
                             <button className="submit-button btn-primary" type="submit">Submit</button>
                         </div>
                     </div>

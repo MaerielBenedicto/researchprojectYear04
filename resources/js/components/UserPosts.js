@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { withRouter, Link } from "react-router-dom";
 import { FaTrashAlt, FaEllipsisH, FaEdit, FaCommentAlt } from 'react-icons/fa';
 import Moment from 'react-moment';
+import DeleteConfirmation from './Modal/DeleteConfirmation';
 
 class UserPosts extends Component {
     constructor() {
@@ -40,9 +41,9 @@ class UserPosts extends Component {
             });
     }
 
-    delete(id) {
+    delete() {
         let token = this.props.user.token;
-        axios.delete('/api/posts/' + id,
+        axios.delete('/api/posts/' + this.state.item,
             {
                 headers: { Authorization: "Bearer " + token }
             })
@@ -62,6 +63,7 @@ class UserPosts extends Component {
     render() {
 
         const posts = this.state.posts;
+        const user = this.props.user;
 
         const underReview = posts.filter((post => {
             if (post.action == 'under review') {
@@ -119,7 +121,7 @@ class UserPosts extends Component {
                                                                         <span className="bttn"><FaEdit className="icon" />Edit</span>
                                                                     </Link>
                                                                 </button>
-                                                                <button className="dropdown-item drop-down-link" onClick={() => this.delete(item.id)}>
+                                                                <button className="dropdown-item drop-down-link"  onClick={()=> this.setState({showModal: true, item: item.id})}>
                                                                     <span><FaTrashAlt className="icon" />  Delete </span>
                                                                 </button>
                                                             </div>
@@ -141,6 +143,16 @@ class UserPosts extends Component {
                         </div>
                     </div>
 
+                    {/* DELETE FORUM */}
+                    {this.state.showModal && (
+                        <DeleteConfirmation 
+                            user={user}
+                            item={"post"}
+                            delete={this.delete}
+                            showModal={this.state.showModal}
+                            closeModal={() => this.setState({ showModal: false })}
+                        />
+                    )}                                           
                 </div>
 
             </div>
